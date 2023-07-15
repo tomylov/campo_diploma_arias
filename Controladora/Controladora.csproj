@@ -55,18 +55,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contexto\Contexto.csproj">
-      <Project>{31eaf9ec-342b-4585-97c6-ad95669eb5c1}</Project>
-      <Name>Contexto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Modelo\Modelo.csproj">
-      <Project>{dc7b350b-fbac-4fa2-942b-3a19fc1655d2}</Project>
-      <Name>Modelo</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{25a3fd56-d123-4f8f-a9ed-075f4bd3dc03}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

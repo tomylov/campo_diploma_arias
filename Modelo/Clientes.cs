@@ -1,22 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Modelo
 {
-    public class Clientes
-    {    
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Clientes
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Clientes()
+        {
+            Cuentas_Corrientes = new HashSet<Cuentas_Corrientes>();
+            Ventas = new HashSet<Ventas>();
+        }
+
         [Key]
         public int dni { get; set; }
-        public string nombre { get; set; }
-        public string razon_social { get; set; }
-        public string email { get; set; }
-        public string telefono { get; set; }
-        public ICollection<Ventas> Ventas { get; set; }
-        public virtual ICollection<Cuenta_corrientes> Cuenta_corrientes { get; set; }
 
+        [StringLength(60)]
+        public string nombre { get; set; }
+
+        [StringLength(60)]
+        public string email { get; set; }
+
+        [StringLength(10)]
+        public string ra { get; set; }
+
+        [StringLength(20)]
+        public string telefono { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cuentas_Corrientes> Cuentas_Corrientes { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ventas> Ventas { get; set; }
     }
 }

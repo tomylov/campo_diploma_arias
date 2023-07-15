@@ -88,16 +88,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contexto\Contexto.csproj">
-      <Project>{31eaf9ec-342b-4585-97c6-ad95669eb5c1}</Project>
-      <Name>Contexto</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Controladora\Controladora.csproj">
       <Project>{2ccbdfe7-8ed4-49ff-80e7-118a2ce656e5}</Project>
       <Name>Controladora</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
-      <Project>{dc7b350b-fbac-4fa2-942b-3a19fc1655d2}</Project>
+      <Project>{25a3fd56-d123-4f8f-a9ed-075f4bd3dc03}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>

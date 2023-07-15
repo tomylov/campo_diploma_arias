@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DC7B350B-FBAC-4FA2-942B-3A19FC1655D2}</ProjectGuid>
+    <ProjectGuid>{25A3FD56-D123-4F8F-A9ED-075F4BD3DC03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Modelo</RootNamespace>
@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,17 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Estados.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Clientes.cs" />
+    <Compile Include="Comprobantes.cs" />
+    <Compile Include="Contexto.cs" />
+    <Compile Include="Cuentas_Corrientes.cs" />
+    <Compile Include="Detalle_ventas.cs" />
+    <Compile Include="Movimientos.cs" />
     <Compile Include="Notas_debitos.cs" />
     <Compile Include="Pagos.cs" />
     <Compile Include="Productos.cs" />
-    <Compile Include="Clientes.cs" />
-    <Compile Include="Cuenta_corrientes.cs" />
-    <Compile Include="Detalle_ventas.cs" />
-    <Compile Include="Movimientos.cs" />
-    <Compile Include="Tipo_movimientos.cs" />
-    <Compile Include="Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
