@@ -16,5 +16,19 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            if (password.Text=="admin" && user.Text=="admin")
+            {
+                gestion_cc gestion = new gestion_cc();
+                gestion.ShowDialog();
+            }
+            if (password.Text == "admin1" && user.Text == "admin1")
+            {
+                Ventas vta = new Ventas();
+                vta.ShowDialog();
+            }
+        }
     }
 }

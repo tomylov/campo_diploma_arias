@@ -17,5 +17,13 @@ namespace Vista
             InitializeComponent();
         }
 
+        private void open_cc_Click(object sender, EventArgs e)
+        {
+            if (dni.Text.Length>0)
+            {
+                cuenta_corriente cc = new cuenta_corriente();
+                cc.ShowDialog();
+            }
+        }
     }
 }
