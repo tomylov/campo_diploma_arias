@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="Comprobantes.cs" />
     <Compile Include="Contexto.cs" />

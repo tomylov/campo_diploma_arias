@@ -7,6 +7,15 @@ namespace Modelo
 {
     public partial class Contexto : DbContext
     {
+        private static Contexto instancia;
+
+        public static Contexto Obtener_instancia()
+        {
+            if (instancia == null)
+                instancia = new Contexto();
+
+            return instancia;
+        }
         public Contexto()
             : base("name=Contexto")
         {

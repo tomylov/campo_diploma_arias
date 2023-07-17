@@ -16,6 +16,7 @@ namespace Modelo
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int dni { get; set; }
 
         [StringLength(60)]

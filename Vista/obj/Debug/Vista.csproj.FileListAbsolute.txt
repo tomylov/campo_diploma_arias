@@ -88,5 +88,5 @@ C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\bin\Debug\Bunifu.UI.WinFor
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.xml
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
-C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\obj\Debug\Vista.Form2.resources
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\obj\Debug\Vista.gestion_cc.resources
+C:\Users\PC\source\repos\Proyecto - Arias Karle\Vista\obj\Debug\Vista.cuenta_corriente.resources
