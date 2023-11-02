@@ -48,6 +48,7 @@ create table Movimientos(
 id_mov int primary key identity, 
 tipo int,
 fecha datetime,
+monto decimal(15,2),
 id_cc int references Cuentas_Corrientes(id_cc),
 id_comp int references Comprobantes(id_comp)
 )
@@ -64,6 +65,24 @@ monto decimal(15,2),
 fecha datetime,
 id_venta int references Ventas(id_venta))
 
+create table Medio_Pagos(
+id_med_pago int primary key identity,
+descripcion varchar(60))
+
+create table Tipo_Facturas(
+id_tipo_fact int primary key identity,
+descripcion VARCHAR(60)
+)
+
+create table Facturas(
+id_factura int primary key identity,
+id_med_pagos int references Medio_Pagos(id_med_pago),
+id_tipo_fact int references Tipo_Facturas(id_tipo_fact),
+id_venta int references Ventas(id_venta),
+estado int,
+fecha datetime,
+total decimal(15,2)
+)
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')
 insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')

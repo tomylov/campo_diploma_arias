@@ -21,8 +21,8 @@ namespace Vista
         {
             if (password.Text=="admin" && user.Text=="admin")
             {
-                gestion_cc gestion = new gestion_cc();
-                gestion.ShowDialog();
+                Menu menu = new Menu();
+                menu.ShowDialog();
             }
             if (password.Text == "admin1" && user.Text == "admin1")
             {

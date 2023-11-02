@@ -55,14 +55,17 @@
   <ItemGroup>
     <Compile Include="Clientes.cs" />
     <Compile Include="Comprobantes.cs" />
-    <Compile Include="Contexto.cs" />
     <Compile Include="Cuentas_Corrientes.cs" />
     <Compile Include="Detalle_ventas.cs" />
+    <Compile Include="Facturas.cs" />
+    <Compile Include="Medio_Pagos.cs" />
+    <Compile Include="Contexto.cs" />
     <Compile Include="Movimientos.cs" />
     <Compile Include="Notas_debitos.cs" />
     <Compile Include="Pagos.cs" />
     <Compile Include="Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tipo_Facturas.cs" />
     <Compile Include="Ventas.cs" />
   </ItemGroup>
   <ItemGroup>

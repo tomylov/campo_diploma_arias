@@ -13,3 +13,18 @@ C:\Users\PC\source\repos\Proyecto - Arias Karle\Controladora\obj\Debug\Controlad
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Controladora\obj\Debug\Controladora.csproj.CopyComplete
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Controladora\obj\Debug\Controladora.dll
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Controladora\obj\Debug\Controladora.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\Controladora.dll.config
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\Controladora.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\Controladora.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\EntityFramework.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\EntityFramework.SqlServer.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\Modelo.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\Modelo.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\Modelo.dll.config
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\EntityFramework.xml
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\EntityFramework.SqlServer.xml
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\obj\Debug\Controladora.csproj.AssemblyReference.cache
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\obj\Debug\Controladora.csproj.CoreCompileInputs.cache
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\obj\Debug\Controladora.csproj.CopyComplete
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\obj\Debug\Controladora.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\obj\Debug\Controladora.pdb
