@@ -10,3 +10,15 @@ C:\Users\PC\source\repos\Proyecto - Arias Karle\Modelo\obj\Debug\Modelo.csproj.C
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Modelo\obj\Debug\Modelo.csproj.CopyComplete
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Modelo\obj\Debug\Modelo.dll
 C:\Users\PC\source\repos\Proyecto - Arias Karle\Modelo\obj\Debug\Modelo.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\Modelo.dll.config
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\Modelo.dll
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\Modelo.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\EntityFramework.dll
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\EntityFramework.SqlServer.dll
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\EntityFramework.xml
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\EntityFramework.SqlServer.xml
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\obj\Debug\Modelo.dll
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\obj\Debug\Modelo.pdb

@@ -15,6 +15,8 @@ namespace Modelo
 
         public DateTime? fecha { get; set; }
 
+        public decimal? monto { get; set; }
+
         public int? id_cc { get; set; }
 
         public int? id_comp { get; set; }
