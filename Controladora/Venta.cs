@@ -20,6 +20,16 @@ namespace Controladora
             return venta;
         }
 
+        public void Ventas(int dni)
+        {
+            Modelo.Ventas vta = new Modelo.Ventas();
+            vta.fecha= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            vta.dni = dni;
+            vta.estado = 1;
+            Modelo.Contexto.Obtener_instancia().Ventas.Add(vta);
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
+
         public System.Collections.IList ListarVentasCC()
         {
             var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
