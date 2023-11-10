@@ -19,13 +19,24 @@ namespace Controladora
             return det;
         }
 
-        public void DetalleVeta (int id_venta, int id_prod, int cantidad, decimal precio)
+        public void updateStock(int id_prod, int cantidad)
+        {
+            Modelo.Productos prod = Modelo.Contexto.Obtener_instancia().Productos.Find(id_prod);
+            prod.stock -= cantidad;
+            Modelo.Contexto.Obtener_instancia().Entry(prod).State = System.Data.Entity.EntityState.Modified;
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+
+        }
+
+
+        public void createdetalleVeta (int id_venta, int id_prod, int cantidad, decimal precio)
         {
             Modelo.Detalle_ventas det = new Modelo.Detalle_ventas();
             det.id_venta = id_venta;
             det.id_prod= id_prod;
             det.cantidad= cantidad;
             det.precio= precio;
+            updateStock(id_prod,cantidad);
             Modelo.Contexto.Obtener_instancia().Detalle_ventas.Add(det);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }

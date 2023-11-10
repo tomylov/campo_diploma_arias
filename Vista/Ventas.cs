@@ -13,6 +13,8 @@ namespace Vista
     public partial class Ventas : Form
     {
         decimal importe;
+        int cantidad;
+        decimal precio;
         public Ventas()
         {
             InitializeComponent();
@@ -21,10 +23,15 @@ namespace Vista
         private void addProduct_Click_1(object sender, EventArgs e)
         {            
             importe = 0;
+            cantidad = 0;
+            precio = 0;
             if (textprod.Text != "")
             {
-                importe = Convert.ToDecimal(price.Text) * Convert.ToInt32(cuantity.Text);
+                cantidad = Convert.ToInt32(cuantity.Text);
+                precio = Convert.ToDecimal(price.Text);
+                importe = precio * cantidad;
                 dataGridDetail.Rows.Add(textprod.Text, description.Text, price.Text, cuantity.Text, importe);
+                Controladora.Detalle_venta.Obtener_instancia().createdetalleVeta(1,Convert.ToInt32(textprod.Text),cantidad,precio);
                 textprod.Text = "";
                 description.Text = "";
                 price.Text = "";
