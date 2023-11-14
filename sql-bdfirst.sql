@@ -28,6 +28,7 @@ dni int references Clientes(dni)
 create table Productos(
 id_prod int primary key identity, 
 nombre varchar(60),
+stock int,
 precio decimal(15,2)
 )
 

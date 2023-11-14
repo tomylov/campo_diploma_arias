@@ -20,6 +20,16 @@ namespace Controladora
             return venta;
         }
 
+        public void SetVentas(int dni)
+        {
+            Modelo.Ventas vta = new Modelo.Ventas();
+            vta.fecha= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+            vta.dni = dni;
+            vta.estado = 1;
+            Modelo.Contexto.Obtener_instancia().Ventas.Add(vta);
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
+
         public System.Collections.IList ListarVentasCC()
         {
             var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
@@ -131,6 +141,19 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().SaveChanges();
             decimal monto = Convert.ToDecimal(Cacl_total(id_venta));
             updateMonto(Convert.ToInt32(movimiento.id_cc),-monto,30);
+        }
+
+        public void deleteVta(int idVta)
+        {
+            var detallesAEliminar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.Where(d => d.id_venta == idVta).ToList();
+            if (detallesAEliminar != null)
+            {
+                Modelo.Contexto.Obtener_instancia().Detalle_ventas.RemoveRange(detallesAEliminar);
+                Modelo.Contexto.Obtener_instancia().SaveChanges();
+            }
+            var ventaAEliminar = Modelo.Contexto.Obtener_instancia().Ventas.FirstOrDefault(v => v.id_venta == idVta);
+            Modelo.Contexto.Obtener_instancia().Ventas.Remove(ventaAEliminar);
+            Modelo.Contexto.Obtener_instancia().SaveChanges();            
         }
 
     }
