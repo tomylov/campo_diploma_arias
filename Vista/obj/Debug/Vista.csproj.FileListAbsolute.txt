@@ -183,3 +183,4 @@ C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.exe
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.pdb
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Menu.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Gestionar_ventas.resources

@@ -14,6 +14,17 @@ namespace Vista
     {
         private static Form formulario = null;
         private static Form formularioActivo = null;
+        private static Menu instancia;
+
+        public static Menu Obtener_instancia()
+        {
+            if (instancia == null)
+            {
+                instancia = new Menu();
+            }
+
+            return instancia;
+        }
         public Menu()
         {
             InitializeComponent();
@@ -41,6 +52,23 @@ namespace Vista
             //abrirForm(new gestion_cc());
             gestion_cc cc = new gestion_cc();
             cc.Show();
+        }
+
+        private void crearVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form gv = Gestionar_ventas.Obtener_instancia();
+            gv.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ventas = Ventas.Obtener_instancia();
+            ventas.Show();
         }
     }
 }

@@ -171,6 +171,12 @@
       <DependentUpon>cuenta_corriente.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Gestionar_ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gestionar_ventas.Designer.cs">
+      <DependentUpon>Gestionar_ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="gestion_cc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gestionar_ventas.resx">
+      <DependentUpon>Gestionar_ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gestion_cc.resx">
       <DependentUpon>gestion_cc.cs</DependentUpon>

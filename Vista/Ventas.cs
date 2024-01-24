@@ -19,6 +19,17 @@ namespace Vista
         int venta = 0;
         int id_det = 0;
         int index;
+        private static Ventas instancia;
+
+        public static Ventas Obtener_instancia()
+        {
+            if (instancia == null)
+            {
+                instancia = new Ventas();
+            }
+
+            return instancia;
+        }
         public Ventas()
         {
             InitializeComponent();
