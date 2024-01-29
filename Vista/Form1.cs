@@ -22,7 +22,8 @@ namespace Vista
             if (password.Text=="admin" && user.Text=="admin")
             {
                 Menu menu = new Menu();
-                menu.ShowDialog();
+                Hide();
+                menu.Show();
             }
             if (password.Text == "admin1" && user.Text == "admin1")
             {

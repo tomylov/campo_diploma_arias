@@ -55,7 +55,7 @@ namespace Controladora
         {
             var resultado = from detalle in Modelo.Contexto.Obtener_instancia().Detalle_ventas
                             join producto in Modelo.Contexto.Obtener_instancia().Productos on detalle.id_prod equals producto.id_prod
-                            where detalle.id_venta == idVta
+                            where detalle.id_venta == idVta 
                             select new
                             {
                                 producto.nombre,

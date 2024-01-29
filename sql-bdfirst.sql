@@ -2,6 +2,8 @@ CREATE DATABASE campo_diploma
 GO
 USE campo_diploma
 
+
+
 create table Clientes(
 dni int primary key, 
 nombre varchar(60),
@@ -99,9 +101,10 @@ insert into Ventas values(CONVERT(date,getdate()),1,1)
 insert into Ventas values(CONVERT(date,getdate()),1,2)
 
 --INSERT PRODUCTOS
-insert into Productos values('Mother',100000.00)
-insert into Productos values('Grafica',250000.33)
-insert into Productos values('Procesador',231346.70)
+insert into Productos values('Mother',1,100000.00)
+insert into Productos values('Grafica',4,250000.33)
+insert into Productos values('Procesador',100,231346.70)
+
 
 --INSERT DETALLE VENTA
 --VTA 1

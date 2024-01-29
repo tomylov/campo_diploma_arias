@@ -27,8 +27,13 @@ namespace Vista
 
         private void crear_vta_Click(object sender, EventArgs e)
         {
-            Form vt = Ventas.Obtener_instancia();
+            Form vt = Ventas.Obtener_instancia(7,1);
             vt.Show();
+        }
+
+        private void Eliminar_vta_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

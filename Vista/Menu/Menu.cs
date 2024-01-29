@@ -67,8 +67,14 @@ namespace Vista
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form ventas = Ventas.Obtener_instancia();
+            Form ventas = Ventas.Obtener_instancia(0, 1);
             ventas.Show();
+        }
+
+        private void Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form form = new Form1();
+            form.Show();
         }
     }
 }

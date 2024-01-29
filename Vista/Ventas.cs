@@ -21,11 +21,11 @@ namespace Vista
         int index;
         private static Ventas instancia;
 
-        public static Ventas Obtener_instancia()
+        public static Ventas Obtener_instancia(int id_vta, int dni)
         {
             if (instancia == null)
             {
-                instancia = new Ventas();
+                instancia = new Ventas(id_vta,dni);
             }
 
             return instancia;
@@ -34,6 +34,25 @@ namespace Vista
         {
             InitializeComponent();
             dataGridDetail.AutoGenerateColumns = true;
+        }
+
+        public Ventas(int id_venta, int dni)
+        {
+            InitializeComponent();
+            if (id_venta != 0) //si es distinto de 0 es porque se esta editando una venta
+            {                
+                var datosCli = Controladora.Cliente.Obtener_instancia().getClientes(dni);
+                name.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
+                mail.Text = Convert.ToString(datosCli[0].GetType().GetProperty("email").GetValue(datosCli[0], null));
+                dniPK.Text = dni.ToString();
+                dniPK.Enabled = false;
+                btnVta.Visible = false;
+                textprod.Enabled = true;
+                dataGridDetail.AutoGenerateColumns = true;
+                venta = id_venta;
+                var datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
+                dataGridDetail.DataSource = datos;
+            }
         }
 
         private void addProduct_Click_1(object sender, EventArgs e)
