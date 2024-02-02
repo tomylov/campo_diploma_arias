@@ -68,7 +68,7 @@ monto decimal(15,2),
 fecha datetime,
 id_venta int references Ventas(id_venta))
 
-create table Medio_Pagos(
+/* create table Medio_Pagos(
 id_med_pago int primary key identity,
 descripcion varchar(60))
 
@@ -85,7 +85,56 @@ id_venta int references Ventas(id_venta),
 estado int,
 fecha datetime,
 total decimal(15,2)
+) */
+
+create table Usuarios(
+id_usuario int primary key identity,
+nombre varchar(60),
+apellido varchar(60),
+email varchar(60),
+clave varchar(60)
 )
+
+create table Grupos(
+id_grupo int primary key identity,
+grupo_nombre varchar(60),
+)
+
+create table UsuarioGrupos(
+PRIMARY KEY (id_usuario,id_grupo),
+id_usuario INT REFERENCES Usuarios(id_usuario),
+id_grupo INT REFERENCES Grupos(id_grupo)
+)
+
+Create table Modulos(
+id_modulo INT PRIMARY KEY IDENTITY,
+nombre varchar(20)
+)
+
+Create table Formularios(
+id_formulario INT PRIMARY KEY IDENTITY,
+nombre varchar(30),
+id_modulo INT REFERENCES Modulos(id_modulo)
+)
+
+CREATE TABLE Permisos (
+id_permiso INT PRIMARY KEY IDENTITY,
+nombre_permiso VARCHAR(100),
+id_formulario INT REFERENCES Formularios(id_formulario)
+)
+
+CREATE TABLE PermisoUsuarios (
+PRIMARY KEY (id_usuario,id_permiso),
+id_usuario INT REFERENCES Usuarios(id_usuario),
+id_permiso INT REFERENCES Permisos(id_permiso)
+)
+
+CREATE TABLE PermisoGrupos(
+PRIMARY KEY (id_permiso,id_grupo),
+id_permiso INT REFERENCES Permisos(id_permiso),
+id_grupo INT REFERENCES Grupos(id_grupo)
+)
+
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')
 insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')
