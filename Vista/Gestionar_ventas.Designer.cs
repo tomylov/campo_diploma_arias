@@ -157,6 +157,7 @@
             this.Modificar_vta.TextMarginLeft = 0;
             this.Modificar_vta.TextPadding = new System.Windows.Forms.Padding(0);
             this.Modificar_vta.UseDefaultRadiusAndThickness = true;
+            this.Modificar_vta.Click += new System.EventHandler(this.Modificar_vta_Click);
             // 
             // bunifuLabel1
             // 
@@ -424,6 +425,7 @@
             this.dataModelcc.Size = new System.Drawing.Size(743, 213);
             this.dataModelcc.TabIndex = 0;
             this.dataModelcc.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataModelcc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataModelcc_CellClick);
             // 
             // Gestionar_ventas
             // 

@@ -145,7 +145,7 @@ namespace Controladora
 
         public void deleteVta(int idVta)
         {
-            var detallesAEliminar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.Where(d => d.id_venta == idVta).ToList();
+            List<Modelo.Detalle_ventas> detallesAEliminar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.Where(d => d.id_venta == idVta).ToList();
             if (detallesAEliminar != null)
             {
                 Modelo.Contexto.Obtener_instancia().Detalle_ventas.RemoveRange(detallesAEliminar);

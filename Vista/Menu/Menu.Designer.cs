@@ -93,14 +93,14 @@ namespace Vista
             // nuevaVentaToolStripMenuItem
             // 
             this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // crearVentaToolStripMenuItem
             // 
             this.crearVentaToolStripMenuItem.Name = "crearVentaToolStripMenuItem";
-            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearVentaToolStripMenuItem.Text = "Gestionar ventas";
             this.crearVentaToolStripMenuItem.Click += new System.EventHandler(this.crearVentaToolStripMenuItem_Click);
             // 

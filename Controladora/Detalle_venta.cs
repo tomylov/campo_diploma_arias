@@ -42,7 +42,7 @@ namespace Controladora
 
         public void deleteDetVta(int idDetVta, int cantidad,int idProd)
         {
-            var detalleABorrar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.FirstOrDefault(detalle => detalle.id_detalle == idDetVta);
+            Modelo.Detalle_ventas detalleABorrar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.FirstOrDefault(detalle => detalle.id_detalle == idDetVta);
                         if (detalleABorrar != null)
             {
                 updateStock(idProd,cantidad);

@@ -24,16 +24,16 @@ namespace Vista
         public static Ventas Obtener_instancia(int id_vta, int dni)
         {
             if (instancia == null)
-            {
                 instancia = new Ventas(id_vta,dni);
-            }
+            
+            if (instancia.IsDisposed)
+                instancia = new Ventas(id_vta, dni);
 
             return instancia;
         }
         public Ventas()
         {
             InitializeComponent();
-            dataGridDetail.AutoGenerateColumns = true;
         }
 
         public Ventas(int id_venta, int dni)
@@ -48,7 +48,6 @@ namespace Vista
                 dniPK.Enabled = false;
                 btnVta.Visible = false;
                 textprod.Enabled = true;
-                dataGridDetail.AutoGenerateColumns = true;
                 venta = id_venta;
                 var datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
                 dataGridDetail.DataSource = datos;
@@ -176,7 +175,7 @@ namespace Vista
         }
         private void dataGridDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            index = e.RowIndex;            
+            index = e.RowIndex;
             if(index != -1)
             {
                 Eliminar.Enabled = true;
