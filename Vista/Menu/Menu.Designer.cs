@@ -50,7 +50,7 @@ namespace Vista
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1170, 56);
+            this.menuStrip1.Size = new System.Drawing.Size(1584, 56);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,7 +62,7 @@ namespace Vista
             this.cuentaCorrienteToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 56);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1170, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1584, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -93,14 +93,14 @@ namespace Vista
             // nuevaVentaToolStripMenuItem
             // 
             this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // crearVentaToolStripMenuItem
             // 
             this.crearVentaToolStripMenuItem.Name = "crearVentaToolStripMenuItem";
-            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.crearVentaToolStripMenuItem.Text = "Gestionar ventas";
             this.crearVentaToolStripMenuItem.Click += new System.EventHandler(this.crearVentaToolStripMenuItem_Click);
             // 
@@ -127,18 +127,17 @@ namespace Vista
             this.panel.BorderColor = System.Drawing.Color.Transparent;
             this.panel.BorderRadius = 3;
             this.panel.BorderThickness = 1;
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel.Location = new System.Drawing.Point(0, 80);
+            this.panel.Location = new System.Drawing.Point(308, 83);
             this.panel.Name = "panel";
             this.panel.ShowBorders = true;
-            this.panel.Size = new System.Drawing.Size(1170, 483);
+            this.panel.Size = new System.Drawing.Size(1200, 685);
             this.panel.TabIndex = 2;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 563);
+            this.ClientSize = new System.Drawing.Size(1584, 904);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);

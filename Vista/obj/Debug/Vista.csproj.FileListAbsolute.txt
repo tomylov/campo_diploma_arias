@@ -278,3 +278,9 @@ C:\campo_diploma\campo_diploma_arias\Vista\bin\Debug\Bunifu.UI.WinForms.BunifuUs
 C:\campo_diploma\campo_diploma_arias\Vista\bin\Debug\EntityFramework.xml
 C:\campo_diploma\campo_diploma_arias\Vista\bin\Debug\EntityFramework.SqlServer.xml
 C:\campo_diploma\campo_diploma_arias\Vista\obj\Debug\Vista.csproj.CopyComplete
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_productos.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\BouncyCastle.Crypto.dll
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\itextsharp.dll
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\itextsharp.xml
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_venta.resources

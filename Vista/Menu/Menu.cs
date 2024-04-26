@@ -19,18 +19,21 @@ namespace Vista
         public static Menu Obtener_instancia()
         {
             if (instancia == null)
-            {
                 instancia = new Menu();
-            }
+            if (instancia.IsDisposed)
+                instancia = new Menu();
 
+            instancia.BringToFront();
             return instancia;
         }
         public Menu()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.Sizable;
+            WindowState = FormWindowState.Maximized;
         }
 
-        /*private void abrirForm(Form formulario)
+        private void abrirForm(Form formulario)
         {
             if (formularioActivo!=null)
             {
@@ -41,23 +44,28 @@ namespace Vista
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
+
+            int containerCenterX = panel.Width / 2 - formulario.Width / 2;
+            int containerCenterY = panel.Height / 2 - formulario.Height / 2;
+
+            // Set the form's location to the center of the container
+            formulario.Location = new Point(containerCenterX, containerCenterY);
+
             panel.Controls.Add(formulario);
             formulario.Show();
-            MessageBox.Show("HOLAAAAAAAAAAAAAAAAA");
-
-        }*/
+        }
 
         private void gestionarCuentaCorrienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //abrirForm(new gestion_cc());
-            gestion_cc cc = new gestion_cc();
-            cc.Show();
+            abrirForm(new gestion_cc());
+            //gestion_cc cc = new gestion_cc();
+            //cc.ShowDialog();
         }
 
         private void crearVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form gv = Gestionar_ventas.Obtener_instancia();
-            gv.Show();
+            gv.ShowDialog();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,13 +76,13 @@ namespace Vista
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form ventas = Ventas.Obtener_instancia(0, 1);
-            ventas.Show();
+            ventas.ShowDialog();
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form form = new Form1();
-            form.Show();
+            form.ShowDialog();
         }
     }
 }

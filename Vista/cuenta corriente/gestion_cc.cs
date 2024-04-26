@@ -12,10 +12,14 @@ namespace Vista
 {
     public partial class gestion_cc : Form
     {
+        int indexCombo;
         public gestion_cc()
         {
             InitializeComponent();
-            dataModelcc.DataSource =Controladora.Venta.Obtener_instancia().ListarVentasCC();
+            dataModelcc.DataSource =Controladora.Venta.Obtener_instancia().ListarVentasCC(1);
+            comboVta.Text = "Pendiente";
+            comboVta.Items.Add("Pendiente");
+            comboVta.Items.Add("Aceptadas");
         }
 
         private void open_cc_Click(object sender, EventArgs e)
@@ -36,6 +40,21 @@ namespace Vista
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboVta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            indexCombo = comboVta.SelectedIndex;
+            if (indexCombo == 0)
+            {
+                System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC(1);
+                dataModelcc.DataSource = list;
+            }
+            if (indexCombo == 1)
+            {
+                System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC(2);
+                dataModelcc.DataSource = list;
+            }
         }
     }
 }

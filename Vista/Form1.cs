@@ -12,6 +12,19 @@ namespace Vista
 {
     public partial class Form1 : Form
     {
+        private static Form1 instancia;
+
+        public static Form1 Obtener_instancia()
+        {
+            if (instancia == null)
+                instancia = new Form1();
+
+            if (instancia.IsDisposed)
+                instancia = new Form1();
+            
+            instancia.BringToFront();
+            return instancia;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -21,8 +34,8 @@ namespace Vista
         {
             if (password.Text=="admin" && user.Text=="admin")
             {
-                Menu menu = new Menu();
                 Hide();
+                Menu menu = new Menu();
                 menu.Show();
             }
             if (password.Text == "admin1" && user.Text == "admin1")

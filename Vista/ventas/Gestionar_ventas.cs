@@ -8,6 +8,7 @@ namespace Vista
     {        
         private static Gestionar_ventas instancia;
         int index;
+        int indexCombo;
 
         public static Gestionar_ventas Obtener_instancia()
         {
@@ -26,10 +27,13 @@ namespace Vista
         public Gestionar_ventas()
         {
             InitializeComponent();
-            System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC();
+            System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC(1);
             dataModelcc.DataSource = list;
             Modificar_vta.Enabled = false;
             Eliminar_vta.Enabled = false;
+            comboVtas.Text = "Pendiente";
+            comboVtas.Items.Add("Pendiente");
+            comboVtas.Items.Add("Aceptadas");
         }
 
         private void crear_vta_Click(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace Vista
         {
             int idVta = Convert.ToInt32(dataModelcc.Rows[index].Cells[0].Value);
             Controladora.Venta.Obtener_instancia().deleteVta(idVta);
-            dataModelcc.DataSource = Controladora.Venta.Obtener_instancia().ListarVentasCC();
+            dataModelcc.DataSource = Controladora.Venta.Obtener_instancia().ListarVentasCC(1);
             MessageBox.Show("Venta eliminada con exito");
         }
 
@@ -57,7 +61,7 @@ namespace Vista
         private void dataModelcc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
-            if (index != -1)
+            if (index != -1 && indexCombo == 0)
             {
                 Modificar_vta.Enabled = true;
                 Eliminar_vta.Enabled = true;
@@ -67,6 +71,31 @@ namespace Vista
                 Modificar_vta.Enabled = false;
                 Eliminar_vta.Enabled = false;
             }
+        }
+
+        private void comboVtas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            indexCombo = comboVtas.SelectedIndex;
+            if (indexCombo == 0)
+            {
+                System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC(1);
+                dataModelcc.DataSource = list;
+            }
+            if (indexCombo == 1)
+            {
+                System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC(2);
+                dataModelcc.DataSource = list;
+                Modificar_vta.Enabled = false;
+                Eliminar_vta.Enabled = false;
+            }
+        }
+
+        private void dataModelcc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idVta = Convert.ToInt32(dataModelcc.Rows[index].Cells[0].Value);
+            int dni = Convert.ToInt32(dataModelcc.Rows[index].Cells[2].Value);
+            Form vt = Consultar_venta.Obtener_instancia(idVta, dni);
+            vt.Show();
         }
     }
 }

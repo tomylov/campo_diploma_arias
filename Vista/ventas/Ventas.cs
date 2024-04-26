@@ -29,6 +29,7 @@ namespace Vista
             if (instancia.IsDisposed)
                 instancia = new Ventas(id_vta, dni);
 
+            instancia.BringToFront();
             return instancia;
         }
         public Ventas()
@@ -36,18 +37,26 @@ namespace Vista
             InitializeComponent();
         }
 
+        public void habilitarVentas()
+        {
+            dniPK.Enabled = false;
+            btnVta.Visible = false;
+            textprod.Enabled = true;
+            searchProd.Enabled = true;
+            cancelBtn.Enabled = true;
+            btnFinish.Enabled = true;
+        }
+
         public Ventas(int id_venta, int dni)
         {
             InitializeComponent();
             if (id_venta != 0) //si es distinto de 0 es porque se esta editando una venta
             {                
+                habilitarVentas();
                 var datosCli = Controladora.Cliente.Obtener_instancia().getClientes(dni);
                 name.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
                 mail.Text = Convert.ToString(datosCli[0].GetType().GetProperty("email").GetValue(datosCli[0], null));
                 dniPK.Text = dni.ToString();
-                dniPK.Enabled = false;
-                btnVta.Visible = false;
-                textprod.Enabled = true;
                 venta = id_venta;
                 var datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
                 dataGridDetail.DataSource = datos;
@@ -79,11 +88,22 @@ namespace Vista
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Venta finalizada");
+            Close();
         }
 
         private void searchProd_Click(object sender, EventArgs e)
         {
+            Consultar_productos cp = Consultar_productos.Obtener_instancia();
+            if (cp.ShowDialog() == DialogResult.OK)
+            {
+                textprod.Text = cp.prod.id_prod.ToString();
+                description.Text = cp.prod.nombre;
+                price.Text = cp.prod.precio.ToString();
+                stock.Text = cp.prod.stock.ToString();
+                cuantity.Value = 1;
+                addProduct.Enabled = true;
+            }
 
         }
 
@@ -151,12 +171,9 @@ namespace Vista
         {
             if(name.Text != "")
             {
-                textprod.Enabled = true;
                 Controladora.Venta.Obtener_instancia().SetVentas(dni);
-                dniPK.Enabled = false;
-                btnVta.Visible = false;
-                venta = Modelo.Contexto.Obtener_instancia().Ventas.Max(venta => venta.id_venta);
-                
+                venta = Modelo.Contexto.Obtener_instancia().Ventas.Max(venta => venta.id_venta);                
+                habilitarVentas();
             }
             else
             {
@@ -189,6 +206,7 @@ namespace Vista
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             Controladora.Venta.Obtener_instancia().deleteVta(venta);
+            MessageBox.Show("Venta cancelada");
             this.Close();
         }
     }

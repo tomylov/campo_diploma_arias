@@ -2,8 +2,6 @@ CREATE DATABASE campo_diploma
 GO
 USE campo_diploma
 
-
-
 create table Clientes(
 dni int primary key, 
 nombre varchar(60),
@@ -154,6 +152,7 @@ insert into Productos values('Mother',1,100000.00)
 insert into Productos values('Grafica',4,250000.33)
 insert into Productos values('Procesador',100,231346.70)
 
+select * from Productos where nombre like '%mo%'
 
 --INSERT DETALLE VENTA
 --VTA 1

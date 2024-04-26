@@ -101,7 +101,7 @@ namespace Vista
             this.bunifuGroupBox1.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
             this.bunifuGroupBox1.Location = new System.Drawing.Point(0, 0);
             this.bunifuGroupBox1.Name = "bunifuGroupBox1";
-            this.bunifuGroupBox1.Size = new System.Drawing.Size(945, 127);
+            this.bunifuGroupBox1.Size = new System.Drawing.Size(1184, 127);
             this.bunifuGroupBox1.TabIndex = 0;
             this.bunifuGroupBox1.TabStop = false;
             this.bunifuGroupBox1.Text = "Datos cuenta corriente";
@@ -167,7 +167,7 @@ namespace Vista
             this.inputEmail.IconRight = null;
             this.inputEmail.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.inputEmail.Lines = new string[0];
-            this.inputEmail.Location = new System.Drawing.Point(711, 37);
+            this.inputEmail.Location = new System.Drawing.Point(828, 37);
             this.inputEmail.MaxLength = 32767;
             this.inputEmail.MinimumSize = new System.Drawing.Size(1, 1);
             this.inputEmail.Modified = false;
@@ -220,7 +220,7 @@ namespace Vista
             this.bunifuLabel3.AutoEllipsis = false;
             this.bunifuLabel3.CursorType = null;
             this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel3.Location = new System.Drawing.Point(671, 46);
+            this.bunifuLabel3.Location = new System.Drawing.Point(788, 46);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel3.Size = new System.Drawing.Size(34, 15);
@@ -258,7 +258,7 @@ namespace Vista
             this.inputDNI.IconRight = null;
             this.inputDNI.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.inputDNI.Lines = new string[0];
-            this.inputDNI.Location = new System.Drawing.Point(415, 37);
+            this.inputDNI.Location = new System.Drawing.Point(532, 37);
             this.inputDNI.MaxLength = 32767;
             this.inputDNI.MinimumSize = new System.Drawing.Size(1, 1);
             this.inputDNI.Modified = false;
@@ -311,7 +311,7 @@ namespace Vista
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.CursorType = null;
             this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel2.Location = new System.Drawing.Point(372, 46);
+            this.bunifuLabel2.Location = new System.Drawing.Point(489, 46);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel2.Size = new System.Drawing.Size(20, 15);
@@ -349,7 +349,7 @@ namespace Vista
             this.inputName.IconRight = null;
             this.inputName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.inputName.Lines = new string[0];
-            this.inputName.Location = new System.Drawing.Point(100, 37);
+            this.inputName.Location = new System.Drawing.Point(217, 37);
             this.inputName.MaxLength = 32767;
             this.inputName.MinimumSize = new System.Drawing.Size(1, 1);
             this.inputName.Modified = false;
@@ -403,7 +403,7 @@ namespace Vista
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(25, 46);
+            this.bunifuLabel1.Location = new System.Drawing.Point(142, 46);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(37, 15);
@@ -433,7 +433,7 @@ namespace Vista
             this.bunifuGroupBox2.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
             this.bunifuGroupBox2.Location = new System.Drawing.Point(0, 127);
             this.bunifuGroupBox2.Name = "bunifuGroupBox2";
-            this.bunifuGroupBox2.Size = new System.Drawing.Size(945, 309);
+            this.bunifuGroupBox2.Size = new System.Drawing.Size(1184, 408);
             this.bunifuGroupBox2.TabIndex = 1;
             this.bunifuGroupBox2.TabStop = false;
             this.bunifuGroupBox2.Text = "Movimientos";
@@ -488,7 +488,7 @@ namespace Vista
             this.VentaCC.IdleIconLeftImage = null;
             this.VentaCC.IdleIconRightImage = null;
             this.VentaCC.IndicateFocus = false;
-            this.VentaCC.Location = new System.Drawing.Point(29, 249);
+            this.VentaCC.Location = new System.Drawing.Point(36, 298);
             this.VentaCC.Name = "VentaCC";
             this.VentaCC.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.VentaCC.OnDisabledState.BorderRadius = 1;
@@ -586,7 +586,7 @@ namespace Vista
             this.dataMove.RowHeadersVisible = false;
             this.dataMove.RowTemplate.Height = 40;
             this.dataMove.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataMove.Size = new System.Drawing.Size(655, 205);
+            this.dataMove.Size = new System.Drawing.Size(894, 302);
             this.dataMove.TabIndex = 6;
             this.dataMove.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataMove.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataMove_CellClick);
@@ -640,7 +640,7 @@ namespace Vista
             this.btnPay.IdleIconLeftImage = null;
             this.btnPay.IdleIconRightImage = null;
             this.btnPay.IndicateFocus = false;
-            this.btnPay.Location = new System.Drawing.Point(29, 190);
+            this.btnPay.Location = new System.Drawing.Point(36, 239);
             this.btnPay.Name = "btnPay";
             this.btnPay.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnPay.OnDisabledState.BorderRadius = 1;
@@ -687,7 +687,7 @@ namespace Vista
             // 
             this.comboSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSelect.FormattingEnabled = true;
-            this.comboSelect.Location = new System.Drawing.Point(525, 22);
+            this.comboSelect.Location = new System.Drawing.Point(550, 38);
             this.comboSelect.Name = "comboSelect";
             this.comboSelect.Size = new System.Drawing.Size(246, 23);
             this.comboSelect.TabIndex = 5;
@@ -700,7 +700,7 @@ namespace Vista
             this.bunifuLabel8.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel8.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel8.Location = new System.Drawing.Point(436, 25);
+            this.bunifuLabel8.Location = new System.Drawing.Point(461, 41);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel8.Size = new System.Drawing.Size(79, 15);
@@ -716,7 +716,7 @@ namespace Vista
             this.bunifuLabel7.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel7.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel7.Location = new System.Drawing.Point(18, 112);
+            this.bunifuLabel7.Location = new System.Drawing.Point(25, 161);
             this.bunifuLabel7.Name = "bunifuLabel7";
             this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel7.Size = new System.Drawing.Size(33, 15);
@@ -732,7 +732,7 @@ namespace Vista
             this.bunifuLabel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel6.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel6.Location = new System.Drawing.Point(12, 44);
+            this.bunifuLabel6.Location = new System.Drawing.Point(19, 93);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel6.Size = new System.Drawing.Size(35, 15);
@@ -760,7 +760,7 @@ namespace Vista
             this.bunifuDatePicker2.IconColor = System.Drawing.Color.Gray;
             this.bunifuDatePicker2.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.bunifuDatePicker2.LeftTextMargin = 5;
-            this.bunifuDatePicker2.Location = new System.Drawing.Point(18, 133);
+            this.bunifuDatePicker2.Location = new System.Drawing.Point(25, 182);
             this.bunifuDatePicker2.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker2.Name = "bunifuDatePicker2";
             this.bunifuDatePicker2.Size = new System.Drawing.Size(202, 32);
@@ -785,7 +785,7 @@ namespace Vista
             this.bunifuDatePicker1.IconColor = System.Drawing.Color.Gray;
             this.bunifuDatePicker1.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.bunifuDatePicker1.LeftTextMargin = 5;
-            this.bunifuDatePicker1.Location = new System.Drawing.Point(18, 65);
+            this.bunifuDatePicker1.Location = new System.Drawing.Point(25, 114);
             this.bunifuDatePicker1.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker1.Name = "bunifuDatePicker1";
             this.bunifuDatePicker1.Size = new System.Drawing.Size(202, 32);
@@ -820,7 +820,7 @@ namespace Vista
             this.numberVta.IconRight = null;
             this.numberVta.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.numberVta.Lines = new string[0];
-            this.numberVta.Location = new System.Drawing.Point(25, 456);
+            this.numberVta.Location = new System.Drawing.Point(113, 574);
             this.numberVta.MaxLength = 32767;
             this.numberVta.MinimumSize = new System.Drawing.Size(1, 1);
             this.numberVta.Modified = false;
@@ -916,7 +916,7 @@ namespace Vista
             this.BtnSendEmail.IdleIconLeftImage = null;
             this.BtnSendEmail.IdleIconRightImage = null;
             this.BtnSendEmail.IndicateFocus = false;
-            this.BtnSendEmail.Location = new System.Drawing.Point(291, 456);
+            this.BtnSendEmail.Location = new System.Drawing.Point(470, 574);
             this.BtnSendEmail.Name = "BtnSendEmail";
             this.BtnSendEmail.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.BtnSendEmail.OnDisabledState.BorderRadius = 1;
@@ -1007,7 +1007,7 @@ namespace Vista
             this.BtnPrint.IdleIconLeftImage = null;
             this.BtnPrint.IdleIconRightImage = null;
             this.BtnPrint.IndicateFocus = false;
-            this.BtnPrint.Location = new System.Drawing.Point(525, 456);
+            this.BtnPrint.Location = new System.Drawing.Point(845, 574);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.BtnPrint.OnDisabledState.BorderRadius = 1;
@@ -1055,7 +1055,7 @@ namespace Vista
             this.bunifuLabel9.AutoEllipsis = false;
             this.bunifuLabel9.CursorType = null;
             this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel9.Location = new System.Drawing.Point(29, 441);
+            this.bunifuLabel9.Location = new System.Drawing.Point(117, 559);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel9.Size = new System.Drawing.Size(74, 15);
@@ -1068,7 +1068,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 519);
+            this.ClientSize = new System.Drawing.Size(1184, 646);
             this.Controls.Add(this.bunifuLabel9);
             this.Controls.Add(this.BtnPrint);
             this.Controls.Add(this.BtnSendEmail);
