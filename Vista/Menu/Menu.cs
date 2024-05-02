@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Clientes;
 
 namespace Vista
 {
@@ -29,8 +30,8 @@ namespace Vista
         public Menu()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.Sizable;
-            WindowState = FormWindowState.Maximized;
+            //FormBorderStyle = FormBorderStyle.Sizable;
+            //WindowState = FormWindowState.Maximized;
         }
 
         private void abrirForm(Form formulario)
@@ -82,6 +83,12 @@ namespace Vista
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form form = new Form1();
+            form.ShowDialog();
+        }
+
+        private void gestionarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Gestionar_clientes.Obtener_instancia();
             form.ShowDialog();
         }
     }

@@ -56,5 +56,10 @@ namespace Vista
                 dataModelcc.DataSource = list;
             }
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

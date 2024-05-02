@@ -1,4 +1,5 @@
 CREATE DATABASE campo_diploma
+--drop database campo_diploma
 GO
 USE campo_diploma
 
@@ -7,7 +8,8 @@ dni int primary key,
 nombre varchar(60),
 email varchar(60),
 ra varchar(10),
-telefono varchar(20)
+telefono varchar(20),
+estado int
 )
 
 create table Cuentas_Corrientes(

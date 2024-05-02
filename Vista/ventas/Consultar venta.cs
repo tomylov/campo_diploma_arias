@@ -33,7 +33,7 @@ namespace Vista
         public Consultar_venta(int id_vta, int dni)
         {
             InitializeComponent();
-            System.Collections.IList datosCli = Controladora.Cliente.Obtener_instancia().getClientes(dni);
+            System.Collections.IList datosCli = Controladora.Cliente.Obtener_instancia().GetCliente(dni);
             System.Collections.IList datosVta = Controladora.Venta.Obtener_instancia().ListarVentasId(id_vta);
             txtnombrecliente.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
             txtfecha.Text = Convert.ToString(datosVta[0].GetType().GetProperty("fecha").GetValue(datosVta[0], null));

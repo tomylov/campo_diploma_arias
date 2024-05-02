@@ -30,6 +30,7 @@ namespace Modelo
 
         [StringLength(20)]
         public string telefono { get; set; }
+        public int estado { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cuentas_Corrientes> Cuentas_Corrientes { get; set; }

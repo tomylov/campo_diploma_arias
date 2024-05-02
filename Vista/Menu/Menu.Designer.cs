@@ -40,6 +40,7 @@ namespace Vista
             this.cuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarCuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.gestionarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@ namespace Vista
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -85,7 +86,8 @@ namespace Vista
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaVentaToolStripMenuItem,
-            this.crearVentaToolStripMenuItem});
+            this.crearVentaToolStripMenuItem,
+            this.gestionarClientesToolStripMenuItem});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ventasToolStripMenuItem.Text = "Ventas";
@@ -93,14 +95,14 @@ namespace Vista
             // nuevaVentaToolStripMenuItem
             // 
             this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // crearVentaToolStripMenuItem
             // 
             this.crearVentaToolStripMenuItem.Name = "crearVentaToolStripMenuItem";
-            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearVentaToolStripMenuItem.Text = "Gestionar ventas";
             this.crearVentaToolStripMenuItem.Click += new System.EventHandler(this.crearVentaToolStripMenuItem_Click);
             // 
@@ -133,6 +135,13 @@ namespace Vista
             this.panel.Size = new System.Drawing.Size(1200, 685);
             this.panel.TabIndex = 2;
             // 
+            // gestionarClientesToolStripMenuItem
+            // 
+            this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
+            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
+            this.gestionarClientesToolStripMenuItem.Click += new System.EventHandler(this.gestionarClientesToolStripMenuItem_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,5 +173,6 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem gestionarCuentaCorrienteToolStripMenuItem;
         private Bunifu.UI.WinForms.BunifuPanel panel;
         private System.Windows.Forms.ToolStripMenuItem crearVentaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionarClientesToolStripMenuItem;
     }
 }

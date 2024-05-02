@@ -167,6 +167,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\Gestionar_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\Gestionar_clientes.Designer.cs">
+      <DependentUpon>Gestionar_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\modal_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\modal_clientes.Designer.cs">
+      <DependentUpon>modal_clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="ventas\Consultar venta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +230,12 @@
     <Compile Include="ventas\Ventas.Designer.cs">
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clientes\Gestionar_clientes.resx">
+      <DependentUpon>Gestionar_clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\modal_clientes.resx">
+      <DependentUpon>modal_clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ventas\Consultar venta.resx">
       <DependentUpon>Consultar venta.cs</DependentUpon>
     </EmbeddedResource>

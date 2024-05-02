@@ -53,7 +53,7 @@ namespace Vista
             if (id_venta != 0) //si es distinto de 0 es porque se esta editando una venta
             {                
                 habilitarVentas();
-                var datosCli = Controladora.Cliente.Obtener_instancia().getClientes(dni);
+                var datosCli = Controladora.Cliente.Obtener_instancia().GetCliente(dni);
                 name.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
                 mail.Text = Convert.ToString(datosCli[0].GetType().GetProperty("email").GetValue(datosCli[0], null));
                 dniPK.Text = dni.ToString();
@@ -145,7 +145,7 @@ namespace Vista
                 try
                 {
                     dni = Convert.ToInt32(dniPK.Text);
-                    var datos = Controladora.Cliente.Obtener_instancia().getClientes(dni);
+                    var datos = Controladora.Cliente.Obtener_instancia().GetCliente(dni);
                     if (datos.Count > 0)
                     {
                         name.Text = Convert.ToString(datos[0].GetType().GetProperty("nombre").GetValue(datos[0], null));
