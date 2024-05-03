@@ -4,6 +4,7 @@ GO
 USE campo_diploma
 
 create table Clientes(
+--id_cliente int primary key identity,
 dni int primary key, 
 nombre varchar(60),
 email varchar(60),
@@ -16,14 +17,14 @@ create table Cuentas_Corrientes(
 id_cc int primary key identity, 
 saldo decimal(15,2),
 plazo datetime,
-dni int references Clientes(dni)
+id_cliente int references Clientes(id_cliente)
 )
 
 create table Ventas(
 id_venta int primary key identity, 
 fecha datetime,
 estado int,
-dni int references Clientes(dni)
+id_cliente int references Clientes(id_cliente)
 )
 
 
@@ -68,10 +69,10 @@ monto decimal(15,2),
 fecha datetime,
 id_venta int references Ventas(id_venta))
 
-/* create table Medio_Pagos(
+create table Medio_Pagos(
 id_med_pago int primary key identity,
 descripcion varchar(60))
-
+/* 
 create table Tipo_Facturas(
 id_tipo_fact int primary key identity,
 descripcion VARCHAR(60)
