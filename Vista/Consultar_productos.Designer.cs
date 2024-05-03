@@ -30,13 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultar_productos));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.btnClear = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.filtroBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.comboBusqueda = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -53,7 +51,6 @@
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
             this.bunifuGroupBox1.Controls.Add(this.btnClear);
-            this.bunifuGroupBox1.Controls.Add(this.filtroBtn);
             this.bunifuGroupBox1.Controls.Add(this.txtbusqueda);
             this.bunifuGroupBox1.Controls.Add(this.comboBusqueda);
             this.bunifuGroupBox1.Controls.Add(this.label11);
@@ -116,7 +113,7 @@
             this.btnClear.IdleIconLeftImage = null;
             this.btnClear.IdleIconRightImage = null;
             this.btnClear.IndicateFocus = false;
-            this.btnClear.Location = new System.Drawing.Point(636, 47);
+            this.btnClear.Location = new System.Drawing.Point(546, 47);
             this.btnClear.Name = "btnClear";
             this.btnClear.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnClear.OnDisabledState.BorderRadius = 1;
@@ -159,102 +156,13 @@
             this.btnClear.UseDefaultRadiusAndThickness = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // filtroBtn
-            // 
-            this.filtroBtn.AllowAnimations = true;
-            this.filtroBtn.AllowMouseEffects = true;
-            this.filtroBtn.AllowToggling = false;
-            this.filtroBtn.AnimationSpeed = 200;
-            this.filtroBtn.AutoGenerateColors = false;
-            this.filtroBtn.AutoRoundBorders = false;
-            this.filtroBtn.AutoSizeLeftIcon = true;
-            this.filtroBtn.AutoSizeRightIcon = true;
-            this.filtroBtn.BackColor = System.Drawing.Color.Transparent;
-            this.filtroBtn.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.filtroBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("filtroBtn.BackgroundImage")));
-            this.filtroBtn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.filtroBtn.ButtonText = "Filtrar";
-            this.filtroBtn.ButtonTextMarginLeft = 0;
-            this.filtroBtn.ColorContrastOnClick = 45;
-            this.filtroBtn.ColorContrastOnHover = 45;
-            this.filtroBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.filtroBtn.CustomizableEdges = borderEdges2;
-            this.filtroBtn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.filtroBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.filtroBtn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.filtroBtn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.filtroBtn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.filtroBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.filtroBtn.ForeColor = System.Drawing.Color.White;
-            this.filtroBtn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.filtroBtn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.filtroBtn.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.filtroBtn.IconMarginLeft = 11;
-            this.filtroBtn.IconPadding = 10;
-            this.filtroBtn.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.filtroBtn.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.filtroBtn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.filtroBtn.IconSize = 25;
-            this.filtroBtn.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.filtroBtn.IdleBorderRadius = 1;
-            this.filtroBtn.IdleBorderThickness = 1;
-            this.filtroBtn.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.filtroBtn.IdleIconLeftImage = null;
-            this.filtroBtn.IdleIconRightImage = null;
-            this.filtroBtn.IndicateFocus = false;
-            this.filtroBtn.Location = new System.Drawing.Point(529, 48);
-            this.filtroBtn.Name = "filtroBtn";
-            this.filtroBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.filtroBtn.OnDisabledState.BorderRadius = 1;
-            this.filtroBtn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.filtroBtn.OnDisabledState.BorderThickness = 1;
-            this.filtroBtn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.filtroBtn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.filtroBtn.OnDisabledState.IconLeftImage = null;
-            this.filtroBtn.OnDisabledState.IconRightImage = null;
-            this.filtroBtn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.filtroBtn.onHoverState.BorderRadius = 1;
-            this.filtroBtn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.filtroBtn.onHoverState.BorderThickness = 1;
-            this.filtroBtn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.filtroBtn.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.filtroBtn.onHoverState.IconLeftImage = null;
-            this.filtroBtn.onHoverState.IconRightImage = null;
-            this.filtroBtn.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.filtroBtn.OnIdleState.BorderRadius = 1;
-            this.filtroBtn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.filtroBtn.OnIdleState.BorderThickness = 1;
-            this.filtroBtn.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.filtroBtn.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.filtroBtn.OnIdleState.IconLeftImage = null;
-            this.filtroBtn.OnIdleState.IconRightImage = null;
-            this.filtroBtn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.filtroBtn.OnPressedState.BorderRadius = 1;
-            this.filtroBtn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.filtroBtn.OnPressedState.BorderThickness = 1;
-            this.filtroBtn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.filtroBtn.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.filtroBtn.OnPressedState.IconLeftImage = null;
-            this.filtroBtn.OnPressedState.IconRightImage = null;
-            this.filtroBtn.Size = new System.Drawing.Size(86, 26);
-            this.filtroBtn.TabIndex = 70;
-            this.filtroBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.filtroBtn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.filtroBtn.TextMarginLeft = 0;
-            this.filtroBtn.TextPadding = new System.Windows.Forms.Padding(0);
-            this.filtroBtn.UseDefaultRadiusAndThickness = true;
-            this.filtroBtn.Click += new System.EventHandler(this.filtroBtn_Click);
-            // 
             // txtbusqueda
             // 
             this.txtbusqueda.Location = new System.Drawing.Point(210, 48);
             this.txtbusqueda.Name = "txtbusqueda";
             this.txtbusqueda.Size = new System.Drawing.Size(300, 23);
             this.txtbusqueda.TabIndex = 69;
+            this.txtbusqueda.TextChanged += new System.EventHandler(this.txtbusqueda_TextChanged);
             // 
             // comboBusqueda
             // 
@@ -369,7 +277,6 @@
 
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnClear;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 filtroBtn;
         private System.Windows.Forms.TextBox txtbusqueda;
         private System.Windows.Forms.ComboBox comboBusqueda;
         private System.Windows.Forms.Label label11;

@@ -15,6 +15,9 @@ namespace Vista
     public partial class Consultar_productos : Form
     {
         public Modelo.Productos prod = new Modelo.Productos();
+        private Controladora.Producto cProducto = Controladora.Producto.Obtener_instancia();
+        private List<Productos> productos;
+        private List<Productos> productosFiltados;
 
         private static Consultar_productos instancia;
         public static Consultar_productos Obtener_instancia()
@@ -29,17 +32,16 @@ namespace Vista
         public Consultar_productos()
         {
             InitializeComponent();
+            comboBusqueda.Items.Add("id_producto");
             comboBusqueda.Items.Add("Nombre");
-            comboBusqueda.Items.Add("Categoria");
-            comboBusqueda.SelectedIndex = 0;            
+            comboBusqueda.SelectedIndex = 0;
+            productos = cProducto.getProductos();
+            dataGridProductos.DataSource = productos;
         }
 
         private void filtroBtn_Click(object sender, EventArgs e)
         {
-            if (comboBusqueda.SelectedIndex == 0)
-            {
-                dataGridProductos.DataSource = Controladora.Producto.Obtener_instancia().getProductoNombre(txtbusqueda.Text);
-            }            
+                       
         }
 
         private void dataGridProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -63,5 +65,25 @@ namespace Vista
             txtbusqueda.Focus();
             dataGridProductos.DataSource = null;
         }
+
+        private void txtbusqueda_TextChanged(object sender, EventArgs e)
+        {
+            filtrar();
+        }
+
+        private void filtrar()
+        {
+            productosFiltados = productos;
+            if (comboBusqueda.SelectedIndex == 1)
+            {
+                productosFiltados = productos.Where(producto => producto.nombre.ToLower().Contains(txtbusqueda.Text.ToLower())).ToList();
+            }
+            else
+            {
+                productosFiltados = productos.Where(producto => producto.id_prod.ToString().ToLower().Contains(txtbusqueda.Text.ToLower())).ToList();
+            }
+
+        }
+
     }
 }

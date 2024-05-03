@@ -27,10 +27,9 @@ namespace Controladora
             return productos.ToList();
         }
 
-        public System.Collections.IList getProductoNombre(string nombre)
+        public List<Modelo.Productos> getProductos()
         {
             var productos = from prod in Modelo.Contexto.Obtener_instancia().Productos
-                            where prod.nombre.Contains(nombre)
                             select prod;
             return productos.ToList();
         }
