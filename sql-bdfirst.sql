@@ -67,7 +67,10 @@ create table Pagos(
 numero int primary key identity,
 monto decimal(15,2),
 fecha datetime,
-id_venta int references Ventas(id_venta))
+id_venta int references Ventas(id_venta),
+id_med_pago int references Medio_Pagos(id_med_pago)
+
+)
 
 create table Medio_Pagos(
 id_med_pago int primary key identity,
