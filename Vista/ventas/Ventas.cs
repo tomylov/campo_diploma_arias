@@ -19,10 +19,48 @@ namespace Vista
         int venta = 0;
         int id_det = 0;
         int index;
+        private static Ventas instancia;
+
+        public static Ventas Obtener_instancia(int id_vta, int dni)
+        {
+            if (instancia == null)
+                instancia = new Ventas(id_vta,dni);
+            
+            if (instancia.IsDisposed)
+                instancia = new Ventas(id_vta, dni);
+
+            instancia.BringToFront();
+            return instancia;
+        }
         public Ventas()
         {
             InitializeComponent();
-            dataGridDetail.AutoGenerateColumns = true;
+        }
+
+        public void habilitarVentas()
+        {
+            dniPK.Enabled = false;
+            btnVta.Visible = false;
+            textprod.Enabled = true;
+            searchProd.Enabled = true;
+            cancelBtn.Enabled = true;
+            btnFinish.Enabled = true;
+        }
+
+        public Ventas(int id_venta, int dni)
+        {
+            InitializeComponent();
+            if (id_venta != 0) //si es distinto de 0 es porque se esta editando una venta
+            {                
+                habilitarVentas();
+                var datosCli = Controladora.Cliente.Obtener_instancia().GetCliente(dni);
+                name.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
+                mail.Text = Convert.ToString(datosCli[0].GetType().GetProperty("email").GetValue(datosCli[0], null));
+                dniPK.Text = dni.ToString();
+                venta = id_venta;
+                var datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
+                dataGridDetail.DataSource = datos;
+            }
         }
 
         private void addProduct_Click_1(object sender, EventArgs e)
@@ -50,11 +88,22 @@ namespace Vista
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Venta finalizada");
+            Close();
         }
 
         private void searchProd_Click(object sender, EventArgs e)
         {
+            Consultar_productos cp = Consultar_productos.Obtener_instancia();
+            if (cp.ShowDialog() == DialogResult.OK)
+            {
+                textprod.Text = cp.prod.id_prod.ToString();
+                description.Text = cp.prod.nombre;
+                price.Text = cp.prod.precio.ToString();
+                stock.Text = cp.prod.stock.ToString();
+                cuantity.Value = 1;
+                addProduct.Enabled = true;
+            }
 
         }
 
@@ -96,7 +145,7 @@ namespace Vista
                 try
                 {
                     dni = Convert.ToInt32(dniPK.Text);
-                    var datos = Controladora.Cliente.Obtener_instancia().getClientes(dni);
+                    var datos = Controladora.Cliente.Obtener_instancia().GetCliente(dni);
                     if (datos.Count > 0)
                     {
                         name.Text = Convert.ToString(datos[0].GetType().GetProperty("nombre").GetValue(datos[0], null));
@@ -122,12 +171,9 @@ namespace Vista
         {
             if(name.Text != "")
             {
-                textprod.Enabled = true;
                 Controladora.Venta.Obtener_instancia().SetVentas(dni);
-                dniPK.Enabled = false;
-                btnVta.Visible = false;
-                venta = Modelo.Contexto.Obtener_instancia().Ventas.Max(venta => venta.id_venta);
-                
+                venta = Modelo.Contexto.Obtener_instancia().Ventas.Max(venta => venta.id_venta);                
+                habilitarVentas();
             }
             else
             {
@@ -146,7 +192,7 @@ namespace Vista
         }
         private void dataGridDetail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            index = e.RowIndex;            
+            index = e.RowIndex;
             if(index != -1)
             {
                 Eliminar.Enabled = true;
@@ -160,6 +206,7 @@ namespace Vista
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             Controladora.Venta.Obtener_instancia().deleteVta(venta);
+            MessageBox.Show("Venta cancelada");
             this.Close();
         }
     }

@@ -30,12 +30,12 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
 
-        public System.Collections.IList ListarVentasCC()
+        public System.Collections.IList ListarVentasCC(int estado)
         {
             var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
                       join cc in Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes on v.dni equals cc.dni
                       join cl in Modelo.Contexto.Obtener_instancia().Clientes on v.dni equals cl.dni
-                      where v.estado ==2
+                      where v.estado == estado
                       orderby cc.plazo
                       select new
                       {
@@ -70,6 +70,20 @@ namespace Controladora
                               v.estado
                           };
             return vta.ToList();            
+        }
+
+        public System.Collections.IList ListarVentasId(int id_vta)
+        {
+
+            var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
+                      where v.id_venta == id_vta
+                      select new
+                      {
+                          v.id_venta,
+                          v.fecha,
+                          v.estado
+                      };
+            return vta.ToList();
         }
 
         public System.Collections.IList ListarPagos(int dni)
@@ -145,15 +159,24 @@ namespace Controladora
 
         public void deleteVta(int idVta)
         {
-            var detallesAEliminar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.Where(d => d.id_venta == idVta).ToList();
+
+            List<Modelo.Detalle_ventas> detallesAEliminar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.Where(d => d.id_venta == idVta).ToList();
             if (detallesAEliminar != null)
             {
-                Modelo.Contexto.Obtener_instancia().Detalle_ventas.RemoveRange(detallesAEliminar);
-                Modelo.Contexto.Obtener_instancia().SaveChanges();
+                int cantidad;
+                int idProd = 0;
+                int i;
+                for (i = 0; i < detallesAEliminar.Count; i++)
+                {
+                    cantidad = (int)detallesAEliminar[i].cantidad;
+                    idProd = (int)detallesAEliminar[i].id_prod;
+                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVta(detallesAEliminar[i].id_detalle, cantidad, idProd);
+                    
+                }
             }
             var ventaAEliminar = Modelo.Contexto.Obtener_instancia().Ventas.FirstOrDefault(v => v.id_venta == idVta);
             Modelo.Contexto.Obtener_instancia().Ventas.Remove(ventaAEliminar);
-            Modelo.Contexto.Obtener_instancia().SaveChanges();            
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
 
     }

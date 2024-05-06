@@ -44,10 +44,10 @@ namespace Vista
             this.open_cc = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.dni = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.comboVta = new System.Windows.Forms.ComboBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuButton2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataModelcc = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
@@ -65,10 +65,10 @@ namespace Vista
             this.bunifuPanel1.Controls.Add(this.open_cc);
             this.bunifuPanel1.Controls.Add(this.dni);
             this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bunifuPanel1.Location = new System.Drawing.Point(0, 377);
+            this.bunifuPanel1.Location = new System.Drawing.Point(0, 573);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(800, 73);
+            this.bunifuPanel1.Size = new System.Drawing.Size(1184, 73);
             this.bunifuPanel1.TabIndex = 0;
             // 
             // open_cc
@@ -120,7 +120,7 @@ namespace Vista
             this.open_cc.IdleIconLeftImage = null;
             this.open_cc.IdleIconRightImage = null;
             this.open_cc.IndicateFocus = false;
-            this.open_cc.Location = new System.Drawing.Point(451, 15);
+            this.open_cc.Location = new System.Drawing.Point(657, 22);
             this.open_cc.Name = "open_cc";
             this.open_cc.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.open_cc.OnDisabledState.BorderRadius = 1;
@@ -191,7 +191,7 @@ namespace Vista
             this.dni.IconRight = null;
             this.dni.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.dni.Lines = new string[0];
-            this.dni.Location = new System.Drawing.Point(144, 15);
+            this.dni.Location = new System.Drawing.Point(350, 22);
             this.dni.MaxLength = 32767;
             this.dni.MinimumSize = new System.Drawing.Size(1, 1);
             this.dni.Modified = false;
@@ -246,17 +246,27 @@ namespace Vista
             this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel2.BorderRadius = 3;
             this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Controls.Add(this.comboVta);
             this.bunifuPanel2.Controls.Add(this.bunifuLabel1);
             this.bunifuPanel2.Controls.Add(this.bunifuButton2);
             this.bunifuPanel2.Controls.Add(this.bunifuButton1);
-            this.bunifuPanel2.Controls.Add(this.comboBox1);
             this.bunifuPanel2.Controls.Add(this.dataModelcc);
             this.bunifuPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuPanel2.Location = new System.Drawing.Point(0, 0);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(800, 377);
+            this.bunifuPanel2.Size = new System.Drawing.Size(1184, 573);
             this.bunifuPanel2.TabIndex = 1;
+            // 
+            // comboVta
+            // 
+            this.comboVta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboVta.FormattingEnabled = true;
+            this.comboVta.Location = new System.Drawing.Point(441, 45);
+            this.comboVta.Name = "comboVta";
+            this.comboVta.Size = new System.Drawing.Size(246, 21);
+            this.comboVta.TabIndex = 6;
+            this.comboVta.SelectedIndexChanged += new System.EventHandler(this.comboVta_SelectedIndexChanged);
             // 
             // bunifuLabel1
             // 
@@ -265,7 +275,7 @@ namespace Vista
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(254, 30);
+            this.bunifuLabel1.Location = new System.Drawing.Point(391, 47);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(28, 15);
@@ -323,7 +333,7 @@ namespace Vista
             this.bunifuButton2.IdleIconLeftImage = null;
             this.bunifuButton2.IdleIconRightImage = null;
             this.bunifuButton2.IndicateFocus = false;
-            this.bunifuButton2.Location = new System.Drawing.Point(451, 308);
+            this.bunifuButton2.Location = new System.Drawing.Point(654, 508);
             this.bunifuButton2.Name = "bunifuButton2";
             this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton2.OnDisabledState.BorderRadius = 1;
@@ -364,6 +374,7 @@ namespace Vista
             this.bunifuButton2.TextMarginLeft = 0;
             this.bunifuButton2.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton2.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton2.Click += new System.EventHandler(this.bunifuButton2_Click);
             // 
             // bunifuButton1
             // 
@@ -414,7 +425,7 @@ namespace Vista
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(188, 308);
+            this.bunifuButton1.Location = new System.Drawing.Point(391, 508);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 1;
@@ -456,14 +467,6 @@ namespace Vista
             this.bunifuButton1.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton1.UseDefaultRadiusAndThickness = true;
             this.bunifuButton1.Click += new System.EventHandler(this.bunifuButton1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(323, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(240, 21);
-            this.comboBox1.TabIndex = 1;
             // 
             // dataModelcc
             // 
@@ -515,12 +518,12 @@ namespace Vista
             this.dataModelcc.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.dataModelcc.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataModelcc.HeaderForeColor = System.Drawing.Color.White;
-            this.dataModelcc.Location = new System.Drawing.Point(12, 70);
+            this.dataModelcc.Location = new System.Drawing.Point(61, 90);
             this.dataModelcc.Name = "dataModelcc";
             this.dataModelcc.RowHeadersVisible = false;
             this.dataModelcc.RowTemplate.Height = 40;
             this.dataModelcc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataModelcc.Size = new System.Drawing.Size(743, 213);
+            this.dataModelcc.Size = new System.Drawing.Size(1070, 395);
             this.dataModelcc.TabIndex = 0;
             this.dataModelcc.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataModelcc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataModelcc_CellContentClick);
@@ -529,7 +532,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1184, 646);
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.bunifuPanel1);
             this.Name = "gestion_cc";
@@ -550,8 +553,8 @@ namespace Vista
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton2;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private Bunifu.UI.WinForms.BunifuDataGridView dataModelcc;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
+        private System.Windows.Forms.ComboBox comboVta;
     }
 }

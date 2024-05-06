@@ -26,5 +26,12 @@ namespace Controladora
                             select prod;
             return productos.ToList();
         }
+
+        public List<Modelo.Productos> getProductos()
+        {
+            var productos = from prod in Modelo.Contexto.Obtener_instancia().Productos
+                            select prod;
+            return productos.ToList();
+        }
     }
 }

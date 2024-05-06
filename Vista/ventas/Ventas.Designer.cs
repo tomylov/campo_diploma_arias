@@ -675,6 +675,7 @@ namespace Vista
             this.btnFinish.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnFinish.DisabledFillColor = System.Drawing.Color.Empty;
             this.btnFinish.DisabledForecolor = System.Drawing.Color.Empty;
+            this.btnFinish.Enabled = false;
             this.btnFinish.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.btnFinish.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnFinish.ForeColor = System.Drawing.Color.White;
@@ -767,6 +768,7 @@ namespace Vista
             this.searchProd.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.searchProd.DisabledFillColor = System.Drawing.Color.Empty;
             this.searchProd.DisabledForecolor = System.Drawing.Color.Empty;
+            this.searchProd.Enabled = false;
             this.searchProd.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.searchProd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchProd.ForeColor = System.Drawing.Color.White;
@@ -1055,6 +1057,7 @@ namespace Vista
             this.cancelBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.cancelBtn.DisabledFillColor = System.Drawing.Color.Empty;
             this.cancelBtn.DisabledForecolor = System.Drawing.Color.Empty;
+            this.cancelBtn.Enabled = false;
             this.cancelBtn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cancelBtn.ForeColor = System.Drawing.Color.White;

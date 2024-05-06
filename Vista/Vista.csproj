@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.5.3.0\lib\net40\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
     </Reference>
@@ -144,6 +147,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -158,23 +167,65 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\Gestionar_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\Gestionar_clientes.Designer.cs">
+      <DependentUpon>Gestionar_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\modal_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\modal_clientes.Designer.cs">
+      <DependentUpon>modal_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultar clientes.Designer.cs">
+      <DependentUpon>Consultar clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos\Crear pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos\Crear pago.Designer.cs">
+      <DependentUpon>Crear pago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ventas\Consultar venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventas\Consultar venta.Designer.cs">
+      <DependentUpon>Consultar venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar_productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultar_productos.Designer.cs">
+      <DependentUpon>Consultar_productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="cuenta_corriente.cs">
+    <Compile Include="cuenta corriente\cuenta_corriente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="cuenta corriente\.Designer.cs">
       <DependentUpon>cuenta_corriente.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion_cc.cs">
+    <Compile Include="ventas\Gestionar_ventas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gestion_cc.Designer.cs">
+    <Compile Include="ventas\Gestionar_ventas.Designer.cs">
+      <DependentUpon>Gestionar_ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cuenta corriente\gestion_cc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cuenta corriente\gestion_cc.Designer.cs">
       <DependentUpon>gestion_cc.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\Menu.cs">
@@ -185,19 +236,40 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ventas.cs">
+    <Compile Include="ventas\Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas.Designer.cs">
+    <Compile Include="ventas\Ventas.Designer.cs">
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="cuenta_corriente.resx">
+    <EmbeddedResource Include="Clientes\Gestionar_clientes.resx">
+      <DependentUpon>Gestionar_clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\modal_clientes.resx">
+      <DependentUpon>modal_clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultar clientes.resx">
+      <DependentUpon>Consultar clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\Crear pago.resx">
+      <DependentUpon>Crear pago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventas\Consultar venta.resx">
+      <DependentUpon>Consultar venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultar_productos.resx">
+      <DependentUpon>Consultar_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cuenta corriente\cuenta_corriente.resx">
       <DependentUpon>cuenta_corriente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gestion_cc.resx">
+    <EmbeddedResource Include="ventas\Gestionar_ventas.resx">
+      <DependentUpon>Gestionar_ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cuenta corriente\gestion_cc.resx">
       <DependentUpon>gestion_cc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\Menu.resx">
@@ -212,8 +284,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Ventas.resx">
+    <EmbeddedResource Include="ventas\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -239,6 +312,9 @@
       <Project>{25a3fd56-d123-4f8f-a9ed-075f4bd3dc03}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\PlantillaVenta.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
