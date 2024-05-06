@@ -67,12 +67,14 @@ namespace Vista.Clientes
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            clientesFiltrados = clientes;
-            cliente = new Modelo.Clientes();
-            cliente = clientesFiltrados.Where(cliente => cliente.dni == dni).FirstOrDefault();
-            MessageBox.Show("Cliente eliminado con exito"); //preguntar si se va a eliminar o no
-            cCliente.eliminarCliente(cliente);
-            filtrar();
+            if (MessageBox.Show("¿Está seguro que desea eliminar el cliente?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {            
+                clientesFiltrados = clientes;
+                cliente = new Modelo.Clientes();
+                cliente = clientesFiltrados.Where(cliente => cliente.dni == dni).FirstOrDefault();
+                cCliente.eliminarCliente(cliente);
+                filtrar();
+            }
         }
 
         private void dataClientes_CellClick(object sender, DataGridViewCellEventArgs e)
