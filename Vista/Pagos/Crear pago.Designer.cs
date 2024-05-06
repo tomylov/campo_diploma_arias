@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_pago));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_pago));
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.lblSaldo = new Bunifu.UI.WinForms.BunifuLabel();
             this.buttonCliente = new System.Windows.Forms.Button();
+            this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRs = new System.Windows.Forms.TextBox();
@@ -47,8 +49,6 @@
             this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.dataClientes = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.bunifuGroupBox3 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.lblSaldo = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxmedio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,6 +92,23 @@
             this.bunifuGroupBox1.TabStop = false;
             this.bunifuGroupBox1.Text = "Datos cliente";
             // 
+            // lblSaldo
+            // 
+            this.lblSaldo.AllowParentOverrides = false;
+            this.lblSaldo.AutoEllipsis = false;
+            this.lblSaldo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblSaldo.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblSaldo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblSaldo.ForeColor = System.Drawing.Color.White;
+            this.lblSaldo.Location = new System.Drawing.Point(211, 133);
+            this.lblSaldo.Name = "lblSaldo";
+            this.lblSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblSaldo.Size = new System.Drawing.Size(49, 32);
+            this.lblSaldo.TabIndex = 59;
+            this.lblSaldo.Text = "0.00";
+            this.lblSaldo.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblSaldo.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // buttonCliente
             // 
             this.buttonCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(55)))), ((int)(((byte)(235)))));
@@ -107,6 +124,24 @@
             this.buttonCliente.TabIndex = 54;
             this.buttonCliente.Text = "Buscar cliente";
             this.buttonCliente.UseVisualStyleBackColor = false;
+            this.buttonCliente.Click += new System.EventHandler(this.buttonCliente_Click);
+            // 
+            // bunifuLabel4
+            // 
+            this.bunifuLabel4.AllowParentOverrides = false;
+            this.bunifuLabel4.AutoEllipsis = false;
+            this.bunifuLabel4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel4.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel4.ForeColor = System.Drawing.Color.White;
+            this.bunifuLabel4.Location = new System.Drawing.Point(26, 133);
+            this.bunifuLabel4.Name = "bunifuLabel4";
+            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel4.Size = new System.Drawing.Size(179, 32);
+            this.bunifuLabel4.TabIndex = 58;
+            this.bunifuLabel4.Text = "Total a pagar: $";
+            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // txtemail
             // 
@@ -318,40 +353,6 @@
             this.bunifuGroupBox3.TabIndex = 4;
             this.bunifuGroupBox3.TabStop = false;
             this.bunifuGroupBox3.Text = "Botones";
-            // 
-            // lblSaldo
-            // 
-            this.lblSaldo.AllowParentOverrides = false;
-            this.lblSaldo.AutoEllipsis = false;
-            this.lblSaldo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.lblSaldo.CursorType = System.Windows.Forms.Cursors.Default;
-            this.lblSaldo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblSaldo.ForeColor = System.Drawing.Color.White;
-            this.lblSaldo.Location = new System.Drawing.Point(211, 133);
-            this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSaldo.Size = new System.Drawing.Size(49, 32);
-            this.lblSaldo.TabIndex = 59;
-            this.lblSaldo.Text = "0.00";
-            this.lblSaldo.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblSaldo.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel4
-            // 
-            this.bunifuLabel4.AllowParentOverrides = false;
-            this.bunifuLabel4.AutoEllipsis = false;
-            this.bunifuLabel4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel4.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel4.Location = new System.Drawing.Point(26, 133);
-            this.bunifuLabel4.Name = "bunifuLabel4";
-            this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(179, 32);
-            this.bunifuLabel4.TabIndex = 58;
-            this.bunifuLabel4.Text = "Total a pagar: $";
-            this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // textBox1
             // 

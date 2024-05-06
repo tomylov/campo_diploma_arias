@@ -24,5 +24,19 @@ namespace Vista.Pagos
                 textBox1.Text = "";
             }
         }
+
+        private void buttonCliente_Click(object sender, EventArgs e)
+        {
+            Consultar_clientes conCli = Consultar_clientes.Obtener_instancia();
+            if (conCli.ShowDialog() == DialogResult.OK)
+            {
+                txtdni.Text = conCli.cliente.dni.ToString();
+                txtnombre.Text = conCli.cliente.nombre;
+                txtemail.Text = conCli.cliente.email;
+                txtRs.Text = conCli.cliente.ra;
+                txtTEL.Text = conCli.cliente.telefono;
+                buttonCliente.Visible = false;
+            }
+        }
     }
 }
