@@ -45,7 +45,7 @@ namespace Vista
         {
             if(numberVta.Text != "")
             {
-                Controladora.Venta.Obtener_instancia().pagar(Convert.ToInt32(numberVta.Text));
+                //Controladora.Venta.Obtener_instancia().pagar(Convert.ToInt32(numberVta.Text));
                 MessageBox.Show("Pago efectuado con exito");
                 dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, dni);
             }

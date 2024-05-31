@@ -23,10 +23,15 @@ id_cliente int references Clientes(id_cliente)
 create table Ventas(
 id_venta int primary key identity, 
 fecha datetime,
-estado int,
-id_cliente int references Clientes(id_cliente)
+estado int references Estado_venta(id_estado),
+id_cliente int references Clientes(id_cliente),
+id_comp int references Comprobantes(id_comp)
 )
 
+create table Estado_venta(
+id_estado int primary key identity,
+descripcion varchar(60)
+)
 
 create table Productos(
 id_prod int primary key identity, 
@@ -57,40 +62,41 @@ id_cc int references Cuentas_Corrientes(id_cc),
 id_comp int references Comprobantes(id_comp)
 )
 
+create table tipo_movimientos(
+id_tipo_mov int primary key identity,
+descripcion varchar(10)
+)
+
+/* create table Notas_creditos(
+numero int primary key identity,
+monto decimal(15,2),
+fecha datetime,
+id_cc int references Cuentas_Corrientes(id_cc),
+id_comp int references Comprobantes(id_comp)
+) */
+
 create table Notas_debitos(
 numero int primary key identity,
 monto decimal(15,2),
 fecha datetime,
-id_cc int references Cuentas_Corrientes(id_cc))
+id_cc int references Cuentas_Corrientes(id_cc),
+id_comp int references Comprobantes(id_comp)
+)
 
 create table Pagos(
 numero int primary key identity,
 monto decimal(15,2),
 fecha datetime,
 id_venta int references Ventas(id_venta),
-id_med_pago int references Medio_Pagos(id_med_pago)
-
+id_med_pago int references Medio_Pagos(id_med_pago),
+id_comp int references Comprobantes(id_comp)
 )
 
 create table Medio_Pagos(
 id_med_pago int primary key identity,
 descripcion varchar(60))
-/* 
-create table Tipo_Facturas(
-id_tipo_fact int primary key identity,
-descripcion VARCHAR(60)
-)
 
-create table Facturas(
-id_factura int primary key identity,
-id_med_pagos int references Medio_Pagos(id_med_pago),
-id_tipo_fact int references Tipo_Facturas(id_tipo_fact),
-id_venta int references Ventas(id_venta),
-estado int,
-fecha datetime,
-total decimal(15,2)
-) */
-
+--seguridad
 create table Usuarios(
 id_usuario int primary key identity,
 nombre varchar(60),

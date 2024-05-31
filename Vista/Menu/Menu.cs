@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista.Clientes;
+using Vista.Pagos;
 
 namespace Vista
 {
@@ -58,9 +59,9 @@ namespace Vista
 
         private void gestionarCuentaCorrienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            abrirForm(new gestion_cc());
-            //gestion_cc cc = new gestion_cc();
-            //cc.ShowDialog();
+            //abrirForm(new gestion_cc());
+            gestion_cc cc = new gestion_cc();
+            cc.ShowDialog();
         }
 
         private void crearVentaToolStripMenuItem_Click(object sender, EventArgs e)

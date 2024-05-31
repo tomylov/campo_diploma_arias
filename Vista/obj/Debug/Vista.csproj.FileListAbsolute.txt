@@ -286,3 +286,6 @@ C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\itextsharp.xml
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_venta.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Clientes.Gestionar_clientes.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Clientes.modal_clientes.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_clientes.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Pagos.Crear_pago.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_ventas.resources

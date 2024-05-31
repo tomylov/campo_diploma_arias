@@ -333,7 +333,7 @@ namespace Vista
             this.bunifuButton2.IdleIconLeftImage = null;
             this.bunifuButton2.IdleIconRightImage = null;
             this.bunifuButton2.IndicateFocus = false;
-            this.bunifuButton2.Location = new System.Drawing.Point(654, 508);
+            this.bunifuButton2.Location = new System.Drawing.Point(1011, 246);
             this.bunifuButton2.Name = "bunifuButton2";
             this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton2.OnDisabledState.BorderRadius = 1;
@@ -425,7 +425,7 @@ namespace Vista
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(391, 508);
+            this.bunifuButton1.Location = new System.Drawing.Point(1011, 177);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 1;
@@ -518,14 +518,15 @@ namespace Vista
             this.dataModelcc.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.dataModelcc.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataModelcc.HeaderForeColor = System.Drawing.Color.White;
-            this.dataModelcc.Location = new System.Drawing.Point(61, 90);
+            this.dataModelcc.Location = new System.Drawing.Point(12, 86);
             this.dataModelcc.Name = "dataModelcc";
             this.dataModelcc.RowHeadersVisible = false;
             this.dataModelcc.RowTemplate.Height = 40;
             this.dataModelcc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataModelcc.Size = new System.Drawing.Size(1070, 395);
+            this.dataModelcc.Size = new System.Drawing.Size(967, 434);
             this.dataModelcc.TabIndex = 0;
             this.dataModelcc.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataModelcc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataModelcc_CellClick);
             this.dataModelcc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataModelcc_CellContentClick);
             // 
             // gestion_cc
