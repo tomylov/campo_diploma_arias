@@ -60,7 +60,7 @@
             this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
             this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BorderColor = System.Drawing.Color.White;
             this.bunifuPanel1.BorderRadius = 3;
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.label1);
@@ -75,7 +75,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(278, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(244, 40);
@@ -84,7 +84,7 @@
             // 
             // bunifuGroupBox1
             // 
-            this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
+            this.bunifuGroupBox1.BorderColor = System.Drawing.Color.White;
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
             this.bunifuGroupBox1.Controls.Add(this.checkEstado);
@@ -100,6 +100,7 @@
             this.bunifuGroupBox1.Controls.Add(this.label5);
             this.bunifuGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuGroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuGroupBox1.ForeColor = System.Drawing.Color.White;
             this.bunifuGroupBox1.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.bunifuGroupBox1.LabelIndent = 10;
             this.bunifuGroupBox1.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
@@ -114,7 +115,7 @@
             // 
             this.checkEstado.AutoSize = true;
             this.checkEstado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkEstado.ForeColor = System.Drawing.Color.Black;
+            this.checkEstado.ForeColor = System.Drawing.Color.White;
             this.checkEstado.Location = new System.Drawing.Point(483, 139);
             this.checkEstado.Name = "checkEstado";
             this.checkEstado.Size = new System.Drawing.Size(76, 25);
@@ -134,7 +135,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(38, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 21);
@@ -153,7 +154,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(413, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(88, 21);
@@ -172,7 +173,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(418, 45);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 21);
@@ -191,7 +192,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(38, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 21);
@@ -210,7 +211,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(12, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 21);
@@ -240,7 +241,7 @@
             this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
             this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
             this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel3.BorderColor = System.Drawing.Color.White;
             this.bunifuPanel3.BorderRadius = 3;
             this.bunifuPanel3.BorderThickness = 1;
             this.bunifuPanel3.Controls.Add(this.button1);
@@ -259,7 +260,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(591, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 44);
@@ -275,7 +276,7 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Location = new System.Drawing.Point(459, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(126, 44);
@@ -318,6 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(800, 325);
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.bunifuGroupBox1);

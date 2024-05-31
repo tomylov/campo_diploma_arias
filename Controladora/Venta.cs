@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +11,9 @@ namespace Controladora
     public class Venta
     {
         private static Venta venta;
-        
-                
+        Modelo.Contexto contexto = Modelo.Contexto.Obtener_instancia();
+
+
         public static Venta Obtener_instancia()
         {
             if (venta==null)
@@ -42,12 +45,45 @@ namespace Controladora
                           v.id_venta,
                           v.fecha,
                           v.dni,
+                          v.estado,
                           cl.nombre,
                           cl.telefono,
                           cc.plazo
                       };
             return vta.ToList();
         }
+
+        public IEnumerable ListarVentasEstado(int estado)
+        {
+            var resultado = from venta in Modelo.Contexto.Obtener_instancia().Ventas
+                            join detalle in Modelo.Contexto.Obtener_instancia().Detalle_ventas
+                            on venta.id_venta equals detalle.id_venta
+                            where venta.estado == estado
+                            group new { venta, detalle } by new
+                            {
+                                venta.id_venta,
+                                venta.estado,
+                                venta.dni
+                            } into g
+                            select new
+                            {
+                                id_venta = g.Key.id_venta,
+                                dni = g.Key.dni,
+                                total = g.Sum(x => x.detalle.precio * x.detalle.cantidad),
+                                estado = g.Key.estado
+                            };
+
+            return resultado.ToList();
+        }
+
+        public List<Modelo.Ventas> listarVentasEstado(int estado)
+        {
+            var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
+                      where v.estado == estado
+                      select v;
+            return vta.ToList();
+        }
+
 
         public object Cacl_total(int idVta)
         {
@@ -56,19 +92,13 @@ namespace Controladora
                              select dv.cantidad * dv.precio).Sum();
             return monto;
         }
-
+    
         //Listo las ventas de un determinado cliente, y mando por parametro su estado 
-        public System.Collections.IList ListarVentas(int state,int dni)
+        public List<Modelo.Ventas> ListarVentas(int state,int dni)
         {
-
                 var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
                           where v.estado == state && v.dni == dni
-                          select new
-                          {
-                              v.id_venta,
-                              v.fecha,
-                              v.estado
-                          };
+                          select v;
             return vta.ToList();            
         }
 
@@ -102,7 +132,7 @@ namespace Controladora
             return pago.ToList();
         }
 
-        private void cambiarEStado(int id_venta,int estado)
+        public void cambiarEStado(int id_venta,int estado)
         {
             //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado
             Modelo.Ventas vta= Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
@@ -110,17 +140,6 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;
             Modelo.Contexto.Obtener_instancia().SaveChanges();
 
-        }
-
-        public void pagar(int id_venta)
-        {
-            Modelo.Pagos pago = new Modelo.Pagos();
-            pago.monto = Convert.ToDecimal(Cacl_total(id_venta));
-            pago.id_venta = id_venta;
-            pago.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-            Modelo.Contexto.Obtener_instancia().Pagos.Add(pago);
-            Modelo.Contexto.Obtener_instancia().SaveChanges();
-            cambiarEStado(id_venta,4);
         }
 
         private void updateMonto(int idcc,decimal monto,double days)
