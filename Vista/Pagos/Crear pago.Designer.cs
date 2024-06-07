@@ -362,6 +362,7 @@
             this.txtPago.Size = new System.Drawing.Size(131, 29);
             this.txtPago.TabIndex = 55;
             this.txtPago.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
             // 
             // comboBoxmedio
             // 

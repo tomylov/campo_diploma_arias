@@ -37,10 +37,11 @@ namespace Vista
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarCuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new Bunifu.UI.WinForms.BunifuPanel();
-            this.gestionarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionarPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@ namespace Vista
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -106,10 +107,18 @@ namespace Vista
             this.crearVentaToolStripMenuItem.Text = "Gestionar ventas";
             this.crearVentaToolStripMenuItem.Click += new System.EventHandler(this.crearVentaToolStripMenuItem_Click);
             // 
+            // gestionarClientesToolStripMenuItem
+            // 
+            this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
+            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
+            this.gestionarClientesToolStripMenuItem.Click += new System.EventHandler(this.gestionarClientesToolStripMenuItem_Click);
+            // 
             // cuentaCorrienteToolStripMenuItem
             // 
             this.cuentaCorrienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarCuentaCorrienteToolStripMenuItem});
+            this.gestionarCuentaCorrienteToolStripMenuItem,
+            this.gestionarPagosToolStripMenuItem});
             this.cuentaCorrienteToolStripMenuItem.Name = "cuentaCorrienteToolStripMenuItem";
             this.cuentaCorrienteToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
             this.cuentaCorrienteToolStripMenuItem.Text = "Cuenta corriente";
@@ -135,12 +144,12 @@ namespace Vista
             this.panel.Size = new System.Drawing.Size(1200, 685);
             this.panel.TabIndex = 2;
             // 
-            // gestionarClientesToolStripMenuItem
+            // gestionarPagosToolStripMenuItem
             // 
-            this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
-            this.gestionarClientesToolStripMenuItem.Click += new System.EventHandler(this.gestionarClientesToolStripMenuItem_Click);
+            this.gestionarPagosToolStripMenuItem.Name = "gestionarPagosToolStripMenuItem";
+            this.gestionarPagosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.gestionarPagosToolStripMenuItem.Text = "Gestionar pagos";
+            this.gestionarPagosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPagosToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -174,5 +183,6 @@ namespace Vista
         private Bunifu.UI.WinForms.BunifuPanel panel;
         private System.Windows.Forms.ToolStripMenuItem crearVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarClientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionarPagosToolStripMenuItem;
     }
 }

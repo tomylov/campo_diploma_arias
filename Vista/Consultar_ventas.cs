@@ -66,6 +66,8 @@ namespace Vista
                 venta.dni = Convert.ToInt32(dataVentas.Rows[iRow].Cells[1].Value);
                 venta.estado = Convert.ToInt32(dataVentas.Rows[iRow].Cells[3].Value);
                 this.DialogResult = DialogResult.OK;
+                ventas = cVenta.ListarVentasEstado(2);
+                dataVentas.DataSource = ventas;
                 this.Close();
             }
 

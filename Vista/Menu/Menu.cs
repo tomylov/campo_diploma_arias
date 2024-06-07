@@ -92,5 +92,11 @@ namespace Vista
             Form form = Gestionar_clientes.Obtener_instancia();
             form.ShowDialog();
         }
+
+        private void gestionarPagosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Gestionar_pagos.Obtener_instancia();
+            form.ShowDialog();
+        }
     }
 }

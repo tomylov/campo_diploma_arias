@@ -197,6 +197,12 @@
     <Compile Include="Pagos\Crear pago.Designer.cs">
       <DependentUpon>Crear pago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pagos\Gestionar pagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos\Gestionar pagos.Designer.cs">
+      <DependentUpon>Gestionar pagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="ventas\Consultar venta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pagos\Crear pago.resx">
       <DependentUpon>Crear pago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\Gestionar pagos.resx">
+      <DependentUpon>Gestionar pagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ventas\Consultar venta.resx">
       <DependentUpon>Consultar venta.cs</DependentUpon>

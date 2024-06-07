@@ -19,6 +19,11 @@ namespace Controladora
             return pago;
         }
 
+        public List<Modelo.Pagos> ListarPagos()
+        {
+            return Modelo.Contexto.Obtener_instancia().Pagos.ToList();
+        }
+
         public void agregarPago(Modelo.Pagos pago)
         {
             Modelo.Contexto.Obtener_instancia().Pagos.Add(pago);
