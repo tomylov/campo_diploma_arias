@@ -27,11 +27,11 @@ namespace Vista.Clientes
         {
             if (instancia == null)
             {
-                instancia = new Gestionar_clientes();
+                instancia = new Gestionar_empleados();
             }
             if (instancia.IsDisposed)
             {
-                instancia = new Gestionar_clientes();
+                instancia = new Gestionar_empleados();
             }
             instancia.BringToFront();
             return instancia;
@@ -53,14 +53,14 @@ namespace Vista.Clientes
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            Form ventas = modal_clientes.Obtener_instancia(0);
+            Form ventas = detalle_empleados.Obtener_instancia(0);
             ventas.Show();
             filtrar();
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            Form form = modal_clientes.Obtener_instancia(dni);
+            Form form = detalle_empleados.Obtener_instancia(dni);
             form.Show();
             filtrar();
         }

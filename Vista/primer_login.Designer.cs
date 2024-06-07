@@ -1,7 +1,7 @@
 ﻿
 namespace Vista
 {
-    partial class Form1
+    partial class primer_login
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@ namespace Vista
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(primer_login));
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -42,8 +42,8 @@ namespace Vista
             this.user = new Bunifu.UI.WinForms.BunifuTextBox();
             this.password = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuButton21 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // user
@@ -54,7 +54,7 @@ namespace Vista
             this.user.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.user.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.user.AutoSizeHeight = true;
-            this.user.BackColor = System.Drawing.Color.Transparent;
+            this.user.BackColor = System.Drawing.Color.White;
             this.user.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("user.BackgroundImage")));
             this.user.BorderColorActive = System.Drawing.Color.DodgerBlue;
             this.user.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -74,7 +74,7 @@ namespace Vista
             this.user.IconRight = null;
             this.user.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.user.Lines = new string[0];
-            this.user.Location = new System.Drawing.Point(276, 90);
+            this.user.Location = new System.Drawing.Point(74, 57);
             this.user.MaxLength = 32767;
             this.user.MinimumSize = new System.Drawing.Size(1, 1);
             this.user.Modified = false;
@@ -103,21 +103,21 @@ namespace Vista
             this.user.Padding = new System.Windows.Forms.Padding(3);
             this.user.PasswordChar = '\0';
             this.user.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.user.PlaceholderText = "Nombre";
+            this.user.PlaceholderText = "Nueva contraseña";
             this.user.ReadOnly = false;
             this.user.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.user.SelectedText = "";
             this.user.SelectionLength = 0;
             this.user.SelectionStart = 0;
             this.user.ShortcutsEnabled = true;
-            this.user.Size = new System.Drawing.Size(312, 39);
+            this.user.Size = new System.Drawing.Size(445, 39);
             this.user.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.user.TabIndex = 0;
             this.user.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.user.TextMarginBottom = 0;
             this.user.TextMarginLeft = 3;
             this.user.TextMarginTop = 1;
-            this.user.TextPlaceholder = "Nombre";
+            this.user.TextPlaceholder = "Nueva contraseña";
             this.user.UseSystemPasswordChar = false;
             this.user.WordWrap = true;
             // 
@@ -149,7 +149,7 @@ namespace Vista
             this.password.IconRight = null;
             this.password.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.password.Lines = new string[0];
-            this.password.Location = new System.Drawing.Point(276, 174);
+            this.password.Location = new System.Drawing.Point(74, 126);
             this.password.MaxLength = 32767;
             this.password.MinimumSize = new System.Drawing.Size(1, 1);
             this.password.Modified = false;
@@ -185,7 +185,7 @@ namespace Vista
             this.password.SelectionLength = 0;
             this.password.SelectionStart = 0;
             this.password.ShortcutsEnabled = true;
-            this.password.Size = new System.Drawing.Size(312, 39);
+            this.password.Size = new System.Drawing.Size(445, 39);
             this.password.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.password.TabIndex = 1;
             this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -210,7 +210,7 @@ namespace Vista
             this.bunifuButton21.BackColor1 = System.Drawing.Color.Blue;
             this.bunifuButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton21.BackgroundImage")));
             this.bunifuButton21.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.bunifuButton21.ButtonText = "ingresar";
+            this.bunifuButton21.ButtonText = "Modificar";
             this.bunifuButton21.ButtonTextMarginLeft = 0;
             this.bunifuButton21.ColorContrastOnClick = 45;
             this.bunifuButton21.ColorContrastOnHover = 45;
@@ -243,7 +243,7 @@ namespace Vista
             this.bunifuButton21.IdleIconLeftImage = null;
             this.bunifuButton21.IdleIconRightImage = null;
             this.bunifuButton21.IndicateFocus = false;
-            this.bunifuButton21.Location = new System.Drawing.Point(258, 277);
+            this.bunifuButton21.Location = new System.Drawing.Point(220, 191);
             this.bunifuButton21.Name = "bunifuButton21";
             this.bunifuButton21.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton21.OnDisabledState.BorderRadius = 1;
@@ -286,36 +286,45 @@ namespace Vista
             this.bunifuButton21.UseDefaultRadiusAndThickness = true;
             this.bunifuButton21.Click += new System.EventHandler(this.bunifuButton21_Click);
             // 
-            // bunifuPictureBox1
+            // label8
             // 
-            this.bunifuPictureBox1.AllowFocused = false;
-            this.bunifuPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox1.AutoSizeHeight = true;
-            this.bunifuPictureBox1.BorderRadius = 0;
-            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
-            this.bunifuPictureBox1.IsCircle = false;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(41, 49);
-            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
-            this.bunifuPictureBox1.Size = new System.Drawing.Size(192, 192);
-            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuPictureBox1.TabIndex = 3;
-            this.bunifuPictureBox1.TabStop = false;
-            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(70, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 21);
+            this.label8.TabIndex = 51;
+            this.label8.Text = "Nueva contraseña:";
             // 
-            // Form1
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(70, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 21);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Repetir contraseña:";
+            // 
+            // primer_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(618, 329);
-            this.Controls.Add(this.bunifuPictureBox1);
+            this.ClientSize = new System.Drawing.Size(579, 253);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.bunifuButton21);
             this.Controls.Add(this.password);
             this.Controls.Add(this.user);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            this.Name = "primer_login";
+            this.Text = "primer_login";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,7 +333,8 @@ namespace Vista
         private Bunifu.UI.WinForms.BunifuTextBox user;
         private Bunifu.UI.WinForms.BunifuTextBox password;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton21;
-        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label1;
     }
 }
 

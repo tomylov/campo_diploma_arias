@@ -19,28 +19,28 @@ namespace Vista
     public partial class Consultar_venta : Form
     {
         private static Consultar_venta instancia;
-        public static Consultar_venta Obtener_instancia(int id_vta, int dni)
+        public static Consultar_venta Obtener_instancia(int id_vta, int id_usuario)
         {
             if (instancia == null)
-                instancia = new Consultar_venta(id_vta, dni);
+                instancia = new Consultar_venta(id_vta, id_usuario);
 
             if (instancia.IsDisposed)
-                instancia = new Consultar_venta(id_vta, dni);
+                instancia = new Consultar_venta(id_vta, id_usuario);
 
             instancia.BringToFront();
             return instancia;
         }
-        public Consultar_venta(int id_vta, int dni)
+        public Consultar_venta(int id_vta, int id_usuario)
         {
             InitializeComponent();
-            System.Collections.IList datosCli = Controladora.Cliente.Obtener_instancia().GetCliente(dni);
+            System.Collections.IList datosCli = Controladora.Cliente.Obtener_instancia().GetCliente(id_usuario);
             System.Collections.IList datosVta = Controladora.Venta.Obtener_instancia().ListarVentasId(id_vta);
             txtnombrecliente.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
             txtfecha.Text = Convert.ToString(datosVta[0].GetType().GetProperty("fecha").GetValue(datosVta[0], null));
             txtidvta.Text = Convert.ToString(datosVta[0].GetType().GetProperty("id_venta").GetValue(datosVta[0], null));
             //mail.Text = Convert.ToString(datosCli[0].GetType().GetProperty("email").GetValue(datosCli[0], null));
             txtestadovta.Text = Convert.ToString(datosVta[0].GetType().GetProperty("estado").GetValue(datosVta[0], null));
-            txtdoccliente.Text = Convert.ToString(datosCli[0].GetType().GetProperty("dni").GetValue(datosCli[0], null));
+            txtdoccliente.Text = Convert.ToString(datosCli[0].GetType().GetProperty("id_usuario").GetValue(datosCli[0], null));
             System.Collections.IList datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(id_vta);
             dataGridDetail.DataSource = datos;
         }

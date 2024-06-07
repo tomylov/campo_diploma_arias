@@ -17,7 +17,7 @@ namespace Vista
         private int indexCombo;
         private int id_vta;
         private int index;
-        private int dniParam;
+        private int id_usuarioParam;
         Modelo.Ventas venta;
 
         public static gestion_cc instancia;
@@ -42,10 +42,10 @@ namespace Vista
 
         private void open_cc_Click(object sender, EventArgs e)
         {
-            if (dni.Text.Length>0)
+            if (id_usuario.Text.Length>0)
             {
 
-                cuenta_corriente cc = new cuenta_corriente(Convert.ToInt32(dni.Text));
+                cuenta_corriente cc = new cuenta_corriente(Convert.ToInt32(id_usuario.Text));
                 cc.ShowDialog();
             }
         }
@@ -58,7 +58,7 @@ namespace Vista
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             venta = new Modelo.Ventas();
-            venta.dni = Convert.ToInt32(dataModelcc.Rows[index].Cells[2].Value);
+            venta.id_usuario = Convert.ToInt32(dataModelcc.Rows[index].Cells[2].Value);
             venta.id_venta = Convert.ToInt32(dataModelcc.Rows[index].Cells[0].Value);
             venta.estado = Convert.ToInt32(dataModelcc.Rows[index].Cells[3].Value);
             //Crear_pago crear_Pago = Crear_pago.Obtener_instancia(venta);

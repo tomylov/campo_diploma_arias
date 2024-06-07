@@ -134,7 +134,7 @@ namespace Controladora
 
         public void cambiarEStado(int id_venta,int estado)
         {
-            //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado
+            //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado 5=pagado con cuenta corriente
             Modelo.Ventas vta= Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
             vta.estado = estado;
             Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;

@@ -10,7 +10,7 @@ nombre varchar(60),
 email varchar(60),
 ra varchar(10),
 telefono varchar(20),
-estado int
+estado bit
 )
 
 create table Cuentas_Corrientes(
@@ -100,9 +100,11 @@ descripcion varchar(60))
 create table Usuarios(
 id_usuario int primary key identity,
 nombre varchar(60),
+dni varchar(15),
 apellido varchar(60),
 email varchar(60),
-clave varchar(60)
+clave varchar(60),
+estado bit
 )
 
 create table Grupos(

@@ -89,7 +89,7 @@ namespace Vista
 
         private void gestionarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Gestionar_clientes.Obtener_instancia();
+            Form form = Gestionar_empleados.Obtener_instancia();
             form.ShowDialog();
         }
 

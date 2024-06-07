@@ -15,7 +15,7 @@ namespace Vista.Pagos
     public partial class Crear_pago : Form
     {
         private static Crear_pago instancia;
-        private int dni;
+        private int id_usuario;
         private int id_vta;
         private int estado;
         //Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
@@ -47,11 +47,11 @@ namespace Vista.Pagos
             }
             else
             {
-                this.dni = (int)venta.dni;
+                this.id_usuario = (int)venta.id_usuario;
                 this.estado = (int)venta.estado;
                 this.id_vta = venta.id_venta;
                 buttonVenta.Visible = false;
-                cargarDatosCliente(dni);
+                cargarDatosCliente(id_usuario);
                 leerPago(id_vta, estado);
             }
             comboBoxmedio.Items.Add("Transferencia");
@@ -69,10 +69,10 @@ namespace Vista.Pagos
             Consultar_ventas conVta = Consultar_ventas.Obtener_instancia();
             if (conVta.ShowDialog() == DialogResult.OK)
             {
-                dni = (int)conVta.venta.dni;
+                id_usuario = (int)conVta.venta.id_usuario;
                 id_vta = conVta.venta.id_venta;
                 estado = (int)conVta.venta.estado;
-                cargarDatosCliente(dni);
+                cargarDatosCliente(id_usuario);
                 leerPago(id_vta, estado);
                 buttonVenta.Visible = false;
             }
@@ -86,7 +86,7 @@ namespace Vista.Pagos
             {
                 if (estado == 3 || estado == 2)
                 {
-                    mCuentaCorriente = cCuentaCorriente.Getcc(dni).FirstOrDefault();
+                    mCuentaCorriente = cCuentaCorriente.Getcc(id_usuario).FirstOrDefault();
                     mCuentaCorriente.saldo -= saldo;
                     cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
                 }
@@ -126,11 +126,11 @@ namespace Vista.Pagos
            }
         }
 
-        private void cargarDatosCliente(int dni)
+        private void cargarDatosCliente(int id_usuario)
         {
             mCliente = new Modelo.Clientes();
-            mCliente = cCliente.GetCliente(dni).FirstOrDefault();
-            txtdni.Text = mCliente.dni.ToString();
+            mCliente = cCliente.GetCliente(id_usuario).FirstOrDefault();
+            txtid_usuario.Text = mCliente.id_usuario.ToString();
             txtnombre.Text = mCliente.nombre;
             txtemail.Text = mCliente.email;
             txtRs.Text = mCliente.ra;

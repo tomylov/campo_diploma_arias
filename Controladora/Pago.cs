@@ -38,7 +38,7 @@ namespace Controladora
 
         public void eliminarPago(Modelo.Pagos pago)
         {
-            Modelo.Contexto.Obtener_instancia().Entry(pago).State = System.Data.Entity.EntityState.Modified;
+            Modelo.Contexto.Obtener_instancia().Pagos.Remove(pago);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
     }
