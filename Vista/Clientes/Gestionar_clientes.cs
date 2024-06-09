@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Vista.Clientes
 {
-    public partial class Gestionar_clientes : Form
+    public partial class Gestionar_empleados : Form
     {
-        private static Gestionar_clientes instancia;
+        private static Gestionar_empleados instancia;
         Controladora.Cliente cCliente = Controladora.Cliente.Obtener_instancia();
         private List<Modelo.Clientes> clientes;
         private List<Modelo.Clientes> clientesFiltrados;
@@ -23,7 +23,7 @@ namespace Vista.Clientes
         private int index;
         private int estado = 1;
 
-        public static Gestionar_clientes Obtener_instancia()
+        public static Gestionar_empleados Obtener_instancia()
         {
             if (instancia == null)
             {
@@ -37,7 +37,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public Gestionar_clientes()
+        public Gestionar_empleados()
         {
             InitializeComponent();
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();

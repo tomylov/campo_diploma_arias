@@ -74,7 +74,7 @@ namespace Vista
             this.user.IconRight = null;
             this.user.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.user.Lines = new string[0];
-            this.user.Location = new System.Drawing.Point(308, 90);
+            this.user.Location = new System.Drawing.Point(276, 90);
             this.user.MaxLength = 32767;
             this.user.MinimumSize = new System.Drawing.Size(1, 1);
             this.user.Modified = false;
@@ -110,7 +110,7 @@ namespace Vista
             this.user.SelectionLength = 0;
             this.user.SelectionStart = 0;
             this.user.ShortcutsEnabled = true;
-            this.user.Size = new System.Drawing.Size(260, 39);
+            this.user.Size = new System.Drawing.Size(312, 39);
             this.user.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.user.TabIndex = 0;
             this.user.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -149,7 +149,7 @@ namespace Vista
             this.password.IconRight = null;
             this.password.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.password.Lines = new string[0];
-            this.password.Location = new System.Drawing.Point(308, 174);
+            this.password.Location = new System.Drawing.Point(276, 174);
             this.password.MaxLength = 32767;
             this.password.MinimumSize = new System.Drawing.Size(1, 1);
             this.password.Modified = false;
@@ -185,7 +185,7 @@ namespace Vista
             this.password.SelectionLength = 0;
             this.password.SelectionStart = 0;
             this.password.ShortcutsEnabled = true;
-            this.password.Size = new System.Drawing.Size(260, 39);
+            this.password.Size = new System.Drawing.Size(312, 39);
             this.password.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.password.TabIndex = 1;
             this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -294,7 +294,7 @@ namespace Vista
             this.bunifuPictureBox1.BorderRadius = 0;
             this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
             this.bunifuPictureBox1.IsCircle = false;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(47, 52);
+            this.bunifuPictureBox1.Location = new System.Drawing.Point(41, 49);
             this.bunifuPictureBox1.Name = "bunifuPictureBox1";
             this.bunifuPictureBox1.Size = new System.Drawing.Size(192, 192);
             this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -307,7 +307,7 @@ namespace Vista
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(618, 371);
+            this.ClientSize = new System.Drawing.Size(618, 329);
             this.Controls.Add(this.bunifuPictureBox1);
             this.Controls.Add(this.bunifuButton21);
             this.Controls.Add(this.password);

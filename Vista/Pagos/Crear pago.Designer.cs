@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.lblSaldo = new Bunifu.UI.WinForms.BunifuLabel();
-            this.buttonCliente = new System.Windows.Forms.Button();
+            this.buttonVenta = new System.Windows.Forms.Button();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,16 +47,16 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.dataClientes = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.dataVtas = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.bunifuGroupBox3 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPago = new System.Windows.Forms.TextBox();
             this.comboBoxmedio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.buttonPagar = new System.Windows.Forms.Button();
             this.bunifuGroupBox1.SuspendLayout();
             this.bunifuGroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).BeginInit();
             this.bunifuGroupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,7 @@
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
             this.bunifuGroupBox1.Controls.Add(this.lblSaldo);
-            this.bunifuGroupBox1.Controls.Add(this.buttonCliente);
+            this.bunifuGroupBox1.Controls.Add(this.buttonVenta);
             this.bunifuGroupBox1.Controls.Add(this.bunifuLabel4);
             this.bunifuGroupBox1.Controls.Add(this.txtemail);
             this.bunifuGroupBox1.Controls.Add(this.label2);
@@ -109,22 +109,22 @@
             this.lblSaldo.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblSaldo.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // buttonCliente
+            // buttonVenta
             // 
-            this.buttonCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(55)))), ((int)(((byte)(235)))));
-            this.buttonCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.buttonCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonCliente.ForeColor = System.Drawing.Color.White;
-            this.buttonCliente.Location = new System.Drawing.Point(948, 115);
-            this.buttonCliente.Name = "buttonCliente";
-            this.buttonCliente.Size = new System.Drawing.Size(170, 35);
-            this.buttonCliente.TabIndex = 54;
-            this.buttonCliente.Text = "Buscar cliente";
-            this.buttonCliente.UseVisualStyleBackColor = false;
-            this.buttonCliente.Click += new System.EventHandler(this.buttonCliente_Click);
+            this.buttonVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(55)))), ((int)(((byte)(235)))));
+            this.buttonVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.buttonVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVenta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonVenta.ForeColor = System.Drawing.Color.White;
+            this.buttonVenta.Location = new System.Drawing.Point(813, 119);
+            this.buttonVenta.Name = "buttonVenta";
+            this.buttonVenta.Size = new System.Drawing.Size(135, 35);
+            this.buttonVenta.TabIndex = 54;
+            this.buttonVenta.Text = "Buscar venta";
+            this.buttonVenta.UseVisualStyleBackColor = false;
+            this.buttonVenta.Click += new System.EventHandler(this.buttonCliente_Click);
             // 
             // bunifuLabel4
             // 
@@ -254,7 +254,7 @@
             this.bunifuGroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
             this.bunifuGroupBox2.BorderRadius = 1;
             this.bunifuGroupBox2.BorderThickness = 1;
-            this.bunifuGroupBox2.Controls.Add(this.dataClientes);
+            this.bunifuGroupBox2.Controls.Add(this.dataVtas);
             this.bunifuGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bunifuGroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bunifuGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
@@ -266,20 +266,20 @@
             this.bunifuGroupBox2.Size = new System.Drawing.Size(1163, 376);
             this.bunifuGroupBox2.TabIndex = 3;
             this.bunifuGroupBox2.TabStop = false;
-            this.bunifuGroupBox2.Text = "Datos venta";
+            this.bunifuGroupBox2.Text = "Listado de ventas en estado pendiente";
             // 
-            // dataClientes
+            // dataVtas
             // 
-            this.dataClientes.AllowCustomTheming = false;
-            this.dataClientes.AllowUserToAddRows = false;
-            this.dataClientes.AllowUserToDeleteRows = false;
+            this.dataVtas.AllowCustomTheming = false;
+            this.dataVtas.AllowUserToAddRows = false;
+            this.dataVtas.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataClientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataVtas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataVtas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataVtas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataVtas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataVtas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
@@ -287,26 +287,26 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataClientes.ColumnHeadersHeight = 40;
-            this.dataClientes.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.dataClientes.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dataClientes.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataClientes.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dataClientes.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataClientes.CurrentTheme.BackColor = System.Drawing.Color.White;
-            this.dataClientes.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.dataClientes.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.dataClientes.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            this.dataClientes.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataClientes.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            this.dataClientes.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dataClientes.CurrentTheme.Name = null;
-            this.dataClientes.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dataClientes.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.dataClientes.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataClientes.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.dataClientes.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataVtas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataVtas.ColumnHeadersHeight = 40;
+            this.dataVtas.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.dataVtas.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataVtas.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataVtas.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataVtas.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataVtas.CurrentTheme.BackColor = System.Drawing.Color.White;
+            this.dataVtas.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataVtas.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.dataVtas.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            this.dataVtas.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dataVtas.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            this.dataVtas.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dataVtas.CurrentTheme.Name = null;
+            this.dataVtas.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dataVtas.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dataVtas.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dataVtas.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.dataVtas.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
@@ -314,21 +314,20 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataClientes.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataClientes.EnableHeadersVisualStyles = false;
-            this.dataClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.dataClientes.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataClientes.HeaderBgColor = System.Drawing.Color.Empty;
-            this.dataClientes.HeaderForeColor = System.Drawing.Color.White;
-            this.dataClientes.Location = new System.Drawing.Point(26, 22);
-            this.dataClientes.Name = "dataClientes";
-            this.dataClientes.ReadOnly = true;
-            this.dataClientes.RowHeadersVisible = false;
-            this.dataClientes.RowTemplate.Height = 40;
-            this.dataClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataClientes.Size = new System.Drawing.Size(1103, 338);
-            this.dataClientes.TabIndex = 0;
-            this.dataClientes.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dataVtas.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataVtas.EnableHeadersVisualStyles = false;
+            this.dataVtas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.dataVtas.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataVtas.HeaderBgColor = System.Drawing.Color.Empty;
+            this.dataVtas.HeaderForeColor = System.Drawing.Color.White;
+            this.dataVtas.Location = new System.Drawing.Point(26, 22);
+            this.dataVtas.Name = "dataVtas";
+            this.dataVtas.RowHeadersVisible = false;
+            this.dataVtas.RowTemplate.Height = 40;
+            this.dataVtas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataVtas.Size = new System.Drawing.Size(1103, 338);
+            this.dataVtas.TabIndex = 0;
+            this.dataVtas.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
             // bunifuGroupBox3
             // 
@@ -336,7 +335,7 @@
             this.bunifuGroupBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
             this.bunifuGroupBox3.BorderRadius = 1;
             this.bunifuGroupBox3.BorderThickness = 1;
-            this.bunifuGroupBox3.Controls.Add(this.textBox1);
+            this.bunifuGroupBox3.Controls.Add(this.txtPago);
             this.bunifuGroupBox3.Controls.Add(this.comboBoxmedio);
             this.bunifuGroupBox3.Controls.Add(this.label1);
             this.bunifuGroupBox3.Controls.Add(this.buttonSalir);
@@ -354,15 +353,16 @@
             this.bunifuGroupBox3.TabStop = false;
             this.bunifuGroupBox3.Text = "Botones";
             // 
-            // textBox1
+            // txtPago
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox1.Location = new System.Drawing.Point(311, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(131, 29);
-            this.textBox1.TabIndex = 55;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtPago.Enabled = false;
+            this.txtPago.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPago.Location = new System.Drawing.Point(311, 42);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(131, 29);
+            this.txtPago.TabIndex = 55;
+            this.txtPago.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
             // 
             // comboBoxmedio
             // 
@@ -374,6 +374,7 @@
             this.comboBoxmedio.Name = "comboBoxmedio";
             this.comboBoxmedio.Size = new System.Drawing.Size(158, 29);
             this.comboBoxmedio.TabIndex = 57;
+            this.comboBoxmedio.SelectedIndexChanged += new System.EventHandler(this.comboBoxmedio_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -416,6 +417,7 @@
             this.buttonPagar.TabIndex = 54;
             this.buttonPagar.Text = "Pagar";
             this.buttonPagar.UseVisualStyleBackColor = true;
+            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
             // 
             // Crear_pago
             // 
@@ -430,7 +432,7 @@
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
             this.bunifuGroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).EndInit();
             this.bunifuGroupBox3.ResumeLayout(false);
             this.bunifuGroupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -442,8 +444,6 @@
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtRs;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTEL;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtdni;
@@ -451,15 +451,17 @@
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label5;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox2;
-        private Bunifu.UI.WinForms.BunifuDataGridView dataClientes;
+        private Bunifu.UI.WinForms.BunifuDataGridView dataVtas;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox3;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Button buttonPagar;
-        private System.Windows.Forms.Button buttonCliente;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonVenta;
+        private System.Windows.Forms.TextBox txtPago;
         private System.Windows.Forms.ComboBox comboBoxmedio;
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuLabel lblSaldo;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
+        private System.Windows.Forms.TextBox txtRs;
+        private System.Windows.Forms.Label label9;
     }
 }

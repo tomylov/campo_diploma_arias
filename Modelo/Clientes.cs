@@ -16,8 +16,9 @@ namespace Modelo
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int dni { get; set; }
+        public int id_cliente { get; set; }
+
+        public int? dni { get; set; }
 
         [StringLength(60)]
         public string nombre { get; set; }
@@ -30,7 +31,8 @@ namespace Modelo
 
         [StringLength(20)]
         public string telefono { get; set; }
-        public int estado { get; set; }
+
+        public bool? estado { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cuentas_Corrientes> Cuentas_Corrientes { get; set; }

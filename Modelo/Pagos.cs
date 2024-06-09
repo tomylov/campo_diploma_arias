@@ -17,6 +17,14 @@ namespace Modelo
 
         public int? id_venta { get; set; }
 
+        public int? id_med_pago { get; set; }
+
+        public int? id_comp { get; set; }
+
+        public virtual Comprobantes Comprobantes { get; set; }
+
+        public virtual Medio_Pagos Medio_Pagos { get; set; }
+
         public virtual Ventas Ventas { get; set; }
     }
 }

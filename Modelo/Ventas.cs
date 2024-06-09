@@ -12,7 +12,6 @@ namespace Modelo
         public Ventas()
         {
             Detalle_ventas = new HashSet<Detalle_ventas>();
-            Facturas = new HashSet<Facturas>();
             Pagos = new HashSet<Pagos>();
         }
 
@@ -21,17 +20,20 @@ namespace Modelo
 
         public DateTime? fecha { get; set; }
 
-        public int? estado { get; set; }
+        public int? id_estado { get; set; }
 
-        public int? dni { get; set; }
+        public int? id_cliente { get; set; }
+
+        public int? id_comp { get; set; }
 
         public virtual Clientes Clientes { get; set; }
+
+        public virtual Comprobantes Comprobantes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detalle_ventas> Detalle_ventas { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual Estado_venta Estado_venta { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pagos> Pagos { get; set; }

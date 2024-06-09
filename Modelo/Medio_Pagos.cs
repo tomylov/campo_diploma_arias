@@ -11,7 +11,7 @@ namespace Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Medio_Pagos()
         {
-            Facturas = new HashSet<Facturas>();
+            Pagos = new HashSet<Pagos>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace Modelo
         public string descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<Pagos> Pagos { get; set; }
     }
 }

@@ -6,7 +6,40 @@ using System.Threading.Tasks;
 
 namespace Controladora
 {
-    class Pago
+    public class Pago
     {
+        private static Pago pago;
+
+        public static Pago Obtener_instancia()
+        {
+            if (pago == null)
+            {
+                pago = new Pago();
+            }
+            return pago;
+        }
+
+        public List<Modelo.Pagos> ListarPagos()
+        {
+            return Modelo.Contexto.Obtener_instancia().Pagos.ToList();
+        }
+
+        public void agregarPago(Modelo.Pagos pago)
+        {
+            Modelo.Contexto.Obtener_instancia().Pagos.Add(pago);
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
+
+        public void modificarPago(Modelo.Pagos pago)
+        {
+            Modelo.Contexto.Obtener_instancia().Entry(pago).State = System.Data.Entity.EntityState.Modified;
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
+
+        public void eliminarPago(Modelo.Pagos pago)
+        {
+            Modelo.Contexto.Obtener_instancia().Pagos.Remove(pago);
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
     }
 }
