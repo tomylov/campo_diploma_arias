@@ -6,21 +6,25 @@ namespace Modelo
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Tipo_Facturas
+    public partial class Formularios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tipo_Facturas()
+        public Formularios()
         {
-            Facturas = new HashSet<Facturas>();
+            Permisos = new HashSet<Permisos>();
         }
 
         [Key]
-        public int id_tipo_fact { get; set; }
+        public int id_formulario { get; set; }
 
-        [StringLength(60)]
-        public string descripcion { get; set; }
+        [StringLength(30)]
+        public string nombre { get; set; }
+
+        public int? id_modulo { get; set; }
+
+        public virtual Modulos Modulos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<Permisos> Permisos { get; set; }
     }
 }

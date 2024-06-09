@@ -4,12 +4,12 @@ GO
 USE campo_diploma
 
 create table Clientes(
---id_cliente int primary key identity,
-dni int primary key, 
+id_cliente int primary key identity,
+dni int unique, 
 nombre varchar(60),
 email varchar(60),
 ra varchar(10),
-telefono varchar(20),
+telefono varchar(20),ve
 estado bit
 )
 
@@ -18,14 +18,6 @@ id_cc int primary key identity,
 saldo decimal(15,2),
 plazo datetime,
 id_cliente int references Clientes(id_cliente)
-)
-
-create table Ventas(
-id_venta int primary key identity, 
-fecha datetime,
-estado int references Estado_venta(id_estado),
-id_cliente int references Clientes(id_cliente),
-id_comp int references Comprobantes(id_comp)
 )
 
 create table Estado_venta(
@@ -40,6 +32,24 @@ stock int,
 precio decimal(15,2)
 )
 
+create table Tipo_Comprobantes(
+id_tipo int primary key,
+descripcion varchar(60)
+)
+
+Create table Comprobantes(
+id_comp int primary key identity,
+id_tipo int references Tipo_Comprobantes(id_tipo),
+numero int)
+
+create table Ventas(
+id_venta int primary key identity, 
+fecha datetime,
+id_estado int references Estado_venta(id_estado),
+id_cliente int references Clientes(id_cliente),
+id_comp int references Comprobantes(id_comp)
+)
+
 create table Detalle_ventas(
 id_detalle int primary key identity, 
 cantidad int,
@@ -48,10 +58,6 @@ id_prod int references Productos(id_prod),
 id_venta int references Ventas(id_venta)
 )
 
-Create table Comprobantes(
-id_comp int primary key identity,
-tipo int,
-numero int)
 
 create table Movimientos(
 id_mov int primary key identity, 
@@ -67,13 +73,13 @@ id_tipo_mov int primary key identity,
 descripcion varchar(10)
 )
 
-/* create table Notas_creditos(
+create table Notas_creditos(
 numero int primary key identity,
 monto decimal(15,2),
 fecha datetime,
 id_cc int references Cuentas_Corrientes(id_cc),
 id_comp int references Comprobantes(id_comp)
-) */
+)
 
 create table Notas_debitos(
 numero int primary key identity,
@@ -82,6 +88,9 @@ fecha datetime,
 id_cc int references Cuentas_Corrientes(id_cc),
 id_comp int references Comprobantes(id_comp)
 )
+create table Medio_Pagos(
+id_med_pago int primary key identity,
+descripcion varchar(60))
 
 create table Pagos(
 numero int primary key identity,
@@ -92,9 +101,6 @@ id_med_pago int references Medio_Pagos(id_med_pago),
 id_comp int references Comprobantes(id_comp)
 )
 
-create table Medio_Pagos(
-id_med_pago int primary key identity,
-descripcion varchar(60))
 
 --seguridad
 create table Usuarios(

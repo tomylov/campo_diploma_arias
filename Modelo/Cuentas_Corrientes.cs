@@ -12,6 +12,7 @@ namespace Modelo
         public Cuentas_Corrientes()
         {
             Movimientos = new HashSet<Movimientos>();
+            Notas_creditos = new HashSet<Notas_creditos>();
             Notas_debitos = new HashSet<Notas_debitos>();
         }
 
@@ -22,12 +23,15 @@ namespace Modelo
 
         public DateTime? plazo { get; set; }
 
-        public int? dni { get; set; }
+        public int? id_cliente { get; set; }
 
         public virtual Clientes Clientes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Movimientos> Movimientos { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Notas_creditos> Notas_creditos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notas_debitos> Notas_debitos { get; set; }

@@ -6,38 +6,39 @@ namespace Modelo
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Clientes
+    public partial class Usuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Clientes()
+        public Usuarios()
         {
-            Cuentas_Corrientes = new HashSet<Cuentas_Corrientes>();
-            Ventas = new HashSet<Ventas>();
+            Permisos = new HashSet<Permisos>();
+            Grupos = new HashSet<Grupos>();
         }
 
         [Key]
-        public int id_cliente { get; set; }
-
-        public int? dni { get; set; }
+        public int id_usuario { get; set; }
 
         [StringLength(60)]
         public string nombre { get; set; }
 
+        [StringLength(15)]
+        public string dni { get; set; }
+
+        [StringLength(60)]
+        public string apellido { get; set; }
+
         [StringLength(60)]
         public string email { get; set; }
 
-        [StringLength(10)]
-        public string ra { get; set; }
-
-        [StringLength(20)]
-        public string telefono { get; set; }
+        [StringLength(60)]
+        public string clave { get; set; }
 
         public bool? estado { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cuentas_Corrientes> Cuentas_Corrientes { get; set; }
+        public virtual ICollection<Permisos> Permisos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ventas> Ventas { get; set; }
+        public virtual ICollection<Grupos> Grupos { get; set; }
     }
 }

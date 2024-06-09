@@ -6,21 +6,25 @@ namespace Modelo
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Medio_Pagos
+    public partial class Grupos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Medio_Pagos()
+        public Grupos()
         {
-            Pagos = new HashSet<Pagos>();
+            Permisos = new HashSet<Permisos>();
+            Usuarios = new HashSet<Usuarios>();
         }
 
         [Key]
-        public int id_med_pago { get; set; }
+        public int id_grupo { get; set; }
 
         [StringLength(60)]
-        public string descripcion { get; set; }
+        public string grupo_nombre { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pagos> Pagos { get; set; }
+        public virtual ICollection<Permisos> Permisos { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

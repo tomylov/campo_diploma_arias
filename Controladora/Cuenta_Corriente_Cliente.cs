@@ -22,11 +22,11 @@ namespace Controladora
         public System.Collections.IList GetCuentaCorriente(int dni)
         {
             var vta = from cc in Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes
-                      join cl in Modelo.Contexto.Obtener_instancia().Clientes on cc.dni equals cl.dni
-                      where cc.dni == dni
+                      join cl in Modelo.Contexto.Obtener_instancia().Clientes on cc.id_cliente equals cl.id_cliente
+                      where cl.dni == dni
                       select new
                       {
-                          Dni = cc.dni,
+                          Dni = cl.dni,
                           Name = cl.nombre,
                           Telefono = cl.telefono,
                           Email = cl.email,
@@ -37,10 +37,10 @@ namespace Controladora
             return vta.ToList();
         }
 
-        public List<Modelo.Cuentas_Corrientes> Getcc(int dni)
+        public List<Modelo.Cuentas_Corrientes> Getcc(int id_cliente)
         {
             var vta = from cc in Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes
-                      where cc.dni == dni
+                      where cc.id_cliente == id_cliente
                       select cc;
             return vta.ToList();
         }

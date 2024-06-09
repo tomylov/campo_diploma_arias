@@ -23,12 +23,12 @@ namespace Controladora
             return venta;
         }
 
-        public void SetVentas(int dni)
+        public void SetVentas(int id_venta)
         {
             Modelo.Ventas vta = new Modelo.Ventas();
             vta.fecha= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-            vta.dni = dni;
-            vta.estado = 1;
+            vta.id_venta = id_venta;
+            vta.id_estado = 1;
             Modelo.Contexto.Obtener_instancia().Ventas.Add(vta);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
@@ -36,16 +36,16 @@ namespace Controladora
         public System.Collections.IList ListarVentasCC(int estado)
         {
             var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
-                      join cc in Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes on v.dni equals cc.dni
-                      join cl in Modelo.Contexto.Obtener_instancia().Clientes on v.dni equals cl.dni
-                      where v.estado == estado
+                      join cl in Modelo.Contexto.Obtener_instancia().Clientes on v.id_cliente equals cl.id_cliente
+                      join cc in Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes on v.id_cliente equals cc.id_cliente
+                      where v.id_estado == estado
                       orderby cc.plazo
                       select new
                       {
                           v.id_venta,
                           v.fecha,
-                          v.dni,
-                          v.estado,
+                          cl.dni,
+                          v.id_estado,
                           cl.nombre,
                           cl.telefono,
                           cc.plazo
@@ -53,33 +53,35 @@ namespace Controladora
             return vta.ToList();
         }
 
-        public IEnumerable ListarVentasEstado(int estado)
+        public IEnumerable ListarVentasEstado(int id_estado)
         {
             var resultado = from venta in Modelo.Contexto.Obtener_instancia().Ventas
                             join detalle in Modelo.Contexto.Obtener_instancia().Detalle_ventas
                             on venta.id_venta equals detalle.id_venta
-                            where venta.estado == estado
+                            join cliente in Modelo.Contexto.Obtener_instancia().Clientes
+                            on venta.id_cliente equals cliente.id_cliente
+                            where venta.id_estado == id_estado
                             group new { venta, detalle } by new
                             {
                                 venta.id_venta,
-                                venta.estado,
-                                venta.dni
+                                venta.id_estado,
+                                cliente.dni
                             } into g
                             select new
                             {
                                 id_venta = g.Key.id_venta,
                                 dni = g.Key.dni,
                                 total = g.Sum(x => x.detalle.precio * x.detalle.cantidad),
-                                estado = g.Key.estado
+                                estado = g.Key.id_estado
                             };
 
             return resultado.ToList();
         }
 
-        public List<Modelo.Ventas> listarVentasEstado(int estado)
+        public List<Modelo.Ventas> listarVentasEstado(int id_estado)
         {
             var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
-                      where v.estado == estado
+                      where v.id_estado == id_estado
                       select v;
             return vta.ToList();
         }
@@ -94,10 +96,10 @@ namespace Controladora
         }
     
         //Listo las ventas de un determinado cliente, y mando por parametro su estado 
-        public List<Modelo.Ventas> ListarVentas(int state,int dni)
+        public List<Modelo.Ventas> ListarVentas(int state,int id_venta)
         {
                 var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
-                          where v.estado == state && v.dni == dni
+                          where v.id_estado == state && v.id_venta == id_venta
                           select v;
             return vta.ToList();            
         }
@@ -111,22 +113,22 @@ namespace Controladora
                       {
                           v.id_venta,
                           v.fecha,
-                          v.estado
+                          v.id_estado
                       };
             return vta.ToList();
         }
 
-        public System.Collections.IList ListarPagos(int dni)
+        public System.Collections.IList ListarPagos(int id_venta)
         {
 
             var pago = from p in Modelo.Contexto.Obtener_instancia().Pagos
                             join v in Modelo.Contexto.Obtener_instancia().Ventas on p.id_venta equals v.id_venta
-                            where v.dni == dni
-                            select new
+                            where v.id_venta == id_venta
+                       select new
                             {
                                 numero_venta = v.id_venta,
                                 p.fecha,
-                                v.estado,
+                                v.id_estado,
                                 monto = p.monto
                             };
             return pago.ToList();
@@ -136,7 +138,7 @@ namespace Controladora
         {
             //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado 5=pagado con cuenta corriente
             Modelo.Ventas vta= Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
-            vta.estado = estado;
+            vta.id_estado = estado;
             Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;
             Modelo.Contexto.Obtener_instancia().SaveChanges();
 
@@ -151,11 +153,11 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
 
-        public void ventaCC(int id_venta,int dni)
+        public void ventaCC(int id_venta,int id_cliente)
         {
             //Comprobantes: tipo 1: ventas - tipo 2: Pagos - tipo 3: nota de debito
             Modelo.Comprobantes comprobante = new Modelo.Comprobantes();
-            comprobante.tipo = 1;
+            comprobante.id_tipo = 1;
             comprobante.numero = id_venta;
             Modelo.Contexto.Obtener_instancia().Comprobantes.Add(comprobante);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
@@ -166,7 +168,7 @@ namespace Controladora
             movimiento.tipo = 1;
             movimiento.id_comp = Modelo.Contexto.Obtener_instancia().Comprobantes.Max(c => c.id_comp);
             movimiento.id_cc = Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes
-                                                        .Where(cc => cc.dni == dni)
+                                                        .Where(cc => cc.id_cliente == id_cliente)
                                                         .Select(cc=>cc.id_cc)
                                                         .FirstOrDefault();
             movimiento.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));

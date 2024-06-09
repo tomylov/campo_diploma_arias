@@ -6,21 +6,22 @@ namespace Modelo
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Medio_Pagos
+    public partial class Tipo_Comprobantes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Medio_Pagos()
+        public Tipo_Comprobantes()
         {
-            Pagos = new HashSet<Pagos>();
+            Comprobantes = new HashSet<Comprobantes>();
         }
 
         [Key]
-        public int id_med_pago { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id_tipo { get; set; }
 
         [StringLength(60)]
         public string descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pagos> Pagos { get; set; }
+        public virtual ICollection<Comprobantes> Comprobantes { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace Controladora
 
         public void eliminarCliente(Modelo.Clientes cliente)
         {
-            cliente.estado = 0;
+            cliente.estado = false;
             Modelo.Contexto.Obtener_instancia().Entry(cliente).State = System.Data.Entity.EntityState.Modified;
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
