@@ -243,7 +243,6 @@
             this.dataGridProductos.EnableHeadersVisualStyles = false;
             this.dataGridProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataGridProductos.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataGridProductos.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataGridProductos.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridProductos.Location = new System.Drawing.Point(5, 3);
             this.dataGridProductos.Name = "dataGridProductos";

@@ -15,7 +15,7 @@ namespace Vista.Pagos
     public partial class Crear_pago : Form
     {
         private static Crear_pago instancia;
-        private int id_usuario;
+        private int id_cliente;
         private int id_vta;
         private int estado;
         //Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
@@ -47,11 +47,11 @@ namespace Vista.Pagos
             }
             else
             {
-                this.id_usuario = (int)venta.id_usuario;
-                this.estado = (int)venta.estado;
+                this.id_cliente = (int)venta.id_cliente;
+                this.estado = (int)venta.id_estado;
                 this.id_vta = venta.id_venta;
                 buttonVenta.Visible = false;
-                cargarDatosCliente(id_usuario);
+                cargarDatosCliente(id_cliente);
                 leerPago(id_vta, estado);
             }
             comboBoxmedio.Items.Add("Transferencia");
@@ -69,10 +69,10 @@ namespace Vista.Pagos
             Consultar_ventas conVta = Consultar_ventas.Obtener_instancia();
             if (conVta.ShowDialog() == DialogResult.OK)
             {
-                id_usuario = (int)conVta.venta.id_usuario;
+                id_cliente = (int)conVta.venta.id_cliente;
                 id_vta = conVta.venta.id_venta;
-                estado = (int)conVta.venta.estado;
-                cargarDatosCliente(id_usuario);
+                estado = (int)conVta.venta.id_estado;
+                cargarDatosCliente(id_cliente);
                 leerPago(id_vta, estado);
                 buttonVenta.Visible = false;
             }
@@ -86,7 +86,7 @@ namespace Vista.Pagos
             {
                 if (estado == 3 || estado == 2)
                 {
-                    mCuentaCorriente = cCuentaCorriente.Getcc(id_usuario).FirstOrDefault();
+                    mCuentaCorriente = cCuentaCorriente.Getcc(id_cliente).FirstOrDefault();
                     mCuentaCorriente.saldo -= saldo;
                     cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
                 }
@@ -126,11 +126,11 @@ namespace Vista.Pagos
            }
         }
 
-        private void cargarDatosCliente(int id_usuario)
+        private void cargarDatosCliente(int id_cliente)
         {
             mCliente = new Modelo.Clientes();
-            mCliente = cCliente.GetCliente(id_usuario).FirstOrDefault();
-            txtid_usuario.Text = mCliente.id_usuario.ToString();
+            mCliente = cCliente.GetCliente(id_cliente).FirstOrDefault();
+            //txtid_usuario.Text = mCliente.id_cliente.ToString();
             txtnombre.Text = mCliente.nombre;
             txtemail.Text = mCliente.email;
             txtRs.Text = mCliente.ra;

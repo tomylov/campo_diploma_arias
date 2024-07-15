@@ -191,6 +191,18 @@
     <Compile Include="Consultar clientes.Designer.cs">
       <DependentUpon>Consultar clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="primer_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="primer_login.Designer.cs">
+      <DependentUpon>primer_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\detalle_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\detalle_usuarios.designer.cs">
+      <DependentUpon>detalle_usuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pagos\Crear pago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +214,42 @@
     </Compile>
     <Compile Include="Pagos\Gestionar pagos.Designer.cs">
       <DependentUpon>Gestionar pagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Gestionar_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Gestionar_usuarios.Designer.cs">
+      <DependentUpon>Gestionar_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\grupo\Gestionar_grupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\grupo\Gestionar_grupos.Designer.cs">
+      <DependentUpon>Gestionar_grupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\grupo\detalle_grupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\grupo\detalle_grupo.Designer.cs">
+      <DependentUpon>detalle_grupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\PermisosUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\PermisosUsuario.Designer.cs">
+      <DependentUpon>PermisosUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\permisos\detalle_permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\permisos\detalle_permisos.designer.cs">
+      <DependentUpon>detalle_permisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\permisos\Gestionar_permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\permisos\Gestionar_permisos.Designer.cs">
+      <DependentUpon>Gestionar_permisos.cs</DependentUpon>
     </Compile>
     <Compile Include="ventas\Consultar venta.cs">
       <SubType>Form</SubType>
@@ -266,11 +314,35 @@
     <EmbeddedResource Include="Consultar clientes.resx">
       <DependentUpon>Consultar clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="primer_login.resx">
+      <DependentUpon>primer_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\detalle_usuarios.resx">
+      <DependentUpon>detalle_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pagos\Crear pago.resx">
       <DependentUpon>Crear pago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pagos\Gestionar pagos.resx">
       <DependentUpon>Gestionar pagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Gestionar_usuarios.resx">
+      <DependentUpon>Gestionar_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\grupo\Gestionar_grupos.resx">
+      <DependentUpon>Gestionar_grupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\grupo\detalle_grupo.resx">
+      <DependentUpon>detalle_grupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\PermisosUsuario.resx">
+      <DependentUpon>PermisosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\permisos\detalle_permisos.resx">
+      <DependentUpon>detalle_permisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\permisos\Gestionar_permisos.resx">
+      <DependentUpon>Gestionar_permisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ventas\Consultar venta.resx">
       <DependentUpon>Consultar venta.cs</DependentUpon>
@@ -308,6 +380,7 @@
       <DependentUpon>Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Modelo.Formularios.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -334,6 +407,7 @@
   <ItemGroup>
     <Content Include="Resources\PlantillaVenta.html" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

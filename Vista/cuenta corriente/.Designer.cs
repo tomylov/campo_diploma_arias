@@ -579,7 +579,6 @@ namespace Vista
             this.dataMove.EnableHeadersVisualStyles = false;
             this.dataMove.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataMove.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataMove.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataMove.HeaderForeColor = System.Drawing.Color.White;
             this.dataMove.Location = new System.Drawing.Point(278, 83);
             this.dataMove.Name = "dataMove";

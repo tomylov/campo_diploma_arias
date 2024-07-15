@@ -34,14 +34,16 @@ namespace Vista
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarCuentaCorrienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel = new Bunifu.UI.WinForms.BunifuPanel();
             this.gestionarPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.permisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +73,9 @@ namespace Vista
             // seguridadToolStripMenuItem
             // 
             this.seguridadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.gruposToolStripMenuItem,
+            this.permisoToolStripMenuItem});
             this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
             this.seguridadToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.seguridadToolStripMenuItem.Text = "Seguridad";
@@ -79,9 +83,16 @@ namespace Vista
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // gruposToolStripMenuItem
+            // 
+            this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
+            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gruposToolStripMenuItem.Text = "Grupos";
+            this.gruposToolStripMenuItem.Click += new System.EventHandler(this.gruposToolStripMenuItem_Click);
             // 
             // ventasToolStripMenuItem
             // 
@@ -96,21 +107,21 @@ namespace Vista
             // nuevaVentaToolStripMenuItem
             // 
             this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.nuevaVentaToolStripMenuItem.Text = "Nueva venta";
             this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // crearVentaToolStripMenuItem
             // 
             this.crearVentaToolStripMenuItem.Name = "crearVentaToolStripMenuItem";
-            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearVentaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.crearVentaToolStripMenuItem.Text = "Gestionar ventas";
             this.crearVentaToolStripMenuItem.Click += new System.EventHandler(this.crearVentaToolStripMenuItem_Click);
             // 
             // gestionarClientesToolStripMenuItem
             // 
             this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
             this.gestionarClientesToolStripMenuItem.Click += new System.EventHandler(this.gestionarClientesToolStripMenuItem_Click);
             // 
@@ -130,6 +141,13 @@ namespace Vista
             this.gestionarCuentaCorrienteToolStripMenuItem.Text = "Gestionar cuenta corriente";
             this.gestionarCuentaCorrienteToolStripMenuItem.Click += new System.EventHandler(this.gestionarCuentaCorrienteToolStripMenuItem_Click);
             // 
+            // gestionarPagosToolStripMenuItem
+            // 
+            this.gestionarPagosToolStripMenuItem.Name = "gestionarPagosToolStripMenuItem";
+            this.gestionarPagosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.gestionarPagosToolStripMenuItem.Text = "Gestionar pagos";
+            this.gestionarPagosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPagosToolStripMenuItem_Click);
+            // 
             // panel
             // 
             this.panel.BackgroundColor = System.Drawing.Color.Transparent;
@@ -144,12 +162,12 @@ namespace Vista
             this.panel.Size = new System.Drawing.Size(1200, 685);
             this.panel.TabIndex = 2;
             // 
-            // gestionarPagosToolStripMenuItem
+            // permisoToolStripMenuItem
             // 
-            this.gestionarPagosToolStripMenuItem.Name = "gestionarPagosToolStripMenuItem";
-            this.gestionarPagosToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.gestionarPagosToolStripMenuItem.Text = "Gestionar pagos";
-            this.gestionarPagosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPagosToolStripMenuItem_Click);
+            this.permisoToolStripMenuItem.Name = "permisoToolStripMenuItem";
+            this.permisoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.permisoToolStripMenuItem.Text = "Permisos";
+            this.permisoToolStripMenuItem.Click += new System.EventHandler(this.permisoToolStripMenuItem_Click);
             // 
             // Menu
             // 
@@ -184,5 +202,7 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem crearVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarPagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem permisoToolStripMenuItem;
     }
 }

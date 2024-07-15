@@ -23,6 +23,7 @@ namespace Modelo
 
         public int? id_formulario { get; set; }
 
+        public bool? estado { get; set; }
         public virtual Formularios Formularios { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

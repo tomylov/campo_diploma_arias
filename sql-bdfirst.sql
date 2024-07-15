@@ -187,7 +187,23 @@ INSERT INTO Detalle_ventas values(1,100000.00,1,3)
 --VTA 4
 INSERT INTO Detalle_ventas values(1,250000.33,2,4)
 
+--INSERT modulos
+--insert into Modulos values('Seguridad'),('Ventas'),('Cuenta corriente')
+
+--INSERT Formularios
+INSERT INTO Formularios VALUES('Usuarios',1),('Grupos',1),
+('Permisos',1),('Gestionar ventas',2),('Gestionar clientes',2),('Nueva venta',2),('Gestionar cuenta corriente',3)
+
+--INSERT Grupos
+INSERT INTO Grupos VALUES('Ventas'),('Tesoreria'),('Admin'),('Prueba')
+
+select 
+
+INSERT INTO Permisos 
+
+
 select * from Ventas 
+
 
 update Ventas set estado=1 
 update Cuentas_Corrientes set saldo=0.00

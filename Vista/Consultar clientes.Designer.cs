@@ -182,7 +182,6 @@
             this.dataClientes.EnableHeadersVisualStyles = false;
             this.dataClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataClientes.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataClientes.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataClientes.HeaderForeColor = System.Drawing.Color.White;
             this.dataClientes.Location = new System.Drawing.Point(12, 6);
             this.dataClientes.Name = "dataClientes";

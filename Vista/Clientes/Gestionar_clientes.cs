@@ -12,18 +12,17 @@ using System.Windows.Forms;
 
 namespace Vista.Clientes
 {
-    public partial class Gestionar_empleados : Form
+    public partial class Gestionar_clientes : Form
     {
-        private static Gestionar_empleados instancia;
+        private static Gestionar_clientes instancia;
         Controladora.Cliente cCliente = Controladora.Cliente.Obtener_instancia();
         private List<Modelo.Clientes> clientes;
         private List<Modelo.Clientes> clientesFiltrados;
         private Modelo.Clientes cliente;
         private int dni;
         private int index;
-        private int estado = 1;
 
-        public static Gestionar_empleados Obtener_instancia()
+        public static Gestionar_clientes Obtener_instancia()
         {
             if (instancia == null)
             {
@@ -37,7 +36,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public Gestionar_empleados()
+        public Gestionar_clientes()
         {
             InitializeComponent();
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();
@@ -112,12 +111,10 @@ namespace Vista.Clientes
         {
             if (checkBoxSoloHabilitados.Checked)
             {
-                estado = 1;
                 filtrar();
             }
             else
             {
-                estado = 0;
                 filtrar();
             }
         }
@@ -127,17 +124,17 @@ namespace Vista.Clientes
             clientesFiltrados = clientes;
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {
-                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == estado).ToList();
+                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == checkBoxSoloHabilitados.Checked).ToList();
                 dataClientes.DataSource = clientesFiltrados;
             }
             else if (comboBoxfiltro.Text == "DNI" && textBoxNombre.Text != "")
             {
-                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.dni.ToString().ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == estado).ToList();
+                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.dni.ToString().ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == checkBoxSoloHabilitados.Checked).ToList();
                 dataClientes.DataSource = clientesFiltrados;
             }
             else
             {
-                dataClientes.DataSource = clientesFiltrados.Where(cliente =>cliente.estado == estado).ToList();
+                dataClientes.DataSource = clientesFiltrados.Where(cliente =>cliente.estado == checkBoxSoloHabilitados.Checked).ToList();
             }
 
         }

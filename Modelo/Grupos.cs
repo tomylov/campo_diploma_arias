@@ -20,6 +20,7 @@ namespace Modelo
 
         [StringLength(60)]
         public string grupo_nombre { get; set; }
+        public bool? estado { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Permisos> Permisos { get; set; }

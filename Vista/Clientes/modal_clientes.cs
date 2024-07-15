@@ -41,7 +41,7 @@ namespace Vista.Clientes
                 txtemail.Text = cliente.email;
                 txtTEL.Text = cliente.telefono;
                 txtRs.Text = cliente.ra;
-                if (cliente.estado == 1)
+                if (cliente.estado == true)
                     checkEstado.Checked = true;
                 else
                     checkEstado.Checked = false;
@@ -59,9 +59,9 @@ namespace Vista.Clientes
                 cliente.telefono = txtTEL.Text;
                 cliente.ra = txtRs.Text;
                 if (checkEstado.Checked)
-                    cliente.estado = 1;
+                    cliente.estado = true;
                 else
-                    cliente.estado = 0;
+                    cliente.estado = false;
                 cCliente.agregarCliente(cliente);
             }
             else
@@ -73,9 +73,9 @@ namespace Vista.Clientes
                 cliente.telefono = txtTEL.Text;
                 cliente.ra = txtRs.Text;
                 if (checkEstado.Checked)
-                    cliente.estado = 1;
+                    cliente.estado = true;
                 else
-                    cliente.estado = 0;
+                    cliente.estado = false;
                 cCliente.modificarCliente(cliente);
             }
             MessageBox.Show("Cliente guardado con exito");

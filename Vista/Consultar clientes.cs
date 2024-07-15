@@ -66,7 +66,7 @@ namespace Vista
             int iColum = e.ColumnIndex;
             if (iRow >= 0 && iColum > 0)
             {
-                cliente.id_usuario = Convert.ToInt32(dataClientes.Rows[iRow].Cells[0].Value);
+                cliente.id_cliente = Convert.ToInt32(dataClientes.Rows[iRow].Cells[0].Value);
                 cliente.nombre = Convert.ToString(dataClientes.Rows[iRow].Cells[1].Value);
                 cliente.email = Convert.ToString(dataClientes.Rows[iRow].Cells[2].Value);
                 cliente.ra = Convert.ToString(dataClientes.Rows[iRow].Cells[3].Value);
@@ -82,17 +82,17 @@ namespace Vista
             clientesFiltrados = clientes;
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {
-                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == 1).ToList();
+                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == true).ToList();
                 dataClientes.DataSource = clientesFiltrados;
             }
             else if (comboBoxfiltro.Text == "DNI" && textBoxNombre.Text != "")
             {
-                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.id_usuario.ToString().ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == 1).ToList();
+                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.id_cliente.ToString().ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == true).ToList();
                 dataClientes.DataSource = clientesFiltrados;
             } 
             else if (textBoxNombre.Text == "")
             {
-                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.estado == 1).ToList();
+                clientesFiltrados = clientesFiltrados.Where(cliente => cliente.estado == true).ToList();
                 dataClientes.DataSource = clientesFiltrados;
             }
         }

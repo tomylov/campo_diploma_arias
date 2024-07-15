@@ -12,13 +12,13 @@ namespace Vista
 {
     public partial class cuenta_corriente : Form
     {
-        int id_usuario;
+        int id_cliente;
         int id_cc;
         public cuenta_corriente(int account)
         {
             InitializeComponent();
             numberVta.Text = "";
-            id_usuario = account;
+            id_cliente = account;
             //Muestro los datos de la cuenta 
             var datos = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().GetCuentaCorriente(account);             
             inputDNI.Text = Convert.ToString(account);
@@ -26,7 +26,7 @@ namespace Vista
             inputEmail.Text = Convert.ToString(datos[0].GetType().GetProperty("Email").GetValue(datos[0], null));
             id_cc = Convert.ToInt32(datos[0].GetType().GetProperty("Id_cc").GetValue(datos[0], null));
             lblSaldo.Text = Convert.ToString(datos[0].GetType().GetProperty("Saldo").GetValue(datos[0], null));
-            dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(1,id_usuario);
+            dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(1,id_cliente);
 
             //Preparo el combo box para que haga las diferentes querys
             comboSelect.Text= "Ventas-retirar";
@@ -47,7 +47,7 @@ namespace Vista
             {
                 //Controladora.Venta.Obtener_instancia().pagar(Convert.ToInt32(numberVta.Text));
                 MessageBox.Show("Pago efectuado con exito");
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, id_usuario);
+                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, id_cliente);
             }
         }
 
@@ -62,11 +62,11 @@ namespace Vista
         {
             if (numberVta.Text != "")
             {
-                Controladora.Venta.Obtener_instancia().ventaCC(Convert.ToInt32(numberVta.Text),id_usuario);
+                Controladora.Venta.Obtener_instancia().ventaCC(Convert.ToInt32(numberVta.Text),id_cliente);
                 MessageBox.Show("Venta en cuenta corriente");
-                var datos = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().GetCuentaCorriente(id_usuario);
+                var datos = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().GetCuentaCorriente(id_cliente);
                 lblSaldo.Text = Convert.ToString(datos[0].GetType().GetProperty("Saldo").GetValue(datos[0], null));
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(1, id_usuario);
+                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(1, id_cliente);
             }
         }
 
@@ -80,19 +80,19 @@ namespace Vista
             }
             if(comboSelect.SelectedIndex == 1)
             {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex+1, id_usuario);
+                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex+1, id_cliente);
                 btnPay.Enabled = false;
                 VentaCC.Enabled = false;
             }
             if (comboSelect.SelectedIndex == 0)
             {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, id_usuario);
+                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, id_cliente);
                 btnPay.Enabled = true;
                 VentaCC.Enabled = true;
             }
             if (comboSelect.SelectedIndex == 3)
             {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(id_usuario);
+                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(id_cliente);
                 btnPay.Enabled = false;
                 VentaCC.Enabled = false;
             }

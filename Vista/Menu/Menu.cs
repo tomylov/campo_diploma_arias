@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista.Clientes;
 using Vista.Pagos;
+using Vista.Seguridad;
 
 namespace Vista
 {
@@ -72,7 +73,8 @@ namespace Vista
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form form = Gestionar_usuarios.Obtener_instancia();
+            form.ShowDialog();
         }
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,13 +91,25 @@ namespace Vista
 
         private void gestionarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form form = Gestionar_empleados.Obtener_instancia();
+            Form form = Gestionar_clientes.Obtener_instancia();
             form.ShowDialog();
         }
 
         private void gestionarPagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Gestionar_pagos.Obtener_instancia();
+            form.ShowDialog();
+        }
+
+        private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Gestionar_grupos.Obtener_instancia();
+            form.ShowDialog();
+        }
+
+        private void permisoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Gestionar_permisos.Obtener_instancia();
             form.ShowDialog();
         }
     }
