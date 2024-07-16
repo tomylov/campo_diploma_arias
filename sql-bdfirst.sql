@@ -116,6 +116,7 @@ estado bit
 create table Grupos(
 id_grupo int primary key identity,
 grupo_nombre varchar(60),
+estado bit
 )
 
 create table UsuarioGrupos(
@@ -138,6 +139,7 @@ id_modulo INT REFERENCES Modulos(id_modulo)
 CREATE TABLE Permisos (
 id_permiso INT PRIMARY KEY IDENTITY,
 nombre_permiso VARCHAR(100),
+estado bit,
 id_formulario INT REFERENCES Formularios(id_formulario)
 )
 
@@ -197,10 +199,9 @@ INSERT INTO Formularios VALUES('Usuarios',1),('Grupos',1),
 --INSERT Grupos
 INSERT INTO Grupos VALUES('Ventas'),('Tesoreria'),('Admin'),('Prueba')
 
-select 
+--Insert grupo usuarios
 
-INSERT INTO Permisos 
-
+select * from Permisos
 
 select * from Ventas 
 

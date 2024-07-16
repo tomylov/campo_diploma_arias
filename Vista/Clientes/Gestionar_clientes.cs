@@ -39,16 +39,31 @@ namespace Vista.Clientes
         public Gestionar_clientes()
         {
             InitializeComponent();
+            ConfigurarPermisosBotones();
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();
             filtrar();
             comboBoxfiltro.Items.Add("DNI");
             comboBoxfiltro.Items.Add("Nombre");
             comboBoxfiltro.SelectedIndex = 0;
-            buttonAgregar.Enabled = false;
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
+            dataClientes.Columns[0].Visible = false;
+            dataClientes.Columns[7].Visible = false;
+            dataClientes.Columns[8].Visible = false;
             checkBoxSoloHabilitados.Checked = true;
         }
+
+        public void ConfigurarPermisosBotones()
+        {
+            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
+
+            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
+
+            buttonAgregar.Visible = permisosNombres.Contains("Agregar cliente");
+            buttonModificar.Visible = permisosNombres.Contains("Modificar cliente");
+            buttonEliminar.Visible = permisosNombres.Contains("Eliminar cliente");
+        }
+
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
@@ -70,7 +85,7 @@ namespace Vista.Clientes
             {            
                 clientesFiltrados = clientes;
                 cliente = new Modelo.Clientes();
-                cliente = clientesFiltrados.Where(cliente => cliente.dni == dni).FirstOrDefault();
+                cliente = clientesFiltrados.Where(cliente => cliente.id_cliente == dni).FirstOrDefault();
                 cCliente.eliminarCliente(cliente);
                 filtrar();
             }
@@ -121,6 +136,7 @@ namespace Vista.Clientes
 
         private void filtrar()
         {
+            clientes = (List<Modelo.Clientes>)cCliente.getClientes();
             clientesFiltrados = clientes;
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {

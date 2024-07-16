@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+
 
 namespace Controladora.Seguridad
 {
@@ -30,6 +33,24 @@ namespace Controladora.Seguridad
                          select grupo;
             return grupos.ToList();
         }
+
+        public List<Modelo.Grupos> getGruposUsuarios(int id)
+        {
+            // Incluir los usuarios asociados al grupo
+            var usuario = Modelo.Contexto.Obtener_instancia().Usuarios.Include(u => u.Grupos).FirstOrDefault(u => u.id_usuario == id);
+
+            if (usuario == null)
+            {
+                // Si no existe el usuario, devolver una lista vacía
+                return new List<Modelo.Grupos>();
+            }
+
+            // Filtrar los grupos por el estado
+            var gruposActivos = usuario.Grupos.Where(g => g.estado == true).ToList();
+
+            return gruposActivos;
+        }
+
 
         public void agregarGrupo(Modelo.Grupos grupo, List<Modelo.Permisos> nuevosPermisosGrupo)
         {

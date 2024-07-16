@@ -39,12 +39,24 @@ namespace Vista.Seguridad
         {
             InitializeComponent();
             Permisos = cPermisos.getPermisos();
+            ConfigurarPermisosBotones();
             filtrar();
             comboBoxfiltro.Items.Add("Nombre");
             comboBoxfiltro.SelectedIndex = 0;
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
             checkBoxSoloHabilitados.Checked = true;
+        }
+
+        public void ConfigurarPermisosBotones()
+        {
+            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
+
+            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
+
+            buttonAgregar.Visible = permisosNombres.Contains("Agregar permiso");
+            buttonModificar.Visible = permisosNombres.Contains("Modificar permiso");
+            buttonEliminar.Visible = permisosNombres.Contains("Eliminar permiso");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

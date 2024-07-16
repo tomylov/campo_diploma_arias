@@ -50,6 +50,19 @@ namespace Controladora.Seguridad
             return grupo.Permisos.ToList();
         }
 
+        public List<Modelo.Permisos> getPermisosUsuario(int id)
+        {
+            var grupo = Modelo.Contexto.Obtener_instancia().Usuarios.Include(g => g.Permisos).FirstOrDefault(g => g.id_usuario == id);
+            if (grupo == null)
+            {
+                // Si no existe el grupo, devolver una lista vacía
+                return new List<Modelo.Permisos>();
+            }
+
+            // Devolver los permisos asociados al grupo
+            return grupo.Permisos.ToList();
+        }
+
         public void agregarPermiso(Modelo.Permisos permiso)
         {
 

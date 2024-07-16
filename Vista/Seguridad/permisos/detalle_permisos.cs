@@ -57,7 +57,7 @@ namespace Vista.Clientes
                 permiso.id_formulario = Convert.ToInt32(drpFormulario.SelectedValue);
                 cPermiso.modificarPermiso(permiso);
             }
-            MessageBox.Show("Grupo guardado con exito");
+            MessageBox.Show("Permiso guardado con exito");
             this.Close();
         }
 

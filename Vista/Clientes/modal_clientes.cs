@@ -15,27 +15,27 @@ namespace Vista.Clientes
         private static modal_clientes instancia;
         private Controladora.Cliente cCliente = Controladora.Cliente.Obtener_instancia();
         private Modelo.Clientes cliente;
-        private int dni;
+        private int id;
 
-        public static modal_clientes Obtener_instancia(int dni)
+        public static modal_clientes Obtener_instancia(int id)
         {
             if (instancia == null)
-                instancia = new modal_clientes(dni);
+                instancia = new modal_clientes(id);
 
             if (instancia.IsDisposed)
-                instancia = new modal_clientes(dni);
+                instancia = new modal_clientes(id);
 
             instancia.BringToFront();
             return instancia;
         }
 
-        public modal_clientes(int dni)
+        public modal_clientes(int id)
         {
             InitializeComponent();
-            this.dni = dni;
-            if (dni != 0)
+            this.id = id;
+            if (id != 0)
             {
-                cliente = cCliente.GetCliente(dni).FirstOrDefault();
+                cliente = cCliente.GetCliente(id).FirstOrDefault();
                 txtdni.Text = cliente.dni.ToString();
                 txtnombre.Text = cliente.nombre;
                 txtemail.Text = cliente.email;
@@ -50,7 +50,7 @@ namespace Vista.Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dni == 0)
+            if (id == 0)
             {
                 cliente = new Modelo.Clientes();
                 cliente.dni = Convert.ToInt32(txtdni.Text);
@@ -66,7 +66,7 @@ namespace Vista.Clientes
             }
             else
             {
-                cliente = cCliente.GetCliente(dni).FirstOrDefault();
+                cliente = cCliente.GetCliente(id).FirstOrDefault();
                 cliente.dni = Convert.ToInt32(txtdni.Text);
                 cliente.nombre = txtnombre.Text;
                 cliente.email = txtemail.Text;

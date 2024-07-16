@@ -47,8 +47,16 @@ namespace Vista.Clientes
             comboBoxfiltro.SelectedIndex = 0;
             buttonEliminar.Enabled = false;
             dataClientes.Columns[4].Visible = false;
+        }
 
+        public void ConfigurarPermisosBotones()
+        {
+            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
 
+            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
+
+            buttonAgregar.Visible = permisosNombres.Contains("Agregar pago");
+            buttonEliminar.Visible = permisosNombres.Contains("Eliminar pago");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

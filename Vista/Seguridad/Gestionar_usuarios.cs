@@ -48,6 +48,17 @@ namespace Vista.Seguridad
             checkBoxSoloHabilitados.Checked = true;
         }
 
+        public void ConfigurarPermisosBotones()
+        {
+            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
+
+            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
+
+            buttonAgregar.Visible = permisosNombres.Contains("Agregar usuario");
+            buttonModificar.Visible = permisosNombres.Contains("Modificar usuario");
+            buttonEliminar.Visible = permisosNombres.Contains("Eliminar usuario");
+        }
+
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             Form ventas = detalle_usuarios.Obtener_instancia(0);

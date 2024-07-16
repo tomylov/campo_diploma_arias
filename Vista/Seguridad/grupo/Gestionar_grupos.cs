@@ -47,6 +47,17 @@ namespace Vista.Clientes
             dataClientes.Columns[3].Visible = false;
         }
 
+        public void ConfigurarPermisosBotones()
+        {
+            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
+
+            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
+
+            buttonAgregar.Visible = permisosNombres.Contains("Agregar grupo");
+            buttonModificar.Visible = permisosNombres.Contains("Modificar grupo");
+            buttonEliminar.Visible = permisosNombres.Contains("Eliminar grupo");
+        }
+
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             Form grupo = detalle_grupo.Obtener_instancia(0);
