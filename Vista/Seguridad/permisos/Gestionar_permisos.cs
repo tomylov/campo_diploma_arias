@@ -20,6 +20,7 @@ namespace Vista.Seguridad
         private Modelo.Permisos Usuario;
         private int id_permiso;
         private int index;
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
 
         public static Gestionar_permisos Obtener_instancia()
         {
@@ -48,15 +49,11 @@ namespace Vista.Seguridad
             checkBoxSoloHabilitados.Checked = true;
         }
 
-        public void ConfigurarPermisosBotones()
+        private void ConfigurarPermisosBotones()
         {
-            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
-
-            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
-
-            buttonAgregar.Visible = permisosNombres.Contains("Agregar permiso");
-            buttonModificar.Visible = permisosNombres.Contains("Modificar permiso");
-            buttonEliminar.Visible = permisosNombres.Contains("Eliminar permiso");
+            buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar permiso");
+            buttonModificar.Visible = cPermisoGrupo.valiPermiso("Modificar permiso");
+            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar permiso");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

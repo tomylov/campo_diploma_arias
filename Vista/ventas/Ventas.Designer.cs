@@ -1451,7 +1451,6 @@ namespace Vista
             this.dataGridDetail.EnableHeadersVisualStyles = false;
             this.dataGridDetail.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataGridDetail.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataGridDetail.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataGridDetail.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridDetail.Location = new System.Drawing.Point(23, 129);
             this.dataGridDetail.Name = "dataGridDetail";

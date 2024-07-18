@@ -516,7 +516,6 @@ namespace Vista
             this.dataModelcc.EnableHeadersVisualStyles = false;
             this.dataModelcc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataModelcc.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataModelcc.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataModelcc.HeaderForeColor = System.Drawing.Color.White;
             this.dataModelcc.Location = new System.Drawing.Point(12, 86);
             this.dataModelcc.Name = "dataModelcc";

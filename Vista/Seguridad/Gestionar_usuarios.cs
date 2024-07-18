@@ -20,6 +20,7 @@ namespace Vista.Seguridad
         private Modelo.Usuarios Usuario;
         private int id_usuario;
         private int index;
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
 
         public static Gestionar_usuarios Obtener_instancia()
         {
@@ -38,6 +39,7 @@ namespace Vista.Seguridad
         public Gestionar_usuarios()
         {
             InitializeComponent();
+            ConfigurarPermisosBotones();
             Usuarios = cUsuario.getUsuarios();
             filtrar();
             comboBoxfiltro.Items.Add("DNI");
@@ -48,15 +50,11 @@ namespace Vista.Seguridad
             checkBoxSoloHabilitados.Checked = true;
         }
 
-        public void ConfigurarPermisosBotones()
+        private void ConfigurarPermisosBotones()
         {
-            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
-
-            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
-
-            buttonAgregar.Visible = permisosNombres.Contains("Agregar usuario");
-            buttonModificar.Visible = permisosNombres.Contains("Modificar usuario");
-            buttonEliminar.Visible = permisosNombres.Contains("Eliminar usuario");
+            buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar usuario");
+            buttonModificar.Visible = cPermisoGrupo.valiPermiso("Modificar usuario");
+            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar usuario");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

@@ -11,6 +11,7 @@ namespace Vista.Clientes
     {
         private static Gestionar_grupos instancia;
         Controladora.Seguridad.Grupo cGrupo = Controladora.Seguridad.Grupo.Obtener_instancia();
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
         private List<Modelo.Grupos> grupos;
         private List<Modelo.Grupos> gruposFiltrados;
         private Modelo.Grupos grupo;
@@ -35,6 +36,7 @@ namespace Vista.Clientes
         {
             InitializeComponent();
             grupos = cGrupo.getGrupos();
+            ConfigurarPermisosBotones();
             filtrar();
             comboBoxfiltro.Items.Add("Nombre");
             comboBoxfiltro.SelectedIndex = 0;
@@ -47,15 +49,11 @@ namespace Vista.Clientes
             dataClientes.Columns[3].Visible = false;
         }
 
-        public void ConfigurarPermisosBotones()
+        private void ConfigurarPermisosBotones()
         {
-            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
-
-            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
-
-            buttonAgregar.Visible = permisosNombres.Contains("Agregar grupo");
-            buttonModificar.Visible = permisosNombres.Contains("Modificar grupo");
-            buttonEliminar.Visible = permisosNombres.Contains("Eliminar grupo");
+            buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar grupo");
+            buttonModificar.Visible = cPermisoGrupo.valiPermiso("Modificar grupo");
+            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar grupo");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

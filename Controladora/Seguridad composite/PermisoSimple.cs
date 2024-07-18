@@ -18,10 +18,9 @@
         {
             throw new System.NotImplementedException();
         }
-
-        public override bool HasPermission(string permissionName)
+        public override bool valiPermiso(string permissionName)
         {
-            return _nombrePermiso.Equals(permissionName, System.StringComparison.OrdinalIgnoreCase);
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -10,6 +10,6 @@ namespace Controladora.Seguridad_composite
     {
         public abstract void Add(PermisoComponent component);
         public abstract void Remove(PermisoComponent component);
-        public abstract bool HasPermission(string permissionName);
+        public abstract bool valiPermiso(string permissionName);
     }
 }

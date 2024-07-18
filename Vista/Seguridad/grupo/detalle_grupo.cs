@@ -10,7 +10,7 @@ namespace Vista.Seguridad
     {
         private int idGrupo;
         private static detalle_grupo instancia;
-        private List<Modelo.Permisos> permisosGrupo;
+        private List<Modelo.Permisos> permisosGrupo = new List<Modelo.Permisos>();
         private List<Modelo.Permisos> nuevosPermisosGrupo = new List<Modelo.Permisos>();
         private List<Modelo.Permisos> eliminarPermisoGrupo = new List<Modelo.Permisos>();
         //Grupo
@@ -42,7 +42,6 @@ namespace Vista.Seguridad
             InitializeComponent();
             CargarPermisos();
             checkEstado.Checked = true;
-
             if (id != 0)
             {
                 this.idGrupo = id;

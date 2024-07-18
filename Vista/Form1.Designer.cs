@@ -103,7 +103,7 @@ namespace Vista
             this.user.Padding = new System.Windows.Forms.Padding(3);
             this.user.PasswordChar = '\0';
             this.user.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.user.PlaceholderText = "Nombre";
+            this.user.PlaceholderText = "Usuario";
             this.user.ReadOnly = false;
             this.user.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.user.SelectedText = "";
@@ -117,7 +117,7 @@ namespace Vista
             this.user.TextMarginBottom = 0;
             this.user.TextMarginLeft = 3;
             this.user.TextMarginTop = 1;
-            this.user.TextPlaceholder = "Nombre";
+            this.user.TextPlaceholder = "Usuario";
             this.user.UseSystemPasswordChar = false;
             this.user.WordWrap = true;
             // 
@@ -306,7 +306,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(618, 329);
             this.Controls.Add(this.bunifuPictureBox1);
             this.Controls.Add(this.bunifuButton21);

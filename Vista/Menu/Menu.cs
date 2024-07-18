@@ -18,6 +18,7 @@ namespace Vista
         private static Form formulario = null;
         private static Form formularioActivo = null;
         private static Menu instancia;
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
 
         public static Menu Obtener_instancia()
         {

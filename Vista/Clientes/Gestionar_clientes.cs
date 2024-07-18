@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Controladora.Seguridad_composite;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Vista.Clientes
     {
         private static Gestionar_clientes instancia;
         Controladora.Cliente cCliente = Controladora.Cliente.Obtener_instancia();
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
         private List<Modelo.Clientes> clientes;
         private List<Modelo.Clientes> clientesFiltrados;
         private Modelo.Clientes cliente;
@@ -52,18 +54,12 @@ namespace Vista.Clientes
             dataClientes.Columns[8].Visible = false;
             checkBoxSoloHabilitados.Checked = true;
         }
-
-        public void ConfigurarPermisosBotones()
+        private void ConfigurarPermisosBotones()
         {
-            var permisos = Controladora.Seguridad.Permiso.Obtener_instancia().getPermisos();
-
-            var permisosNombres = permisos.Select(p => p.nombre_permiso).ToHashSet();
-
-            buttonAgregar.Visible = permisosNombres.Contains("Agregar cliente");
-            buttonModificar.Visible = permisosNombres.Contains("Modificar cliente");
-            buttonEliminar.Visible = permisosNombres.Contains("Eliminar cliente");
+            buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar cliente");
+            buttonModificar.Visible = cPermisoGrupo.valiPermiso("Modificar cliente");
+            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar cliente");
         }
-
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {

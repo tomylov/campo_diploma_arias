@@ -9,7 +9,7 @@ dni int unique,
 nombre varchar(60),
 email varchar(60),
 ra varchar(10),
-telefono varchar(20),ve
+telefono varchar(20),
 estado bit
 )
 
@@ -105,13 +105,16 @@ id_comp int references Comprobantes(id_comp)
 --seguridad
 create table Usuarios(
 id_usuario int primary key identity,
+Usuario varchar(50) unique, 
 nombre varchar(60),
 dni varchar(15),
 apellido varchar(60),
 email varchar(60),
-clave varchar(60),
+clave varchar(255) default '',
 estado bit
-)
+) select * from Usuarios
+
+update Usuarios set clave = 'tomi' where id_usuario = 1
 
 create table Grupos(
 id_grupo int primary key identity,
@@ -157,7 +160,7 @@ id_grupo INT REFERENCES Grupos(id_grupo)
 
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')
-insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')
+insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')	
 
 --INSERT CLIENTES CC
 insert into Cuentas_Corrientes values(0,CONVERT(date,getdate()),1)

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vista
@@ -13,6 +6,8 @@ namespace Vista
     public partial class Form1 : Form
     {
         private static Form1 instancia;
+        Modelo.Usuarios usuario = new Modelo.Usuarios();
+        Controladora.Seguridad.SesionManager cSesionManager = Controladora.Seguridad.SesionManager.Obtener_instancia();
 
         public static Form1 Obtener_instancia()
         {
@@ -21,7 +16,7 @@ namespace Vista
 
             if (instancia.IsDisposed)
                 instancia = new Form1();
-            
+
             instancia.BringToFront();
             return instancia;
         }
@@ -32,16 +27,34 @@ namespace Vista
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
-            if (password.Text=="admin" && user.Text=="admin")
+            usuario = cSesionManager.GetUsuario(user.Text);
+            if (usuario == null)
             {
-                Hide();
-                Menu menu = new Menu();
-                menu.Show();
+                MessageBox.Show("Usuario y/o contraseña incorrecto", "LogIn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            if (password.Text == "admin1" && user.Text == "admin1")
+
+            if (usuario != null && usuario.clave == "")
             {
-                Ventas vta = new Ventas();
-                vta.ShowDialog();
+                Form form = Vista.primer_login.Obtener_instancia(usuario);
+                form.Show();
+                return;
+            }
+            if (usuario.estado == false)
+            {
+                MessageBox.Show("Usuario inactivo contactarse con el administrador","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
+
+            if (cSesionManager.LoginUser(user.Text, password.Text))
+            {
+                Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia().CargarPermisosUsuario(usuario.id_usuario);
+                Form form = Vista.Menu.Obtener_instancia();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrecto", "LogIn", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controladora.Seguridad_composite;
+using System;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -7,6 +8,7 @@ namespace Vista
     public partial class Gestionar_ventas : Form
     {        
         private static Gestionar_ventas instancia;
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
         int index;
         int indexCombo;
 
@@ -27,6 +29,7 @@ namespace Vista
         public Gestionar_ventas()
         {
             InitializeComponent();
+            ConfigurarPermisosBotones();
             System.Collections.IList list = Controladora.Venta.Obtener_instancia().ListarVentasCC(1);
             dataModelcc.DataSource = list;
             Modificar_vta.Enabled = false;
@@ -34,6 +37,12 @@ namespace Vista
             comboVtas.Text = "Pendiente";
             comboVtas.Items.Add("Pendiente");
             comboVtas.Items.Add("Aceptadas");
+        }
+        private void ConfigurarPermisosBotones()
+        {
+            crear_vta.Visible = cPermisoGrupo.valiPermiso("Agregar venta");
+            Modificar_vta.Visible = cPermisoGrupo.valiPermiso("Modificar venta");
+            Eliminar_vta.Visible = cPermisoGrupo.valiPermiso("Eliminar venta");
         }
 
         private void crear_vta_Click(object sender, EventArgs e)
