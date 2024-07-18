@@ -48,8 +48,7 @@ namespace Vista
 
             if (cSesionManager.LoginUser(user.Text, password.Text))
             {
-                Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia().CargarPermisosUsuario(usuario.id_usuario);
-                Form form = Vista.Menu.Obtener_instancia();
+                Form form = Vista.Menu.Obtener_instancia(usuario);
                 form.Show();
             }
             else

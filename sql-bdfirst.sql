@@ -112,9 +112,7 @@ apellido varchar(60),
 email varchar(60),
 clave varchar(255) default '',
 estado bit
-) select * from Usuarios
-
-update Usuarios set clave = 'tomi' where id_usuario = 1
+)
 
 create table Grupos(
 id_grupo int primary key identity,

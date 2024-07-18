@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controladora;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,23 +19,51 @@ namespace Vista
         private static Form formulario = null;
         private static Form formularioActivo = null;
         private static Menu instancia;
+        private List<Modelo.Formularios> formularios = new List<Modelo.Formularios>();
+        private List<Modelo.Modulos> modulos = new List<Modelo.Modulos>();
         Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
 
-        public static Menu Obtener_instancia()
+        public static Menu Obtener_instancia(Modelo.Usuarios usuario)
         {
             if (instancia == null)
-                instancia = new Menu();
+                instancia = new Menu(usuario);
             if (instancia.IsDisposed)
-                instancia = new Menu();
+                instancia = new Menu(usuario);
 
             instancia.BringToFront();
             return instancia;
         }
-        public Menu()
+        public Menu(Modelo.Usuarios usuario)
         {
             InitializeComponent();
+            cPermisoGrupo.GetPermisosLogin(usuario.id_usuario);
+            formularios = cPermisoGrupo.GetFormulariosUsuario(usuario.id_usuario);
+            modulos = cPermisoGrupo.GetModulosUsuario(usuario.id_usuario);
+            ConfigurarModulos();
+            ConfigurarFormularios();
             //FormBorderStyle = FormBorderStyle.Sizable;
             //WindowState = FormWindowState.Maximized;
+        }
+
+        private void ConfigurarModulos()
+        {
+            moduloSeguridad.Visible = modulos.Any(m => m.nombre == "Seguridad");
+            moduloVentas.Visible = modulos.Any(m => m.nombre == "Ventas");
+            moduloCC.Visible = modulos.Any(m => m.nombre == "Cuenta corriente");
+        }
+
+        private void ConfigurarFormularios()
+        {
+            //Seguridad
+            formularioUsuarios.Visible = formularios.Any(f => f.nombre == "Usuarios");
+            formularioGrupos.Visible = formularios.Any(f => f.nombre == "Grupos");
+            formularioPermiso.Visible = formularios.Any(f => f.nombre == "Permisos");
+            //Ventas
+            formularioGestionarVentas.Visible = formularios.Any(f => f.nombre == "Gestionar ventas");
+            formularioGestionarClientes.Visible = formularios.Any(f => f.nombre == "Gestionar clientes");
+            //Cuenta corriente
+            formularioGestionarCuentaCorriente.Visible = true;//formularios.Any(f => f.nombre == "Gestionar cuenta corriente"); no botones ahi
+            formularioGestionarPagos.Visible = formularios.Any(f => f.nombre == "Gestionar pagos");
         }
 
         private void abrirForm(Form formulario)
@@ -86,8 +115,8 @@ namespace Vista
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form form = new Form1();
-            form.ShowDialog();
+            Form form = Form1.Obtener_instancia();
+            form.Show();
         }
 
         private void gestionarClientesToolStripMenuItem_Click(object sender, EventArgs e)

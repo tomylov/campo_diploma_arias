@@ -22,6 +22,7 @@ namespace Controladora.Seguridad_composite
 
         private readonly List<PermisoComponent> _components = new List<PermisoComponent>();
         private List<Permisos> todosLosPermisos;
+        Controladora.Seguridad.Grupo cGrupo = Controladora.Seguridad.Grupo.Obtener_instancia();
 
         public override void Add(PermisoComponent component)
         {
@@ -37,8 +38,7 @@ namespace Controladora.Seguridad_composite
         {
             return todosLosPermisos.Any(p => p.nombre_permiso == permissionName);
         }
-
-        public List<Permisos> CargarPermisosUsuario(int idUsuario)
+        public List<Permisos> GetPermisosUsuario(int idUsuario)
         {
             var usuario = Modelo.Contexto.Obtener_instancia().Usuarios
                 .Where(u => u.id_usuario == idUsuario)
@@ -46,7 +46,12 @@ namespace Controladora.Seguridad_composite
 
             var permisosUsuario = usuario.Permisos.Where(p => p.estado == true).ToList() ?? new List<Permisos>();
 
-            var gruposUsuario = usuario.Grupos.Where(g => g.estado == true).ToList() ?? new List<Grupos>();
+            return permisosUsuario;
+        }
+
+        public List<Permisos> GetPermisosGrupo(int idUsuario)
+        {
+            var gruposUsuario = cGrupo.getGruposUsuarios(idUsuario) ?? new List<Grupos>();
 
             var permisosGrupos = new List<Permisos>();
 
@@ -54,9 +59,21 @@ namespace Controladora.Seguridad_composite
             {
                 if (grupo.Permisos != null)
                 {
-                    permisosGrupos.AddRange(grupo.Permisos.Where(pg =>pg.estado == true));
+                    permisosGrupos.AddRange(grupo.Permisos.Where(pg => pg.estado == true));
                 }
             }
+
+            return permisosGrupos;
+        }
+
+        public List<Permisos> GetPermisosLogin(int idUsuario)
+        {
+            var usuario = Modelo.Contexto.Obtener_instancia().Usuarios
+                .Where(u => u.id_usuario == idUsuario)
+                .FirstOrDefault();
+
+            var permisosUsuario = GetPermisosUsuario(idUsuario);
+            var permisosGrupos = GetPermisosGrupo(idUsuario);
 
             todosLosPermisos = permisosUsuario
                 .Union(permisosGrupos)
@@ -65,5 +82,31 @@ namespace Controladora.Seguridad_composite
 
             return todosLosPermisos;
         }
+        public List<Formularios> GetFormulariosUsuario(int idUsuario)
+        {
+            List<Permisos> todosLosPermisosUsuario = GetPermisosLogin(idUsuario);
+
+            var formularios = todosLosPermisosUsuario
+                            .Where(p => p.Formularios != null)
+                            .Select(p => p.Formularios)
+                            .Distinct()
+                            .ToList();
+
+            return formularios;
+        }
+
+        public List<Modulos> GetModulosUsuario(int idUsuario)
+        {
+            List<Permisos> todosLosPermisosUsuario = todosLosPermisos;
+
+            var modulos = todosLosPermisosUsuario
+                .Where(p => p.Formularios != null)
+                .Select(p => p.Formularios.Modulos)
+                .Distinct()
+                .ToList();
+
+            return modulos;
+        }
+
     }
 }
