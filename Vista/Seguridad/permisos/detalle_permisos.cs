@@ -36,6 +36,7 @@ namespace Vista.Clientes
             {
                 permiso = cPermiso.getPermiso(id_permiso).FirstOrDefault();
                 txtnombre.Text = permiso.nombre_permiso;
+                drpFormulario.SelectedValue = permiso.id_formulario;
                 checkEstado.Checked = (bool)permiso.estado;
             }
         }

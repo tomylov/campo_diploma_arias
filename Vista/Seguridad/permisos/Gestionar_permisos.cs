@@ -47,6 +47,11 @@ namespace Vista.Seguridad
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
             checkBoxSoloHabilitados.Checked = true;
+            dataUsuarios.Columns[0].Visible = false;
+            dataUsuarios.Columns[2].Visible = false;
+            dataUsuarios.Columns[4].Visible = false;
+            dataUsuarios.Columns[5].Visible = false;
+            dataUsuarios.Columns[6].Visible = false;
         }
 
         private void ConfigurarPermisosBotones()
@@ -61,27 +66,25 @@ namespace Vista.Seguridad
             Form ventas = detalle_permisos.Obtener_instancia(0);
             ventas.Show();
             Permisos = cPermisos.getPermisos();
-            refresh();
+            filtrar();
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             Form form = detalle_permisos.Obtener_instancia(id_permiso);
             form.Show();
-            refresh();
+            filtrar();
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que desea eliminar el cliente?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-               /* PermisosFiltrados = Permisos;
-                Permiso = new Modelo.Permisos();
-                Usuario = PermisosFiltrados.Where(cliente => cliente.id_permiso == id_permiso).FirstOrDefault();
-                Usuario.estado = false;
-                cPermisos.eliminarUsuario(Usuario);
-                Permisos = cPermisos.getPermisos();
-                filtrar(); */
+                Modelo.Permisos Permiso = new Modelo.Permisos();
+                Permiso = Permisos.Where(cliente => cliente.id_permiso == id_permiso).FirstOrDefault();
+                Permiso.estado = false;
+                cPermisos.eliminarPermiso(Permiso);
+                filtrar();
             }
         }
 
@@ -118,29 +121,26 @@ namespace Vista.Seguridad
 
         private void checkBoxSoloHabilitados_CheckedChanged(object sender, EventArgs e)
         {
-               refresh();
+               filtrar();
         }
 
         private void filtrar()
         {
-            PermisosFiltrados = Permisos;
+            PermisosFiltrados = cPermisos.getPermisos();
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {
-                PermisosFiltrados = PermisosFiltrados.Where(permiso => permiso.nombre_permiso.ToLower().Contains(textBoxNombre.Text.ToLower())).ToList();
+                PermisosFiltrados = PermisosFiltrados.Where(permiso => permiso.nombre_permiso.ToLower().Contains(textBoxNombre.Text.ToLower()) && permiso.estado == checkBoxSoloHabilitados.Checked).ToList();
                 dataUsuarios.DataSource = PermisosFiltrados;
-                //&& permiso.estado == checkBoxSoloHabilitados.Checked
+            }
+            else
+            {
+                dataUsuarios.DataSource = PermisosFiltrados.Where(cliente => cliente.estado == checkBoxSoloHabilitados.Checked).ToList();
             }
         }
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void refresh()
-        {
-            Permisos = cPermisos.getPermisos();
-            filtrar();
         }
     }
 }
