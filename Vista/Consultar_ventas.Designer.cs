@@ -255,7 +255,6 @@
             this.dataVentas.EnableHeadersVisualStyles = false;
             this.dataVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataVentas.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.dataVentas.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataVentas.HeaderForeColor = System.Drawing.Color.White;
             this.dataVentas.Location = new System.Drawing.Point(12, 6);
             this.dataVentas.Name = "dataVentas";

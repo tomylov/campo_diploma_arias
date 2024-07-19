@@ -290,3 +290,12 @@ C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_clientes.r
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Pagos.Crear_pago.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Consultar_ventas.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Clientes.Gestionar_pagos.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.primer_login.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Seguridad.Gestionar_usuarios.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Clientes.Gestionar_grupos.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Seguridad.detalle_grupo.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Clientes.detalle_permisos.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Seguridad.Gestionar_permisos.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\COMUN.dll
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\COMUN.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Seguridad.detalle_usuario.resources

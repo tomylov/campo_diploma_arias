@@ -63,8 +63,8 @@ namespace Vista
             if (iRow >= 0 && iColum > 0)
             {
                 venta.id_venta = Convert.ToInt32(dataVentas.Rows[iRow].Cells[0].Value);
-                venta.dni = Convert.ToInt32(dataVentas.Rows[iRow].Cells[1].Value);
-                venta.estado = Convert.ToInt32(dataVentas.Rows[iRow].Cells[3].Value);
+                venta.id_venta= Convert.ToInt32(dataVentas.Rows[iRow].Cells[1].Value);
+                venta.id_estado = Convert.ToInt32(dataVentas.Rows[iRow].Cells[3].Value);
                 this.DialogResult = DialogResult.OK;
                 ventas = cVenta.ListarVentasEstado(2);
                 dataVentas.DataSource = ventas;

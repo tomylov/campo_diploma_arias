@@ -56,11 +56,20 @@
     <Compile Include="Comprobante.cs" />
     <Compile Include="Cuenta_Corriente_Cliente.cs" />
     <Compile Include="Detalle_venta.cs" />
+    <Compile Include="Seguridad\Empleado.cs" />
     <Compile Include="Movimiento.cs" />
     <Compile Include="Nota_debito.cs" />
     <Compile Include="Pago.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad composite\PermisoComponent.cs" />
+    <Compile Include="Seguridad composite\PermisoGrupo.cs" />
+    <Compile Include="Seguridad composite\PermisoSimple.cs" />
+    <Compile Include="Seguridad\Formulario.cs" />
+    <Compile Include="Seguridad\Grupo.cs" />
+    <Compile Include="Seguridad\Modulo.cs" />
+    <Compile Include="Seguridad\Permiso.cs" />
+    <Compile Include="Seguridad\SesionManager.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\COMUN\COMUN.csproj">
+      <Project>{21f742ee-e636-4200-848e-92c2cb85af3d}</Project>
+      <Name>COMUN</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
       <Project>{25a3fd56-d123-4f8f-a9ed-075f4bd3dc03}</Project>
       <Name>Modelo</Name>

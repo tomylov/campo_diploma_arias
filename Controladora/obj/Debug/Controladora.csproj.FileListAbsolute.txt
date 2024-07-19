@@ -43,3 +43,5 @@ C:\campo_diploma\campo_diploma_arias\Controladora\obj\Debug\Controladora.csproj.
 C:\campo_diploma\campo_diploma_arias\Controladora\obj\Debug\Controladora.csproj.CopyComplete
 C:\campo_diploma\campo_diploma_arias\Controladora\obj\Debug\Controladora.dll
 C:\campo_diploma\campo_diploma_arias\Controladora\obj\Debug\Controladora.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\COMUN.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\COMUN.pdb

@@ -17,6 +17,7 @@ namespace Vista.Clientes
     {
         private static Gestionar_pagos instancia;
         Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
         private List<Modelo.Pagos> pagos;
         private List<Modelo.Pagos> pagosFiltrados;
         private Modelo.Pagos pago;
@@ -42,13 +43,18 @@ namespace Vista.Clientes
             InitializeComponent();
             pagos = cPago.ListarPagos();
             filtrar();
+            ConfigurarPermisosBotones();
             comboBoxfiltro.Items.Add("Pago");
             comboBoxfiltro.Items.Add("Venta");
             comboBoxfiltro.SelectedIndex = 0;
             buttonEliminar.Enabled = false;
             dataClientes.Columns[4].Visible = false;
+        }
 
-
+        public void ConfigurarPermisosBotones()
+        {
+            buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar pago");
+            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar pago");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

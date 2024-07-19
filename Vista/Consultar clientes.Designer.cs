@@ -65,7 +65,7 @@
             this.bunifuGroupBox1.Size = new System.Drawing.Size(800, 100);
             this.bunifuGroupBox1.TabIndex = 0;
             this.bunifuGroupBox1.TabStop = false;
-            this.bunifuGroupBox1.Text = "bunifuGroupBox1";
+            this.bunifuGroupBox1.Text = "Consultar clientes";
             // 
             // btnLimpiar
             // 

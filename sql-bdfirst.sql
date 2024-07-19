@@ -9,7 +9,7 @@ dni int unique,
 nombre varchar(60),
 email varchar(60),
 ra varchar(10),
-telefono varchar(20),ve
+telefono varchar(20),
 estado bit
 )
 
@@ -105,17 +105,19 @@ id_comp int references Comprobantes(id_comp)
 --seguridad
 create table Usuarios(
 id_usuario int primary key identity,
+Usuario varchar(50) unique, 
 nombre varchar(60),
 dni varchar(15),
 apellido varchar(60),
 email varchar(60),
-clave varchar(60),
+clave varchar(255) default '',
 estado bit
 )
 
 create table Grupos(
 id_grupo int primary key identity,
 grupo_nombre varchar(60),
+estado bit
 )
 
 create table UsuarioGrupos(
@@ -138,6 +140,7 @@ id_modulo INT REFERENCES Modulos(id_modulo)
 CREATE TABLE Permisos (
 id_permiso INT PRIMARY KEY IDENTITY,
 nombre_permiso VARCHAR(100),
+estado bit,
 id_formulario INT REFERENCES Formularios(id_formulario)
 )
 
@@ -155,7 +158,7 @@ id_grupo INT REFERENCES Grupos(id_grupo)
 
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')
-insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')
+insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')	
 
 --INSERT CLIENTES CC
 insert into Cuentas_Corrientes values(0,CONVERT(date,getdate()),1)
@@ -187,7 +190,22 @@ INSERT INTO Detalle_ventas values(1,100000.00,1,3)
 --VTA 4
 INSERT INTO Detalle_ventas values(1,250000.33,2,4)
 
+--INSERT modulos
+--insert into Modulos values('Seguridad'),('Ventas'),('Cuenta corriente')
+
+--INSERT Formularios
+INSERT INTO Formularios VALUES('Usuarios',1),('Grupos',1),
+('Permisos',1),('Gestionar ventas',2),('Gestionar clientes',2),('Nueva venta',2),('Gestionar cuenta corriente',3)
+
+--INSERT Grupos
+INSERT INTO Grupos VALUES('Ventas'),('Tesoreria'),('Admin'),('Prueba')
+
+--Insert grupo usuarios
+
+select * from Permisos
+
 select * from Ventas 
+
 
 update Ventas set estado=1 
 update Cuentas_Corrientes set saldo=0.00

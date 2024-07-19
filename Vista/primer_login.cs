@@ -13,36 +13,40 @@ namespace Vista
     public partial class primer_login : Form
     {
         private static primer_login instancia;
+        Modelo.Usuarios usuario = new Modelo.Usuarios();
+        Controladora.Usuario cUsuario = Controladora.Usuario.Obtener_instancia();
 
-        public static primer_login Obtener_instancia()
+        public static primer_login Obtener_instancia(Modelo.Usuarios usuario)
         {
             if (instancia == null)
-                instancia = new primer_login();
+                instancia = new primer_login(usuario);
 
             if (instancia.IsDisposed)
-                instancia = new primer_login();
+                instancia = new primer_login(usuario);
             
             instancia.BringToFront();
             return instancia;
         }
-        public primer_login()
+        public primer_login(Modelo.Usuarios usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
         }
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
-            if (password.Text=="admin" && user.Text=="admin")
+            if (txtPass1.Text == txtPass2.Text)
             {
-                Hide();
-                Menu menu = new Menu();
-                menu.Show();
+                usuario.clave = COMUN.MetodosComunes.EncriptarPassBD(txtPass2.Text);
+                cUsuario.modificarUsuario(usuario);
+                MessageBox.Show("Contraseña guardada correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            if (password.Text == "admin1" && user.Text == "admin1")
+            else
             {
-                Ventas vta = new Ventas();
-                vta.ShowDialog();
+                MessageBox.Show("Las contraseñas no coinciden", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

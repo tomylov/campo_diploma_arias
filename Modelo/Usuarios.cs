@@ -21,6 +21,9 @@ namespace Modelo
         [StringLength(60)]
         public string nombre { get; set; }
 
+        [StringLength(60)]
+        public string usuario { get; set; }
+
         [StringLength(15)]
         public string dni { get; set; }
 
