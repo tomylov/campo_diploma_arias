@@ -2,53 +2,69 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Vista.Seguridad
 {
-    public partial class PermisosUsuario : Form
+    public partial class detalle_usuario : Form
     {
-        private static PermisosUsuario instancia;
+        private static detalle_usuario instancia;
         private Controladora.Usuario cUsuario = Controladora.Usuario.Obtener_instancia();
         private Modelo.Usuarios usuario;
         private int id_usuario;
 
+        private List<Modelo.Permisos> listpermisos;
         private List<Modelo.Permisos> permisosUsuario;
-        private List<Modelo.Permisos> nuevosPermisosUsuario = new List<Modelo.Permisos>();
-        private List<Modelo.Permisos> eliminarPermisosUsuario = new List<Modelo.Permisos>();
-        private List<Modelo.Permisos> nuevosGruposUsuario = new List<Modelo.Permisos>();
-        private List<Modelo.Permisos> eliminarGruposUsuario = new List<Modelo.Permisos>();
+        //grupo usuario
+        private List<Modelo.Grupos> gruposUsuarioInicial = new List<Modelo.Grupos>();
+        private BindingList<Modelo.Grupos> gruposDisponibles;
+        private BindingList<Modelo.Grupos> gruposUsuario;
         //Grupo
         private Controladora.Seguridad.Grupo cGrupo = Controladora.Seguridad.Grupo.Obtener_instancia();
-        private Modelo.Grupos grupo;
         //Permiso
         private Controladora.Seguridad.Permiso cPermiso = Controladora.Seguridad.Permiso.Obtener_instancia();
-        List<Modelo.Permisos> listpermisos;
         //Modulo
         private Controladora.Seguridad.Modulo cModulo = Controladora.Seguridad.Modulo.Obtener_instancia();
         //Formulario
         private Controladora.Seguridad.Formulario cFormulario = Controladora.Seguridad.Formulario.Obtener_instancia();
 
-        public static PermisosUsuario Obtener_instancia(int id_usuario)
+        public static detalle_usuario Obtener_instancia(int id_usuario)
         {
             if (instancia == null)
-                instancia = new PermisosUsuario(id_usuario);
+                instancia = new detalle_usuario(id_usuario);
 
             if (instancia.IsDisposed)
-                instancia = new PermisosUsuario(id_usuario);
+                instancia = new detalle_usuario(id_usuario);
 
             instancia.BringToFront();
             return instancia;
         }
-        public PermisosUsuario(int id_usuario)
+        public detalle_usuario(int id_usuario)
         {
             InitializeComponent();
             CargarPermisos();
             this.id_usuario = id_usuario;
             if (id_usuario != 0)
             {
-                usuario = cUsuario.getUsuarioId(id_usuario).FirstOrDefault();
                 permisosUsuario = cPermiso.getPermisosUsuario(id_usuario);
+                //lista de grupos del usuario
+                gruposUsuario = new BindingList<Modelo.Grupos>(cGrupo.getGruposUsuarios(id_usuario));
+                //lista de grupos disponibles
+                List<Modelo.Grupos> gruposDisponiblesFiltrados = new List<Modelo.Grupos>(cGrupo.getGrupos().Where(g => g.estado == true));
+                gruposDisponibles = new BindingList<Modelo.Grupos>(gruposDisponiblesFiltrados);
+                //se quitan los grupos que ya tiene el usuario
+                foreach (Modelo.Grupos grupo in gruposUsuario)
+                {
+                    gruposDisponibles.Remove(grupo);
+                }
+                dataGruposDisponibles.DataSource = gruposDisponibles;
+                estilosDataGrid(dataGruposDisponibles);
+                
+                dataGruposMiembro.DataSource = gruposUsuario;
+                estilosDataGrid(dataGruposMiembro);
+                
+                usuario = cUsuario.getUsuarioId(id_usuario).FirstOrDefault();
                 txtnombre.Text = usuario.nombre;
                 txtemail.Text = usuario.email;
                 txtape.Text = usuario.apellido;
@@ -57,6 +73,15 @@ namespace Vista.Seguridad
                 MarcarPermisos(treeViewPermisos.Nodes, permisosUsuario);
             }
         }
+
+        private void estilosDataGrid(DataGridView data)
+        {
+            data.Columns[0].Visible = false;
+            data.Columns[3].Visible = false;
+            data.Columns[4].Visible = false;
+        }
+
+
 
         private void MarcarPermisos(TreeNodeCollection nodes, List<Modelo.Permisos> permisosGrupos)
         {
@@ -82,7 +107,7 @@ namespace Vista.Seguridad
                 // Obtener todos los módulos, formularios y permisos
                 List<Modelo.Modulos> listmodulos = cModulo.getModulos();
                 List<Modelo.Formularios> listformularios = cFormulario.getFormularios();
-                listpermisos = cPermiso.getPermisos();
+                listpermisos = cPermiso.getPermisos().Where(p => p.estado == true).ToList();
 
                 // Iterar sobre cada módulo
                 foreach (Modelo.Modulos modulo in listmodulos)
@@ -136,6 +161,8 @@ namespace Vista.Seguridad
                 usuario.apellido = txtape.Text;
                 usuario.dni = txtdni.Text;
                 usuario.estado = checkEstado.Checked;
+                usuario.Permisos = permisosUsuario;
+                usuario.Grupos = gruposUsuario;
                 cUsuario.agregarUsuario(usuario);
             }
             else
@@ -146,6 +173,8 @@ namespace Vista.Seguridad
                 usuario.apellido = txtape.Text;
                 usuario.dni = txtdni.Text;
                 usuario.estado = checkEstado.Checked;
+                usuario.Permisos = permisosUsuario;
+                usuario.Grupos = gruposUsuario;
                 cUsuario.modificarUsuario(usuario);
             }
             MessageBox.Show("Usuario guardado con exito");
@@ -161,25 +190,46 @@ namespace Vista.Seguridad
             {
                 if (e.Node.Checked)
                 {
-                    if (!permisosUsuario.Any(p => p.id_permiso == permiso.id_permiso))
-                    {
-                        nuevosPermisosUsuario.Add(permiso);
-                        eliminarPermisosUsuario.Remove(permiso);
-                    }
+                    permisosUsuario.Add(permiso);
                 }
                 else
                 {
-                    if (permisosUsuario.Any(p => p.id_permiso == permiso.id_permiso))
-                    {
-                        eliminarPermisosUsuario.Add(permiso);
-                        nuevosPermisosUsuario.Remove(permiso);
-                    }
-                    else
-                    {
-                        eliminarPermisosUsuario.Remove(permiso);
-                    }
+                    permisosUsuario.Remove(permiso);
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGruposDisponibles.SelectedRows.Count > 0)
+            {
+                var currentRow = dataGruposDisponibles.CurrentRow;
+                if (currentRow != null)
+                {
+                    Modelo.Grupos grupo = (Modelo.Grupos)currentRow.DataBoundItem;
+                    gruposDisponibles.Remove(grupo);
+                    gruposUsuario.Add(grupo);
+                }
+            }
+
+            estilosDataGrid(dataGruposDisponibles);
+            estilosDataGrid(dataGruposMiembro);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGruposMiembro.SelectedRows.Count > 0)
+            {
+                var currentRow = dataGruposMiembro.CurrentRow;
+                if (currentRow != null)
+                {
+                    Modelo.Grupos grupo = (Modelo.Grupos)currentRow.DataBoundItem;
+                    gruposUsuario.Remove(grupo);
+                    gruposDisponibles.Add(grupo);
+                }
+            }
+            estilosDataGrid(dataGruposDisponibles);
+            estilosDataGrid(dataGruposMiembro);
         }
     }
 }

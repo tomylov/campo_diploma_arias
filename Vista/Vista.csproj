@@ -197,12 +197,6 @@
     <Compile Include="primer_login.Designer.cs">
       <DependentUpon>primer_login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\detalle_usuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Seguridad\detalle_usuarios.designer.cs">
-      <DependentUpon>detalle_usuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pagos\Crear pago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,11 +227,11 @@
     <Compile Include="Seguridad\grupo\detalle_grupo.Designer.cs">
       <DependentUpon>detalle_grupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\PermisosUsuario.cs">
+    <Compile Include="Seguridad\detalle_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguridad\PermisosUsuario.Designer.cs">
-      <DependentUpon>PermisosUsuario.cs</DependentUpon>
+    <Compile Include="Seguridad\detalle_usuario.Designer.cs">
+      <DependentUpon>detalle_usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\permisos\detalle_permisos.cs">
       <SubType>Form</SubType>
@@ -317,9 +311,6 @@
     <EmbeddedResource Include="primer_login.resx">
       <DependentUpon>primer_login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\detalle_usuarios.resx">
-      <DependentUpon>detalle_usuarios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pagos\Crear pago.resx">
       <DependentUpon>Crear pago.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,8 +326,8 @@
     <EmbeddedResource Include="Seguridad\grupo\detalle_grupo.resx">
       <DependentUpon>detalle_grupo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\PermisosUsuario.resx">
-      <DependentUpon>PermisosUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Seguridad\detalle_usuario.resx">
+      <DependentUpon>detalle_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\permisos\detalle_permisos.resx">
       <DependentUpon>detalle_permisos.cs</DependentUpon>

@@ -56,7 +56,7 @@
     <Compile Include="Comprobante.cs" />
     <Compile Include="Cuenta_Corriente_Cliente.cs" />
     <Compile Include="Detalle_venta.cs" />
-    <Compile Include="Empleado.cs" />
+    <Compile Include="Seguridad\Empleado.cs" />
     <Compile Include="Movimiento.cs" />
     <Compile Include="Nota_debito.cs" />
     <Compile Include="Pago.cs" />

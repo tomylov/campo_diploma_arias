@@ -48,6 +48,9 @@ namespace Vista.Seguridad
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
             checkBoxSoloHabilitados.Checked = true;
+            dataUsuarios.Columns[0].Visible = false;
+            dataUsuarios.Columns[8].Visible = false;
+            dataUsuarios.Columns[9].Visible = false;
         }
 
         private void ConfigurarPermisosBotones()
@@ -59,7 +62,7 @@ namespace Vista.Seguridad
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            Form ventas = detalle_usuarios.Obtener_instancia(0);
+            Form ventas = detalle_usuario.Obtener_instancia(0);
             ventas.Show();
             Usuarios = cUsuario.getUsuarios();
             filtrar();
@@ -67,7 +70,7 @@ namespace Vista.Seguridad
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            Form form = detalle_usuarios.Obtener_instancia(id_usuario);
+            Form form = detalle_usuario.Obtener_instancia(id_usuario);
             form.Show();
             Usuarios = cUsuario.getUsuarios();
             filtrar();
@@ -132,7 +135,7 @@ namespace Vista.Seguridad
 
         private void filtrar()
         {
-            UsuariosFiltrados = Usuarios;
+            UsuariosFiltrados = cUsuario.getUsuarios();
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {
                 UsuariosFiltrados = UsuariosFiltrados.Where(cliente => cliente.nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == checkBoxSoloHabilitados.Checked).ToList();

@@ -104,7 +104,7 @@ namespace Vista
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Gestionar_usuarios.Obtener_instancia();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)

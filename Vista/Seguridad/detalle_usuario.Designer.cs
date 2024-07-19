@@ -1,6 +1,6 @@
 ﻿namespace Vista.Seguridad
 {
-    partial class PermisosUsuario
+    partial class detalle_usuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PermisosUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(detalle_usuario));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,8 +42,8 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewGruposMiembro = new System.Windows.Forms.DataGridView();
-            this.dataGridViewGruposDisponibles = new System.Windows.Forms.DataGridView();
+            this.dataGruposMiembro = new System.Windows.Forms.DataGridView();
+            this.dataGruposDisponibles = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -69,8 +69,8 @@
             this.bunifuPanel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposMiembro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposDisponibles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGruposMiembro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGruposDisponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -166,7 +166,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(820, 523);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Grupos";
             // 
             // tableLayoutPanel1
             // 
@@ -174,8 +174,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewGruposMiembro, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewGruposDisponibles, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGruposMiembro, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGruposDisponibles, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button3, 1, 1);
@@ -189,101 +189,101 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 447);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
-            // dataGridViewGruposMiembro
+            // dataGruposMiembro
             // 
-            this.dataGridViewGruposMiembro.AllowUserToAddRows = false;
-            this.dataGridViewGruposMiembro.AllowUserToDeleteRows = false;
-            this.dataGridViewGruposMiembro.AllowUserToOrderColumns = true;
-            this.dataGridViewGruposMiembro.AllowUserToResizeRows = false;
-            this.dataGridViewGruposMiembro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGruposMiembro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.dataGridViewGruposMiembro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewGruposMiembro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGruposMiembro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewGruposMiembro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGruposMiembro.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewGruposMiembro.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewGruposMiembro.EnableHeadersVisualStyles = false;
-            this.dataGridViewGruposMiembro.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewGruposMiembro.Location = new System.Drawing.Point(490, 76);
-            this.dataGridViewGruposMiembro.MultiSelect = false;
-            this.dataGridViewGruposMiembro.Name = "dataGridViewGruposMiembro";
-            this.dataGridViewGruposMiembro.ReadOnly = true;
-            this.dataGridViewGruposMiembro.RowHeadersVisible = false;
-            this.dataGridViewGruposMiembro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewGruposMiembro.RowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewGruposMiembro, 2);
-            this.dataGridViewGruposMiembro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGruposMiembro.Size = new System.Drawing.Size(321, 368);
-            this.dataGridViewGruposMiembro.TabIndex = 17;
+            this.dataGruposMiembro.AllowUserToAddRows = false;
+            this.dataGruposMiembro.AllowUserToDeleteRows = false;
+            this.dataGruposMiembro.AllowUserToOrderColumns = true;
+            this.dataGruposMiembro.AllowUserToResizeRows = false;
+            this.dataGruposMiembro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGruposMiembro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            this.dataGruposMiembro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGruposMiembro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGruposMiembro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGruposMiembro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGruposMiembro.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGruposMiembro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGruposMiembro.EnableHeadersVisualStyles = false;
+            this.dataGruposMiembro.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGruposMiembro.Location = new System.Drawing.Point(490, 76);
+            this.dataGruposMiembro.MultiSelect = false;
+            this.dataGruposMiembro.Name = "dataGruposMiembro";
+            this.dataGruposMiembro.ReadOnly = true;
+            this.dataGruposMiembro.RowHeadersVisible = false;
+            this.dataGruposMiembro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGruposMiembro.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.tableLayoutPanel1.SetRowSpan(this.dataGruposMiembro, 2);
+            this.dataGruposMiembro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGruposMiembro.Size = new System.Drawing.Size(321, 368);
+            this.dataGruposMiembro.TabIndex = 17;
             // 
-            // dataGridViewGruposDisponibles
+            // dataGruposDisponibles
             // 
-            this.dataGridViewGruposDisponibles.AllowUserToAddRows = false;
-            this.dataGridViewGruposDisponibles.AllowUserToDeleteRows = false;
-            this.dataGridViewGruposDisponibles.AllowUserToOrderColumns = true;
-            this.dataGridViewGruposDisponibles.AllowUserToResizeRows = false;
-            this.dataGridViewGruposDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGruposDisponibles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.dataGridViewGruposDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewGruposDisponibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGruposDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewGruposDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGruposDisponibles.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridViewGruposDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewGruposDisponibles.EnableHeadersVisualStyles = false;
-            this.dataGridViewGruposDisponibles.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewGruposDisponibles.Location = new System.Drawing.Point(3, 76);
-            this.dataGridViewGruposDisponibles.MultiSelect = false;
-            this.dataGridViewGruposDisponibles.Name = "dataGridViewGruposDisponibles";
-            this.dataGridViewGruposDisponibles.ReadOnly = true;
-            this.dataGridViewGruposDisponibles.RowHeadersVisible = false;
-            this.dataGridViewGruposDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewGruposDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle18;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewGruposDisponibles, 2);
-            this.dataGridViewGruposDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGruposDisponibles.Size = new System.Drawing.Size(319, 368);
-            this.dataGridViewGruposDisponibles.TabIndex = 16;
+            this.dataGruposDisponibles.AllowUserToAddRows = false;
+            this.dataGruposDisponibles.AllowUserToDeleteRows = false;
+            this.dataGruposDisponibles.AllowUserToOrderColumns = true;
+            this.dataGruposDisponibles.AllowUserToResizeRows = false;
+            this.dataGruposDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGruposDisponibles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            this.dataGruposDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGruposDisponibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGruposDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGruposDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGruposDisponibles.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGruposDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGruposDisponibles.EnableHeadersVisualStyles = false;
+            this.dataGruposDisponibles.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGruposDisponibles.Location = new System.Drawing.Point(3, 76);
+            this.dataGruposDisponibles.MultiSelect = false;
+            this.dataGruposDisponibles.Name = "dataGruposDisponibles";
+            this.dataGruposDisponibles.ReadOnly = true;
+            this.dataGruposDisponibles.RowHeadersVisible = false;
+            this.dataGruposDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGruposDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.tableLayoutPanel1.SetRowSpan(this.dataGruposDisponibles, 2);
+            this.dataGruposDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGruposDisponibles.Size = new System.Drawing.Size(319, 368);
+            this.dataGruposDisponibles.TabIndex = 16;
             // 
             // label6
             // 
@@ -330,6 +330,7 @@
             this.button3.Size = new System.Drawing.Size(52, 70);
             this.button3.TabIndex = 14;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -350,6 +351,7 @@
             this.button2.Size = new System.Drawing.Size(52, 70);
             this.button2.TabIndex = 15;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView2
             // 
@@ -430,7 +432,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(820, 523);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Datos usuario";
             // 
             // checkEstado
             // 
@@ -541,7 +543,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(820, 523);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Permisos";
             // 
             // treeViewPermisos
             // 
@@ -552,7 +554,7 @@
             this.treeViewPermisos.TabIndex = 1;
             this.treeViewPermisos.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPermisos_AfterCheck);
             // 
-            // PermisosUsuario
+            // detalle_usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -561,7 +563,7 @@
             this.Controls.Add(this.bunifuPanel3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.bunifuPanel1);
-            this.Name = "PermisosUsuario";
+            this.Name = "detalle_usuario";
             this.Text = "PermisosUsuario";
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
@@ -569,8 +571,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposMiembro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposDisponibles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGruposMiembro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGruposDisponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -607,8 +609,8 @@
         private System.Windows.Forms.Button buttonQuitar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridViewGruposMiembro;
-        private System.Windows.Forms.DataGridView dataGridViewGruposDisponibles;
+        private System.Windows.Forms.DataGridView dataGruposMiembro;
+        private System.Windows.Forms.DataGridView dataGruposDisponibles;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;

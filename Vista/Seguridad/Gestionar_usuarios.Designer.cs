@@ -262,7 +262,7 @@
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(170, 35);
             this.btnsalir.TabIndex = 14;
-            this.btnsalir.Text = "Eliminar";
+            this.btnsalir.Text = "Salir";
             this.btnsalir.UseVisualStyleBackColor = false;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
@@ -324,9 +324,9 @@
             this.bunifuLabel9.Location = new System.Drawing.Point(18, 412);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel9.Size = new System.Drawing.Size(109, 15);
+            this.bunifuLabel9.Size = new System.Drawing.Size(112, 15);
             this.bunifuLabel9.TabIndex = 9;
-            this.bunifuLabel9.Text = "Cliente seleccionado";
+            this.bunifuLabel9.Text = "Usuario seleccionado";
             this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel9.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -388,7 +388,7 @@
             this.txtCli.Padding = new System.Windows.Forms.Padding(3);
             this.txtCli.PasswordChar = '\0';
             this.txtCli.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtCli.PlaceholderText = "soy un cliente";
+            this.txtCli.PlaceholderText = "soy un usuario";
             this.txtCli.ReadOnly = false;
             this.txtCli.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtCli.SelectedText = "";
@@ -402,7 +402,7 @@
             this.txtCli.TextMarginBottom = 0;
             this.txtCli.TextMarginLeft = 3;
             this.txtCli.TextMarginTop = 1;
-            this.txtCli.TextPlaceholder = "soy un cliente";
+            this.txtCli.TextPlaceholder = "soy un usuario";
             this.txtCli.UseSystemPasswordChar = false;
             this.txtCli.WordWrap = true;
             // 
