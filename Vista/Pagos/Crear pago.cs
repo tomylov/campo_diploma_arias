@@ -95,7 +95,7 @@ namespace Vista.Pagos
                 oPago.id_venta = id_vta;
                 oPago.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 cPago.agregarPago(oPago);
-                cVenta.cambiarEStado(id_vta,4);
+                //cVenta.cambiarEStado(id_vta,4);
                 MessageBox.Show("Pago efectuado con exito");
                 this.Close();
             }

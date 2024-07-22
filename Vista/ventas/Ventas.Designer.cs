@@ -143,6 +143,7 @@ namespace Vista
             this.dniPK.DefaultFont = new System.Drawing.Font("Segoe UI", 9.25F);
             this.dniPK.DefaultText = "";
             this.dniPK.FillColor = System.Drawing.Color.White;
+            this.dniPK.ForeColor = System.Drawing.Color.Black;
             this.dniPK.HideSelection = true;
             this.dniPK.IconLeft = null;
             this.dniPK.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -173,7 +174,7 @@ namespace Vista
             this.dniPK.OnHoverState = stateProperties3;
             stateProperties4.BorderColor = System.Drawing.Color.Silver;
             stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.ForeColor = System.Drawing.Color.Black;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.dniPK.OnIdleState = stateProperties4;
             this.dniPK.Padding = new System.Windows.Forms.Padding(3);
@@ -312,6 +313,7 @@ namespace Vista
             this.mail.DefaultText = "";
             this.mail.Enabled = false;
             this.mail.FillColor = System.Drawing.Color.White;
+            this.mail.ForeColor = System.Drawing.Color.Black;
             this.mail.HideSelection = true;
             this.mail.IconLeft = null;
             this.mail.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -342,7 +344,7 @@ namespace Vista
             this.mail.OnHoverState = stateProperties7;
             stateProperties8.BorderColor = System.Drawing.Color.Silver;
             stateProperties8.FillColor = System.Drawing.Color.White;
-            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.ForeColor = System.Drawing.Color.Black;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.mail.OnIdleState = stateProperties8;
             this.mail.Padding = new System.Windows.Forms.Padding(3);
@@ -388,6 +390,7 @@ namespace Vista
             this.name.DefaultText = "";
             this.name.Enabled = false;
             this.name.FillColor = System.Drawing.Color.White;
+            this.name.ForeColor = System.Drawing.Color.Black;
             this.name.HideSelection = true;
             this.name.IconLeft = null;
             this.name.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -418,7 +421,7 @@ namespace Vista
             this.name.OnHoverState = stateProperties11;
             stateProperties12.BorderColor = System.Drawing.Color.Silver;
             stateProperties12.FillColor = System.Drawing.Color.White;
-            stateProperties12.ForeColor = System.Drawing.Color.Empty;
+            stateProperties12.ForeColor = System.Drawing.Color.Black;
             stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.name.OnIdleState = stateProperties12;
             this.name.Padding = new System.Windows.Forms.Padding(3);
@@ -464,6 +467,7 @@ namespace Vista
             this.textprod.DefaultText = "";
             this.textprod.Enabled = false;
             this.textprod.FillColor = System.Drawing.Color.White;
+            this.textprod.ForeColor = System.Drawing.Color.Black;
             this.textprod.HideSelection = true;
             this.textprod.IconLeft = null;
             this.textprod.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -494,7 +498,7 @@ namespace Vista
             this.textprod.OnHoverState = stateProperties15;
             stateProperties16.BorderColor = System.Drawing.Color.Silver;
             stateProperties16.FillColor = System.Drawing.Color.White;
-            stateProperties16.ForeColor = System.Drawing.Color.Empty;
+            stateProperties16.ForeColor = System.Drawing.Color.Black;
             stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.textprod.OnIdleState = stateProperties16;
             this.textprod.Padding = new System.Windows.Forms.Padding(3);
@@ -638,7 +642,7 @@ namespace Vista
             this.Eliminar.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.Eliminar.OnPressedState.IconLeftImage = null;
             this.Eliminar.OnPressedState.IconRightImage = null;
-            this.Eliminar.Size = new System.Drawing.Size(150, 39);
+            this.Eliminar.Size = new System.Drawing.Size(88, 39);
             this.Eliminar.TabIndex = 36;
             this.Eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Eliminar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -824,7 +828,7 @@ namespace Vista
             this.searchProd.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.searchProd.OnPressedState.IconLeftImage = null;
             this.searchProd.OnPressedState.IconRightImage = null;
-            this.searchProd.Size = new System.Drawing.Size(150, 39);
+            this.searchProd.Size = new System.Drawing.Size(86, 29);
             this.searchProd.TabIndex = 34;
             this.searchProd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.searchProd.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -883,7 +887,7 @@ namespace Vista
             this.addProduct.IdleIconLeftImage = null;
             this.addProduct.IdleIconRightImage = null;
             this.addProduct.IndicateFocus = false;
-            this.addProduct.Location = new System.Drawing.Point(160, 79);
+            this.addProduct.Location = new System.Drawing.Point(164, 79);
             this.addProduct.Name = "addProduct";
             this.addProduct.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.addProduct.OnDisabledState.BorderRadius = 1;
@@ -975,6 +979,7 @@ namespace Vista
             this.Total.DefaultText = "";
             this.Total.Enabled = false;
             this.Total.FillColor = System.Drawing.Color.White;
+            this.Total.ForeColor = System.Drawing.Color.Black;
             this.Total.HideSelection = true;
             this.Total.IconLeft = null;
             this.Total.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -1005,7 +1010,7 @@ namespace Vista
             this.Total.OnHoverState = stateProperties19;
             stateProperties20.BorderColor = System.Drawing.Color.Silver;
             stateProperties20.FillColor = System.Drawing.Color.White;
-            stateProperties20.ForeColor = System.Drawing.Color.Empty;
+            stateProperties20.ForeColor = System.Drawing.Color.Black;
             stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.Total.OnIdleState = stateProperties20;
             this.Total.Padding = new System.Windows.Forms.Padding(3);
@@ -1197,6 +1202,7 @@ namespace Vista
             this.price.DefaultText = "";
             this.price.Enabled = false;
             this.price.FillColor = System.Drawing.Color.White;
+            this.price.ForeColor = System.Drawing.Color.Black;
             this.price.HideSelection = true;
             this.price.IconLeft = null;
             this.price.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -1227,7 +1233,7 @@ namespace Vista
             this.price.OnHoverState = stateProperties23;
             stateProperties24.BorderColor = System.Drawing.Color.Silver;
             stateProperties24.FillColor = System.Drawing.Color.White;
-            stateProperties24.ForeColor = System.Drawing.Color.Empty;
+            stateProperties24.ForeColor = System.Drawing.Color.Black;
             stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.price.OnIdleState = stateProperties24;
             this.price.Padding = new System.Windows.Forms.Padding(3);
@@ -1273,6 +1279,7 @@ namespace Vista
             this.stock.DefaultText = "";
             this.stock.Enabled = false;
             this.stock.FillColor = System.Drawing.Color.White;
+            this.stock.ForeColor = System.Drawing.Color.Black;
             this.stock.HideSelection = true;
             this.stock.IconLeft = null;
             this.stock.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -1303,7 +1310,7 @@ namespace Vista
             this.stock.OnHoverState = stateProperties27;
             stateProperties28.BorderColor = System.Drawing.Color.Silver;
             stateProperties28.FillColor = System.Drawing.Color.White;
-            stateProperties28.ForeColor = System.Drawing.Color.Empty;
+            stateProperties28.ForeColor = System.Drawing.Color.Black;
             stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.stock.OnIdleState = stateProperties28;
             this.stock.Padding = new System.Windows.Forms.Padding(3);
@@ -1349,6 +1356,7 @@ namespace Vista
             this.description.DefaultText = "";
             this.description.Enabled = false;
             this.description.FillColor = System.Drawing.Color.White;
+            this.description.ForeColor = System.Drawing.Color.Black;
             this.description.HideSelection = true;
             this.description.IconLeft = null;
             this.description.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -1379,7 +1387,7 @@ namespace Vista
             this.description.OnHoverState = stateProperties31;
             stateProperties32.BorderColor = System.Drawing.Color.Silver;
             stateProperties32.FillColor = System.Drawing.Color.White;
-            stateProperties32.ForeColor = System.Drawing.Color.Empty;
+            stateProperties32.ForeColor = System.Drawing.Color.Black;
             stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.description.OnIdleState = stateProperties32;
             this.description.Padding = new System.Windows.Forms.Padding(3);
@@ -1451,6 +1459,7 @@ namespace Vista
             this.dataGridDetail.EnableHeadersVisualStyles = false;
             this.dataGridDetail.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataGridDetail.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataGridDetail.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataGridDetail.HeaderForeColor = System.Drawing.Color.White;
             this.dataGridDetail.Location = new System.Drawing.Point(23, 129);
             this.dataGridDetail.Name = "dataGridDetail";
@@ -1466,9 +1475,11 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(1014, 603);
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.bunifuPanel1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "Ventas";
             this.Text = "Ventas";
             this.bunifuPanel1.ResumeLayout(false);

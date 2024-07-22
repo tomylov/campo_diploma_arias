@@ -37,6 +37,7 @@ namespace Vista
             comboBusqueda.SelectedIndex = 0;
             productos = cProducto.getProductos();
             dataGridProductos.DataSource = productos;
+            dataGridProductos.Columns[4].Visible = false;
         }
 
         private void filtroBtn_Click(object sender, EventArgs e)
@@ -52,8 +53,8 @@ namespace Vista
             {
                 prod.id_prod = Convert.ToInt32(dataGridProductos.Rows[iRow].Cells[0].Value);
                 prod.nombre = Convert.ToString(dataGridProductos.Rows[iRow].Cells[1].Value);
-                prod.precio = Convert.ToDecimal(dataGridProductos.Rows[iRow].Cells[2].Value);
-                prod.stock = Convert.ToInt32(dataGridProductos.Rows[iRow].Cells[3].Value);
+                prod.stock = Convert.ToInt32(dataGridProductos.Rows[iRow].Cells[2].Value);
+                prod.precio = Convert.ToDecimal(dataGridProductos.Rows[iRow].Cells[3].Value);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -73,7 +74,7 @@ namespace Vista
 
         private void filtrar()
         {
-            productosFiltados = productos;
+            productosFiltados = cProducto.getProductos();
             if (comboBusqueda.SelectedIndex == 1)
             {
                 productosFiltados = productos.Where(producto => producto.nombre.ToLower().Contains(txtbusqueda.Text.ToLower())).ToList();

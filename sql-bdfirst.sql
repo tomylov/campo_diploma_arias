@@ -45,6 +45,7 @@ numero int)
 create table Ventas(
 id_venta int primary key identity, 
 fecha datetime,
+total decimal(15,2),
 id_estado int references Estado_venta(id_estado),
 id_cliente int references Clientes(id_cliente),
 id_comp int references Comprobantes(id_comp)

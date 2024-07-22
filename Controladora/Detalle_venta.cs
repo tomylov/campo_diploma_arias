@@ -15,7 +15,7 @@ namespace Controladora
             return det;
         }
 
-        public void updateStock(int id_prod, int cantidad)
+        public void updateStock(int? id_prod, int? cantidad)
         {
             Modelo.Productos prod = Modelo.Contexto.Obtener_instancia().Productos.Find(id_prod);
 
@@ -26,30 +26,22 @@ namespace Controladora
             }
         }
 
-
-        public void createdetalleVeta(int id_venta, int id_prod, int cantidad, decimal precio)
+        public void AgregarDetalleVenta(Modelo.Detalle_ventas detalle_Ventas)
         {
-            Modelo.Detalle_ventas det = new Modelo.Detalle_ventas();
-            det.id_venta = id_venta;
-            det.id_prod = id_prod;
-            det.cantidad = cantidad;
-            det.precio = precio;
-            updateStock(id_prod, -cantidad);
-            Modelo.Contexto.Obtener_instancia().Detalle_ventas.Add(det);
+            Modelo.Contexto.Obtener_instancia().Detalle_ventas.Add(detalle_Ventas);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
 
-        public void deleteDetVta(int idDetVta, int cantidad, int idProd)
+        public void deleteDetVta(Modelo.Detalle_ventas detalle_Venta)
         {
-            Modelo.Detalle_ventas detalleABorrar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.FirstOrDefault(detalle => detalle.id_detalle == idDetVta);
+            Modelo.Detalle_ventas detalleABorrar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.FirstOrDefault(detalle => detalle.id_detalle == detalle_Venta.id_detalle);
 
             if (detalleABorrar != null)
             {
-                updateStock(idProd, cantidad);
+                updateStock(detalle_Venta.id_prod, detalle_Venta.cantidad);
                 Modelo.Contexto.Obtener_instancia().Detalle_ventas.Remove(detalleABorrar);
+                Modelo.Contexto.Obtener_instancia().SaveChanges();
             }
-
-            Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
 
 

@@ -18,10 +18,10 @@ namespace Controladora
             }
             return cliente;
         }
-        public List<Modelo.Clientes> GetCliente(int id_cliente)
+        public List<Modelo.Clientes> GetCliente(int dni)
         {
             var clientesConDni = from cliente in Modelo.Contexto.Obtener_instancia().Clientes
-                                 where cliente.id_cliente == id_cliente
+                                 where cliente.dni == dni
                                  select cliente;
             return clientesConDni.ToList();
         }
