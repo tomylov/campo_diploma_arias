@@ -47,6 +47,7 @@ namespace Vista.Seguridad
             comboBoxfiltro.SelectedIndex = 0;
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
+            buttonClave.Enabled = false;
             checkBoxSoloHabilitados.Checked = true;
             dataUsuarios.Columns[0].Visible = false;
             dataUsuarios.Columns[8].Visible = false;
@@ -58,6 +59,7 @@ namespace Vista.Seguridad
             buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar usuario");
             buttonModificar.Visible = cPermisoGrupo.valiPermiso("Modificar usuario");
             buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar usuario");
+            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Resetear clave");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -98,14 +100,15 @@ namespace Vista.Seguridad
                 buttonAgregar.Enabled = true;
                 buttonEliminar.Enabled = true;
                 buttonModificar.Enabled = true;
+                buttonClave.Enabled = false;
                 id_usuario = Convert.ToInt32(dataUsuarios.Rows[index].Cells[0].Value);
                 txtCli.Text = id_usuario.ToString();
             }
             else
             {
-                buttonAgregar.Enabled = false;
                 buttonEliminar.Enabled = false;
                 buttonModificar.Enabled = false;
+                buttonClave.Enabled = false;
                 txtCli.Text = "";
             }
         }
@@ -133,7 +136,7 @@ namespace Vista.Seguridad
             }
         }
 
-        private void filtrar()
+        public void filtrar()
         {
             UsuariosFiltrados = cUsuario.getUsuarios();
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
@@ -156,6 +159,20 @@ namespace Vista.Seguridad
         private void btnsalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonClave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea modificar la clave del usuario?", "Modificar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                UsuariosFiltrados = Usuarios;
+                Usuario = new Modelo.Usuarios();
+                Usuario = UsuariosFiltrados.Where(cliente => cliente.id_usuario == id_usuario).FirstOrDefault();
+                Usuario.clave = "";
+                cUsuario.modificarUsuario(Usuario);
+                Usuarios = cUsuario.getUsuarios();
+                filtrar();
+            }
         }
     }
 }

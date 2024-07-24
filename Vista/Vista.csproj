@@ -209,10 +209,10 @@
     <Compile Include="Pagos\Gestionar pagos.Designer.cs">
       <DependentUpon>Gestionar pagos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\Gestionar_usuarios.cs">
+    <Compile Include="Seguridad\Usuarios\Gestionar_usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguridad\Gestionar_usuarios.Designer.cs">
+    <Compile Include="Seguridad\Usuarios\Gestionar_usuarios.Designer.cs">
       <DependentUpon>Gestionar_usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\grupo\Gestionar_grupos.cs">
@@ -227,10 +227,10 @@
     <Compile Include="Seguridad\grupo\detalle_grupo.Designer.cs">
       <DependentUpon>detalle_grupo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\detalle_usuario.cs">
+    <Compile Include="Seguridad\Usuarios\detalle_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguridad\detalle_usuario.Designer.cs">
+    <Compile Include="Seguridad\Usuarios\detalle_usuario.Designer.cs">
       <DependentUpon>detalle_usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\permisos\detalle_permisos.cs">
@@ -318,7 +318,7 @@
     <EmbeddedResource Include="Pagos\Gestionar pagos.resx">
       <DependentUpon>Gestionar pagos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\Gestionar_usuarios.resx">
+    <EmbeddedResource Include="Seguridad\Usuarios\Gestionar_usuarios.resx">
       <DependentUpon>Gestionar_usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\grupo\Gestionar_grupos.resx">
@@ -327,7 +327,7 @@
     <EmbeddedResource Include="Seguridad\grupo\detalle_grupo.resx">
       <DependentUpon>detalle_grupo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\detalle_usuario.resx">
+    <EmbeddedResource Include="Seguridad\Usuarios\detalle_usuario.resx">
       <DependentUpon>detalle_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\permisos\detalle_permisos.resx">

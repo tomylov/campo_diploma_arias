@@ -157,6 +157,16 @@ id_permiso INT REFERENCES Permisos(id_permiso),
 id_grupo INT REFERENCES Grupos(id_grupo)
 )
 
+--auditoria
+CREATE TABLE SesionesUsuario (
+    Id_sesion INT PRIMARY KEY IDENTITY,
+    id_usuario INT REFERENCES Usuarios(id_usuario),
+	Usuario varchar(50),
+    HoraInicio DATETIME,
+    HoraFin DATETIME,
+    Duracion VARCHAR(30)default 'Sesion sin terminar' --Duración en formato "hh:mm:ss"
+);
+
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')
 insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')	
