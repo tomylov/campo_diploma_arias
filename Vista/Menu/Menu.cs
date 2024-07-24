@@ -98,7 +98,7 @@ namespace Vista
         private void crearVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form gv = Gestionar_ventas.Obtener_instancia();
-            gv.ShowDialog();
+            gv.Show();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,8 +109,8 @@ namespace Vista
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form ventas = Ventas.Obtener_instancia(0, 1);
-            ventas.Show();
+            Form gv = Gestionar_ventas.Obtener_instancia();
+            gv.ShowDialog();
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)

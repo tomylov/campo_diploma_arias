@@ -26,6 +26,14 @@ namespace Controladora
             return clientesConDni.ToList();
         }
 
+        public List<Modelo.Clientes> GetClienteID(int id_cliente)
+        {
+            var clientes = from cliente in Modelo.Contexto.Obtener_instancia().Clientes
+                where cliente.id_cliente == id_cliente
+                select cliente;
+            return clientes.ToList();
+        }
+
         public System.Collections.IList getClientes()
         {
             var clientesConDni = from cliente in Modelo.Contexto.Obtener_instancia().Clientes

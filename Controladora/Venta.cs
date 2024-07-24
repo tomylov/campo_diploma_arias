@@ -57,12 +57,12 @@ namespace Controladora
                           v.id_estado,
                           cl.nombre,
                           cl.telefono,
-                          cc.plazo
+                          v.total
                       };
             return vta.ToList();
         }
 
-        public IEnumerable ListarVentasEstado(int id_estado)
+        public System.Collections.IList ListarVentasEstado(int id_estado)
         {
             var resultado = from venta in Modelo.Contexto.Obtener_instancia().Ventas
                             join detalle in Modelo.Contexto.Obtener_instancia().Detalle_ventas

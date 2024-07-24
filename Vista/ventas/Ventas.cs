@@ -72,6 +72,7 @@ namespace Vista
                     }
                     Total.Text = importe.ToString();
                 }
+                dataGridDetail.Columns[4].Visible = false;
             }
         }
 
@@ -123,6 +124,7 @@ namespace Vista
                 cVenta.modificarVenta(ventas);                
             }
             MessageBox.Show("Venta guardada con exito");
+            Vista.Gestionar_ventas.Obtener_instancia().filtrar();
             this.Close();
         }
 
@@ -225,6 +227,11 @@ namespace Vista
             detalle_Ventas.id_prod = Convert.ToInt32(dataGridDetail.Rows[index].Cells[5].Value);
             cDetVta.deleteDetVta(detalle_Ventas);
             TotalItems.Text = (Convert.ToInt32(TotalItems.Text) - cantidad).ToString();
+            dataGridDetail.Columns[4].Visible = false;
+            MessageBox.Show(importe.ToString());
+            importe -= (Convert.ToDecimal(dataGridDetail.Rows[index].Cells[3].Value));
+            MessageBox.Show(importe.ToString());
+            Total.Text = importe.ToString();
             dataGridDetail.DataSource = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
             Eliminar.Enabled = false;
         }
@@ -245,6 +252,7 @@ namespace Vista
         {
             cVenta.deleteVta(venta);
             MessageBox.Show("Venta cancelada");
+            Vista.Gestionar_ventas.Obtener_instancia().filtrar();
             this.Close();
         }
     }

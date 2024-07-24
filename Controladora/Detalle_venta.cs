@@ -17,7 +17,7 @@ namespace Controladora
 
         public void updateStock(int? id_prod, int? cantidad)
         {
-            Modelo.Productos prod = Modelo.Contexto.Obtener_instancia().Productos.Find(id_prod);
+            Modelo.Productos prod = Modelo.Contexto.Obtener_instancia().Productos.FirstOrDefault(p => p.id_prod == id_prod);
 
             if (prod != null)
             {
