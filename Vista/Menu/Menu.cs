@@ -1,4 +1,5 @@
 ﻿using Controladora;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace Vista
         private static Form formulario = null;
         private static Form formularioActivo = null;
         private static Menu instancia;
+        private Modelo.Usuarios usuario;
         private List<Modelo.Formularios> formularios = new List<Modelo.Formularios>();
         private List<Modelo.Modulos> modulos = new List<Modelo.Modulos>();
         Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
@@ -36,6 +38,7 @@ namespace Vista
         public Menu(Modelo.Usuarios usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
             cPermisoGrupo.GetPermisosLogin(usuario.id_usuario);
             formularios = cPermisoGrupo.GetFormulariosUsuario(usuario.id_usuario);
             modulos = cPermisoGrupo.GetModulosUsuario(usuario.id_usuario);
@@ -115,6 +118,10 @@ namespace Vista
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Modelo.SesionUsuario sesion = new Modelo.SesionUsuario();
+            sesion.id_usuario = usuario.id_usuario;
+            sesion.FechaFin = DateTime.Now;
+            Controladora.Auditoria.SesionesUsuario.Obtener_instancia().RegistrarFinSesion(sesion);
             Form form = Form1.Obtener_instancia();
             form.Show();
         }

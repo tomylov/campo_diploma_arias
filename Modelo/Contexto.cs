@@ -40,6 +40,7 @@ namespace Modelo
         public virtual DbSet<tipo_movimientos> tipo_movimientos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Ventas> Ventas { get; set; }
+        public DbSet<SesionUsuario> SesionesUsuario { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -157,6 +158,9 @@ namespace Modelo
             modelBuilder.Entity<Usuarios>()
                 .Property(e => e.clave)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<SesionUsuario>()
+            .ToTable("SesionesUsuario");
         }
     }
 }

@@ -70,6 +70,7 @@
     <Compile Include="Permisos.cs" />
     <Compile Include="Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SesionesUsuario.cs" />
     <Compile Include="Tipo_Comprobantes.cs" />
     <Compile Include="tipo_movimientos.cs" />
     <Compile Include="Usuarios.cs" />
