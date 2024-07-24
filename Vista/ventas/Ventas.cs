@@ -210,6 +210,7 @@ namespace Vista
             {
                 ventas.id_cliente = Cliente.id_cliente;
                 ventas.id_estado = 1;
+                ventas.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
                 cVenta.agregarVenta(ventas);
                 venta = Modelo.Contexto.Obtener_instancia().Ventas.Max(venta => venta.id_venta);
                 habilitarVentas();
