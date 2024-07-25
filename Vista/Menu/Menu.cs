@@ -1,4 +1,5 @@
 ﻿using Controladora;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace Vista
         private static Form formulario = null;
         private static Form formularioActivo = null;
         private static Menu instancia;
+        private Modelo.Usuarios usuario;
         private List<Modelo.Formularios> formularios = new List<Modelo.Formularios>();
         private List<Modelo.Modulos> modulos = new List<Modelo.Modulos>();
         Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
@@ -36,6 +38,7 @@ namespace Vista
         public Menu(Modelo.Usuarios usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
             cPermisoGrupo.GetPermisosLogin(usuario.id_usuario);
             formularios = cPermisoGrupo.GetFormulariosUsuario(usuario.id_usuario);
             modulos = cPermisoGrupo.GetModulosUsuario(usuario.id_usuario);
@@ -50,6 +53,7 @@ namespace Vista
             moduloSeguridad.Visible = modulos.Any(m => m.nombre == "Seguridad");
             moduloVentas.Visible = modulos.Any(m => m.nombre == "Ventas");
             moduloCC.Visible = modulos.Any(m => m.nombre == "Cuenta corriente");
+            moduloReportes.Visible = true;//modulos.Any(m => m.nombre == "Reportes");
         }
 
         private void ConfigurarFormularios()
@@ -64,6 +68,10 @@ namespace Vista
             //Cuenta corriente
             formularioGestionarCuentaCorriente.Visible = true;//formularios.Any(f => f.nombre == "Gestionar cuenta corriente"); no botones ahi
             formularioGestionarPagos.Visible = formularios.Any(f => f.nombre == "Gestionar pagos");
+            //Reportes
+            formularioSesiones.Visible = true;
+            //formularioSesiones.Visible = formularios.Any(f => f.nombre == "Sesiones");
+
         }
 
         private void abrirForm(Form formulario)
@@ -98,7 +106,7 @@ namespace Vista
         private void crearVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form gv = Gestionar_ventas.Obtener_instancia();
-            gv.ShowDialog();
+            gv.Show();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,12 +117,16 @@ namespace Vista
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form ventas = Ventas.Obtener_instancia(0, 1);
-            ventas.ShowDialog();
+            Form gv = Gestionar_ventas.Obtener_instancia();
+            gv.ShowDialog();
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Modelo.SesionUsuario sesion = new Modelo.SesionUsuario();
+            sesion.id_usuario = usuario.id_usuario;
+            sesion.FechaFin = DateTime.Now;
+            Controladora.Auditoria.SesionesUsuario.Obtener_instancia().RegistrarFinSesion(sesion);
             Form form = Form1.Obtener_instancia();
             form.Show();
         }
@@ -140,6 +152,12 @@ namespace Vista
         private void permisoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Gestionar_permisos.Obtener_instancia();
+            form.ShowDialog();
+        }
+
+        private void sesionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Vista.Reportes.ReporteSesiones.Obtener_instancia();
             form.ShowDialog();
         }
     }

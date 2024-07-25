@@ -19,12 +19,12 @@ namespace Controladora
             return prod;
         }
 
-        public System.Collections.IList getProductoId(int id)
+        public Modelo.Productos getProductoId(int id)
         {
             var productos = from prod in Modelo.Contexto.Obtener_instancia().Productos
                             where prod.id_prod == id
                             select prod;
-            return productos.ToList();
+            return productos.FirstOrDefault();
         }
 
         public List<Modelo.Productos> getProductos()

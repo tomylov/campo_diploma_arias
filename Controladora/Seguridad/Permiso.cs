@@ -78,7 +78,7 @@ namespace Controladora.Seguridad
 
         public void eliminarPermiso(Modelo.Permisos permiso)
         {
-            Modelo.Contexto.Obtener_instancia().Permisos.Remove(permiso);
+            Modelo.Contexto.Obtener_instancia().Entry(permiso).State = EntityState.Modified;
             Modelo.Contexto.Obtener_instancia().SaveChanges();
         }
     }

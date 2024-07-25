@@ -25,6 +25,7 @@ namespace Modelo
         public int? id_cliente { get; set; }
 
         public int? id_comp { get; set; }
+        public decimal total { get; set; }
 
         public virtual Clientes Clientes { get; set; }
 

@@ -11,8 +11,6 @@ namespace Vista.Seguridad
         private int idGrupo;
         private static detalle_grupo instancia;
         private List<Modelo.Permisos> permisosGrupo = new List<Modelo.Permisos>();
-        private List<Modelo.Permisos> nuevosPermisosGrupo = new List<Modelo.Permisos>();
-        private List<Modelo.Permisos> eliminarPermisoGrupo = new List<Modelo.Permisos>();
         //Grupo
         private Controladora.Seguridad.Grupo cGrupo = Controladora.Seguridad.Grupo.Obtener_instancia();
         private Modelo.Grupos grupo;
@@ -45,7 +43,7 @@ namespace Vista.Seguridad
             if (id != 0)
             {
                 this.idGrupo = id;
-                permisosGrupo = cPermiso.getPermisosGrupo(id);
+                permisosGrupo = cPermiso.getPermisosGrupo(id).Where(p => p.estado == true).ToList();
                 grupo = cGrupo.getGrupoId(id).FirstOrDefault();
                 checkEstado.Checked = (bool)grupo.estado;
                 txtnombre.Text = grupo.grupo_nombre;
@@ -77,7 +75,7 @@ namespace Vista.Seguridad
                 // Obtener todos los módulos, formularios y permisos
                 List<Modelo.Modulos> listmodulos = cModulo.getModulos();
                 List<Modelo.Formularios> listformularios = cFormulario.getFormularios();
-                listpermisos = cPermiso.getPermisos();
+                listpermisos = cPermiso.getPermisos().Where(p => p.estado == true).ToList();
 
                 // Iterar sobre cada módulo
                 foreach (Modelo.Modulos modulo in listmodulos)
@@ -111,6 +109,7 @@ namespace Vista.Seguridad
                         }
                     }
 
+
                     // Agregar nodo de módulo al TreeView
                     treeViewPermisos.Nodes.Add(moduloNode);
                 }
@@ -129,7 +128,8 @@ namespace Vista.Seguridad
                 grupo = new Modelo.Grupos();
                 grupo.grupo_nombre = txtnombre.Text;
                 grupo.estado = checkEstado.Checked;
-                cGrupo.agregarGrupo(grupo, nuevosPermisosGrupo);
+                grupo.Permisos = permisosGrupo;
+                cGrupo.agregarGrupo(grupo);
             }
             else
             {
@@ -137,14 +137,11 @@ namespace Vista.Seguridad
                 grupo = cGrupo.getGrupoId(idGrupo).FirstOrDefault();
                 grupo.grupo_nombre = txtnombre.Text;
                 grupo.estado = checkEstado.Checked;
-                cGrupo.modificarGrupo(grupo, nuevosPermisosGrupo, eliminarPermisoGrupo);
+                grupo.Permisos = permisosGrupo;
+                cGrupo.modificarGrupo(grupo);
             }
-            // Guardar los permisos seleccionados para el grupo
-            nuevosPermisosGrupo.Clear();
-            eliminarPermisoGrupo.Clear();
-
-            this.Close();
             MessageBox.Show("Permisos guardados correctamente.");
+            this.Close();
         }
 
         private void treeViewPermisos_AfterCheck(object sender, TreeViewEventArgs e)
@@ -156,23 +153,11 @@ namespace Vista.Seguridad
             {
                 if (e.Node.Checked)
                 {
-                    if (!permisosGrupo.Any(p => p.id_permiso == permiso.id_permiso))
-                    {
-                        nuevosPermisosGrupo.Add(permiso);
-                        eliminarPermisoGrupo.Remove(permiso);
-                    }
+                    permisosGrupo.Add(permiso);
                 }
                 else
                 {
-                    if (permisosGrupo.Any(p => p.id_permiso == permiso.id_permiso))
-                    {
-                        eliminarPermisoGrupo.Add(permiso);
-                        nuevosPermisosGrupo.Remove(permiso);
-                    }
-                    else
-                    {
-                        eliminarPermisoGrupo.Remove(permiso);
-                    }
+                    permisosGrupo.Remove(permiso);
                 }
             }
         }

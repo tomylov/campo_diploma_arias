@@ -178,6 +178,7 @@ namespace Vista.Seguridad
                 cUsuario.modificarUsuario(usuario);
             }
             MessageBox.Show("Usuario guardado con exito");
+            Gestionar_usuarios.Obtener_instancia().filtrar();
             this.Close();
         }
 

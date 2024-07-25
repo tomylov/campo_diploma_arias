@@ -48,6 +48,12 @@ namespace Vista
 
             if (cSesionManager.LoginUser(user.Text, password.Text))
             {
+                Modelo.SesionUsuario sesion = new Modelo.SesionUsuario();
+                sesion.id_usuario = usuario.id_usuario;
+                sesion.usuario = usuario.usuario;
+                sesion.FechaInicio = DateTime.Now;
+                sesion.Duracion = "Sesion en curso";
+                Controladora.Auditoria.SesionesUsuario.Obtener_instancia().RegistrarInicioSesion(sesion);
                 Form form = Vista.Menu.Obtener_instancia(usuario);
                 form.Show();
             }

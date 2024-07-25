@@ -45,6 +45,7 @@ numero int)
 create table Ventas(
 id_venta int primary key identity, 
 fecha datetime,
+total decimal(15,2),
 id_estado int references Estado_venta(id_estado),
 id_cliente int references Clientes(id_cliente),
 id_comp int references Comprobantes(id_comp)
@@ -155,6 +156,16 @@ PRIMARY KEY (id_permiso,id_grupo),
 id_permiso INT REFERENCES Permisos(id_permiso),
 id_grupo INT REFERENCES Grupos(id_grupo)
 )
+
+--auditoria
+CREATE TABLE SesionesUsuario (
+    id_sesion INT PRIMARY KEY IDENTITY,
+    id_usuario INT,
+	Usuario varchar(50),
+    FechaInicio DATETIME,
+    FechaFin DATETIME,
+    Duracion VARCHAR(30) --Duración en formato "hh:mm:ss"
+); 
 
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')

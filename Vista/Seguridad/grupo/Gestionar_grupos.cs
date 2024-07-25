@@ -45,8 +45,9 @@ namespace Vista.Clientes
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
             checkBoxSoloHabilitados.Checked = true;
-            dataClientes.Columns[2].Visible = false;
+            dataClientes.Columns[0].Visible = false;
             dataClientes.Columns[3].Visible = false;
+            dataClientes.Columns[4].Visible = false;
         }
 
         private void ConfigurarPermisosBotones()
@@ -69,7 +70,8 @@ namespace Vista.Clientes
             {
                 gruposFiltrados = grupos;
                 grupo = new Modelo.Grupos();
-                grupo = gruposFiltrados.Where(grupo => grupo.grupo_nombre == txtCli.Text).FirstOrDefault();
+                grupo = gruposFiltrados.Where(grupo => grupo.id_grupo == id_grupo).FirstOrDefault();
+                grupo.estado = false;
                 cGrupo.eliminarGrupo(grupo);
                 filtrar();
             }
@@ -112,7 +114,7 @@ namespace Vista.Clientes
 
         private void filtrar()
         {
-            gruposFiltrados = grupos;
+            gruposFiltrados = cGrupo.getGrupos();
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {
                 gruposFiltrados = gruposFiltrados.Where(grupo => grupo.grupo_nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && grupo.estado == checkBoxSoloHabilitados.Checked).ToList();

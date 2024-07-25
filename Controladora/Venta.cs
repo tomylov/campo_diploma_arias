@@ -23,14 +23,23 @@ namespace Controladora
             return venta;
         }
 
-        public void SetVentas(int id_venta)
+        public void agregarVenta(Modelo.Ventas venta)
         {
-            Modelo.Ventas vta = new Modelo.Ventas();
-            vta.fecha= Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-            vta.id_venta = id_venta;
-            vta.id_estado = 1;
-            Modelo.Contexto.Obtener_instancia().Ventas.Add(vta);
+            Modelo.Contexto.Obtener_instancia().Ventas.Add(venta);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
+
+        public void modificarVenta(Modelo.Ventas venta)
+        {
+            Modelo.Contexto.Obtener_instancia().Entry(venta).State = System.Data.Entity.EntityState.Modified;
+            Modelo.Contexto.Obtener_instancia().SaveChanges();
+
+        //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado 5=pagado con cuenta corriente
+        //Modelo.Ventas vta = Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
+        //vta.id_estado = estado;
+        //Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;
+        //Modelo.Contexto.Obtener_instancia().SaveChanges();
+
         }
 
         public System.Collections.IList ListarVentasCC(int estado)
@@ -48,12 +57,12 @@ namespace Controladora
                           v.id_estado,
                           cl.nombre,
                           cl.telefono,
-                          cc.plazo
+                          v.total
                       };
             return vta.ToList();
         }
 
-        public IEnumerable ListarVentasEstado(int id_estado)
+        public System.Collections.IList ListarVentasEstado(int id_estado)
         {
             var resultado = from venta in Modelo.Contexto.Obtener_instancia().Ventas
                             join detalle in Modelo.Contexto.Obtener_instancia().Detalle_ventas
@@ -134,16 +143,6 @@ namespace Controladora
             return pago.ToList();
         }
 
-        public void cambiarEStado(int id_venta,int estado)
-        {
-            //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado 5=pagado con cuenta corriente
-            Modelo.Ventas vta= Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
-            vta.id_estado = estado;
-            Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;
-            Modelo.Contexto.Obtener_instancia().SaveChanges();
-
-        }
-
         private void updateMonto(int idcc,decimal monto,double days)
         {
             Modelo.Cuentas_Corrientes cc= Modelo.Contexto.Obtener_instancia().Cuentas_Corrientes.Find(idcc);
@@ -162,7 +161,7 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().Comprobantes.Add(comprobante);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
             //Cambio el estado de la venta a cuenta corriente
-            cambiarEStado(id_venta, 2);
+            //cambiarEStado(id_venta, 2);
             //Creo el movimiento tipo 1: baja deuda tipo 2: sube deuda
             Modelo.Movimientos movimiento = new Modelo.Movimientos();
             movimiento.tipo = 1;
@@ -184,15 +183,11 @@ namespace Controladora
             List<Modelo.Detalle_ventas> detallesAEliminar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.Where(d => d.id_venta == idVta).ToList();
             if (detallesAEliminar != null)
             {
-                int cantidad;
-                int idProd = 0;
                 int i;
                 for (i = 0; i < detallesAEliminar.Count; i++)
                 {
-                    cantidad = (int)detallesAEliminar[i].cantidad;
-                    idProd = (int)detallesAEliminar[i].id_prod;
-                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVta(detallesAEliminar[i].id_detalle, cantidad, idProd);
-                    
+                    Modelo.Detalle_ventas detalle = detallesAEliminar[i];
+                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVta(detalle);                    
                 }
             }
             var ventaAEliminar = Modelo.Contexto.Obtener_instancia().Ventas.FirstOrDefault(v => v.id_venta == idVta);

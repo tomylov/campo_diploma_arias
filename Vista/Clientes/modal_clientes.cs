@@ -35,7 +35,7 @@ namespace Vista.Clientes
             this.id = id;
             if (id != 0)
             {
-                cliente = cCliente.GetCliente(id).FirstOrDefault();
+                cliente = cCliente.GetClienteID(id).FirstOrDefault();
                 txtdni.Text = cliente.dni.ToString();
                 txtnombre.Text = cliente.nombre;
                 txtemail.Text = cliente.email;
@@ -63,10 +63,14 @@ namespace Vista.Clientes
                 else
                     cliente.estado = false;
                 cCliente.agregarCliente(cliente);
+                Modelo.Cuentas_Corrientes cc = new Modelo.Cuentas_Corrientes();
+                cc.id_cliente = cliente.id_cliente;
+                cc.saldo = 0;
+                Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().agregarCC(cc);
             }
             else
             {
-                cliente = cCliente.GetCliente(id).FirstOrDefault();
+                cliente = cCliente.GetClienteID(id).FirstOrDefault();
                 cliente.dni = Convert.ToInt32(txtdni.Text);
                 cliente.nombre = txtnombre.Text;
                 cliente.email = txtemail.Text;
