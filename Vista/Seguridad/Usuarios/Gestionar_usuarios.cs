@@ -59,7 +59,7 @@ namespace Vista.Seguridad
             buttonAgregar.Visible = cPermisoGrupo.valiPermiso("Agregar usuario");
             buttonModificar.Visible = cPermisoGrupo.valiPermiso("Modificar usuario");
             buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Eliminar usuario");
-            buttonEliminar.Visible = cPermisoGrupo.valiPermiso("Resetear clave");
+            buttonClave.Visible = cPermisoGrupo.valiPermiso("Resetear clave");
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace Vista.Seguridad
                 buttonAgregar.Enabled = true;
                 buttonEliminar.Enabled = true;
                 buttonModificar.Enabled = true;
-                buttonClave.Enabled = false;
+                buttonClave.Enabled = true;
                 id_usuario = Convert.ToInt32(dataUsuarios.Rows[index].Cells[0].Value);
                 txtCli.Text = id_usuario.ToString();
             }

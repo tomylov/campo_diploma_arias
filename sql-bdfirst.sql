@@ -159,7 +159,7 @@ id_grupo INT REFERENCES Grupos(id_grupo)
 
 --auditoria
 CREATE TABLE SesionesUsuario (
-    Id_sesion INT PRIMARY KEY IDENTITY,
+    id_sesion INT PRIMARY KEY IDENTITY,
     id_usuario INT,
 	Usuario varchar(50),
     FechaInicio DATETIME,

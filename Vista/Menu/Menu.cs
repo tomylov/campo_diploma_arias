@@ -53,6 +53,7 @@ namespace Vista
             moduloSeguridad.Visible = modulos.Any(m => m.nombre == "Seguridad");
             moduloVentas.Visible = modulos.Any(m => m.nombre == "Ventas");
             moduloCC.Visible = modulos.Any(m => m.nombre == "Cuenta corriente");
+            moduloReportes.Visible = true;//modulos.Any(m => m.nombre == "Reportes");
         }
 
         private void ConfigurarFormularios()
@@ -67,6 +68,10 @@ namespace Vista
             //Cuenta corriente
             formularioGestionarCuentaCorriente.Visible = true;//formularios.Any(f => f.nombre == "Gestionar cuenta corriente"); no botones ahi
             formularioGestionarPagos.Visible = formularios.Any(f => f.nombre == "Gestionar pagos");
+            //Reportes
+            formularioSesiones.Visible = true;
+            //formularioSesiones.Visible = formularios.Any(f => f.nombre == "Sesiones");
+
         }
 
         private void abrirForm(Form formulario)
@@ -147,6 +152,12 @@ namespace Vista
         private void permisoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Gestionar_permisos.Obtener_instancia();
+            form.ShowDialog();
+        }
+
+        private void sesionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = Vista.Reportes.ReporteSesiones.Obtener_instancia();
             form.ShowDialog();
         }
     }
