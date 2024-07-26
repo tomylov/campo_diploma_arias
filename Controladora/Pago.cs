@@ -28,6 +28,16 @@ namespace Controladora
         {
             Modelo.Contexto.Obtener_instancia().Pagos.Add(pago);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
+            int id_pago = Modelo.Contexto.Obtener_instancia().Pagos.Max(p=> p.numero);
+
+            Modelo.Comprobantes comprobantes = new Modelo.Comprobantes();
+            comprobantes.numero = id_pago;
+            comprobantes.id_tipo = 2;
+            Controladora.Comprobante.Obtener_instancia().AgregarComprobante(comprobantes);
+            comprobantes.id_comp = Modelo.Contexto.Obtener_instancia().Comprobantes.Max(p => p.id_comp);
+
+            pago.id_comp = comprobantes.id_comp;
+            Modelo.Contexto.Obtener_instancia().Entry(pago).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void modificarPago(Modelo.Pagos pago)

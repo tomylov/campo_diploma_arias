@@ -1,32 +1,45 @@
-﻿using System;
+﻿using Controladora;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Pagos;
 
 namespace Vista
 {
     public partial class cuenta_corriente : Form
     {
-        int id_cliente;
-        int id_cc;
-        public cuenta_corriente(int account)
+        int index;
+        Modelo.Clientes cliente = new Modelo.Clientes();
+        Modelo.Cuentas_Corrientes cuentaCorriente;
+        //ventas
+        Controladora.Venta cVenta = Controladora.Venta.Obtener_instancia();
+        List<Modelo.Ventas> lVentas = new List<Modelo.Ventas>();
+        List<Modelo.Cuentas_Corrientes> Cuentas_Corrientes = new List<Modelo.Cuentas_Corrientes>();
+        List<Modelo.Movimientos> Movimientos = new List<Modelo.Movimientos>();
+        //pagos
+        Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
+        List<Modelo.Pagos> Pagos = new List<Modelo.Pagos>();
+        private static cuenta_corriente instancia;
+        public static cuenta_corriente Obtener_instancia()
+        {
+            if (instancia == null)
+                instancia = new cuenta_corriente();
+            if (instancia.IsDisposed)
+                instancia = new cuenta_corriente();
+            return instancia;
+        }
+        public cuenta_corriente()
         {
             InitializeComponent();
             numberVta.Text = "";
-            id_cliente = account;
-            //Muestro los datos de la cuenta 
-            var datos = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().GetCuentaCorriente(account);             
-            inputDNI.Text = Convert.ToString(account);
-            inputName.Text = Convert.ToString(datos[0].GetType().GetProperty("Name").GetValue(datos[0], null));
-            inputEmail.Text = Convert.ToString(datos[0].GetType().GetProperty("Email").GetValue(datos[0], null));
-            id_cc = Convert.ToInt32(datos[0].GetType().GetProperty("Id_cc").GetValue(datos[0], null));
-            lblSaldo.Text = Convert.ToString(datos[0].GetType().GetProperty("Saldo").GetValue(datos[0], null));
-            dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(1,id_cliente);
 
             //Preparo el combo box para que haga las diferentes querys
             comboSelect.Text= "Ventas-retirar";
@@ -45,15 +58,20 @@ namespace Vista
         {
             if(numberVta.Text != "")
             {
-                //Controladora.Venta.Obtener_instancia().pagar(Convert.ToInt32(numberVta.Text));
-                MessageBox.Show("Pago efectuado con exito");
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, id_cliente);
+                Modelo.Ventas venta = new Modelo.Ventas();
+                venta.id_venta = Convert.ToInt32(dataMove.Rows[index].Cells[0].Value);
+                venta.id_estado = Convert.ToInt32(dataMove.Rows[index].Cells[2].Value);
+                venta.id_cliente = Convert.ToInt32(dataMove.Rows[index].Cells[3].Value);
+                venta.total = Convert.ToDecimal(dataMove.Rows[index].Cells[5].Value);
+                Crear_pago form = Crear_pago.Obtener_instancia(venta);
+                form.Show();
+                dataMove.DataSource = null;
             }
         }
 
         private void dataMove_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
+            index = e.RowIndex;
             string idVta = (dataMove.Rows[index].Cells[0].Value).ToString();
             numberVta.Text = idVta;
         }
@@ -62,11 +80,11 @@ namespace Vista
         {
             if (numberVta.Text != "")
             {
-                Controladora.Venta.Obtener_instancia().ventaCC(Convert.ToInt32(numberVta.Text),id_cliente);
+                Controladora.Venta.Obtener_instancia().ventaCC(Convert.ToInt32(numberVta.Text),cliente.id_cliente);
                 MessageBox.Show("Venta en cuenta corriente");
-                var datos = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().GetCuentaCorriente(id_cliente);
+                var datos = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().GetCuentaCorriente(cliente.id_cliente);
                 lblSaldo.Text = Convert.ToString(datos[0].GetType().GetProperty("Saldo").GetValue(datos[0], null));
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(1, id_cliente);
+                dataMove.DataSource = cVenta.ListarVentasClientes(1, cliente.id_cliente);
             }
         }
 
@@ -74,28 +92,66 @@ namespace Vista
         {
             if(comboSelect.SelectedIndex == 2)
             {
-                dataMove.DataSource = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().listarMovimientos(id_cc);
-                btnPay.Enabled = false;
-                VentaCC.Enabled = false;
-            }
-            if(comboSelect.SelectedIndex == 1)
-            {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex+1, id_cliente);
+                dataMove.DataSource = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().listarMovimientos(cuentaCorriente.id_cc);
                 btnPay.Enabled = false;
                 VentaCC.Enabled = false;
             }
             if (comboSelect.SelectedIndex == 0)
             {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarVentas(comboSelect.SelectedIndex + 1, id_cliente);
+                lVentas = cVenta.ListarVentasClientes(2, cliente.id_cliente);
+                dataMove.DataSource = lVentas;
+                dataMove.Columns[2].Visible = false;
+                dataMove.Columns[3].Visible = false;
+                dataMove.Columns[4].Visible = false;
+                dataMove.Columns[6].Visible = false;
+                dataMove.Columns[7].Visible = false;
+                dataMove.Columns[8].Visible = false;
+                dataMove.Columns[9].Visible = false;
+                dataMove.Columns[10].Visible = false;
                 btnPay.Enabled = true;
                 VentaCC.Enabled = true;
             }
+            if(comboSelect.SelectedIndex == 1)
+            {
+                lVentas = cVenta.ListarVentasClientes(3, cliente.id_cliente);
+                dataMove.DataSource = lVentas;
+                btnPay.Enabled = true;
+                VentaCC.Enabled = false;
+                dataMove.Columns[2].Visible = false;
+                dataMove.Columns[3].Visible = false;
+                dataMove.Columns[4].Visible = false;
+                dataMove.Columns[6].Visible = false;
+                dataMove.Columns[7].Visible = false;
+                dataMove.Columns[8].Visible = false;
+                dataMove.Columns[9].Visible = false;
+                dataMove.Columns[10].Visible = false;
+            }
             if (comboSelect.SelectedIndex == 3)
             {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(id_cliente);
+                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(cliente.id_cliente);
                 btnPay.Enabled = false;
                 VentaCC.Enabled = false;
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Consultar_clientes form = Consultar_clientes.Obtener_instancia();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                cliente.id_cliente = form.cliente.id_cliente;
+                cliente.dni = form.cliente.dni;
+                cliente.nombre = form.cliente.nombre;
+                cliente.telefono = form.cliente.telefono;
+                cliente.email = form.cliente.email;
+                cliente.ra = form.cliente.ra;
+            }
+            inputDNI.Text = Convert.ToString(cliente.dni);
+            inputName.Text = cliente.nombre;
+            inputEmail.Text = cliente.email;
+
+            cuentaCorriente = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().Getcc(cliente.id_cliente).FirstOrDefault();
+            lblSaldo.Text = cuentaCorriente.saldo.ToString();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controladora
 {
-    class Movimiento
+    public class Movimiento
     {
         private static Movimiento movimiento;
 

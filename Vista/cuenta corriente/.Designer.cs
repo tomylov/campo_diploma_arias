@@ -54,6 +54,7 @@ namespace Vista
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblSaldo = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.inputEmail = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -86,6 +87,7 @@ namespace Vista
             this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
+            this.bunifuGroupBox1.Controls.Add(this.btnLimpiar);
             this.bunifuGroupBox1.Controls.Add(this.lblSaldo);
             this.bunifuGroupBox1.Controls.Add(this.bunifuLabel4);
             this.bunifuGroupBox1.Controls.Add(this.inputEmail);
@@ -106,6 +108,23 @@ namespace Vista
             this.bunifuGroupBox1.TabStop = false;
             this.bunifuGroupBox1.Text = "Datos cuenta corriente";
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(1055, 36);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(38, 40);
+            this.btnLimpiar.TabIndex = 37;
+            this.btnLimpiar.Text = "🔎";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // lblSaldo
             // 
             this.lblSaldo.AllowParentOverrides = false;
@@ -113,6 +132,7 @@ namespace Vista
             this.lblSaldo.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblSaldo.CursorType = System.Windows.Forms.Cursors.Default;
             this.lblSaldo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblSaldo.ForeColor = System.Drawing.Color.White;
             this.lblSaldo.Location = new System.Drawing.Point(255, 82);
             this.lblSaldo.Name = "lblSaldo";
             this.lblSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -129,6 +149,7 @@ namespace Vista
             this.bunifuLabel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel4.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel4.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel4.Location = new System.Drawing.Point(12, 82);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -220,6 +241,7 @@ namespace Vista
             this.bunifuLabel3.AutoEllipsis = false;
             this.bunifuLabel3.CursorType = null;
             this.bunifuLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel3.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel3.Location = new System.Drawing.Point(788, 46);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -311,6 +333,7 @@ namespace Vista
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.CursorType = null;
             this.bunifuLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel2.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel2.Location = new System.Drawing.Point(489, 46);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -403,6 +426,7 @@ namespace Vista
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel1.Location = new System.Drawing.Point(142, 46);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -534,6 +558,8 @@ namespace Vista
             // dataMove
             // 
             this.dataMove.AllowCustomTheming = false;
+            this.dataMove.AllowUserToAddRows = false;
+            this.dataMove.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dataMove.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -579,9 +605,11 @@ namespace Vista
             this.dataMove.EnableHeadersVisualStyles = false;
             this.dataMove.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataMove.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataMove.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataMove.HeaderForeColor = System.Drawing.Color.White;
             this.dataMove.Location = new System.Drawing.Point(278, 83);
             this.dataMove.Name = "dataMove";
+            this.dataMove.ReadOnly = true;
             this.dataMove.RowHeadersVisible = false;
             this.dataMove.RowTemplate.Height = 40;
             this.dataMove.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -699,6 +727,7 @@ namespace Vista
             this.bunifuLabel8.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel8.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel8.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel8.Location = new System.Drawing.Point(461, 41);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -715,6 +744,7 @@ namespace Vista
             this.bunifuLabel7.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel7.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel7.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel7.Location = new System.Drawing.Point(25, 161);
             this.bunifuLabel7.Name = "bunifuLabel7";
             this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -731,6 +761,7 @@ namespace Vista
             this.bunifuLabel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel6.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel6.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel6.Location = new System.Drawing.Point(19, 93);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -754,7 +785,7 @@ namespace Vista
             this.bunifuDatePicker2.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.bunifuDatePicker2.FillDatePicker = false;
             this.bunifuDatePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuDatePicker2.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDatePicker2.ForeColor = System.Drawing.Color.White;
             this.bunifuDatePicker2.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker2.Icon")));
             this.bunifuDatePicker2.IconColor = System.Drawing.Color.Gray;
             this.bunifuDatePicker2.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
@@ -779,7 +810,7 @@ namespace Vista
             this.bunifuDatePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.bunifuDatePicker1.FillDatePicker = false;
             this.bunifuDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuDatePicker1.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDatePicker1.ForeColor = System.Drawing.Color.White;
             this.bunifuDatePicker1.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker1.Icon")));
             this.bunifuDatePicker1.IconColor = System.Drawing.Color.Gray;
             this.bunifuDatePicker1.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
@@ -1054,6 +1085,7 @@ namespace Vista
             this.bunifuLabel9.AutoEllipsis = false;
             this.bunifuLabel9.CursorType = null;
             this.bunifuLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel9.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel9.Location = new System.Drawing.Point(117, 559);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1067,6 +1099,7 @@ namespace Vista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(1184, 646);
             this.Controls.Add(this.bunifuLabel9);
             this.Controls.Add(this.BtnPrint);
@@ -1074,6 +1107,7 @@ namespace Vista
             this.Controls.Add(this.numberVta);
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuGroupBox1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "cuenta_corriente";
             this.Text = "cuenta corriente";
             this.bunifuGroupBox1.ResumeLayout(false);
@@ -1111,5 +1145,6 @@ namespace Vista
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnPay;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel9;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton VentaCC;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

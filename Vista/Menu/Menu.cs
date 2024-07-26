@@ -68,9 +68,10 @@ namespace Vista
             //Cuenta corriente
             formularioGestionarCuentaCorriente.Visible = true;//formularios.Any(f => f.nombre == "Gestionar cuenta corriente"); no botones ahi
             formularioGestionarPagos.Visible = formularios.Any(f => f.nombre == "Gestionar pagos");
+            formularioCuentaCorrienteCliente.Visible = true;//formularios.Any(f => f.nombre == "Cuenta corriente cliente");
             //Reportes
-            formularioSesiones.Visible = true;
-            //formularioSesiones.Visible = formularios.Any(f => f.nombre == "Sesiones");
+            formularioSesiones.Visible = formularioSesiones.Visible = formularios.Any(f => f.nombre == "Reporte sesiones");
+            //
 
         }
 
@@ -158,6 +159,12 @@ namespace Vista
         private void sesionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Vista.Reportes.ReporteSesiones.Obtener_instancia();
+            form.ShowDialog();
+        }
+
+        private void formularioCuentaCorrienteCliente_Click(object sender, EventArgs e)
+        {
+            Form form = cuenta_corriente.Obtener_instancia();
             form.ShowDialog();
         }
     }

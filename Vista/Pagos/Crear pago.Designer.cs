@@ -46,18 +46,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.dataVtas = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.bunifuGroupBox3 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.txtPago = new System.Windows.Forms.TextBox();
             this.comboBoxmedio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.buttonPagar = new System.Windows.Forms.Button();
+            this.dataVtas = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.bunifuGroupBox1.SuspendLayout();
-            this.bunifuGroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).BeginInit();
             this.bunifuGroupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).BeginInit();
+            this.bunifuGroupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuGroupBox1
@@ -248,25 +248,97 @@
             this.label5.TabIndex = 46;
             this.label5.Text = "Nombre:";
             // 
-            // bunifuGroupBox2
+            // bunifuGroupBox3
             // 
-            this.bunifuGroupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.bunifuGroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
-            this.bunifuGroupBox2.BorderRadius = 1;
-            this.bunifuGroupBox2.BorderThickness = 1;
-            this.bunifuGroupBox2.Controls.Add(this.dataVtas);
-            this.bunifuGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuGroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
-            this.bunifuGroupBox2.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox2.LabelIndent = 10;
-            this.bunifuGroupBox2.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox2.Location = new System.Drawing.Point(0, 171);
-            this.bunifuGroupBox2.Name = "bunifuGroupBox2";
-            this.bunifuGroupBox2.Size = new System.Drawing.Size(1163, 376);
-            this.bunifuGroupBox2.TabIndex = 3;
-            this.bunifuGroupBox2.TabStop = false;
-            this.bunifuGroupBox2.Text = "Listado de ventas en estado pendiente";
+            this.bunifuGroupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.bunifuGroupBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.bunifuGroupBox3.BorderRadius = 1;
+            this.bunifuGroupBox3.BorderThickness = 1;
+            this.bunifuGroupBox3.Controls.Add(this.txtPago);
+            this.bunifuGroupBox3.Controls.Add(this.comboBoxmedio);
+            this.bunifuGroupBox3.Controls.Add(this.label1);
+            this.bunifuGroupBox3.Controls.Add(this.buttonSalir);
+            this.bunifuGroupBox3.Controls.Add(this.buttonPagar);
+            this.bunifuGroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bunifuGroupBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuGroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.bunifuGroupBox3.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuGroupBox3.LabelIndent = 10;
+            this.bunifuGroupBox3.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.bunifuGroupBox3.Location = new System.Drawing.Point(0, 547);
+            this.bunifuGroupBox3.Name = "bunifuGroupBox3";
+            this.bunifuGroupBox3.Size = new System.Drawing.Size(1163, 100);
+            this.bunifuGroupBox3.TabIndex = 4;
+            this.bunifuGroupBox3.TabStop = false;
+            this.bunifuGroupBox3.Text = "Botones";
+            // 
+            // txtPago
+            // 
+            this.txtPago.Enabled = false;
+            this.txtPago.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txtPago.Location = new System.Drawing.Point(335, 42);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(131, 29);
+            this.txtPago.TabIndex = 55;
+            this.txtPago.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
+            // 
+            // comboBoxmedio
+            // 
+            this.comboBoxmedio.DisplayMember = "descripcion";
+            this.comboBoxmedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxmedio.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxmedio.FormattingEnabled = true;
+            this.comboBoxmedio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBoxmedio.Location = new System.Drawing.Point(142, 42);
+            this.comboBoxmedio.Name = "comboBoxmedio";
+            this.comboBoxmedio.Size = new System.Drawing.Size(187, 29);
+            this.comboBoxmedio.TabIndex = 57;
+            this.comboBoxmedio.ValueMember = "id_med_pago";
+            this.comboBoxmedio.SelectedIndexChanged += new System.EventHandler(this.comboBoxmedio_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(22, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 21);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "medio de pago";
+            // 
+            // buttonSalir
+            // 
+            this.buttonSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalir.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSalir.ForeColor = System.Drawing.Color.White;
+            this.buttonSalir.Location = new System.Drawing.Point(948, 36);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(170, 35);
+            this.buttonSalir.TabIndex = 55;
+            this.buttonSalir.Text = "Cancelar";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            // 
+            // buttonPagar
+            // 
+            this.buttonPagar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.buttonPagar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPagar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonPagar.ForeColor = System.Drawing.Color.White;
+            this.buttonPagar.Location = new System.Drawing.Point(749, 36);
+            this.buttonPagar.Name = "buttonPagar";
+            this.buttonPagar.Size = new System.Drawing.Size(170, 35);
+            this.buttonPagar.TabIndex = 54;
+            this.buttonPagar.Text = "Pagar";
+            this.buttonPagar.UseVisualStyleBackColor = true;
+            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
             // 
             // dataVtas
             // 
@@ -329,95 +401,25 @@
             this.dataVtas.TabIndex = 0;
             this.dataVtas.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
-            // bunifuGroupBox3
+            // bunifuGroupBox2
             // 
-            this.bunifuGroupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
-            this.bunifuGroupBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
-            this.bunifuGroupBox3.BorderRadius = 1;
-            this.bunifuGroupBox3.BorderThickness = 1;
-            this.bunifuGroupBox3.Controls.Add(this.txtPago);
-            this.bunifuGroupBox3.Controls.Add(this.comboBoxmedio);
-            this.bunifuGroupBox3.Controls.Add(this.label1);
-            this.bunifuGroupBox3.Controls.Add(this.buttonSalir);
-            this.bunifuGroupBox3.Controls.Add(this.buttonPagar);
-            this.bunifuGroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bunifuGroupBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuGroupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
-            this.bunifuGroupBox3.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox3.LabelIndent = 10;
-            this.bunifuGroupBox3.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox3.Location = new System.Drawing.Point(0, 547);
-            this.bunifuGroupBox3.Name = "bunifuGroupBox3";
-            this.bunifuGroupBox3.Size = new System.Drawing.Size(1163, 100);
-            this.bunifuGroupBox3.TabIndex = 4;
-            this.bunifuGroupBox3.TabStop = false;
-            this.bunifuGroupBox3.Text = "Botones";
-            // 
-            // txtPago
-            // 
-            this.txtPago.Enabled = false;
-            this.txtPago.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtPago.Location = new System.Drawing.Point(311, 42);
-            this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(131, 29);
-            this.txtPago.TabIndex = 55;
-            this.txtPago.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
-            // 
-            // comboBoxmedio
-            // 
-            this.comboBoxmedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxmedio.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxmedio.FormattingEnabled = true;
-            this.comboBoxmedio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxmedio.Location = new System.Drawing.Point(142, 42);
-            this.comboBoxmedio.Name = "comboBoxmedio";
-            this.comboBoxmedio.Size = new System.Drawing.Size(158, 29);
-            this.comboBoxmedio.TabIndex = 57;
-            this.comboBoxmedio.SelectedIndexChanged += new System.EventHandler(this.comboBoxmedio_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(22, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "medio de pago";
-            // 
-            // buttonSalir
-            // 
-            this.buttonSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalir.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSalir.ForeColor = System.Drawing.Color.White;
-            this.buttonSalir.Location = new System.Drawing.Point(948, 36);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(170, 35);
-            this.buttonSalir.TabIndex = 55;
-            this.buttonSalir.Text = "Cancelar";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            // 
-            // buttonPagar
-            // 
-            this.buttonPagar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonPagar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.buttonPagar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPagar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonPagar.ForeColor = System.Drawing.Color.White;
-            this.buttonPagar.Location = new System.Drawing.Point(749, 36);
-            this.buttonPagar.Name = "buttonPagar";
-            this.buttonPagar.Size = new System.Drawing.Size(170, 35);
-            this.buttonPagar.TabIndex = 54;
-            this.buttonPagar.Text = "Pagar";
-            this.buttonPagar.UseVisualStyleBackColor = true;
-            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
+            this.bunifuGroupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
+            this.bunifuGroupBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.bunifuGroupBox2.BorderRadius = 1;
+            this.bunifuGroupBox2.BorderThickness = 1;
+            this.bunifuGroupBox2.Controls.Add(this.dataVtas);
+            this.bunifuGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuGroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuGroupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
+            this.bunifuGroupBox2.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuGroupBox2.LabelIndent = 10;
+            this.bunifuGroupBox2.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.bunifuGroupBox2.Location = new System.Drawing.Point(0, 171);
+            this.bunifuGroupBox2.Name = "bunifuGroupBox2";
+            this.bunifuGroupBox2.Size = new System.Drawing.Size(1163, 376);
+            this.bunifuGroupBox2.TabIndex = 3;
+            this.bunifuGroupBox2.TabStop = false;
+            this.bunifuGroupBox2.Text = "Listado de ventas";
             // 
             // Crear_pago
             // 
@@ -431,10 +433,10 @@
             this.Text = "Registrar pago";
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
-            this.bunifuGroupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).EndInit();
             this.bunifuGroupBox3.ResumeLayout(false);
             this.bunifuGroupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).EndInit();
+            this.bunifuGroupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -450,8 +452,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label5;
-        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox2;
-        private Bunifu.UI.WinForms.BunifuDataGridView dataVtas;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox3;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Button buttonPagar;
@@ -463,5 +463,7 @@
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
         private System.Windows.Forms.TextBox txtRs;
         private System.Windows.Forms.Label label9;
+        private Bunifu.UI.WinForms.BunifuDataGridView dataVtas;
+        private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox2;
     }
 }

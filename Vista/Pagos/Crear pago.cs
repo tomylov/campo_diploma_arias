@@ -18,11 +18,14 @@ namespace Vista.Pagos
         private int id_cliente;
         private int id_vta;
         private int estado;
+        private decimal totalPrecio;
+        int count=0;
         //Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
         Controladora.Cuenta_Corriente_Cliente cCuentaCorriente = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia();
         Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
         Controladora.Cliente cCliente = Controladora.Cliente.Obtener_instancia();
         Controladora.Venta cVenta = Controladora.Venta.Obtener_instancia();
+        Controladora.Comprobante cComprobante = Controladora.Comprobante.Obtener_instancia();
         Modelo.Cuentas_Corrientes mCuentaCorriente;
         Modelo.Clientes mCliente;
         private List<Modelo.Cuentas_Corrientes> cc;
@@ -50,13 +53,13 @@ namespace Vista.Pagos
                 this.id_cliente = (int)venta.id_cliente;
                 this.estado = (int)venta.id_estado;
                 this.id_vta = venta.id_venta;
+                this.totalPrecio = (decimal)venta.total;
+                MessageBox.Show(totalPrecio.ToString());
                 buttonVenta.Visible = false;
                 cargarDatosCliente(id_cliente);
                 leerPago(id_vta, estado);
             }
-            comboBoxmedio.Items.Add("Transferencia");
-            comboBoxmedio.Items.Add("Efectivo");
-            comboBoxmedio.SelectedIndex = 1;
+            comboBoxmedio.DataSource = Controladora.Medio_Pagos.Obtener_instancia().ListarMedioPagos();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -84,18 +87,38 @@ namespace Vista.Pagos
             decimal saldo = Convert.ToDecimal(lblSaldo.Text);
             if (pago >= saldo)
             {
-                if (estado == 3 || estado == 2)
+                Modelo.Pagos oPago = new Modelo.Pagos();
+                oPago.monto = Convert.ToDecimal(saldo);
+                oPago.id_venta = id_vta;
+                oPago.id_med_pago = Convert.ToInt32(comboBoxmedio.SelectedValue);
+                oPago.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                cPago.agregarPago(oPago);
+                if (estado == 3)
                 {
                     mCuentaCorriente = cCuentaCorriente.Getcc(id_cliente).FirstOrDefault();
                     mCuentaCorriente.saldo -= saldo;
                     cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
+
+                    Modelo.Movimientos movimiento = new Modelo.Movimientos();
+                    movimiento.tipo = 2;
+                    movimiento.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                    movimiento.id_cc = mCuentaCorriente.id_cc;
+                    movimiento.monto = saldo;
+                    Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
+
+                    Modelo.Ventas venta= new Modelo.Ventas();
+                    venta = cVenta.getVentaId(id_vta);
+                    venta.id_estado = 5;
+                    cVenta.modificarVenta(venta);
                 }
-                Modelo.Pagos oPago = new Modelo.Pagos();
-                oPago.monto = Convert.ToDecimal(txtPago.Text);
-                oPago.id_venta = id_vta;
-                oPago.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-                cPago.agregarPago(oPago);
-                //cVenta.cambiarEStado(id_vta,4);
+                else
+                {
+                    Modelo.Ventas venta = new Modelo.Ventas();
+                    venta = cVenta.getVentaId(id_vta);
+                    venta.id_estado = 4;
+                    cVenta.modificarVenta(venta);
+                }
+
                 MessageBox.Show("Pago efectuado con exito");
                 this.Close();
             }
@@ -112,24 +135,13 @@ namespace Vista.Pagos
         dataVtas.DataSource = detalle;
         dataVtas.Columns[4].Visible = false;
         dataVtas.Columns[5].Visible = false;
-        //si estado es igual 1 significa que se estar por pagar una venta que todavia no fue asignada a una cuenta corriente
-        decimal totalPrecio = 0;
-        foreach (var item in detalle)
-        {
-            totalPrecio += (decimal)item.GetType().GetProperty("precio").GetValue(item, null);
-        }
         lblSaldo.Text = totalPrecio.ToString();
-        if (pEstado == 3)
-        {
-                totalPrecio *= 1.10m;
-                lblSaldo.Text = totalPrecio.ToString();
-           }
-        }
+    }
 
         private void cargarDatosCliente(int id_cliente)
         {
             mCliente = new Modelo.Clientes();
-            mCliente = cCliente.GetCliente(id_cliente).FirstOrDefault();
+            mCliente = cCliente.GetClienteID(id_cliente).FirstOrDefault();
             //txtid_usuario.Text = mCliente.id_cliente.ToString();
             txtnombre.Text = mCliente.nombre;
             txtemail.Text = mCliente.email;
@@ -153,28 +165,27 @@ namespace Vista.Pagos
 
         private void txtPago_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar))
+            if (Char.IsControl(e.KeyChar) || Char.IsDigit(e.KeyChar))
             {
                 e.Handled = false;
+                return;
             }
-            else
+
+            if (e.KeyChar == ',')
             {
-                if (txtPago.Text.Trim().Length == 0 && e.KeyChar.ToString() == ",")
+                if (count < 1 && txtPago.Text.Trim().Length > 0)
                 {
-                    e.Handled = true;
+                    count++;
+                    e.Handled = false;
                 }
                 else
                 {
-                    if (Char.IsControl(e.KeyChar) || e.KeyChar.ToString() == ",")
-                    {
-                        e.Handled = false;
-                    }
-                    else
-                    {
-                        e.Handled = true;
-                    }
+                    e.Handled = true;
                 }
-
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
     }
