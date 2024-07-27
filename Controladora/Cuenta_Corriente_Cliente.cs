@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,17 +48,19 @@ namespace Controladora
         //Listo los movimientos de una cuenta corriente
         public System.Collections.IList listarMovimientos(int cc)
         {
-            var mov = from mo in Modelo.Contexto.Obtener_instancia().Movimientos
-                      join co in Modelo.Contexto.Obtener_instancia().Comprobantes on mo.id_comp equals co.id_comp
-                      where mo.id_cc == cc
-                      select new
-                      {
-                          mo.id_mov,
-                          mo.tipo,
-                          tipoComp = "Venta",
-                          co.numero
-                      };
-            return mov.ToList();
+            Contexto contexto = Modelo.Contexto.Obtener_instancia();
+            var query = from m in contexto.Movimientos
+                            join tm in contexto.tipo_movimientos on m.tipo equals tm.id_tipo_mov
+                            where m.id_cc == cc
+                            select new
+                            {
+                                m.id_mov,
+                                m.fecha,
+                                m.monto,
+                                tipo=tm.descripcion
+                            };
+
+            return query.OrderByDescending(m => m.fecha).ToList();            
         }
 
         public void agregarCC(Modelo.Cuentas_Corrientes cc)

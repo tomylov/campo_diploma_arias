@@ -321,3 +321,4 @@ C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\System.IO.Packaging.xml
 C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\System.Memory.xml
 C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\System.Numerics.Vectors.xml
 C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.venta_cc.resources

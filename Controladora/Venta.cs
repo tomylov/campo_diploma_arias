@@ -148,8 +148,8 @@ namespace Controladora
                                 p.fecha,
                                 esv.descripcion,
                                 monto = p.monto
-                            };
-            return pago.ToList();
+                            };                             
+            return pago.OrderByDescending(p => p.fecha).ToList();
         }
 
         private void updateMonto(int idcc,decimal monto,double days)
