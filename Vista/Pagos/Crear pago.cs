@@ -1,4 +1,5 @@
 ﻿using Controladora;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,7 +55,6 @@ namespace Vista.Pagos
                 this.estado = (int)venta.id_estado;
                 this.id_vta = venta.id_venta;
                 this.totalPrecio = (decimal)venta.total;
-                MessageBox.Show(totalPrecio.ToString());
                 buttonVenta.Visible = false;
                 cargarDatosCliente(id_cliente);
                 leerPago(id_vta, estado);
@@ -96,8 +96,11 @@ namespace Vista.Pagos
                 if (estado == 3)
                 {
                     mCuentaCorriente = cCuentaCorriente.Getcc(id_cliente).FirstOrDefault();
-                    mCuentaCorriente.saldo -= saldo;
-                    cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
+
+                    Modelo.Ventas venta= new Modelo.Ventas();
+                    venta = cVenta.getVentaId(id_vta);
+                    venta.id_estado = 5;
+                    cVenta.modificarVenta(venta);
 
                     Modelo.Movimientos movimiento = new Modelo.Movimientos();
                     movimiento.tipo = 2;
@@ -106,10 +109,10 @@ namespace Vista.Pagos
                     movimiento.monto = saldo;
                     Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
 
-                    Modelo.Ventas venta= new Modelo.Ventas();
-                    venta = cVenta.getVentaId(id_vta);
-                    venta.id_estado = 5;
-                    cVenta.modificarVenta(venta);
+
+                    mCuentaCorriente.saldo -= saldo;                       
+                    mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer(id_cliente,3);                    
+                    cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
                 }
                 else
                 {

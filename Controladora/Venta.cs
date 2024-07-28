@@ -135,6 +135,24 @@ namespace Controladora
             return vta.ToList();
         }
 
+        public DateTime? ProximaVentaAVencer(int id_cliente, int estado)
+        {
+            var venta = Modelo.Contexto.Obtener_instancia().Ventas
+                         .Where(v => v.id_cliente == id_cliente && v.id_estado == estado)
+                         .OrderBy(v => v.fecha)
+                         .Select(v => v.fecha)
+                         .FirstOrDefault();
+
+            if (venta.HasValue)
+            {
+                return venta.Value.AddDays(30);
+            }
+
+            return null;
+        }
+
+
+
         public System.Collections.IList ListarPagos(int id_cliente)
         {
 

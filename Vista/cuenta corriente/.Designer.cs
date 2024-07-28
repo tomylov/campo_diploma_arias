@@ -60,6 +60,8 @@ namespace Vista
             this.inputEmail = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.inputDNI = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuDatePicker1 = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.inputName = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -69,14 +71,11 @@ namespace Vista
             this.btnPay = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.comboSelect = new System.Windows.Forms.ComboBox();
             this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuDatePicker2 = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.numberVta = new Bunifu.UI.WinForms.BunifuTextBox();
             this.BtnSendEmail = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.BtnPrint = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuLabel9 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuDatePicker1 = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.bunifuGroupBox1.SuspendLayout();
             this.bunifuGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataMove)).BeginInit();
@@ -87,6 +86,7 @@ namespace Vista
             this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
+            this.bunifuGroupBox1.Controls.Add(this.btnActualizar);
             this.bunifuGroupBox1.Controls.Add(this.btnLimpiar);
             this.bunifuGroupBox1.Controls.Add(this.lblSaldo);
             this.bunifuGroupBox1.Controls.Add(this.bunifuLabel4);
@@ -135,7 +135,7 @@ namespace Vista
             this.lblSaldo.CursorType = System.Windows.Forms.Cursors.Default;
             this.lblSaldo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblSaldo.ForeColor = System.Drawing.Color.White;
-            this.lblSaldo.Location = new System.Drawing.Point(255, 82);
+            this.lblSaldo.Location = new System.Drawing.Point(290, 82);
             this.lblSaldo.Name = "lblSaldo";
             this.lblSaldo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblSaldo.Size = new System.Drawing.Size(49, 32);
@@ -152,7 +152,7 @@ namespace Vista
             this.bunifuLabel4.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel4.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel4.Location = new System.Drawing.Point(12, 82);
+            this.bunifuLabel4.Location = new System.Drawing.Point(47, 82);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel4.Size = new System.Drawing.Size(237, 32);
@@ -329,6 +329,51 @@ namespace Vista
             this.inputDNI.UseSystemPasswordChar = false;
             this.inputDNI.WordWrap = true;
             // 
+            // bunifuLabel6
+            // 
+            this.bunifuLabel6.AllowParentOverrides = false;
+            this.bunifuLabel6.AutoEllipsis = false;
+            this.bunifuLabel6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel6.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel6.ForeColor = System.Drawing.Color.White;
+            this.bunifuLabel6.Location = new System.Drawing.Point(844, 99);
+            this.bunifuLabel6.Name = "bunifuLabel6";
+            this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel6.Size = new System.Drawing.Size(126, 15);
+            this.bunifuLabel6.TabIndex = 2;
+            this.bunifuLabel6.Text = "Proxima venta a vencer:";
+            this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuDatePicker1
+            // 
+            this.bunifuDatePicker1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuDatePicker1.BorderColor = System.Drawing.Color.Silver;
+            this.bunifuDatePicker1.BorderRadius = 1;
+            this.bunifuDatePicker1.Color = System.Drawing.Color.Silver;
+            this.bunifuDatePicker1.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.bunifuDatePicker1.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
+            this.bunifuDatePicker1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuDatePicker1.DisplayWeekNumbers = false;
+            this.bunifuDatePicker1.DPHeight = 0;
+            this.bunifuDatePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.bunifuDatePicker1.Enabled = false;
+            this.bunifuDatePicker1.FillDatePicker = false;
+            this.bunifuDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuDatePicker1.ForeColor = System.Drawing.Color.White;
+            this.bunifuDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.bunifuDatePicker1.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker1.Icon")));
+            this.bunifuDatePicker1.IconColor = System.Drawing.Color.Gray;
+            this.bunifuDatePicker1.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
+            this.bunifuDatePicker1.LeftTextMargin = 5;
+            this.bunifuDatePicker1.Location = new System.Drawing.Point(976, 89);
+            this.bunifuDatePicker1.MinimumSize = new System.Drawing.Size(4, 32);
+            this.bunifuDatePicker1.Name = "bunifuDatePicker1";
+            this.bunifuDatePicker1.Size = new System.Drawing.Size(117, 32);
+            this.bunifuDatePicker1.TabIndex = 0;
+            this.bunifuDatePicker1.Value = new System.DateTime(2024, 7, 27, 15, 33, 0, 0);
+            // 
             // bunifuLabel2
             // 
             this.bunifuLabel2.AllowParentOverrides = false;
@@ -448,8 +493,6 @@ namespace Vista
             this.bunifuGroupBox2.Controls.Add(this.btnPay);
             this.bunifuGroupBox2.Controls.Add(this.comboSelect);
             this.bunifuGroupBox2.Controls.Add(this.bunifuLabel8);
-            this.bunifuGroupBox2.Controls.Add(this.bunifuLabel7);
-            this.bunifuGroupBox2.Controls.Add(this.bunifuDatePicker2);
             this.bunifuGroupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuGroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bunifuGroupBox2.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -598,7 +641,7 @@ namespace Vista
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -738,65 +781,6 @@ namespace Vista
             this.bunifuLabel8.Text = "Tipo operación";
             this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel7
-            // 
-            this.bunifuLabel7.AllowParentOverrides = false;
-            this.bunifuLabel7.AutoEllipsis = false;
-            this.bunifuLabel7.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel7.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel7.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel7.Location = new System.Drawing.Point(25, 161);
-            this.bunifuLabel7.Name = "bunifuLabel7";
-            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel7.Size = new System.Drawing.Size(33, 15);
-            this.bunifuLabel7.TabIndex = 3;
-            this.bunifuLabel7.Text = "Hasta:";
-            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel6
-            // 
-            this.bunifuLabel6.AllowParentOverrides = false;
-            this.bunifuLabel6.AutoEllipsis = false;
-            this.bunifuLabel6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel6.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel6.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel6.Location = new System.Drawing.Point(844, 99);
-            this.bunifuLabel6.Name = "bunifuLabel6";
-            this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel6.Size = new System.Drawing.Size(126, 15);
-            this.bunifuLabel6.TabIndex = 2;
-            this.bunifuLabel6.Text = "Proxima venta a vencer:";
-            this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuDatePicker2
-            // 
-            this.bunifuDatePicker2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDatePicker2.BorderColor = System.Drawing.Color.Silver;
-            this.bunifuDatePicker2.BorderRadius = 1;
-            this.bunifuDatePicker2.Color = System.Drawing.Color.Silver;
-            this.bunifuDatePicker2.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.bunifuDatePicker2.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
-            this.bunifuDatePicker2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDatePicker2.DisplayWeekNumbers = false;
-            this.bunifuDatePicker2.DPHeight = 0;
-            this.bunifuDatePicker2.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.bunifuDatePicker2.FillDatePicker = false;
-            this.bunifuDatePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuDatePicker2.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatePicker2.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker2.Icon")));
-            this.bunifuDatePicker2.IconColor = System.Drawing.Color.Gray;
-            this.bunifuDatePicker2.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
-            this.bunifuDatePicker2.LeftTextMargin = 5;
-            this.bunifuDatePicker2.Location = new System.Drawing.Point(25, 182);
-            this.bunifuDatePicker2.MinimumSize = new System.Drawing.Size(4, 32);
-            this.bunifuDatePicker2.Name = "bunifuDatePicker2";
-            this.bunifuDatePicker2.Size = new System.Drawing.Size(202, 32);
-            this.bunifuDatePicker2.TabIndex = 1;
             // 
             // numberVta
             // 
@@ -1072,33 +1056,22 @@ namespace Vista
             this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel9.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // bunifuDatePicker1
+            // btnActualizar
             // 
-            this.bunifuDatePicker1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuDatePicker1.BorderColor = System.Drawing.Color.Silver;
-            this.bunifuDatePicker1.BorderRadius = 1;
-            this.bunifuDatePicker1.Color = System.Drawing.Color.Silver;
-            this.bunifuDatePicker1.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.bunifuDatePicker1.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
-            this.bunifuDatePicker1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDatePicker1.DisplayWeekNumbers = false;
-            this.bunifuDatePicker1.DPHeight = 0;
-            this.bunifuDatePicker1.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.bunifuDatePicker1.Enabled = false;
-            this.bunifuDatePicker1.FillDatePicker = false;
-            this.bunifuDatePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuDatePicker1.ForeColor = System.Drawing.Color.White;
-            this.bunifuDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.bunifuDatePicker1.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker1.Icon")));
-            this.bunifuDatePicker1.IconColor = System.Drawing.Color.Gray;
-            this.bunifuDatePicker1.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
-            this.bunifuDatePicker1.LeftTextMargin = 5;
-            this.bunifuDatePicker1.Location = new System.Drawing.Point(976, 89);
-            this.bunifuDatePicker1.MinimumSize = new System.Drawing.Size(4, 32);
-            this.bunifuDatePicker1.Name = "bunifuDatePicker1";
-            this.bunifuDatePicker1.Size = new System.Drawing.Size(117, 32);
-            this.bunifuDatePicker1.TabIndex = 0;
-            this.bunifuDatePicker1.Value = new System.DateTime(2024, 7, 27, 15, 33, 0, 0);
+            this.btnActualizar.BackColor = System.Drawing.Color.White;
+            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.btnActualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnActualizar.ForeColor = System.Drawing.Color.Black;
+            this.btnActualizar.Location = new System.Drawing.Point(6, 82);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(33, 32);
+            this.btnActualizar.TabIndex = 38;
+            this.btnActualizar.Text = "🔄";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // cuenta_corriente
             // 
@@ -1140,9 +1113,7 @@ namespace Vista
         private Bunifu.UI.WinForms.BunifuDataGridView dataMove;
         private System.Windows.Forms.ComboBox comboSelect;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel8;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel7;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel6;
-        private Bunifu.UI.WinForms.BunifuDatePicker bunifuDatePicker2;
         private Bunifu.UI.WinForms.BunifuTextBox numberVta;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton BtnSendEmail;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton BtnPrint;
@@ -1151,5 +1122,6 @@ namespace Vista
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton VentaCC;
         private System.Windows.Forms.Button btnLimpiar;
         private Bunifu.UI.WinForms.BunifuDatePicker bunifuDatePicker1;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

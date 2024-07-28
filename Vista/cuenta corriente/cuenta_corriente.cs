@@ -18,7 +18,7 @@ namespace Vista
     {
         int index;
         Modelo.Clientes cliente = new Modelo.Clientes();
-        Modelo.Cuentas_Corrientes cuentaCorriente;
+        Modelo.Cuentas_Corrientes cuentaCorriente = new Modelo.Cuentas_Corrientes();
         //ventas
         Controladora.Venta cVenta = Controladora.Venta.Obtener_instancia();
         List<Modelo.Ventas> lVentas = new List<Modelo.Ventas>();
@@ -66,14 +66,22 @@ namespace Vista
                 Crear_pago form = Crear_pago.Obtener_instancia(venta);
                 form.Show();
                 dataMove.DataSource = null;
+                numberVta.Text = "";
             }
         }
 
         private void dataMove_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             index = e.RowIndex;
-            string idVta = (dataMove.Rows[index].Cells[0].Value).ToString();
-            numberVta.Text = idVta;
+            if (index != -1)
+            {
+                string idVta = (dataMove.Rows[index].Cells[0].Value).ToString();
+                numberVta.Text = idVta;                
+            }
+            else
+            {
+                numberVta.Text = "";
+            }
         }
 
         private void VentaCC_Click(object sender, EventArgs e)
@@ -87,6 +95,7 @@ namespace Vista
                 venta.total = Convert.ToDecimal(dataMove.Rows[index].Cells[5].Value);
                 venta_cc form = venta_cc.Obtener_instancia(venta);
                 form.Show();
+                numberVta.Text = "";
             }
         }
 
@@ -98,61 +107,66 @@ namespace Vista
         public void refresh()
         {
             cuentaCorriente = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().Getcc(cliente.id_cliente).FirstOrDefault();
-            if (cuentaCorriente.plazo != null)
+            if (cuentaCorriente != null)
             {
-                bunifuLabel6.Text = "Proxima venta a vencer:";
-                bunifuDatePicker1.Value = cuentaCorriente.plazo.Value;
-            }
-            else
-            {
-                bunifuLabel6.Text = "No hay ventas a vencer";
-                bunifuDatePicker1.Visible = false;
-            }
-            lblSaldo.Text = cuentaCorriente.saldo.ToString();
+                if (cuentaCorriente.plazo != null)
+                {
+                    bunifuDatePicker1.Visible = true;
+                    bunifuLabel6.Text = "Proxima venta a vencer:";
+                    bunifuDatePicker1.Value = cuentaCorriente.plazo.Value;
+                }
+                else
+                {
+                    bunifuLabel6.Text = "No hay ventas a vencer";
+                    bunifuDatePicker1.Visible = false;
+                }
+                lblSaldo.Text = cuentaCorriente.saldo.ToString();
 
-            if (comboSelect.SelectedIndex == 2)
-            {
-                dataMove.DataSource = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().listarMovimientos(cuentaCorriente.id_cc);
-                dataMove.Columns[0].Visible = false;
-                btnPay.Enabled = false;
-                VentaCC.Enabled = false;
+                if (comboSelect.SelectedIndex == 2)
+                {
+                    dataMove.DataSource = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().listarMovimientos(cuentaCorriente.id_cc);
+                    dataMove.Columns[0].Visible = false;
+                    btnPay.Enabled = false;
+                    VentaCC.Enabled = false;
+                }
+                if (comboSelect.SelectedIndex == 0)
+                {
+                    lVentas = cVenta.ListarVentasClientes(2, cliente.id_cliente);
+                    dataMove.DataSource = lVentas;
+                    dataMove.Columns[2].Visible = false;
+                    dataMove.Columns[3].Visible = false;
+                    dataMove.Columns[4].Visible = false;
+                    dataMove.Columns[6].Visible = false;
+                    dataMove.Columns[7].Visible = false;
+                    dataMove.Columns[8].Visible = false;
+                    dataMove.Columns[9].Visible = false;
+                    dataMove.Columns[10].Visible = false;
+                    btnPay.Enabled = true;
+                    VentaCC.Enabled = true;
+                }
+                if (comboSelect.SelectedIndex == 1)
+                {
+                    lVentas = cVenta.ListarVentasClientes(3, cliente.id_cliente);
+                    dataMove.DataSource = lVentas;
+                    btnPay.Enabled = true;
+                    VentaCC.Enabled = false;
+                    dataMove.Columns[2].Visible = false;
+                    dataMove.Columns[3].Visible = false;
+                    dataMove.Columns[4].Visible = false;
+                    dataMove.Columns[6].Visible = false;
+                    dataMove.Columns[7].Visible = false;
+                    dataMove.Columns[8].Visible = false;
+                    dataMove.Columns[9].Visible = false;
+                    dataMove.Columns[10].Visible = false;
+                }
+                if (comboSelect.SelectedIndex == 3)
+                {
+                    dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(cliente.id_cliente);
+                    btnPay.Enabled = false;
+                    VentaCC.Enabled = false;
+                }                
             }
-            if (comboSelect.SelectedIndex == 0)
-            {
-                lVentas = cVenta.ListarVentasClientes(2, cliente.id_cliente);
-                dataMove.DataSource = lVentas;
-                dataMove.Columns[2].Visible = false;
-                dataMove.Columns[3].Visible = false;
-                dataMove.Columns[4].Visible = false;
-                dataMove.Columns[6].Visible = false;
-                dataMove.Columns[7].Visible = false;
-                dataMove.Columns[8].Visible = false;
-                dataMove.Columns[9].Visible = false;
-                dataMove.Columns[10].Visible = false;
-                btnPay.Enabled = true;
-                VentaCC.Enabled = true;
-            }
-            if (comboSelect.SelectedIndex == 1)
-            {
-                lVentas = cVenta.ListarVentasClientes(3, cliente.id_cliente);
-                dataMove.DataSource = lVentas;
-                btnPay.Enabled = true;
-                VentaCC.Enabled = false;
-                dataMove.Columns[2].Visible = false;
-                dataMove.Columns[3].Visible = false;
-                dataMove.Columns[4].Visible = false;
-                dataMove.Columns[6].Visible = false;
-                dataMove.Columns[7].Visible = false;
-                dataMove.Columns[8].Visible = false;
-                dataMove.Columns[9].Visible = false;
-                dataMove.Columns[10].Visible = false;
-            }
-            if (comboSelect.SelectedIndex == 3)
-            {
-                dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(cliente.id_cliente);
-                btnPay.Enabled = false;
-                VentaCC.Enabled = false;
-            }
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -170,6 +184,11 @@ namespace Vista
             inputDNI.Text = Convert.ToString(cliente.dni);
             inputName.Text = cliente.nombre;
             inputEmail.Text = cliente.email;
+            refresh();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
             refresh();
         }
     }
