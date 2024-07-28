@@ -35,8 +35,6 @@
             this.checkEstado = new System.Windows.Forms.CheckBox();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtRs = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtTEL = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtdni = new System.Windows.Forms.TextBox();
@@ -90,8 +88,6 @@
             this.bunifuGroupBox1.Controls.Add(this.checkEstado);
             this.bunifuGroupBox1.Controls.Add(this.txtemail);
             this.bunifuGroupBox1.Controls.Add(this.label2);
-            this.bunifuGroupBox1.Controls.Add(this.txtRs);
-            this.bunifuGroupBox1.Controls.Add(this.label9);
             this.bunifuGroupBox1.Controls.Add(this.txtTEL);
             this.bunifuGroupBox1.Controls.Add(this.label8);
             this.bunifuGroupBox1.Controls.Add(this.txtdni);
@@ -142,25 +138,6 @@
             this.label2.TabIndex = 51;
             this.label2.Text = "email:";
             // 
-            // txtRs
-            // 
-            this.txtRs.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtRs.Location = new System.Drawing.Point(499, 85);
-            this.txtRs.Name = "txtRs";
-            this.txtRs.Size = new System.Drawing.Size(287, 29);
-            this.txtRs.TabIndex = 53;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(413, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 21);
-            this.label9.TabIndex = 52;
-            this.label9.Text = "Condición:";
-            // 
             // txtTEL
             // 
             this.txtTEL.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -206,6 +183,7 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(287, 29);
             this.txtnombre.TabIndex = 47;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // label5
             // 
@@ -341,8 +319,6 @@
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
-        private System.Windows.Forms.TextBox txtRs;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTEL;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtdni;

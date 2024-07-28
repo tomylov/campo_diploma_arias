@@ -313,7 +313,7 @@ namespace Vista
             this.Controls.Add(this.password);
             this.Controls.Add(this.user);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             this.ResumeLayout(false);
 

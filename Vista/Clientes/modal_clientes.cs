@@ -12,10 +12,10 @@ namespace Vista.Clientes
 {
     public partial class modal_clientes : Form
     {
-        private static modal_clientes instancia;
         private Controladora.Cliente cCliente = Controladora.Cliente.Obtener_instancia();
         private Modelo.Clientes cliente;
         private int id;
+        private static modal_clientes instancia;
 
         public static modal_clientes Obtener_instancia(int id)
         {
@@ -40,7 +40,6 @@ namespace Vista.Clientes
                 txtnombre.Text = cliente.nombre;
                 txtemail.Text = cliente.email;
                 txtTEL.Text = cliente.telefono;
-                txtRs.Text = cliente.ra;
                 if (cliente.estado == true)
                     checkEstado.Checked = true;
                 else
@@ -50,6 +49,49 @@ namespace Vista.Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtdni.Text == "" || txtnombre.Text == "" || txtemail.Text == "" || txtTEL.Text == "")
+            {
+                MessageBox.Show("Complete todos los campos","Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!COMUN.MetodosComunes.EsSoloNumeros(txtTEL.Text))
+            {
+                MessageBox.Show("Número de telefono ingresado incorrecto", "Error telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTEL.Focus();
+                return;
+            }
+
+            if (!COMUN.MetodosComunes.ValidacionEMAIL(txtemail.Text))
+            {
+                MessageBox.Show("Email ingresado incorrecto", "Error email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtemail.Focus();
+                return;
+            }
+
+            if (!COMUN.MetodosComunes.ValidaDNI(txtdni.Text))
+            {
+                MessageBox.Show("DNI ingresado incorrecto", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return;
+            }
+
+            Modelo.Clientes clienteValidar = new Modelo.Clientes();
+            clienteValidar = cCliente.GetCliente(Convert.ToInt32(txtdni.Text)).FirstOrDefault();
+            if (id == 0 && clienteValidar != null)
+            {
+                MessageBox.Show("Ya existe un cliente con ese dni en la base", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return;
+            }
+
+            if (id != 0 && clienteValidar != null && clienteValidar != cliente)
+            {
+                MessageBox.Show("Ya existe un cliente con ese dni en la base", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return;
+            }
+
             if (id == 0)
             {
                 cliente = new Modelo.Clientes();
@@ -57,7 +99,6 @@ namespace Vista.Clientes
                 cliente.nombre = txtnombre.Text;
                 cliente.email = txtemail.Text;
                 cliente.telefono = txtTEL.Text;
-                cliente.ra = txtRs.Text;
                 if (checkEstado.Checked)
                     cliente.estado = true;
                 else
@@ -75,7 +116,6 @@ namespace Vista.Clientes
                 cliente.nombre = txtnombre.Text;
                 cliente.email = txtemail.Text;
                 cliente.telefono = txtTEL.Text;
-                cliente.ra = txtRs.Text;
                 if (checkEstado.Checked)
                     cliente.estado = true;
                 else
@@ -89,6 +129,11 @@ namespace Vista.Clientes
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e = COMUN.MetodosComunes.KeyPressSoloLetras(e, txtnombre.Text);
         }
     }
 }

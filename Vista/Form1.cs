@@ -42,7 +42,8 @@ namespace Vista
             }
             if (usuario.estado == false)
             {
-                MessageBox.Show("Usuario inactivo contactarse con el administrador","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Usuario inactivo contactarse con el administrador","Información",
+                    MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }
 
