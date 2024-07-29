@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Modelo;
+using System.Linq;
 
 namespace Controladora
 {
@@ -22,6 +23,7 @@ namespace Controladora
             if (prod != null)
             {
                 prod.stock += cantidad;
+                Modelo.Contexto.Obtener_instancia().Entry(prod).State = System.Data.Entity.EntityState.Modified;
                 Modelo.Contexto.Obtener_instancia().SaveChanges();
             }
         }
@@ -34,13 +36,29 @@ namespace Controladora
 
         public void deleteDetVta(Modelo.Detalle_ventas detalle_Venta)
         {
-            Modelo.Detalle_ventas detalleABorrar = Modelo.Contexto.Obtener_instancia().Detalle_ventas.FirstOrDefault(detalle => detalle.id_detalle == detalle_Venta.id_detalle);
+            var contexto = Modelo.Contexto.Obtener_instancia();
+            var detalleABorrar = contexto.Detalle_ventas.Find(detalle_Venta.id_detalle);
+            if (detalleABorrar != null)
+            {
+                contexto.Detalle_ventas.Remove(detalleABorrar);
+                contexto.SaveChanges();
+            }
+        }
+
+        public void deleteDetVtaID(int idDetalle)
+        {
+            var contexto = Modelo.Contexto.Obtener_instancia();
+
+            // Buscar la entidad en la base de datos
+            var detalleABorrar = contexto.Detalle_ventas.FirstOrDefault(detalle => detalle.id_detalle == idDetalle);
 
             if (detalleABorrar != null)
             {
-                updateStock(detalle_Venta.id_prod, detalle_Venta.cantidad);
-                Modelo.Contexto.Obtener_instancia().Detalle_ventas.Remove(detalleABorrar);
-                Modelo.Contexto.Obtener_instancia().SaveChanges();
+                updateStock(detalleABorrar.id_prod, detalleABorrar.cantidad);
+                // Remover la entidad del contexto
+                contexto.Detalle_ventas.Remove(detalleABorrar);
+                // Guardar los cambios en la base de datos
+                contexto.SaveChanges();
             }
         }
 

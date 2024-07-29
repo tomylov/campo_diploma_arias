@@ -214,7 +214,7 @@ namespace Controladora
                 for (i = 0; i < detallesAEliminar.Count; i++)
                 {
                     Modelo.Detalle_ventas detalle = detallesAEliminar[i];
-                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVta(detalle);                    
+                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVtaID(detalle.id_detalle);
                 }
             }
             var ventaAEliminar = Modelo.Contexto.Obtener_instancia().Ventas.FirstOrDefault(v => v.id_venta == idVta);
