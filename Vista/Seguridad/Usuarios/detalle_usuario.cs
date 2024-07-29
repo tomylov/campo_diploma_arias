@@ -166,43 +166,8 @@ namespace Vista.Seguridad
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "" || txtemail.Text == "" || txtape.Text == "" || txtdni.Text == "" || txtUsuario.Text == "")
+            if (!ValidarCampos())
             {
-                MessageBox.Show("Complete todos los campos", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            if (!COMUN.MetodosComunes.ValidaDNI(txtdni.Text))
-            {
-                MessageBox.Show("DNI ingresado incorrecto", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtdni.Focus();
-                return;
-            }
-
-            if (!COMUN.MetodosComunes.ValidacionEMAIL(txtemail.Text))
-            {
-                MessageBox.Show("Email ingresado incorrecto", "Error email", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtemail.Focus();
-                return;
-            }
-
-            Modelo.Usuarios usuarioValidar = new Modelo.Usuarios();
-            usuarioValidar = cUsuario.getUsuarioNombreUsuario(txtUsuario.Text);
-
-            //aca valida cuando se esta creando un usuario que no este duplicado ya que se utiliza para iniciar sesion
-            if (id_usuario == 0 && usuarioValidar != null)
-            {
-                MessageBox.Show("Nombre de usuario duplicado en la base", "Error Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtdni.Focus();
-                return;
-            }
-
-            //aca valida cuando se esta modificando un usuario que no este duplicado ya que se utiliza para iniciar sesion
-            if (id_usuario != 0 && usuarioValidar != null && usuarioValidar != usuario)
-            {
-                MessageBox.Show("Nombre de usuario duplicado en la base", "Error Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtdni.Focus();
                 return;
             }
 
@@ -236,6 +201,50 @@ namespace Vista.Seguridad
             MessageBox.Show("Usuario guardado con exito");
             Gestionar_usuarios.Obtener_instancia().filtrar();
             this.Close();
+        }
+
+        private bool ValidarCampos()
+        {
+            if (txtnombre.Text == "" || txtemail.Text == "" || txtape.Text == "" || txtdni.Text == "" || txtUsuario.Text == "")
+            {
+                MessageBox.Show("Complete todos los campos", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!COMUN.MetodosComunes.ValidaDNI(txtdni.Text))
+            {
+                MessageBox.Show("DNI ingresado incorrecto", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return false;
+            }
+
+            if (!COMUN.MetodosComunes.ValidacionEMAIL(txtemail.Text))
+            {
+                MessageBox.Show("Email ingresado incorrecto", "Error email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtemail.Focus();
+                return false;
+            }
+
+            Modelo.Usuarios usuarioValidar = new Modelo.Usuarios();
+            usuarioValidar = cUsuario.getUsuarioNombreUsuario(txtUsuario.Text);
+
+            //aca valida cuando se esta creando un usuario que no este duplicado ya que se utiliza para iniciar sesion
+            if (id_usuario == 0 && usuarioValidar != null)
+            {
+                MessageBox.Show("Nombre de usuario duplicado en la base", "Error Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return false;
+            }
+
+            //aca valida cuando se esta modificando un usuario que no este duplicado ya que se utiliza para iniciar sesion
+            if (id_usuario != 0 && usuarioValidar != null && usuarioValidar != usuario)
+            {
+                MessageBox.Show("Nombre de usuario duplicado en la base", "Error Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         private void treeViewPermisos_AfterCheck(object sender, TreeViewEventArgs e)
