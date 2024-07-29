@@ -247,7 +247,10 @@ namespace Vista.Seguridad
             {
                 if (e.Node.Checked)
                 {
-                    permisosUsuario.Add(permiso);
+                    if (!permisosUsuario.Contains(permiso))
+                    {
+                        permisosUsuario.Add(permiso);
+                    }
                 }
                 else
                 {
@@ -297,6 +300,11 @@ namespace Vista.Seguridad
         private void txtape_KeyPress(object sender, KeyPressEventArgs e)
         {
             e = COMUN.MetodosComunes.KeyPressSoloLetras(e, txtnombre.Text);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
