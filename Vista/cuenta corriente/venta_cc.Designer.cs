@@ -1,6 +1,6 @@
-﻿namespace Vista.Pagos
+﻿namespace Vista
 {
-    partial class Crear_pago
+    partial class venta_cc
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear_pago));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(venta_cc));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.lblSaldo = new Bunifu.UI.WinForms.BunifuLabel();
-            this.buttonVenta = new System.Windows.Forms.Button();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,9 +46,6 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuGroupBox3 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.txtPago = new System.Windows.Forms.TextBox();
-            this.comboBoxmedio = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonSalir = new System.Windows.Forms.Button();
             this.buttonPagar = new System.Windows.Forms.Button();
             this.dataVtas = new Bunifu.UI.WinForms.BunifuDataGridView();
@@ -67,7 +63,6 @@
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
             this.bunifuGroupBox1.Controls.Add(this.lblSaldo);
-            this.bunifuGroupBox1.Controls.Add(this.buttonVenta);
             this.bunifuGroupBox1.Controls.Add(this.bunifuLabel4);
             this.bunifuGroupBox1.Controls.Add(this.txtemail);
             this.bunifuGroupBox1.Controls.Add(this.label2);
@@ -108,23 +103,6 @@
             this.lblSaldo.Text = "0.00";
             this.lblSaldo.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.lblSaldo.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // buttonVenta
-            // 
-            this.buttonVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(55)))), ((int)(((byte)(235)))));
-            this.buttonVenta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.buttonVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVenta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonVenta.ForeColor = System.Drawing.Color.White;
-            this.buttonVenta.Location = new System.Drawing.Point(813, 119);
-            this.buttonVenta.Name = "buttonVenta";
-            this.buttonVenta.Size = new System.Drawing.Size(135, 35);
-            this.buttonVenta.TabIndex = 54;
-            this.buttonVenta.Text = "Buscar venta";
-            this.buttonVenta.UseVisualStyleBackColor = false;
-            this.buttonVenta.Click += new System.EventHandler(this.buttonCliente_Click);
             // 
             // bunifuLabel4
             // 
@@ -254,9 +232,6 @@
             this.bunifuGroupBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(231)))), ((int)(((byte)(235)))));
             this.bunifuGroupBox3.BorderRadius = 1;
             this.bunifuGroupBox3.BorderThickness = 1;
-            this.bunifuGroupBox3.Controls.Add(this.txtPago);
-            this.bunifuGroupBox3.Controls.Add(this.comboBoxmedio);
-            this.bunifuGroupBox3.Controls.Add(this.label1);
             this.bunifuGroupBox3.Controls.Add(this.buttonSalir);
             this.bunifuGroupBox3.Controls.Add(this.buttonPagar);
             this.bunifuGroupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -272,43 +247,6 @@
             this.bunifuGroupBox3.TabStop = false;
             this.bunifuGroupBox3.Text = "Botones";
             // 
-            // txtPago
-            // 
-            this.txtPago.Enabled = false;
-            this.txtPago.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtPago.Location = new System.Drawing.Point(335, 42);
-            this.txtPago.Name = "txtPago";
-            this.txtPago.Size = new System.Drawing.Size(131, 29);
-            this.txtPago.TabIndex = 55;
-            this.txtPago.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.txtPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPago_KeyPress);
-            // 
-            // comboBoxmedio
-            // 
-            this.comboBoxmedio.DisplayMember = "descripcion";
-            this.comboBoxmedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxmedio.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxmedio.FormattingEnabled = true;
-            this.comboBoxmedio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxmedio.Location = new System.Drawing.Point(142, 42);
-            this.comboBoxmedio.Name = "comboBoxmedio";
-            this.comboBoxmedio.Size = new System.Drawing.Size(187, 29);
-            this.comboBoxmedio.TabIndex = 57;
-            this.comboBoxmedio.ValueMember = "id_med_pago";
-            this.comboBoxmedio.SelectedIndexChanged += new System.EventHandler(this.comboBoxmedio_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(22, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "medio de pago";
-            // 
             // buttonSalir
             // 
             this.buttonSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
@@ -323,6 +261,7 @@
             this.buttonSalir.TabIndex = 55;
             this.buttonSalir.Text = "Cancelar";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // buttonPagar
             // 
@@ -336,7 +275,7 @@
             this.buttonPagar.Name = "buttonPagar";
             this.buttonPagar.Size = new System.Drawing.Size(170, 35);
             this.buttonPagar.TabIndex = 54;
-            this.buttonPagar.Text = "Pagar";
+            this.buttonPagar.Text = "Agregar a cuenta";
             this.buttonPagar.UseVisualStyleBackColor = true;
             this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
             // 
@@ -345,21 +284,21 @@
             this.dataVtas.AllowCustomTheming = false;
             this.dataVtas.AllowUserToAddRows = false;
             this.dataVtas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataVtas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataVtas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataVtas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataVtas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataVtas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataVtas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataVtas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataVtas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataVtas.ColumnHeadersHeight = 40;
             this.dataVtas.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataVtas.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
@@ -379,14 +318,14 @@
             this.dataVtas.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataVtas.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataVtas.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataVtas.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataVtas.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataVtas.EnableHeadersVisualStyles = false;
             this.dataVtas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataVtas.HeaderBackColor = System.Drawing.Color.DodgerBlue;
@@ -421,7 +360,7 @@
             this.bunifuGroupBox2.TabStop = false;
             this.bunifuGroupBox2.Text = "Listado de ventas";
             // 
-            // Crear_pago
+            // venta_cc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -429,12 +368,11 @@
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuGroupBox3);
             this.Controls.Add(this.bunifuGroupBox1);
-            this.Name = "Crear_pago";
+            this.Name = "venta_cc";
             this.Text = "Registrar pago";
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
             this.bunifuGroupBox3.ResumeLayout(false);
-            this.bunifuGroupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataVtas)).EndInit();
             this.bunifuGroupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -455,15 +393,11 @@
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox3;
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Button buttonPagar;
-        private System.Windows.Forms.Button buttonVenta;
-        private System.Windows.Forms.TextBox txtPago;
-        private System.Windows.Forms.ComboBox comboBoxmedio;
-        private System.Windows.Forms.Label label1;
-        private Bunifu.UI.WinForms.BunifuLabel lblSaldo;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
         private System.Windows.Forms.TextBox txtRs;
         private System.Windows.Forms.Label label9;
         private Bunifu.UI.WinForms.BunifuDataGridView dataVtas;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox2;
+        private Bunifu.UI.WinForms.BunifuLabel lblSaldo;
     }
 }

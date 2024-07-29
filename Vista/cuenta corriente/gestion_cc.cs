@@ -45,8 +45,6 @@ namespace Vista
                 //hay que buscar el id cliente y entrar en al cuenta corriente
                 Modelo.Clientes Cliente = new Modelo.Clientes();
                 Cliente = Controladora.Cliente.Obtener_instancia().GetCliente(Convert.ToInt32(txtdni.Text)).FirstOrDefault();
-                cuenta_corriente cc = new cuenta_corriente(Cliente.id_cliente);
-                cc.ShowDialog();
             }
         }
 

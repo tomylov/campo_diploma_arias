@@ -313,7 +313,7 @@ namespace COMUN
             return e;
         }
         
-        static public bool ValidacionEMAIL(EventArgs e, string Mail)//validacion formato de direccion de e-mail
+        static public bool ValidacionEMAIL(string Mail)//validacion formato de direccion de e-mail
         {
 
             Regex mRegxExpression;
@@ -442,10 +442,11 @@ namespace COMUN
             }
         }
 
+
         static public bool ValidaDNI(string dni)
         {
 
-            if (Regex.Match(dni, @"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]$").Success == true)
+            if (Regex.Match(dni, @"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$").Success == true)
             {
                 //dni correcto
                 return true;

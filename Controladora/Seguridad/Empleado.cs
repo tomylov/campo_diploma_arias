@@ -35,6 +35,14 @@ namespace Controladora
             return usuarios.ToList();
         }
 
+        public Modelo.Usuarios getUsuarioNombreUsuario(string usuario)
+        {
+            var user = from usuarios in Modelo.Contexto.Obtener_instancia().Usuarios
+                          where usuarios.usuario == usuario
+                          select usuarios;
+            return user.FirstOrDefault();
+        }
+
         public void agregarUsuario(Modelo.Usuarios usuario)
         {
             Modelo.Contexto.Obtener_instancia().Usuarios.Add(usuario);

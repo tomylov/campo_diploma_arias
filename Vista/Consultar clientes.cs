@@ -41,9 +41,6 @@ namespace Vista
             InitializeComponent();
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();
             filtrar();
-            dataClientes.Columns[5].Visible = false;
-            dataClientes.Columns[6].Visible = false;
-            dataClientes.Columns[7].Visible = false;
             comboBoxfiltro.Items.Add("DNI");
             comboBoxfiltro.Items.Add("Nombre");
             comboBoxfiltro.SelectedIndex = 0;
@@ -67,10 +64,11 @@ namespace Vista
             if (iRow >= 0 && iColum > 0)
             {
                 cliente.id_cliente = Convert.ToInt32(dataClientes.Rows[iRow].Cells[0].Value);
-                cliente.nombre = Convert.ToString(dataClientes.Rows[iRow].Cells[1].Value);
-                cliente.email = Convert.ToString(dataClientes.Rows[iRow].Cells[2].Value);
-                cliente.ra = Convert.ToString(dataClientes.Rows[iRow].Cells[3].Value);
-                cliente.telefono = Convert.ToString(dataClientes.Rows[iRow].Cells[4].Value);
+                cliente.dni = Convert.ToInt32(dataClientes.Rows[iRow].Cells[1].Value);
+                cliente.nombre = Convert.ToString(dataClientes.Rows[iRow].Cells[2].Value);
+                cliente.email = Convert.ToString(dataClientes.Rows[iRow].Cells[3].Value);
+                cliente.ra = Convert.ToString(dataClientes.Rows[iRow].Cells[4].Value);
+                cliente.telefono = Convert.ToString(dataClientes.Rows[iRow].Cells[5].Value);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

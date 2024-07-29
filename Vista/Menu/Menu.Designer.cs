@@ -46,6 +46,7 @@ namespace Vista
             this.moduloReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioSesiones = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.formularioCuentaCorrienteCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,7 +140,8 @@ namespace Vista
             // 
             this.moduloCC.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formularioGestionarCuentaCorriente,
-            this.formularioGestionarPagos});
+            this.formularioGestionarPagos,
+            this.formularioCuentaCorrienteCliente});
             this.moduloCC.Name = "moduloCC";
             this.moduloCC.Size = new System.Drawing.Size(107, 20);
             this.moduloCC.Text = "Cuenta corriente";
@@ -169,7 +171,7 @@ namespace Vista
             // formularioSesiones
             // 
             this.formularioSesiones.Name = "formularioSesiones";
-            this.formularioSesiones.Size = new System.Drawing.Size(180, 22);
+            this.formularioSesiones.Size = new System.Drawing.Size(119, 22);
             this.formularioSesiones.Text = "Sesiones";
             this.formularioSesiones.Click += new System.EventHandler(this.sesionesToolStripMenuItem_Click);
             // 
@@ -186,6 +188,13 @@ namespace Vista
             this.panel.ShowBorders = true;
             this.panel.Size = new System.Drawing.Size(1200, 685);
             this.panel.TabIndex = 2;
+            // 
+            // formularioCuentaCorrienteCliente
+            // 
+            this.formularioCuentaCorrienteCliente.Name = "formularioCuentaCorrienteCliente";
+            this.formularioCuentaCorrienteCliente.Size = new System.Drawing.Size(213, 22);
+            this.formularioCuentaCorrienteCliente.Text = "Cuenta corriente cliente";
+            this.formularioCuentaCorrienteCliente.Click += new System.EventHandler(this.formularioCuentaCorrienteCliente_Click);
             // 
             // Menu
             // 
@@ -224,5 +233,6 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem formularioPermiso;
         private System.Windows.Forms.ToolStripMenuItem moduloReportes;
         private System.Windows.Forms.ToolStripMenuItem formularioSesiones;
+        private System.Windows.Forms.ToolStripMenuItem formularioCuentaCorrienteCliente;
     }
 }

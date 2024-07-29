@@ -34,7 +34,7 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().Entry(venta).State = System.Data.Entity.EntityState.Modified;
             Modelo.Contexto.Obtener_instancia().SaveChanges();
 
-        //Estados 0=cancelado 1=listo para retirar 2=En cuenta corriente 3=Moroso 4=Pagado 5=pagado con cuenta corriente
+        //Estados 1= pendiente 2= aceptado 3=En cuenta corriente 4= Pagado 5= Pagado cuenta corriente
         //Modelo.Ventas vta = Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
         //vta.id_estado = estado;
         //Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;
@@ -105,12 +105,20 @@ namespace Controladora
         }
     
         //Listo las ventas de un determinado cliente, y mando por parametro su estado 
-        public List<Modelo.Ventas> ListarVentas(int state,int id_venta)
+        public List<Modelo.Ventas> ListarVentasClientes(int state,int id_cliente)
         {
                 var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
-                          where v.id_estado == state && v.id_venta == id_venta
+                          where v.id_estado == state && v.id_cliente == id_cliente
                           select v;
             return vta.ToList();            
+        }
+
+        public Modelo.Ventas getVentaId(int idVta)
+        {
+            var vta = from v in Modelo.Contexto.Obtener_instancia().Ventas
+                      where v.id_venta == idVta
+                      select v;
+            return vta.FirstOrDefault();
         }
 
         public System.Collections.IList ListarVentasId(int id_vta)
@@ -127,20 +135,39 @@ namespace Controladora
             return vta.ToList();
         }
 
-        public System.Collections.IList ListarPagos(int id_venta)
+        public DateTime? ProximaVentaAVencer(int id_cliente, int estado)
+        {
+            var venta = Modelo.Contexto.Obtener_instancia().Ventas
+                         .Where(v => v.id_cliente == id_cliente && v.id_estado == estado)
+                         .OrderBy(v => v.fecha)
+                         .Select(v => v.fecha)
+                         .FirstOrDefault();
+
+            if (venta.HasValue)
+            {
+                return venta.Value.AddDays(30);
+            }
+
+            return null;
+        }
+
+
+
+        public System.Collections.IList ListarPagos(int id_cliente)
         {
 
             var pago = from p in Modelo.Contexto.Obtener_instancia().Pagos
                             join v in Modelo.Contexto.Obtener_instancia().Ventas on p.id_venta equals v.id_venta
-                            where v.id_venta == id_venta
+                            join esv in Modelo.Contexto.Obtener_instancia().Estado_venta on v.id_estado equals esv.id_estado
+                       where v.id_cliente == id_cliente
                        select new
                             {
                                 numero_venta = v.id_venta,
                                 p.fecha,
-                                v.id_estado,
+                                esv.descripcion,
                                 monto = p.monto
-                            };
-            return pago.ToList();
+                            };                             
+            return pago.OrderByDescending(p => p.fecha).ToList();
         }
 
         private void updateMonto(int idcc,decimal monto,double days)

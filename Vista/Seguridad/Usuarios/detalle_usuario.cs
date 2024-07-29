@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Controladora;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace Vista.Seguridad
 {
@@ -66,11 +68,22 @@ namespace Vista.Seguridad
                 
                 usuario = cUsuario.getUsuarioId(id_usuario).FirstOrDefault();
                 txtnombre.Text = usuario.nombre;
+                txtUsuario.Text = usuario.usuario;
                 txtemail.Text = usuario.email;
                 txtape.Text = usuario.apellido;
                 txtdni.Text = usuario.dni;
                 checkEstado.Checked = (bool)usuario.estado;
                 MarcarPermisos(treeViewPermisos.Nodes, permisosUsuario);
+            }
+            else
+            {
+                permisosUsuario = new List<Modelo.Permisos>();
+                gruposUsuario = new BindingList<Modelo.Grupos>();
+                gruposDisponibles = new BindingList<Modelo.Grupos>(cGrupo.getGrupos().Where(g => g.estado == true).ToList());
+                dataGruposDisponibles.DataSource = gruposDisponibles;
+                estilosDataGrid(dataGruposDisponibles);
+                dataGruposMiembro.DataSource = gruposUsuario;
+                estilosDataGrid(dataGruposMiembro);
             }
         }
 
@@ -153,13 +166,55 @@ namespace Vista.Seguridad
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (txtnombre.Text == "" || txtemail.Text == "" || txtape.Text == "" || txtdni.Text == "" || txtUsuario.Text == "")
+            {
+                MessageBox.Show("Complete todos los campos", "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            if (!COMUN.MetodosComunes.ValidaDNI(txtdni.Text))
+            {
+                MessageBox.Show("DNI ingresado incorrecto", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return;
+            }
+
+            if (!COMUN.MetodosComunes.ValidacionEMAIL(txtemail.Text))
+            {
+                MessageBox.Show("Email ingresado incorrecto", "Error email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtemail.Focus();
+                return;
+            }
+
+            Modelo.Usuarios usuarioValidar = new Modelo.Usuarios();
+            usuarioValidar = cUsuario.getUsuarioNombreUsuario(txtUsuario.Text);
+
+            //aca valida cuando se esta creando un usuario que no este duplicado ya que se utiliza para iniciar sesion
+            if (id_usuario == 0 && usuarioValidar != null)
+            {
+                MessageBox.Show("Nombre de usuario duplicado en la base", "Error Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return;
+            }
+
+            //aca valida cuando se esta modificando un usuario que no este duplicado ya que se utiliza para iniciar sesion
+            if (id_usuario != 0 && usuarioValidar != null && usuarioValidar != usuario)
+            {
+                MessageBox.Show("Nombre de usuario duplicado en la base", "Error Usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return;
+            }
+
             if (id_usuario == 0)
             {
                 usuario = new Modelo.Usuarios();
                 usuario.nombre = txtnombre.Text;
                 usuario.email = txtemail.Text;
                 usuario.apellido = txtape.Text;
+                usuario.usuario = txtnombre.Text;
                 usuario.dni = txtdni.Text;
+                usuario.usuario = txtUsuario.Text;
                 usuario.estado = checkEstado.Checked;
                 usuario.Permisos = permisosUsuario;
                 usuario.Grupos = gruposUsuario;
@@ -171,6 +226,7 @@ namespace Vista.Seguridad
                 usuario.nombre = txtnombre.Text;
                 usuario.email = txtemail.Text;
                 usuario.apellido = txtape.Text;
+                usuario.usuario = txtUsuario.Text;
                 usuario.dni = txtdni.Text;
                 usuario.estado = checkEstado.Checked;
                 usuario.Permisos = permisosUsuario;
@@ -231,6 +287,16 @@ namespace Vista.Seguridad
             }
             estilosDataGrid(dataGruposDisponibles);
             estilosDataGrid(dataGruposMiembro);
+        }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e = COMUN.MetodosComunes.KeyPressSoloLetras(e, txtnombre.Text);
+        }
+
+        private void txtape_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e = COMUN.MetodosComunes.KeyPressSoloLetras(e, txtnombre.Text);
         }
     }
 }
