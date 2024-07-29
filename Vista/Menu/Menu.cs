@@ -141,7 +141,7 @@ namespace Vista
         private void gestionarPagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Gestionar_pagos.Obtener_instancia();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace Vista
         private void formularioCuentaCorrienteCliente_Click(object sender, EventArgs e)
         {
             Form form = cuenta_corriente.Obtener_instancia();
-            form.ShowDialog();
+            form.Show();
         }
     }
 }

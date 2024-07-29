@@ -67,6 +67,7 @@
     <Compile Include="Notas_creditos.cs" />
     <Compile Include="Notas_debitos.cs" />
     <Compile Include="Pagos.cs" />
+    <Compile Include="pagosDTO.cs" />
     <Compile Include="Permisos.cs" />
     <Compile Include="Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="tipo_movimientos.cs" />
     <Compile Include="Usuarios.cs" />
     <Compile Include="Ventas.cs" />
+    <Compile Include="VentasDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

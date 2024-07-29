@@ -17,8 +17,7 @@ namespace Vista
     {
         private static Consultar_ventas instancia;
         private Controladora.Venta cVenta = Controladora.Venta.Obtener_instancia();
-        private IEnumerable ventas;
-        private IEnumerable ventasFiltradas;
+        private List<VentaEstadoDTO> ventasFiltradas;
         public Modelo.Ventas venta = new Modelo.Ventas();
 
         public static Consultar_ventas Obtener_instancia()
@@ -40,13 +39,14 @@ namespace Vista
         public Consultar_ventas()
         {
             InitializeComponent();
-            ventas = cVenta.ListarVentasEstado(1);
-            dataVentas.DataSource = ventas;
+            ventasFiltradas = cVenta.ListarVentasEstado(2);
+            dataVentas.DataSource = ventasFiltradas;
             filtrar();
-            dataVentas.Columns[3].Visible = false;
-            comboBoxfiltro.Items.Add("Pendiente");
+            dataVentas.Columns[0].Visible = false;
+            dataVentas.Columns[1].Visible = false;
+            dataVentas.Columns[2].Visible = false;
+            comboBoxfiltro.Items.Add("Aceptadas");
             comboBoxfiltro.Items.Add("Venta en cc");
-            comboBoxfiltro.Items.Add("Moroso");
             comboBoxfiltro.SelectedIndex = 0;
         }
 
@@ -63,27 +63,31 @@ namespace Vista
             if (iRow >= 0 && iColum > 0)
             {
                 venta.id_venta = Convert.ToInt32(dataVentas.Rows[iRow].Cells[0].Value);
-                venta.id_venta= Convert.ToInt32(dataVentas.Rows[iRow].Cells[1].Value);
-                venta.id_estado = Convert.ToInt32(dataVentas.Rows[iRow].Cells[3].Value);
+                venta.id_cliente= Convert.ToInt32(dataVentas.Rows[iRow].Cells[1].Value);
+                venta.id_estado = Convert.ToInt32(dataVentas.Rows[iRow].Cells[2].Value);
+                venta.total = Convert.ToDecimal(dataVentas.Rows[iRow].Cells[5].Value);
                 this.DialogResult = DialogResult.OK;
-                ventas = cVenta.ListarVentasEstado(2);
-                dataVentas.DataSource = ventas;
+                dataVentas.DataSource = null;
                 this.Close();
             }
-
         }
 
         private void filtrar()
         {
-            ventasFiltradas = ventas;
-            if (textBoxDNI.Text != "")
+            if (textBoxDNI.Text == "")
             {
-                //ventasFiltradas.Cast<Modelo.Ventas>().Where(x => x.dni.ToString().Contains(textBoxDNI.Text)).ToList();
-                //dataVentas.DataSource = ventasFiltradas;
+                dataVentas.DataSource = ventasFiltradas;
+                dataVentas.Columns[0].Visible = false;
+                dataVentas.Columns[1].Visible = false;
+                dataVentas.Columns[2].Visible = false;
             }
             else
             {
-                dataVentas.DataSource = ventas;
+                
+                dataVentas.DataSource = ventasFiltradas.Where(x => x.dni.ToString().Contains(textBoxDNI.Text)).ToList();
+                dataVentas.Columns[0].Visible = false;
+                dataVentas.Columns[1].Visible = false;
+                dataVentas.Columns[2].Visible = false;
             }
         }
 
@@ -91,17 +95,12 @@ namespace Vista
         {
             if (comboBoxfiltro.SelectedIndex == 0)
             {
-                ventas = cVenta.ListarVentasEstado(1);
+                ventasFiltradas = cVenta.ListarVentasEstado(2);
                 filtrar();
             }
             if (comboBoxfiltro.SelectedIndex == 1)
             {
-                ventas = cVenta.ListarVentasEstado(2);
-                filtrar();
-            }
-            if (comboBoxfiltro.SelectedIndex == 2)
-            {
-                ventas = cVenta.ListarVentasEstado(3);
+                ventasFiltradas = cVenta.ListarVentasEstado(3);
                 filtrar();
             }
         }

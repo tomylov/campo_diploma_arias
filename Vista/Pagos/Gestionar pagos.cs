@@ -1,4 +1,6 @@
-﻿using Modelo;
+﻿using Controladora;
+using iTextSharp.text.pdf.codec.wmf;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +19,16 @@ namespace Vista.Clientes
     {
         private static Gestionar_pagos instancia;
         Controladora.Pago cPago = Controladora.Pago.Obtener_instancia();
+        Controladora.Venta cVenta = Controladora.Venta.Obtener_instancia();
+        Controladora.Cuenta_Corriente_Cliente cCuentaCorriente = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia();
+        Controladora.Comprobante cComprobante = Controladora.Comprobante.Obtener_instancia();
         Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
-        private List<Modelo.Pagos> pagos;
-        private List<Modelo.Pagos> pagosFiltrados;
+        private List<Modelo.PagosDTO> pagos;
+        private List<Modelo.PagosDTO> pagosFiltrados;
         private Modelo.Pagos pago;
         private int index;
-        private int nroPago = 1;
+        private int nroPago;
+        private int nroVenta;
 
         public static Gestionar_pagos Obtener_instancia()
         {
@@ -45,10 +51,11 @@ namespace Vista.Clientes
             filtrar();
             ConfigurarPermisosBotones();
             comboBoxfiltro.Items.Add("Pago");
-            comboBoxfiltro.Items.Add("Venta");
+            comboBoxfiltro.Items.Add("DNI");
             comboBoxfiltro.SelectedIndex = 0;
             buttonEliminar.Enabled = false;
-            dataClientes.Columns[4].Visible = false;
+            dataClientes.Columns[0].Visible = false;
+            dataClientes.Columns[1].Visible = false;
         }
 
         public void ConfigurarPermisosBotones()
@@ -70,10 +77,44 @@ namespace Vista.Clientes
             {            
                 pagosFiltrados = pagos;
                 pago = new Modelo.Pagos();
-                pago = pagosFiltrados.Where(pago => pago.numero == nroPago).FirstOrDefault();
+                pago = cPago.getPagoId(nroPago);
+                int id_comprobante = pago.id_comp.Value;
                 cPago.eliminarPago(pago);
-                filtrar();
+
+                Modelo.Comprobantes comprobantes = new Modelo.Comprobantes();
+                comprobantes = cComprobante.GetComrobanteId(id_comprobante);
+                cComprobante.deleteComprobante(comprobantes);
+
+                Modelo.Ventas venta = new Modelo.Ventas();
+                venta = cVenta.getVentaId(nroVenta);
+                if (venta.id_estado == 5)
+                {
+                    Modelo.Cuentas_Corrientes mCuentaCorriente = cCuentaCorriente.Getcc((int)venta.id_cliente).FirstOrDefault();
+
+                    venta.id_estado = 3;
+                    cVenta.modificarVenta(venta);
+
+                    Modelo.Movimientos movimiento = new Modelo.Movimientos();
+                    movimiento.tipo = 1;
+                    movimiento.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                    movimiento.id_cc = mCuentaCorriente.id_cc;
+                    movimiento.monto = venta.total;
+                    Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
+
+
+                    mCuentaCorriente.saldo += venta.total;
+                    mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer((int)venta.id_cliente, 3);
+                    cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
+                }
+                else
+                {
+
+                    venta.id_estado = 2;
+                    cVenta.modificarVenta(venta);
+                }
             }
+            filtrar();
+            buttonEliminar.Enabled = false;
         }
 
         private void dataClientes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +123,9 @@ namespace Vista.Clientes
             if (index != -1)
             {
                 buttonEliminar.Enabled = true;
-                nroPago = Convert.ToInt32(dataClientes.Rows[index].Cells[0].Value);
+                nroPago = Convert.ToInt32(dataClientes.Rows[index].Cells[2].Value);
+                nroVenta = Convert.ToInt32(dataClientes.Rows[index].Cells[0].Value);
+
                 txtCli.Text = nroPago.ToString();
             }
             else
@@ -105,10 +148,10 @@ namespace Vista.Clientes
 
         private void filtrar()
         {
-            pagosFiltrados = pagos;
-            if (comboBoxfiltro.Text == "Venta" && textBoxNombre.Text != "")
+            pagosFiltrados = cPago.ListarPagos();
+            if (comboBoxfiltro.Text == "DNI" && textBoxNombre.Text != "")
             {
-                pagosFiltrados = pagosFiltrados.Where(pago => pago.id_venta.ToString().ToLower().Contains(textBoxNombre.Text.ToLower())).ToList();
+                pagosFiltrados = pagosFiltrados.Where(pago => pago.dni.ToString().ToLower().Contains(textBoxNombre.Text.ToLower())).ToList();
                 dataClientes.DataSource = pagosFiltrados;
             }
             else if (comboBoxfiltro.Text == "Pago" && textBoxNombre.Text != "")
