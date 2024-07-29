@@ -49,46 +49,8 @@ namespace Vista.Clientes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtdni.Text == "" || txtnombre.Text == "" || txtemail.Text == "" || txtTEL.Text == "")
+            if (!ValidarDatos())
             {
-                MessageBox.Show("Complete todos los campos","Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!COMUN.MetodosComunes.EsSoloNumeros(txtTEL.Text))
-            {
-                MessageBox.Show("Número de telefono ingresado incorrecto", "Error telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtTEL.Focus();
-                return;
-            }
-
-            if (!COMUN.MetodosComunes.ValidacionEMAIL(txtemail.Text))
-            {
-                MessageBox.Show("Email ingresado incorrecto", "Error email", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtemail.Focus();
-                return;
-            }
-
-            if (!COMUN.MetodosComunes.ValidaDNI(txtdni.Text))
-            {
-                MessageBox.Show("DNI ingresado incorrecto", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtdni.Focus();
-                return;
-            }
-
-            Modelo.Clientes clienteValidar = new Modelo.Clientes();
-            clienteValidar = cCliente.GetCliente(Convert.ToInt32(txtdni.Text)).FirstOrDefault();
-            if (id == 0 && clienteValidar != null)
-            {
-                MessageBox.Show("Ya existe un cliente con ese dni en la base", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtdni.Focus();
-                return;
-            }
-
-            if (id != 0 && clienteValidar != null && clienteValidar != cliente)
-            {
-                MessageBox.Show("Ya existe un cliente con ese dni en la base", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtdni.Focus();
                 return;
             }
 
@@ -123,8 +85,57 @@ namespace Vista.Clientes
                 cCliente.modificarCliente(cliente);
             }
             MessageBox.Show("Cliente guardado con exito");
+            Vista.Clientes.Gestionar_clientes.Obtener_instancia().filtrar();
             this.Close();
         }
+
+        private bool ValidarDatos()
+        {
+            if (txtdni.Text == "" || txtnombre.Text == "" || txtemail.Text == "" || txtTEL.Text == "")
+            {
+                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!COMUN.MetodosComunes.EsSoloNumeros(txtTEL.Text))
+            {
+                MessageBox.Show("Número de telefono ingresado incorrecto", "Error telefono", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtTEL.Focus();
+                return false;
+            }
+
+            if (!COMUN.MetodosComunes.ValidacionEMAIL(txtemail.Text))
+            {
+                MessageBox.Show("Email ingresado incorrecto", "Error email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtemail.Focus();
+                return false;
+            }
+
+            if (!COMUN.MetodosComunes.ValidaDNI(txtdni.Text))
+            {
+                MessageBox.Show("DNI ingresado incorrecto", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return false;
+            }
+
+            Modelo.Clientes clienteValidar = cCliente.GetCliente(Convert.ToInt32(txtdni.Text)).FirstOrDefault();
+            if (id == 0 && clienteValidar != null)
+            {
+                MessageBox.Show("Ya existe un cliente con ese dni en la base", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return false;
+            }
+
+            if (id != 0 && clienteValidar != null && clienteValidar != cliente)
+            {
+                MessageBox.Show("Ya existe un cliente con ese dni en la base", "Error DNI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtdni.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
 
         private void button4_Click(object sender, EventArgs e)
         {
