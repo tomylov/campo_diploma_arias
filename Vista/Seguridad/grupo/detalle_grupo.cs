@@ -160,7 +160,6 @@ namespace Vista.Seguridad
                 }
                 else
                 {
-                    MessageBox.Show("Permisos eliminados correctamente." + permiso.nombre_permiso);
                     permisosGrupo.Remove(permiso);
                 }
             }
