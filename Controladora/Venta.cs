@@ -62,30 +62,24 @@ namespace Controladora
             return vta.ToList();
         }
 
-        public System.Collections.IList ListarVentasEstado(int id_estado)
+        public List<VentaEstadoDTO> ListarVentasEstado(int id_estado)
         {
-            var resultado = from venta in Modelo.Contexto.Obtener_instancia().Ventas
-                            join detalle in Modelo.Contexto.Obtener_instancia().Detalle_ventas
-                            on venta.id_venta equals detalle.id_venta
-                            join cliente in Modelo.Contexto.Obtener_instancia().Clientes
-                            on venta.id_cliente equals cliente.id_cliente
-                            where venta.id_estado == id_estado
-                            group new { venta, detalle } by new
+            var resultado = from v in contexto.Ventas
+                            join c in contexto.Clientes on v.id_cliente equals c.id_cliente
+                            where v.id_estado == id_estado
+                            select new VentaEstadoDTO
                             {
-                                venta.id_venta,
-                                venta.id_estado,
-                                cliente.dni
-                            } into g
-                            select new
-                            {
-                                id_venta = g.Key.id_venta,
-                                dni = g.Key.dni,
-                                total = g.Sum(x => x.detalle.precio * x.detalle.cantidad),
-                                estado = g.Key.id_estado
+                                id_venta = v.id_venta,
+                                id_cliente = (int)v.id_cliente,
+                                id_estado = (int)v.id_estado,
+                                dni = (int)c.dni,
+                                fecha = (DateTime)v.fecha,
+                                total = v.total
                             };
 
             return resultado.ToList();
         }
+
 
         public List<Modelo.Ventas> listarVentasEstado(int id_estado)
         {
@@ -214,7 +208,7 @@ namespace Controladora
                 for (i = 0; i < detallesAEliminar.Count; i++)
                 {
                     Modelo.Detalle_ventas detalle = detallesAEliminar[i];
-                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVta(detalle);                    
+                    Controladora.Detalle_venta.Obtener_instancia().deleteDetVtaID(detalle.id_detalle);
                 }
             }
             var ventaAEliminar = Modelo.Contexto.Obtener_instancia().Ventas.FirstOrDefault(v => v.id_venta == idVta);

@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.drpFormulario = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.formulariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkEstado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
@@ -44,12 +45,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.formulariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bunifuPanel1.SuspendLayout();
             this.bunifuGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.formulariosBindingSource)).BeginInit();
             this.bunifuPanel2.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.formulariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuPanel1
@@ -149,6 +149,10 @@
             this.drpFormulario.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.drpFormulario.TextLeftMargin = 5;
             this.drpFormulario.ValueMember = "id_formulario";
+            // 
+            // formulariosBindingSource
+            // 
+            this.formulariosBindingSource.DataSource = typeof(Modelo.Formularios);
             // 
             // checkEstado
             // 
@@ -289,10 +293,6 @@
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // formulariosBindingSource
-            // 
-            this.formulariosBindingSource.DataSource = typeof(Modelo.Formularios);
-            // 
             // detalle_permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,15 +302,16 @@
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.bunifuGroupBox1);
             this.Controls.Add(this.bunifuPanel1);
+            this.MaximizeBox = false;
             this.Name = "detalle_permisos";
             this.Text = "detalle_empleado";
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.formulariosBindingSource)).EndInit();
             this.bunifuPanel2.ResumeLayout(false);
             this.bunifuPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.formulariosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

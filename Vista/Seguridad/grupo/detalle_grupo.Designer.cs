@@ -37,10 +37,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.treeViewPermisos = new System.Windows.Forms.TreeView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkEstado = new System.Windows.Forms.CheckBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.checkEstado = new System.Windows.Forms.CheckBox();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -156,6 +156,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos Generales";
             // 
+            // checkEstado
+            // 
+            this.checkEstado.AutoSize = true;
+            this.checkEstado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.checkEstado.ForeColor = System.Drawing.Color.White;
+            this.checkEstado.Location = new System.Drawing.Point(668, 396);
+            this.checkEstado.Name = "checkEstado";
+            this.checkEstado.Size = new System.Drawing.Size(76, 25);
+            this.checkEstado.TabIndex = 55;
+            this.checkEstado.Text = "Activo";
+            this.checkEstado.UseVisualStyleBackColor = true;
+            // 
             // txtnombre
             // 
             this.txtnombre.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -186,18 +198,6 @@
             this.tabControl1.Size = new System.Drawing.Size(828, 549);
             this.tabControl1.TabIndex = 2;
             // 
-            // checkEstado
-            // 
-            this.checkEstado.AutoSize = true;
-            this.checkEstado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkEstado.ForeColor = System.Drawing.Color.White;
-            this.checkEstado.Location = new System.Drawing.Point(668, 396);
-            this.checkEstado.Name = "checkEstado";
-            this.checkEstado.Size = new System.Drawing.Size(76, 25);
-            this.checkEstado.TabIndex = 55;
-            this.checkEstado.Text = "Activo";
-            this.checkEstado.UseVisualStyleBackColor = true;
-            // 
             // detalle_grupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +207,7 @@
             this.Controls.Add(this.bunifuPanel3);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.bunifuPanel1);
+            this.MaximizeBox = false;
             this.Name = "detalle_grupo";
             this.Text = "PermisosUsuario";
             this.bunifuPanel1.ResumeLayout(false);

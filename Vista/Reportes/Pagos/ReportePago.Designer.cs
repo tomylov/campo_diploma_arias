@@ -1,6 +1,6 @@
 ﻿namespace Vista.Reportes
 {
-    partial class ReporteSesiones
+    partial class ReportePago
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,8 +41,6 @@
             this.buttonExcel = new System.Windows.Forms.Button();
             this.buttonExportar = new System.Windows.Forms.Button();
             this.dataAuditoriaUsuario = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.drpGrupos = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.label1 = new System.Windows.Forms.Label();
             this.bunifuGroupBox1.SuspendLayout();
             this.bunifuGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataAuditoriaUsuario)).BeginInit();
@@ -53,8 +51,6 @@
             this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
-            this.bunifuGroupBox1.Controls.Add(this.drpGrupos);
-            this.bunifuGroupBox1.Controls.Add(this.label1);
             this.bunifuGroupBox1.Controls.Add(this.btnLimpiar);
             this.bunifuGroupBox1.Controls.Add(this.label3);
             this.bunifuGroupBox1.Controls.Add(this.label2);
@@ -81,7 +77,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(693, 37);
+            this.btnLimpiar.Location = new System.Drawing.Point(697, 35);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(52, 40);
             this.btnLimpiar.TabIndex = 36;
@@ -95,7 +91,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(462, 61);
+            this.label3.Location = new System.Drawing.Point(467, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 21);
             this.label3.TabIndex = 35;
@@ -107,7 +103,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(197, 61);
+            this.label2.Location = new System.Drawing.Point(202, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 21);
             this.label2.TabIndex = 34;
@@ -119,7 +115,7 @@
             this.dtpfechafin.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpfechafin.CustomFormat = "dd/MM/yyyy";
             this.dtpfechafin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechafin.Location = new System.Drawing.Point(561, 60);
+            this.dtpfechafin.Location = new System.Drawing.Point(566, 44);
             this.dtpfechafin.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.dtpfechafin.Name = "dtpfechafin";
             this.dtpfechafin.Size = new System.Drawing.Size(107, 23);
@@ -131,7 +127,7 @@
             this.dtpfechainicio.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpfechainicio.CustomFormat = "dd/MM/yyyy";
             this.dtpfechainicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpfechainicio.Location = new System.Drawing.Point(306, 60);
+            this.dtpfechainicio.Location = new System.Drawing.Point(311, 44);
             this.dtpfechainicio.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.dtpfechainicio.Name = "dtpfechainicio";
             this.dtpfechainicio.Size = new System.Drawing.Size(115, 23);
@@ -194,21 +190,21 @@
             this.dataAuditoriaUsuario.AllowCustomTheming = false;
             this.dataAuditoriaUsuario.AllowUserToAddRows = false;
             this.dataAuditoriaUsuario.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.dataAuditoriaUsuario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataAuditoriaUsuario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataAuditoriaUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataAuditoriaUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataAuditoriaUsuario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataAuditoriaUsuario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataAuditoriaUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataAuditoriaUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataAuditoriaUsuario.ColumnHeadersHeight = 40;
             this.dataAuditoriaUsuario.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataAuditoriaUsuario.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
@@ -228,14 +224,14 @@
             this.dataAuditoriaUsuario.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataAuditoriaUsuario.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataAuditoriaUsuario.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataAuditoriaUsuario.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataAuditoriaUsuario.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataAuditoriaUsuario.EnableHeadersVisualStyles = false;
             this.dataAuditoriaUsuario.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataAuditoriaUsuario.HeaderBackColor = System.Drawing.Color.DodgerBlue;
@@ -251,64 +247,7 @@
             this.dataAuditoriaUsuario.TabIndex = 0;
             this.dataAuditoriaUsuario.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
-            // drpGrupos
-            // 
-            this.drpGrupos.BackColor = System.Drawing.Color.Transparent;
-            this.drpGrupos.BackgroundColor = System.Drawing.Color.White;
-            this.drpGrupos.BorderColor = System.Drawing.Color.Silver;
-            this.drpGrupos.BorderRadius = 1;
-            this.drpGrupos.Color = System.Drawing.Color.Silver;
-            this.drpGrupos.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.drpGrupos.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.drpGrupos.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.drpGrupos.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.drpGrupos.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.drpGrupos.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.drpGrupos.DisplayMember = "grupo_nombre";
-            this.drpGrupos.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.drpGrupos.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.drpGrupos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drpGrupos.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drpGrupos.FillDropDown = true;
-            this.drpGrupos.FillIndicator = false;
-            this.drpGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drpGrupos.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.drpGrupos.ForeColor = System.Drawing.Color.Black;
-            this.drpGrupos.FormattingEnabled = true;
-            this.drpGrupos.Icon = null;
-            this.drpGrupos.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drpGrupos.IndicatorColor = System.Drawing.Color.DarkGray;
-            this.drpGrupos.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drpGrupos.IndicatorThickness = 2;
-            this.drpGrupos.IsDropdownOpened = false;
-            this.drpGrupos.ItemBackColor = System.Drawing.Color.White;
-            this.drpGrupos.ItemBorderColor = System.Drawing.Color.White;
-            this.drpGrupos.ItemForeColor = System.Drawing.Color.Black;
-            this.drpGrupos.ItemHeight = 20;
-            this.drpGrupos.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.drpGrupos.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.drpGrupos.ItemTopMargin = 3;
-            this.drpGrupos.Location = new System.Drawing.Point(280, 28);
-            this.drpGrupos.Name = "drpGrupos";
-            this.drpGrupos.Size = new System.Drawing.Size(388, 26);
-            this.drpGrupos.TabIndex = 57;
-            this.drpGrupos.Text = null;
-            this.drpGrupos.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drpGrupos.TextLeftMargin = 5;
-            this.drpGrupos.ValueMember = "id_grupo";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(214, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 21);
-            this.label1.TabIndex = 56;
-            this.label1.Text = "Grupo:";
-            // 
-            // ReporteSesiones
+            // ReportePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -317,8 +256,9 @@
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuGroupBox1);
             this.ForeColor = System.Drawing.Color.White;
-            this.Name = "ReporteSesiones";
-            this.Text = "ReporteSesiones";
+            this.MaximizeBox = false;
+            this.Name = "ReportePago";
+            this.Text = "ReportePago";
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
             this.bunifuGroupBox2.ResumeLayout(false);
@@ -339,7 +279,5 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button buttonExportar;
         private System.Windows.Forms.Button buttonExcel;
-        private Bunifu.UI.WinForms.BunifuDropdown drpGrupos;
-        private System.Windows.Forms.Label label1;
     }
 }

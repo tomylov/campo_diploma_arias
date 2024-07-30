@@ -19,6 +19,11 @@ namespace Controladora
             return instancia;
         }
 
+        public Modelo.Comprobantes GetComrobanteId(int id)
+        {
+            return Modelo.Contexto.Obtener_instancia().Comprobantes.FirstOrDefault(c => c.id_comp == id);
+        }
+
         public void AgregarComprobante(Modelo.Comprobantes comprobante)
         {
             Modelo.Contexto.Obtener_instancia().Comprobantes.Add(comprobante);

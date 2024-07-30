@@ -50,6 +50,7 @@ namespace Vista.Clientes
             buttonEliminar.Enabled = false;
             buttonModificar.Enabled = false;
             dataClientes.Columns[0].Visible = false;
+            dataClientes.Columns[4].Visible = false;
             dataClientes.Columns[7].Visible = false;
             dataClientes.Columns[8].Visible = false;
             checkBoxSoloHabilitados.Checked = true;
@@ -130,7 +131,7 @@ namespace Vista.Clientes
             }
         }
 
-        private void filtrar()
+        public void filtrar()
         {
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();
             clientesFiltrados = clientes;

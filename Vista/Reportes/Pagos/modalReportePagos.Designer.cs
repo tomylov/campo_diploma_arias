@@ -1,6 +1,6 @@
 ﻿namespace Vista.Reportes
 {
-    partial class modalReporteSesiones
+    partial class modalReportePagos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,27 +31,27 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chartSesiones = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartPagos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonExportar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.chartSesiones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPagos)).BeginInit();
             this.SuspendLayout();
             // 
-            // chartSesiones
+            // chartPagos
             // 
             chartArea1.Name = "ChartArea1";
-            this.chartSesiones.ChartAreas.Add(chartArea1);
+            this.chartPagos.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chartSesiones.Legends.Add(legend1);
-            this.chartSesiones.Location = new System.Drawing.Point(56, 35);
-            this.chartSesiones.Name = "chartSesiones";
+            this.chartPagos.Legends.Add(legend1);
+            this.chartPagos.Location = new System.Drawing.Point(56, 35);
+            this.chartPagos.Name = "chartPagos";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chartSesiones.Series.Add(series1);
-            this.chartSesiones.Size = new System.Drawing.Size(968, 465);
-            this.chartSesiones.TabIndex = 0;
-            this.chartSesiones.Text = "chart1";
-            this.chartSesiones.PostPaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chartSesiones_PostPaint);
+            this.chartPagos.Series.Add(series1);
+            this.chartPagos.Size = new System.Drawing.Size(968, 465);
+            this.chartPagos.TabIndex = 0;
+            this.chartPagos.Text = "chart1";
+            this.chartPagos.PostPaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chartSesiones_PostPaint);
             // 
             // buttonExportar
             // 
@@ -69,24 +69,25 @@
             this.buttonExportar.UseVisualStyleBackColor = true;
             this.buttonExportar.Click += new System.EventHandler(this.buttonExportar_Click);
             // 
-            // modalReporteSesiones
+            // modalReportePagos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(27)))));
             this.ClientSize = new System.Drawing.Size(1069, 579);
             this.Controls.Add(this.buttonExportar);
-            this.Controls.Add(this.chartSesiones);
-            this.Name = "modalReporteSesiones";
-            this.Text = "modalReporteSesiones";
-            ((System.ComponentModel.ISupportInitialize)(this.chartSesiones)).EndInit();
+            this.Controls.Add(this.chartPagos);
+            this.MaximizeBox = false;
+            this.Name = "modalReportePagos";
+            this.Text = "modalReportePagos";
+            ((System.ComponentModel.ISupportInitialize)(this.chartPagos)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartSesiones;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartPagos;
         private System.Windows.Forms.Button buttonExportar;
     }
 }

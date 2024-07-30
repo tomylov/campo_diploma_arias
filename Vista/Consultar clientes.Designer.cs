@@ -202,6 +202,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bunifuPanel1);
             this.Controls.Add(this.bunifuGroupBox1);
+            this.MaximizeBox = false;
             this.Name = "Consultar_clientes";
             this.Text = "Consultar_clientes";
             this.bunifuGroupBox1.ResumeLayout(false);

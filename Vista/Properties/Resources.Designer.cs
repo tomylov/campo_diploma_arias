@@ -61,10 +61,19 @@ namespace Vista.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hard_soft {
+            get {
+                object obj = ResourceManager.GetObject("hard_soft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;!--sistema creado por el canal yt codigo estudiante--&gt;
         ///    &lt;title&gt;Web Page Design&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
@@ -80,7 +89,12 @@ namespace Vista.Properties {
         ///            table.border td {
         ///                text-align: center;
         ///                padding: 5px;
-        ///                border: 1px solid b [resto de la cadena truncado]&quot;;.
+        ///                border: 1px solid black;
+        ///            }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///    &lt;tab [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string PlantillaVenta {
             get {

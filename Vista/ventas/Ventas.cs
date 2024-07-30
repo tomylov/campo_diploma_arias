@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controladora;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -20,7 +21,7 @@ namespace Vista
         decimal precio;
         int dni;
         int venta = 0;
-        int id_det = 0;
+        int id_prod = 0;
         int index;
         private static Ventas instancia;
 
@@ -44,6 +45,7 @@ namespace Vista
         {
             dniPK.Enabled = false;
             btnVta.Visible = false;
+            btnLimpiar.Visible = false;
             textprod.Enabled = true;
             searchProd.Enabled = true;
             cancelBtn.Enabled = true;
@@ -54,6 +56,7 @@ namespace Vista
         {
             InitializeComponent();
             this.id_venta = id_venta;
+            Total.Text = "0.00";
             if (id_venta != 0) //si es distinto de 0 es porque se esta editando una venta
             {
                 habilitarVentas();
@@ -64,12 +67,15 @@ namespace Vista
                 venta = id_venta;
                 var datos = cDetVta.getDetalleVta(venta);
                 dataGridDetail.DataSource = datos;
-                if(datos.Count > 0)
+                int cantidadProd = 0;
+                if (datos.Count > 0)
                 {
                     foreach (var item in datos)
                     {
                         importe += (decimal)item.GetType().GetProperty("Subtotal").GetValue(item, null);
+                        cantidadProd += (int)item.GetType().GetProperty("cantidad").GetValue(item, null);
                     }
+                    TotalItems.Text = cantidadProd.ToString();
                     Total.Text = importe.ToString();
                 }
                 dataGridDetail.Columns[4].Visible = false;
@@ -80,7 +86,7 @@ namespace Vista
         {
             cantidad = 0;
             precio = 0;
-            if (textprod.Text != "" && cuantity.Value <= Convert.ToInt32(stock.Text))
+            if (textprod.Text != "" && cuantity.Value > 0 && cuantity.Value <= Convert.ToInt32(stock.Text))
             {
                 cantidad = Convert.ToInt32(cuantity.Text);
                 TotalItems.Text = (Convert.ToInt32(TotalItems.Text) + cantidad).ToString();
@@ -89,33 +95,41 @@ namespace Vista
                 Total.Text = importe.ToString();
                 detalle_Ventas.cantidad = Convert.ToInt32(cuantity.Value);
                 detalle_Ventas.precio = Convert.ToDecimal(price.Text);
-                detalle_Ventas.id_prod = Convert.ToInt32(textprod.Text);
+                detalle_Ventas.id_prod = id_prod;
                 detalle_Ventas.id_venta = venta;
                 cDetVta.AgregarDetalleVenta(detalle_Ventas);
                 cDetVta.updateStock(detalle_Ventas.id_prod, -detalle_Ventas.cantidad);
-                var datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
-                dataGridDetail.DataSource = null;
-                dataGridDetail.DataSource = datos;
-                dataGridDetail.Columns[4].Visible = false;
-                textprod.Text = "";
-                description.Text = "";
-                price.Text = "";
-                cuantity.Value = 0;
-                stock.Text = "";
+                restartinputs();
+                refreshDetalle();
             }
+        }
 
+        private void restartinputs()
+        {
+            textprod.Text = "";
+            description.Text = "";
+            price.Text = "";
+            cuantity.Value = 0;
+            stock.Text = "";
+        }
+
+        private void refreshDetalle()
+        {
+            var datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
+            dataGridDetail.DataSource = null;
+            dataGridDetail.DataSource = datos;
+            dataGridDetail.Columns[4].Visible = false;
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            if (Total.Text != "")
+            if (Convert.ToDecimal(Total.Text) != 0.00m)
             {
                 comprobante.id_tipo = 1;
                 comprobante.numero = venta;
                 cComprobante.AgregarComprobante(comprobante);
 
-            
-                ventas.id_venta = venta;
+                ventas = cVenta.getVentaId(venta);
                 ventas.id_comp = Modelo.Contexto.Obtener_instancia().Comprobantes.Max(c => c.id_comp);
                 ventas.id_cliente = Cliente.id_cliente;
                 ventas.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
@@ -133,6 +147,7 @@ namespace Vista
             Consultar_productos cp = Consultar_productos.Obtener_instancia();
             if (cp.ShowDialog() == DialogResult.OK)
             {
+                id_prod = cp.prod.id_prod;
                 textprod.Text = cp.prod.id_prod.ToString();
                 description.Text = cp.prod.nombre;
                 price.Text = cp.prod.precio.ToString();
@@ -152,6 +167,7 @@ namespace Vista
                     Modelo.Productos datos = cProducto.getProductoId(Convert.ToInt32(textprod.Text));
                     if (datos != null)
                     {
+                        id_prod = datos.id_prod;
                         description.Text = datos.nombre;
                         price.Text = datos.precio.ToString();
                         stock.Text = datos.stock.ToString();
@@ -160,6 +176,7 @@ namespace Vista
                     }
                     else
                     {
+                        id_prod = 0;
                         description.Text = "";
                         price.Text = "";
                         cuantity.Value = 0;
@@ -206,8 +223,21 @@ namespace Vista
 
         private void btnVta_Click(object sender, EventArgs e)
         {
+
+            if (Cliente!= null && Cliente.estado == false)
+            {
+                MessageBox.Show("Cliente dado de baja", "Error cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Modelo.Cuentas_Corrientes cc = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().Getcc(Cliente.id_cliente).FirstOrDefault();
+            if (cc!=null && cc.plazo < DateTime.Now)
+            {
+                MessageBox.Show("Cliente con una venta vencida en cuenta corriente", "Error cc", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (name.Text != "")
             {
+                dniPK.Text = Cliente.dni.ToString();
                 ventas.id_cliente = Cliente.id_cliente;
                 ventas.id_estado = 1;
                 ventas.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
@@ -223,17 +253,13 @@ namespace Vista
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            detalle_Ventas.cantidad = Convert.ToInt32(dataGridDetail.Rows[index].Cells[1].Value);
-            detalle_Ventas.id_detalle = Convert.ToInt32(dataGridDetail.Rows[index].Cells[4].Value);
-            detalle_Ventas.id_prod = Convert.ToInt32(dataGridDetail.Rows[index].Cells[5].Value);
-            cDetVta.deleteDetVta(detalle_Ventas);
+            int id_detalle = Convert.ToInt32(dataGridDetail.Rows[index].Cells[4].Value);
+            cDetVta.deleteDetVtaID(id_detalle);
+            cantidad = Convert.ToInt32(dataGridDetail.Rows[index].Cells[1].Value);
             TotalItems.Text = (Convert.ToInt32(TotalItems.Text) - cantidad).ToString();
-            dataGridDetail.Columns[4].Visible = false;
-            MessageBox.Show(importe.ToString());
             importe -= (Convert.ToDecimal(dataGridDetail.Rows[index].Cells[3].Value));
-            MessageBox.Show(importe.ToString());
             Total.Text = importe.ToString();
-            dataGridDetail.DataSource = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(venta);
+            refreshDetalle();
             Eliminar.Enabled = false;
         }
         private void dataGridDetail_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -246,6 +272,24 @@ namespace Vista
             else
             {
                 Eliminar.Enabled = false;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Consultar_clientes form = Consultar_clientes.Obtener_instancia();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Cliente.id_cliente = form.cliente.id_cliente;
+                Cliente.dni = form.cliente.dni;
+                Cliente.nombre = form.cliente.nombre;
+                Cliente.telefono = form.cliente.telefono;
+                Cliente.email = form.cliente.email;
+                Cliente.ra = form.cliente.ra;
+                Cliente.estado = form.cliente.estado;
+                name.Text = Cliente.nombre;
+                mail.Text = Cliente.email;
+                dniPK.Text = Cliente.dni.ToString();
             }
         }
 

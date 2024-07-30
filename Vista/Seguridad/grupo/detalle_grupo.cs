@@ -153,7 +153,10 @@ namespace Vista.Seguridad
             {
                 if (e.Node.Checked)
                 {
-                    permisosGrupo.Add(permiso);
+                    if (!permisosGrupo.Contains(permiso))
+                    {
+                        permisosGrupo.Add(permiso);
+                    }
                 }
                 else
                 {

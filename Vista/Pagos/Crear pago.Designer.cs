@@ -38,8 +38,6 @@
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtRs = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtTEL = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtdni = new System.Windows.Forms.TextBox();
@@ -71,8 +69,6 @@
             this.bunifuGroupBox1.Controls.Add(this.bunifuLabel4);
             this.bunifuGroupBox1.Controls.Add(this.txtemail);
             this.bunifuGroupBox1.Controls.Add(this.label2);
-            this.bunifuGroupBox1.Controls.Add(this.txtRs);
-            this.bunifuGroupBox1.Controls.Add(this.label9);
             this.bunifuGroupBox1.Controls.Add(this.txtTEL);
             this.bunifuGroupBox1.Controls.Add(this.label8);
             this.bunifuGroupBox1.Controls.Add(this.txtdni);
@@ -118,7 +114,7 @@
             this.buttonVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonVenta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonVenta.ForeColor = System.Drawing.Color.White;
-            this.buttonVenta.Location = new System.Drawing.Point(813, 119);
+            this.buttonVenta.Location = new System.Drawing.Point(830, 64);
             this.buttonVenta.Name = "buttonVenta";
             this.buttonVenta.Size = new System.Drawing.Size(135, 35);
             this.buttonVenta.TabIndex = 54;
@@ -147,7 +143,7 @@
             // 
             this.txtemail.Enabled = false;
             this.txtemail.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtemail.Location = new System.Drawing.Point(864, 63);
+            this.txtemail.Location = new System.Drawing.Point(499, 93);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(287, 29);
             this.txtemail.TabIndex = 52;
@@ -158,32 +154,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(809, 66);
+            this.label2.Location = new System.Drawing.Point(444, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 21);
             this.label2.TabIndex = 51;
             this.label2.Text = "email:";
-            // 
-            // txtRs
-            // 
-            this.txtRs.Enabled = false;
-            this.txtRs.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtRs.Location = new System.Drawing.Point(499, 85);
-            this.txtRs.Name = "txtRs";
-            this.txtRs.Size = new System.Drawing.Size(287, 29);
-            this.txtRs.TabIndex = 53;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(413, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 21);
-            this.label9.TabIndex = 52;
-            this.label9.Text = "Condición:";
             // 
             // txtTEL
             // 
@@ -429,6 +404,7 @@
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuGroupBox3);
             this.Controls.Add(this.bunifuGroupBox1);
+            this.MaximizeBox = false;
             this.Name = "Crear_pago";
             this.Text = "Registrar pago";
             this.bunifuGroupBox1.ResumeLayout(false);
@@ -461,8 +437,6 @@
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuLabel lblSaldo;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
-        private System.Windows.Forms.TextBox txtRs;
-        private System.Windows.Forms.Label label9;
         private Bunifu.UI.WinForms.BunifuDataGridView dataVtas;
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox2;
     }

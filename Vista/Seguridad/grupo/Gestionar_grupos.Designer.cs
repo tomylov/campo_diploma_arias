@@ -45,12 +45,12 @@
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
+            this.buttonModificar = new System.Windows.Forms.Button();
             this.btnsalir = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.bunifuLabel9 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtCli = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.buttonModificar = new System.Windows.Forms.Button();
             this.bunifuGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataClientes)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
@@ -127,6 +127,7 @@
             this.dataClientes.EnableHeadersVisualStyles = false;
             this.dataClientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataClientes.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataClientes.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataClientes.HeaderForeColor = System.Drawing.Color.White;
             this.dataClientes.Location = new System.Drawing.Point(12, 22);
             this.dataClientes.Name = "dataClientes";
@@ -247,6 +248,22 @@
             this.bunifuGroupBox2.TabIndex = 1;
             this.bunifuGroupBox2.TabStop = false;
             this.bunifuGroupBox2.Text = "Botones";
+            // 
+            // buttonModificar
+            // 
+            this.buttonModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.buttonModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonModificar.ForeColor = System.Drawing.Color.White;
+            this.buttonModificar.Location = new System.Drawing.Point(40, 86);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(170, 35);
+            this.buttonModificar.TabIndex = 13;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // btnsalir
             // 
@@ -389,22 +406,6 @@
             this.txtCli.UseSystemPasswordChar = false;
             this.txtCli.WordWrap = true;
             // 
-            // buttonModificar
-            // 
-            this.buttonModificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.buttonModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonModificar.ForeColor = System.Drawing.Color.White;
-            this.buttonModificar.Location = new System.Drawing.Point(40, 86);
-            this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(170, 35);
-            this.buttonModificar.TabIndex = 13;
-            this.buttonModificar.Text = "Modificar";
-            this.buttonModificar.UseVisualStyleBackColor = true;
-            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
-            // 
             // Gestionar_grupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,6 +414,7 @@
             this.Controls.Add(this.bunifuGroupBox1);
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuPanel1);
+            this.MaximizeBox = false;
             this.Name = "Gestionar_grupos";
             this.Text = "Gestionar_grupos";
             this.bunifuGroupBox1.ResumeLayout(false);

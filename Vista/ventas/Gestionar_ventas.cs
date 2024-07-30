@@ -61,6 +61,8 @@ namespace Vista
             Controladora.Venta.Obtener_instancia().deleteVta(idVta);
             MessageBox.Show("Venta eliminada con exito");
             filtrar();
+            Modificar_vta.Enabled = false;
+            Eliminar_vta.Enabled = false;
         }
 
         private void Modificar_vta_Click(object sender, EventArgs e)
@@ -70,6 +72,8 @@ namespace Vista
             Form vt = Ventas.Obtener_instancia(idVta, dni);
             vt.Show();
             filtrar();
+            Modificar_vta.Enabled = false;
+            Eliminar_vta.Enabled = false;
         }
 
         private void dataModelcc_CellClick(object sender, DataGridViewCellEventArgs e)

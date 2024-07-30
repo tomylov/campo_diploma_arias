@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,31 @@ namespace Controladora
             return pago;
         }
 
-        public List<Modelo.Pagos> ListarPagos()
+        public List<Modelo.PagosDTO> ListarPagos()
         {
-            return Modelo.Contexto.Obtener_instancia().Pagos.ToList();
+            Modelo.Contexto contexto = Modelo.Contexto.Obtener_instancia();
+            var resultado = from p in contexto.Pagos
+                            join mp in contexto.Medio_Pagos on p.id_med_pago equals mp.id_med_pago
+                            join v in contexto.Ventas on p.id_venta equals v.id_venta
+                            join c in contexto.Clientes on v.id_cliente equals c.id_cliente
+                            orderby p.numero descending
+                            select new PagosDTO
+                            {
+                                id_venta = p.id_venta,
+                                id_estado = v.id_estado,
+                                numero = p.numero,
+                                dni = c.dni,
+                                monto = p.monto,
+                                fecha = p.fecha,
+                                descripcion = mp.descripcion
+                            };
+
+            return resultado.ToList();
+        }
+
+        public Modelo.Pagos getPagoId(int nro)
+        {
+            return Modelo.Contexto.Obtener_instancia().Pagos.FirstOrDefault(p => p.numero == nro);
         }
 
         public void agregarPago(Modelo.Pagos pago)

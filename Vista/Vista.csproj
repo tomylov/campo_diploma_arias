@@ -291,16 +291,28 @@
     <Compile Include="Pagos\Gestionar pagos.Designer.cs">
       <DependentUpon>Gestionar pagos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\modalReporteSesiones.cs">
+    <Compile Include="Reportes\Pagos\modalReportePagos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\modalReporteSesiones.Designer.cs">
+    <Compile Include="Reportes\Pagos\modalReportePagos.Designer.cs">
+      <DependentUpon>modalReportePagos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Sesiones\modalReporteSesiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Sesiones\modalReporteSesiones.Designer.cs">
       <DependentUpon>modalReporteSesiones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\ReporteSesiones.cs">
+    <Compile Include="Reportes\Pagos\ReportePago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteSesiones.Designer.cs">
+    <Compile Include="Reportes\Pagos\ReportePago.Designer.cs">
+      <DependentUpon>ReportePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Sesiones\ReporteSesiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Sesiones\ReporteSesiones.Designer.cs">
       <DependentUpon>ReporteSesiones.cs</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\Usuarios\Gestionar_usuarios.cs">
@@ -415,10 +427,16 @@
     <EmbeddedResource Include="Pagos\Gestionar pagos.resx">
       <DependentUpon>Gestionar pagos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\modalReporteSesiones.resx">
+    <EmbeddedResource Include="Reportes\Pagos\modalReportePagos.resx">
+      <DependentUpon>modalReportePagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Sesiones\modalReporteSesiones.resx">
       <DependentUpon>modalReporteSesiones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteSesiones.resx">
+    <EmbeddedResource Include="Reportes\Pagos\ReportePago.resx">
+      <DependentUpon>ReportePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Sesiones\ReporteSesiones.resx">
       <DependentUpon>ReporteSesiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\Usuarios\Gestionar_usuarios.resx">
@@ -504,6 +522,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hard-soft.jpeg" />
     <Content Include="Resources\PlantillaVenta.html" />
   </ItemGroup>
   <ItemGroup />

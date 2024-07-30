@@ -59,6 +59,7 @@ namespace Vista.Clientes
                 cPermiso.modificarPermiso(permiso);
             }
             MessageBox.Show("Permiso guardado con exito");
+            Vista.Seguridad.Gestionar_permisos.Obtener_instancia().filtrar();
             this.Close();
         }
 

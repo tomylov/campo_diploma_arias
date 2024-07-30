@@ -78,7 +78,7 @@ namespace Vista.Seguridad
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar el cliente?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro que desea eliminar el permiso seleccionado?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Modelo.Permisos Permiso = new Modelo.Permisos();
                 Permiso = Permisos.Where(cliente => cliente.id_permiso == id_permiso).FirstOrDefault();
@@ -124,7 +124,7 @@ namespace Vista.Seguridad
                filtrar();
         }
 
-        private void filtrar()
+        public void filtrar()
         {
             PermisosFiltrados = cPermisos.getPermisos();
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")

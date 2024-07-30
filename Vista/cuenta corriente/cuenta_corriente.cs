@@ -1,4 +1,5 @@
 ﻿using Controladora;
+using Controladora.Seguridad_composite;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace Vista
     public partial class cuenta_corriente : Form
     {
         int index;
+        //permisos
+        Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
         Modelo.Clientes cliente = new Modelo.Clientes();
         Modelo.Cuentas_Corrientes cuentaCorriente = new Modelo.Cuentas_Corrientes();
         //ventas
@@ -40,6 +43,7 @@ namespace Vista
         {
             InitializeComponent();
             numberVta.Text = "";
+            ConfigurarPermisosBotones();
 
             //Preparo el combo box para que haga las diferentes querys
             comboSelect.Text= "Ventas-retirar";
@@ -47,6 +51,14 @@ namespace Vista
             comboSelect.Items.Add("Ventas-Cuenta Corriente");
             comboSelect.Items.Add("Movimientos");
             comboSelect.Items.Add("Pagos");
+        }
+
+        private void ConfigurarPermisosBotones()
+        {
+            VentaCC.Visible = cPermisoGrupo.valiPermiso("Agregar cc");
+            btnPay.Visible = cPermisoGrupo.valiPermiso("Pagar");
+            BtnPrint.Visible = cPermisoGrupo.valiPermiso("Imprimir venta");
+            BtnSendEmail.Visible = cPermisoGrupo.valiPermiso("Notificar venta");
         }
 
         private void bunifuGroupBox2_Enter(object sender, EventArgs e)

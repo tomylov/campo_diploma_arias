@@ -37,23 +37,23 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.comboVtas = new System.Windows.Forms.ComboBox();
-            this.dataModelcc = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.bunifuGroupBox2 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Eliminar_vta = new System.Windows.Forms.Button();
-            this.Modificar_vta = new System.Windows.Forms.Button();
-            this.crear_vta = new System.Windows.Forms.Button();
+            this.dataModelcc = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
             this.btnsalir = new System.Windows.Forms.Button();
             this.bunifuLabel9 = new Bunifu.UI.WinForms.BunifuLabel();
             this.txtvta = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.Eliminar_vta = new System.Windows.Forms.Button();
+            this.Modificar_vta = new System.Windows.Forms.Button();
+            this.crear_vta = new System.Windows.Forms.Button();
+            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboVtas = new System.Windows.Forms.ComboBox();
             this.bunifuPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataModelcc)).BeginInit();
-            this.bunifuPanel1.SuspendLayout();
-            this.bunifuGroupBox1.SuspendLayout();
             this.bunifuGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataModelcc)).BeginInit();
+            this.bunifuGroupBox1.SuspendLayout();
+            this.bunifuPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPanel2
@@ -74,15 +74,23 @@
             this.bunifuPanel2.Size = new System.Drawing.Size(1163, 647);
             this.bunifuPanel2.TabIndex = 2;
             // 
-            // comboVtas
+            // bunifuGroupBox2
             // 
-            this.comboVtas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboVtas.FormattingEnabled = true;
-            this.comboVtas.Location = new System.Drawing.Point(318, 45);
-            this.comboVtas.Name = "comboVtas";
-            this.comboVtas.Size = new System.Drawing.Size(246, 21);
-            this.comboVtas.TabIndex = 6;
-            this.comboVtas.SelectedIndexChanged += new System.EventHandler(this.comboVtas_SelectedIndexChanged);
+            this.bunifuGroupBox2.BorderColor = System.Drawing.Color.LightGray;
+            this.bunifuGroupBox2.BorderRadius = 1;
+            this.bunifuGroupBox2.BorderThickness = 1;
+            this.bunifuGroupBox2.Controls.Add(this.dataModelcc);
+            this.bunifuGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuGroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuGroupBox2.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.bunifuGroupBox2.LabelIndent = 10;
+            this.bunifuGroupBox2.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
+            this.bunifuGroupBox2.Location = new System.Drawing.Point(0, 100);
+            this.bunifuGroupBox2.Name = "bunifuGroupBox2";
+            this.bunifuGroupBox2.Size = new System.Drawing.Size(944, 547);
+            this.bunifuGroupBox2.TabIndex = 9;
+            this.bunifuGroupBox2.TabStop = false;
+            this.bunifuGroupBox2.Text = "Ventas";
             // 
             // dataModelcc
             // 
@@ -96,7 +104,7 @@
             this.dataModelcc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -123,8 +131,8 @@
             this.dataModelcc.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -144,23 +152,6 @@
             this.dataModelcc.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataModelcc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataModelcc_CellClick);
             this.dataModelcc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataModelcc_CellDoubleClick);
-            // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 3;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.label1);
-            this.bunifuPanel1.Controls.Add(this.comboVtas);
-            this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1163, 100);
-            this.bunifuPanel1.TabIndex = 7;
             // 
             // bunifuGroupBox1
             // 
@@ -184,84 +175,6 @@
             this.bunifuGroupBox1.TabIndex = 8;
             this.bunifuGroupBox1.TabStop = false;
             this.bunifuGroupBox1.Text = "Botones";
-            // 
-            // bunifuGroupBox2
-            // 
-            this.bunifuGroupBox2.BorderColor = System.Drawing.Color.LightGray;
-            this.bunifuGroupBox2.BorderRadius = 1;
-            this.bunifuGroupBox2.BorderThickness = 1;
-            this.bunifuGroupBox2.Controls.Add(this.dataModelcc);
-            this.bunifuGroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuGroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuGroupBox2.LabelAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.bunifuGroupBox2.LabelIndent = 10;
-            this.bunifuGroupBox2.LineStyle = Bunifu.UI.WinForms.BunifuGroupBox.LineStyles.Solid;
-            this.bunifuGroupBox2.Location = new System.Drawing.Point(0, 100);
-            this.bunifuGroupBox2.Name = "bunifuGroupBox2";
-            this.bunifuGroupBox2.Size = new System.Drawing.Size(944, 547);
-            this.bunifuGroupBox2.TabIndex = 9;
-            this.bunifuGroupBox2.TabStop = false;
-            this.bunifuGroupBox2.Text = "Ventas";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(191, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 21);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Filtrar por:";
-            // 
-            // Eliminar_vta
-            // 
-            this.Eliminar_vta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.Eliminar_vta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.Eliminar_vta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Eliminar_vta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar_vta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.Eliminar_vta.ForeColor = System.Drawing.Color.White;
-            this.Eliminar_vta.Location = new System.Drawing.Point(23, 155);
-            this.Eliminar_vta.Name = "Eliminar_vta";
-            this.Eliminar_vta.Size = new System.Drawing.Size(170, 35);
-            this.Eliminar_vta.TabIndex = 16;
-            this.Eliminar_vta.Text = "Eliminar";
-            this.Eliminar_vta.UseVisualStyleBackColor = true;
-            this.Eliminar_vta.Click += new System.EventHandler(this.Eliminar_vta_Click);
-            // 
-            // Modificar_vta
-            // 
-            this.Modificar_vta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.Modificar_vta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.Modificar_vta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Modificar_vta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Modificar_vta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.Modificar_vta.ForeColor = System.Drawing.Color.White;
-            this.Modificar_vta.Location = new System.Drawing.Point(23, 114);
-            this.Modificar_vta.Name = "Modificar_vta";
-            this.Modificar_vta.Size = new System.Drawing.Size(170, 35);
-            this.Modificar_vta.TabIndex = 15;
-            this.Modificar_vta.Text = "Modificar";
-            this.Modificar_vta.UseVisualStyleBackColor = true;
-            this.Modificar_vta.Click += new System.EventHandler(this.Modificar_vta_Click);
-            // 
-            // crear_vta
-            // 
-            this.crear_vta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.crear_vta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.crear_vta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.crear_vta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crear_vta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.crear_vta.ForeColor = System.Drawing.Color.White;
-            this.crear_vta.Location = new System.Drawing.Point(23, 73);
-            this.crear_vta.Name = "crear_vta";
-            this.crear_vta.Size = new System.Drawing.Size(170, 35);
-            this.crear_vta.TabIndex = 14;
-            this.crear_vta.Text = "Agregar";
-            this.crear_vta.UseVisualStyleBackColor = true;
-            this.crear_vta.Click += new System.EventHandler(this.crear_vta_Click);
             // 
             // btnsalir
             // 
@@ -372,6 +285,93 @@
             this.txtvta.UseSystemPasswordChar = false;
             this.txtvta.WordWrap = true;
             // 
+            // Eliminar_vta
+            // 
+            this.Eliminar_vta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.Eliminar_vta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.Eliminar_vta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Eliminar_vta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Eliminar_vta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.Eliminar_vta.ForeColor = System.Drawing.Color.White;
+            this.Eliminar_vta.Location = new System.Drawing.Point(23, 155);
+            this.Eliminar_vta.Name = "Eliminar_vta";
+            this.Eliminar_vta.Size = new System.Drawing.Size(170, 35);
+            this.Eliminar_vta.TabIndex = 16;
+            this.Eliminar_vta.Text = "Eliminar";
+            this.Eliminar_vta.UseVisualStyleBackColor = true;
+            this.Eliminar_vta.Click += new System.EventHandler(this.Eliminar_vta_Click);
+            // 
+            // Modificar_vta
+            // 
+            this.Modificar_vta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.Modificar_vta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.Modificar_vta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Modificar_vta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Modificar_vta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.Modificar_vta.ForeColor = System.Drawing.Color.White;
+            this.Modificar_vta.Location = new System.Drawing.Point(23, 114);
+            this.Modificar_vta.Name = "Modificar_vta";
+            this.Modificar_vta.Size = new System.Drawing.Size(170, 35);
+            this.Modificar_vta.TabIndex = 15;
+            this.Modificar_vta.Text = "Modificar";
+            this.Modificar_vta.UseVisualStyleBackColor = true;
+            this.Modificar_vta.Click += new System.EventHandler(this.Modificar_vta_Click);
+            // 
+            // crear_vta
+            // 
+            this.crear_vta.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.crear_vta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.crear_vta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.crear_vta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.crear_vta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.crear_vta.ForeColor = System.Drawing.Color.White;
+            this.crear_vta.Location = new System.Drawing.Point(23, 73);
+            this.crear_vta.Name = "crear_vta";
+            this.crear_vta.Size = new System.Drawing.Size(170, 35);
+            this.crear_vta.TabIndex = 14;
+            this.crear_vta.Text = "Agregar";
+            this.crear_vta.UseVisualStyleBackColor = true;
+            this.crear_vta.Click += new System.EventHandler(this.crear_vta_Click);
+            // 
+            // bunifuPanel1
+            // 
+            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
+            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BorderRadius = 3;
+            this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.label1);
+            this.bunifuPanel1.Controls.Add(this.comboVtas);
+            this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bunifuPanel1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuPanel1.Name = "bunifuPanel1";
+            this.bunifuPanel1.ShowBorders = true;
+            this.bunifuPanel1.Size = new System.Drawing.Size(1163, 100);
+            this.bunifuPanel1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(191, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 21);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Filtrar por:";
+            // 
+            // comboVtas
+            // 
+            this.comboVtas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboVtas.FormattingEnabled = true;
+            this.comboVtas.Location = new System.Drawing.Point(318, 45);
+            this.comboVtas.Name = "comboVtas";
+            this.comboVtas.Size = new System.Drawing.Size(246, 21);
+            this.comboVtas.TabIndex = 6;
+            this.comboVtas.SelectedIndexChanged += new System.EventHandler(this.comboVtas_SelectedIndexChanged);
+            // 
             // Gestionar_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,15 +380,16 @@
             this.ClientSize = new System.Drawing.Size(1163, 647);
             this.Controls.Add(this.bunifuPanel2);
             this.ForeColor = System.Drawing.Color.White;
+            this.MaximizeBox = false;
             this.Name = "Gestionar_ventas";
             this.Text = "Gestionar_ventas";
             this.bunifuPanel2.ResumeLayout(false);
+            this.bunifuGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataModelcc)).EndInit();
-            this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuPanel1.PerformLayout();
             this.bunifuGroupBox1.ResumeLayout(false);
             this.bunifuGroupBox1.PerformLayout();
-            this.bunifuGroupBox2.ResumeLayout(false);
+            this.bunifuPanel1.ResumeLayout(false);
+            this.bunifuPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

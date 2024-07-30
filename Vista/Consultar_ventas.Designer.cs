@@ -136,7 +136,7 @@
             this.textBoxDNI.SelectionLength = 0;
             this.textBoxDNI.SelectionStart = 0;
             this.textBoxDNI.ShortcutsEnabled = true;
-            this.textBoxDNI.Size = new System.Drawing.Size(237, 29);
+            this.textBoxDNI.Size = new System.Drawing.Size(237, 39);
             this.textBoxDNI.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.textBoxDNI.TabIndex = 32;
             this.textBoxDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -157,9 +157,9 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(629, 36);
+            this.btnLimpiar.Location = new System.Drawing.Point(630, 30);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(44, 29);
+            this.btnLimpiar.Size = new System.Drawing.Size(44, 39);
             this.btnLimpiar.TabIndex = 31;
             this.btnLimpiar.Text = "🧹";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -255,6 +255,7 @@
             this.dataVentas.EnableHeadersVisualStyles = false;
             this.dataVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataVentas.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataVentas.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataVentas.HeaderForeColor = System.Drawing.Color.White;
             this.dataVentas.Location = new System.Drawing.Point(12, 6);
             this.dataVentas.Name = "dataVentas";
@@ -274,6 +275,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.bunifuPanel1);
             this.Controls.Add(this.bunifuGroupBox1);
+            this.MinimizeBox = false;
             this.Name = "Consultar_ventas";
             this.Text = "Consultar ventas";
             this.bunifuGroupBox1.ResumeLayout(false);

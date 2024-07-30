@@ -53,7 +53,7 @@ namespace Vista
             moduloSeguridad.Visible = modulos.Any(m => m.nombre == "Seguridad");
             moduloVentas.Visible = modulos.Any(m => m.nombre == "Ventas");
             moduloCC.Visible = modulos.Any(m => m.nombre == "Cuenta corriente");
-            moduloReportes.Visible = true;//modulos.Any(m => m.nombre == "Reportes");
+            moduloReportes.Visible = modulos.Any(m => m.nombre == "Reportes");
         }
 
         private void ConfigurarFormularios()
@@ -66,35 +66,14 @@ namespace Vista
             formularioGestionarVentas.Visible = formularios.Any(f => f.nombre == "Gestionar ventas");
             formularioGestionarClientes.Visible = formularios.Any(f => f.nombre == "Gestionar clientes");
             //Cuenta corriente
-            formularioGestionarCuentaCorriente.Visible = true;//formularios.Any(f => f.nombre == "Gestionar cuenta corriente"); no botones ahi
+            formularioGestionarCuentaCorriente.Visible = false;//formularios.Any(f => f.nombre == "Gestionar cuenta corriente"); no botones ahi
             formularioGestionarPagos.Visible = formularios.Any(f => f.nombre == "Gestionar pagos");
-            formularioCuentaCorrienteCliente.Visible = true;//formularios.Any(f => f.nombre == "Cuenta corriente cliente");
+            formularioCuentaCorrienteCliente.Visible = formularios.Any(f => f.nombre == "Cuenta corriente cliente");
             //Reportes
-            formularioSesiones.Visible = formularioSesiones.Visible = formularios.Any(f => f.nombre == "Reporte sesiones");
+            formularioSesiones.Visible = formularios.Any(f => f.nombre == "Reporte sesiones");
+            formularioReportePagos.Visible = formularios.Any(f => f.nombre == "Reporte pagos");
             //
 
-        }
-
-        private void abrirForm(Form formulario)
-        {
-            if (formularioActivo!=null)
-            {
-                formularioActivo.Close();
-            }
-
-            formularioActivo = formulario;
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-
-            int containerCenterX = panel.Width / 2 - formulario.Width / 2;
-            int containerCenterY = panel.Height / 2 - formulario.Height / 2;
-
-            // Set the form's location to the center of the container
-            formulario.Location = new Point(containerCenterX, containerCenterY);
-
-            panel.Controls.Add(formulario);
-            formulario.Show();
         }
 
         private void gestionarCuentaCorrienteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,7 +120,7 @@ namespace Vista
         private void gestionarPagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = Gestionar_pagos.Obtener_instancia();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void gruposToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,7 +144,13 @@ namespace Vista
         private void formularioCuentaCorrienteCliente_Click(object sender, EventArgs e)
         {
             Form form = cuenta_corriente.Obtener_instancia();
-            form.ShowDialog();
+            form.Show();
+        }
+
+        private void formularioReportePagos_Click(object sender, EventArgs e)
+        {
+            Form form = Vista.Reportes.ReportePago.Obtener_instancia();
+            form.Show();
         }
     }
 }

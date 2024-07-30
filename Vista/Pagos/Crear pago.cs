@@ -57,7 +57,7 @@ namespace Vista.Pagos
                 this.totalPrecio = (decimal)venta.total;
                 buttonVenta.Visible = false;
                 cargarDatosCliente(id_cliente);
-                leerPago(id_vta, estado);
+                leerPago(id_vta);
             }
             comboBoxmedio.DataSource = Controladora.Medio_Pagos.Obtener_instancia().ListarMedioPagos();
         }
@@ -72,11 +72,13 @@ namespace Vista.Pagos
             Consultar_ventas conVta = Consultar_ventas.Obtener_instancia();
             if (conVta.ShowDialog() == DialogResult.OK)
             {
-                id_cliente = (int)conVta.venta.id_cliente;
                 id_vta = conVta.venta.id_venta;
+                id_cliente = (int)conVta.venta.id_cliente;
                 estado = (int)conVta.venta.id_estado;
+                totalPrecio = (decimal)conVta.venta.total;
                 cargarDatosCliente(id_cliente);
-                leerPago(id_vta, estado);
+                leerPago(id_vta);
+                txtPago.Text = totalPrecio.ToString();
                 buttonVenta.Visible = false;
             }
         }
@@ -132,7 +134,7 @@ namespace Vista.Pagos
         }
 
 
-    private void leerPago(int pVenta, int pEstado)
+    private void leerPago(int pVenta)
     {
         System.Collections.IList detalle = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(pVenta);
         dataVtas.DataSource = detalle;
@@ -145,10 +147,9 @@ namespace Vista.Pagos
         {
             mCliente = new Modelo.Clientes();
             mCliente = cCliente.GetClienteID(id_cliente).FirstOrDefault();
-            //txtid_usuario.Text = mCliente.id_cliente.ToString();
+            txtdni.Text = mCliente.dni.ToString();
             txtnombre.Text = mCliente.nombre;
             txtemail.Text = mCliente.email;
-            txtRs.Text = mCliente.ra;
             txtTEL.Text = mCliente.telefono;
         }
 

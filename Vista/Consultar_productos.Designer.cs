@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultar_productos));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuGroupBox1 = new Bunifu.UI.WinForms.BunifuGroupBox();
-            this.btnClear = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtbusqueda = new System.Windows.Forms.TextBox();
             this.comboBusqueda = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridProductos = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.bunifuGroupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductos)).BeginInit();
@@ -50,8 +48,8 @@
             this.bunifuGroupBox1.BorderColor = System.Drawing.Color.LightGray;
             this.bunifuGroupBox1.BorderRadius = 1;
             this.bunifuGroupBox1.BorderThickness = 1;
-            this.bunifuGroupBox1.Controls.Add(this.label1);
             this.bunifuGroupBox1.Controls.Add(this.btnClear);
+            this.bunifuGroupBox1.Controls.Add(this.label1);
             this.bunifuGroupBox1.Controls.Add(this.txtbusqueda);
             this.bunifuGroupBox1.Controls.Add(this.comboBusqueda);
             this.bunifuGroupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -68,93 +66,32 @@
             // 
             // btnClear
             // 
-            this.btnClear.AllowAnimations = true;
-            this.btnClear.AllowMouseEffects = true;
-            this.btnClear.AllowToggling = false;
-            this.btnClear.AnimationSpeed = 200;
-            this.btnClear.AutoGenerateColors = false;
-            this.btnClear.AutoRoundBorders = false;
-            this.btnClear.AutoSizeLeftIcon = true;
-            this.btnClear.AutoSizeRightIcon = true;
-            this.btnClear.BackColor = System.Drawing.Color.Transparent;
-            this.btnClear.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.btnClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClear.BackgroundImage")));
-            this.btnClear.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.btnClear.ButtonText = "Limpiar";
-            this.btnClear.ButtonTextMarginLeft = 0;
-            this.btnClear.ColorContrastOnClick = 45;
-            this.btnClear.ColorContrastOnHover = 45;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.btnClear.CustomizableEdges = borderEdges2;
-            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnClear.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnClear.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnClear.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnClear.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btnClear.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.btnClear.IconMarginLeft = 11;
-            this.btnClear.IconPadding = 10;
-            this.btnClear.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.btnClear.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.btnClear.IconSize = 25;
-            this.btnClear.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnClear.IdleBorderRadius = 1;
-            this.btnClear.IdleBorderThickness = 1;
-            this.btnClear.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.btnClear.IdleIconLeftImage = null;
-            this.btnClear.IdleIconRightImage = null;
-            this.btnClear.IndicateFocus = false;
-            this.btnClear.Location = new System.Drawing.Point(546, 47);
+            this.btnClear.BackColor = System.Drawing.Color.DimGray;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.Black;
+            this.btnClear.Location = new System.Drawing.Point(560, 40);
             this.btnClear.Name = "btnClear";
-            this.btnClear.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnClear.OnDisabledState.BorderRadius = 1;
-            this.btnClear.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.btnClear.OnDisabledState.BorderThickness = 1;
-            this.btnClear.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnClear.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnClear.OnDisabledState.IconLeftImage = null;
-            this.btnClear.OnDisabledState.IconRightImage = null;
-            this.btnClear.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.btnClear.onHoverState.BorderRadius = 1;
-            this.btnClear.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.btnClear.onHoverState.BorderThickness = 1;
-            this.btnClear.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.btnClear.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.btnClear.onHoverState.IconLeftImage = null;
-            this.btnClear.onHoverState.IconRightImage = null;
-            this.btnClear.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnClear.OnIdleState.BorderRadius = 1;
-            this.btnClear.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.btnClear.OnIdleState.BorderThickness = 1;
-            this.btnClear.OnIdleState.FillColor = System.Drawing.Color.DodgerBlue;
-            this.btnClear.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.btnClear.OnIdleState.IconLeftImage = null;
-            this.btnClear.OnIdleState.IconRightImage = null;
-            this.btnClear.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.btnClear.OnPressedState.BorderRadius = 1;
-            this.btnClear.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.btnClear.OnPressedState.BorderThickness = 1;
-            this.btnClear.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.btnClear.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.btnClear.OnPressedState.IconLeftImage = null;
-            this.btnClear.OnPressedState.IconRightImage = null;
-            this.btnClear.Size = new System.Drawing.Size(101, 27);
-            this.btnClear.TabIndex = 71;
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClear.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnClear.TextMarginLeft = 0;
-            this.btnClear.TextPadding = new System.Windows.Forms.Padding(0);
-            this.btnClear.UseDefaultRadiusAndThickness = true;
+            this.btnClear.Size = new System.Drawing.Size(44, 35);
+            this.btnClear.TabIndex = 73;
+            this.btnClear.Text = "🧹";
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(25, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 21);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "Filtrar por:";
             // 
             // txtbusqueda
             // 
@@ -188,21 +125,21 @@
             this.dataGridProductos.AllowCustomTheming = false;
             this.dataGridProductos.AllowUserToAddRows = false;
             this.dataGridProductos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(115)))), ((int)(((byte)(204)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridProductos.ColumnHeadersHeight = 40;
             this.dataGridProductos.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dataGridProductos.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
@@ -222,14 +159,14 @@
             this.dataGridProductos.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridProductos.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.dataGridProductos.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridProductos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridProductos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridProductos.EnableHeadersVisualStyles = false;
             this.dataGridProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataGridProductos.HeaderBackColor = System.Drawing.Color.DodgerBlue;
@@ -246,18 +183,6 @@
             this.dataGridProductos.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dataGridProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProductos_CellDoubleClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(25, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 21);
-            this.label1.TabIndex = 72;
-            this.label1.Text = "Filtrar por:";
-            // 
             // Consultar_productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +192,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.bunifuGroupBox1);
             this.ForeColor = System.Drawing.Color.White;
+            this.MinimizeBox = false;
             this.Name = "Consultar_productos";
             this.Text = "Consultar_productos";
             this.bunifuGroupBox1.ResumeLayout(false);
@@ -280,11 +206,11 @@
         #endregion
 
         private Bunifu.UI.WinForms.BunifuGroupBox bunifuGroupBox1;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnClear;
         private System.Windows.Forms.TextBox txtbusqueda;
         private System.Windows.Forms.ComboBox comboBusqueda;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Bunifu.UI.WinForms.BunifuDataGridView dataGridProductos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClear;
     }
 }
