@@ -37,16 +37,16 @@ namespace Vista
             this.formularioGrupos = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioPermiso = new System.Windows.Forms.ToolStripMenuItem();
             this.moduloVentas = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioGestionarVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioGestionarClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.moduloCC = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioGestionarCuentaCorriente = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioGestionarPagos = new System.Windows.Forms.ToolStripMenuItem();
+            this.formularioCuentaCorrienteCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.moduloReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioSesiones = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new Bunifu.UI.WinForms.BunifuPanel();
-            this.formularioCuentaCorrienteCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.formularioReportePagos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,19 +108,11 @@ namespace Vista
             // moduloVentas
             // 
             this.moduloVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaVentaToolStripMenuItem,
             this.formularioGestionarVentas,
             this.formularioGestionarClientes});
             this.moduloVentas.Name = "moduloVentas";
             this.moduloVentas.Size = new System.Drawing.Size(53, 20);
             this.moduloVentas.Text = "Ventas";
-            // 
-            // nuevaVentaToolStripMenuItem
-            // 
-            this.nuevaVentaToolStripMenuItem.Name = "nuevaVentaToolStripMenuItem";
-            this.nuevaVentaToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.nuevaVentaToolStripMenuItem.Text = "Nueva venta";
-            this.nuevaVentaToolStripMenuItem.Click += new System.EventHandler(this.nuevaVentaToolStripMenuItem_Click);
             // 
             // formularioGestionarVentas
             // 
@@ -160,10 +152,18 @@ namespace Vista
             this.formularioGestionarPagos.Text = "Gestionar pagos";
             this.formularioGestionarPagos.Click += new System.EventHandler(this.gestionarPagosToolStripMenuItem_Click);
             // 
+            // formularioCuentaCorrienteCliente
+            // 
+            this.formularioCuentaCorrienteCliente.Name = "formularioCuentaCorrienteCliente";
+            this.formularioCuentaCorrienteCliente.Size = new System.Drawing.Size(213, 22);
+            this.formularioCuentaCorrienteCliente.Text = "Cuenta corriente cliente";
+            this.formularioCuentaCorrienteCliente.Click += new System.EventHandler(this.formularioCuentaCorrienteCliente_Click);
+            // 
             // moduloReportes
             // 
             this.moduloReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.formularioSesiones});
+            this.formularioSesiones,
+            this.formularioReportePagos});
             this.moduloReportes.Name = "moduloReportes";
             this.moduloReportes.Size = new System.Drawing.Size(65, 20);
             this.moduloReportes.Text = "Reportes";
@@ -171,7 +171,7 @@ namespace Vista
             // formularioSesiones
             // 
             this.formularioSesiones.Name = "formularioSesiones";
-            this.formularioSesiones.Size = new System.Drawing.Size(119, 22);
+            this.formularioSesiones.Size = new System.Drawing.Size(180, 22);
             this.formularioSesiones.Text = "Sesiones";
             this.formularioSesiones.Click += new System.EventHandler(this.sesionesToolStripMenuItem_Click);
             // 
@@ -189,12 +189,12 @@ namespace Vista
             this.panel.Size = new System.Drawing.Size(1200, 685);
             this.panel.TabIndex = 2;
             // 
-            // formularioCuentaCorrienteCliente
+            // formularioReportePagos
             // 
-            this.formularioCuentaCorrienteCliente.Name = "formularioCuentaCorrienteCliente";
-            this.formularioCuentaCorrienteCliente.Size = new System.Drawing.Size(213, 22);
-            this.formularioCuentaCorrienteCliente.Text = "Cuenta corriente cliente";
-            this.formularioCuentaCorrienteCliente.Click += new System.EventHandler(this.formularioCuentaCorrienteCliente_Click);
+            this.formularioReportePagos.Name = "formularioReportePagos";
+            this.formularioReportePagos.Size = new System.Drawing.Size(180, 22);
+            this.formularioReportePagos.Text = "Pagos";
+            this.formularioReportePagos.Click += new System.EventHandler(this.formularioReportePagos_Click);
             // 
             // Menu
             // 
@@ -223,7 +223,6 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem formularioUsuarios;
         private System.Windows.Forms.ToolStripMenuItem moduloVentas;
         private System.Windows.Forms.ToolStripMenuItem moduloCC;
-        private System.Windows.Forms.ToolStripMenuItem nuevaVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formularioGestionarCuentaCorriente;
         private Bunifu.UI.WinForms.BunifuPanel panel;
         private System.Windows.Forms.ToolStripMenuItem formularioGestionarVentas;
@@ -234,5 +233,6 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem moduloReportes;
         private System.Windows.Forms.ToolStripMenuItem formularioSesiones;
         private System.Windows.Forms.ToolStripMenuItem formularioCuentaCorrienteCliente;
+        private System.Windows.Forms.ToolStripMenuItem formularioReportePagos;
     }
 }
