@@ -77,6 +77,7 @@
             this.ClientSize = new System.Drawing.Size(1069, 579);
             this.Controls.Add(this.buttonExportar);
             this.Controls.Add(this.chartSesiones);
+            this.MaximizeBox = false;
             this.Name = "modalReporteSesiones";
             this.Text = "modalReporteSesiones";
             ((System.ComponentModel.ISupportInitialize)(this.chartSesiones)).EndInit();

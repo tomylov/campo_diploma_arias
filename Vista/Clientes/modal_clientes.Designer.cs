@@ -302,6 +302,7 @@
             this.Controls.Add(this.bunifuPanel2);
             this.Controls.Add(this.bunifuGroupBox1);
             this.Controls.Add(this.bunifuPanel1);
+            this.MaximizeBox = false;
             this.Name = "modal_clientes";
             this.Text = "modal_clientes";
             this.bunifuPanel1.ResumeLayout(false);

@@ -77,6 +77,7 @@
             this.ClientSize = new System.Drawing.Size(1069, 579);
             this.Controls.Add(this.buttonExportar);
             this.Controls.Add(this.chartPagos);
+            this.MaximizeBox = false;
             this.Name = "modalReportePagos";
             this.Text = "modalReportePagos";
             ((System.ComponentModel.ISupportInitialize)(this.chartPagos)).EndInit();

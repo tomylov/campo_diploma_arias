@@ -414,6 +414,7 @@
             this.Controls.Add(this.bunifuGroupBox1);
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuPanel1);
+            this.MaximizeBox = false;
             this.Name = "Gestionar_clientes";
             this.Text = "Gestionar_clientes";
             this.bunifuGroupBox1.ResumeLayout(false);

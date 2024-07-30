@@ -404,6 +404,7 @@
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuGroupBox3);
             this.Controls.Add(this.bunifuGroupBox1);
+            this.MaximizeBox = false;
             this.Name = "Crear_pago";
             this.Text = "Registrar pago";
             this.bunifuGroupBox1.ResumeLayout(false);

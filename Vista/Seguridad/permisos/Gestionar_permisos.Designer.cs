@@ -127,6 +127,7 @@
             this.dataUsuarios.EnableHeadersVisualStyles = false;
             this.dataUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.dataUsuarios.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.dataUsuarios.HeaderBgColor = System.Drawing.Color.Empty;
             this.dataUsuarios.HeaderForeColor = System.Drawing.Color.White;
             this.dataUsuarios.Location = new System.Drawing.Point(12, 22);
             this.dataUsuarios.Name = "dataUsuarios";
@@ -413,6 +414,7 @@
             this.Controls.Add(this.bunifuGroupBox1);
             this.Controls.Add(this.bunifuGroupBox2);
             this.Controls.Add(this.bunifuPanel1);
+            this.MaximizeBox = false;
             this.Name = "Gestionar_permisos";
             this.Text = "Gestionar_empleados";
             this.bunifuGroupBox1.ResumeLayout(false);
