@@ -35,7 +35,7 @@ namespace Vista.Reportes
 
             pagos = cPagos.GetPagos(dateIni, dateFin);
             chartPagos.Series.Clear();
-            var series = new Series("Total")
+            var series = new Series("Total ($)")
             {
                 ChartType = SeriesChartType.Column
             };
@@ -44,11 +44,11 @@ namespace Vista.Reportes
             foreach (var pago in pagos)
             {
                 series.Points.AddXY(pago.Medio_de_pago, pago.Total);
-                series.Color = System.Drawing.Color.Violet;
+                series.Color = System.Drawing.Color.DarkGreen;
             }
             // Configuración opcional de ejes
             chartPagos.ChartAreas[0].AxisX.Title = "Medio de pago";
-            chartPagos.ChartAreas[0].AxisY.Title = "Total";
+            chartPagos.ChartAreas[0].AxisY.Title = "Total ($)";
             Title chartTitle = new Title
             {
                 Text = "Reporte Pagos",
