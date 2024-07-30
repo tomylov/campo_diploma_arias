@@ -179,6 +179,7 @@ namespace Vista.Seguridad
                 usuario.apellido = txtape.Text;
                 usuario.usuario = txtnombre.Text;
                 usuario.dni = txtdni.Text;
+                usuario.clave = "";
                 usuario.usuario = txtUsuario.Text;
                 usuario.estado = checkEstado.Checked;
                 usuario.Permisos = permisosUsuario;
