@@ -522,6 +522,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hard-soft.jpeg" />
     <Content Include="Resources\PlantillaVenta.html" />
   </ItemGroup>
   <ItemGroup />

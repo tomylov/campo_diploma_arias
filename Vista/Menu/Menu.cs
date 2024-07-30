@@ -76,28 +76,6 @@ namespace Vista
 
         }
 
-        private void abrirForm(Form formulario)
-        {
-            if (formularioActivo!=null)
-            {
-                formularioActivo.Close();
-            }
-
-            formularioActivo = formulario;
-            formulario.TopLevel = false;
-            formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.Fill;
-
-            int containerCenterX = panel.Width / 2 - formulario.Width / 2;
-            int containerCenterY = panel.Height / 2 - formulario.Height / 2;
-
-            // Set the form's location to the center of the container
-            formulario.Location = new Point(containerCenterX, containerCenterY);
-
-            panel.Controls.Add(formulario);
-            formulario.Show();
-        }
-
         private void gestionarCuentaCorrienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //abrirForm(new gestion_cc());

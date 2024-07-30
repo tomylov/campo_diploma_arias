@@ -29,8 +29,6 @@ namespace Vista
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.moduloSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,32 +43,24 @@ namespace Vista
             this.formularioCuentaCorrienteCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.moduloReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.formularioSesiones = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel = new Bunifu.UI.WinForms.BunifuPanel();
             this.formularioReportePagos = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1584, 56);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // menuStrip2
             // 
+            this.menuStrip2.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.moduloSeguridad,
             this.moduloVentas,
             this.moduloCC,
             this.moduloReportes});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 56);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 45);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1584, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(1159, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -81,8 +71,8 @@ namespace Vista
             this.formularioGrupos,
             this.formularioPermiso});
             this.moduloSeguridad.Name = "moduloSeguridad";
-            this.moduloSeguridad.Size = new System.Drawing.Size(72, 20);
-            this.moduloSeguridad.Text = "Seguridad";
+            this.moduloSeguridad.Size = new System.Drawing.Size(82, 20);
+            this.moduloSeguridad.Text = "🛡️Seguridad";
             // 
             // formularioUsuarios
             // 
@@ -111,8 +101,8 @@ namespace Vista
             this.formularioGestionarVentas,
             this.formularioGestionarClientes});
             this.moduloVentas.Name = "moduloVentas";
-            this.moduloVentas.Size = new System.Drawing.Size(53, 20);
-            this.moduloVentas.Text = "Ventas";
+            this.moduloVentas.Size = new System.Drawing.Size(64, 20);
+            this.moduloVentas.Text = "💸Ventas";
             // 
             // formularioGestionarVentas
             // 
@@ -135,8 +125,8 @@ namespace Vista
             this.formularioGestionarPagos,
             this.formularioCuentaCorrienteCliente});
             this.moduloCC.Name = "moduloCC";
-            this.moduloCC.Size = new System.Drawing.Size(107, 20);
-            this.moduloCC.Text = "Cuenta corriente";
+            this.moduloCC.Size = new System.Drawing.Size(122, 20);
+            this.moduloCC.Text = "💼 Cuenta corriente";
             // 
             // formularioGestionarCuentaCorriente
             // 
@@ -165,43 +155,51 @@ namespace Vista
             this.formularioSesiones,
             this.formularioReportePagos});
             this.moduloReportes.Name = "moduloReportes";
-            this.moduloReportes.Size = new System.Drawing.Size(65, 20);
-            this.moduloReportes.Text = "Reportes";
+            this.moduloReportes.Size = new System.Drawing.Size(77, 20);
+            this.moduloReportes.Text = "📝Reportes";
             // 
             // formularioSesiones
             // 
             this.formularioSesiones.Name = "formularioSesiones";
-            this.formularioSesiones.Size = new System.Drawing.Size(180, 22);
+            this.formularioSesiones.Size = new System.Drawing.Size(119, 22);
             this.formularioSesiones.Text = "Sesiones";
             this.formularioSesiones.Click += new System.EventHandler(this.sesionesToolStripMenuItem_Click);
-            // 
-            // panel
-            // 
-            this.panel.BackgroundColor = System.Drawing.Color.Transparent;
-            this.panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel.BackgroundImage")));
-            this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel.BorderColor = System.Drawing.Color.Transparent;
-            this.panel.BorderRadius = 3;
-            this.panel.BorderThickness = 1;
-            this.panel.Location = new System.Drawing.Point(308, 83);
-            this.panel.Name = "panel";
-            this.panel.ShowBorders = true;
-            this.panel.Size = new System.Drawing.Size(1200, 685);
-            this.panel.TabIndex = 2;
             // 
             // formularioReportePagos
             // 
             this.formularioReportePagos.Name = "formularioReportePagos";
-            this.formularioReportePagos.Size = new System.Drawing.Size(180, 22);
+            this.formularioReportePagos.Size = new System.Drawing.Size(119, 22);
             this.formularioReportePagos.Text = "Pagos";
             this.formularioReportePagos.Click += new System.EventHandler(this.formularioReportePagos_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Vista.Properties.Resources.hard_soft;
+            this.pictureBox1.Location = new System.Drawing.Point(267, 83);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(615, 486);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.menuStrip1.Size = new System.Drawing.Size(1159, 45);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1584, 904);
-            this.Controls.Add(this.panel);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(247)))), ((int)(((byte)(241)))));
+            this.ClientSize = new System.Drawing.Size(1159, 566);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -210,21 +208,19 @@ namespace Vista
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem moduloSeguridad;
         private System.Windows.Forms.ToolStripMenuItem formularioUsuarios;
         private System.Windows.Forms.ToolStripMenuItem moduloVentas;
         private System.Windows.Forms.ToolStripMenuItem moduloCC;
         private System.Windows.Forms.ToolStripMenuItem formularioGestionarCuentaCorriente;
-        private Bunifu.UI.WinForms.BunifuPanel panel;
         private System.Windows.Forms.ToolStripMenuItem formularioGestionarVentas;
         private System.Windows.Forms.ToolStripMenuItem formularioGestionarClientes;
         private System.Windows.Forms.ToolStripMenuItem formularioGestionarPagos;
@@ -234,5 +230,7 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem formularioSesiones;
         private System.Windows.Forms.ToolStripMenuItem formularioCuentaCorrienteCliente;
         private System.Windows.Forms.ToolStripMenuItem formularioReportePagos;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
