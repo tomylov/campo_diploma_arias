@@ -18,31 +18,44 @@ namespace Vista
 {
     public partial class Consultar_venta : Form
     {
+        private Modelo.Ventas venta = new Modelo.Ventas();
+        private Modelo.Clientes cliente = new Modelo.Clientes();
         private static Consultar_venta instancia;
-        public static Consultar_venta Obtener_instancia(int id_vta, int id_usuario)
+        public static Consultar_venta Obtener_instancia(int id_vta, int dni)
         {
             if (instancia == null)
-                instancia = new Consultar_venta(id_vta, id_usuario);
+                instancia = new Consultar_venta(id_vta, dni);
 
             if (instancia.IsDisposed)
-                instancia = new Consultar_venta(id_vta, id_usuario);
+                instancia = new Consultar_venta(id_vta, dni);
 
             instancia.BringToFront();
             return instancia;
         }
-        public Consultar_venta(int id_vta, int id_usuario)
+        public Consultar_venta(int id_vta, int dni)
         {
             InitializeComponent();
-            System.Collections.IList datosCli = Controladora.Cliente.Obtener_instancia().GetCliente(id_usuario);
-            System.Collections.IList datosVta = Controladora.Venta.Obtener_instancia().ListarVentasId(id_vta);
-            txtnombrecliente.Text = Convert.ToString(datosCli[0].GetType().GetProperty("nombre").GetValue(datosCli[0], null));
-            txtfecha.Text = Convert.ToString(datosVta[0].GetType().GetProperty("fecha").GetValue(datosVta[0], null));
-            txtidvta.Text = Convert.ToString(datosVta[0].GetType().GetProperty("id_venta").GetValue(datosVta[0], null));
+            cliente = Controladora.Cliente.Obtener_instancia().GetCliente(dni).FirstOrDefault();
+            venta = Controladora.Venta.Obtener_instancia().getVentaId(id_vta);
+
+            txtnombrecliente.Text = cliente.nombre;
+            txtfecha.Text = venta.fecha.ToString();
+            txtidvta.Text = venta.id_venta.ToString();
             //mail.Text = Convert.ToString(datosCli[0].GetType().GetProperty("email").GetValue(datosCli[0], null));
-            txtestadovta.Text = Convert.ToString(datosVta[0].GetType().GetProperty("estado").GetValue(datosVta[0], null));
-            txtdoccliente.Text = Convert.ToString(datosCli[0].GetType().GetProperty("id_usuario").GetValue(datosCli[0], null));
+            if (venta.id_estado == 2)
+            {
+                txtestadovta.Text = "Venta pendiente a retirar";                
+            }
+            if (venta.id_estado == 3)
+            {
+                txtestadovta.Text = "Venta en cuenta corriente";
+            }
+            txtdoccliente.Text = cliente.dni.ToString();
             System.Collections.IList datos = Controladora.Detalle_venta.Obtener_instancia().getDetalleVta(id_vta);
             dataGridDetail.DataSource = datos;
+            dataGridDetail.Columns[4].Visible = false;
+            dataGridDetail.Columns[5].Visible = false;
+            Total.Text = venta.total.ToString();
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
@@ -54,7 +67,7 @@ namespace Vista
             Texto_Html = Texto_Html.Replace("@doccliente", txtdoccliente.Text);
             Texto_Html = Texto_Html.Replace("@nombrecliente", txtnombrecliente.Text);
             Texto_Html = Texto_Html.Replace("@fecharegistro", txtfecha.Text);
-            Texto_Html = Texto_Html.Replace("@usuarioregistro", txtidvta.Text);
+            Texto_Html = Texto_Html.Replace("@usuarioregistro", txtestadovta.Text);
 
             string filas = string.Empty;
 
@@ -62,18 +75,16 @@ namespace Vista
             {
                 filas += "<tr>";
                 filas += "<td>" + row.Cells[0].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells[0].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells[0].Value.ToString() + "</td>";
-                filas += "<td>" + row.Cells[0].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[2].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[1].Value.ToString() + "</td>";
+                filas += "<td>" + row.Cells[3].Value.ToString() + "</td>";
                 filas += "</tr>";
             }
             Texto_Html = Texto_Html.Replace("@filas", filas);
-            //Texto_Html = Texto_Html.Replace("@montototal", txtmontototal.Text);
-            //Texto_Html = Texto_Html.Replace("@pagocon", txtmontopago.Text);
-            //Texto_Html = Texto_Html.Replace("@cambio", txtmontocambio.Text);
+            Texto_Html = Texto_Html.Replace("@montototal", Total.Text);
 
             SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("Venta_{0}.pdf", txtestadovta.Text);
+            savefile.FileName = string.Format("{1}_numero_{0}.pdf", venta.id_venta.ToString(),txtestadovta.Text);
             savefile.Filter = "Pdf Files|*.pdf";
 
             if (savefile.ShowDialog() == DialogResult.OK)
@@ -108,7 +119,8 @@ namespace Vista
                     MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            this.Close();
 
-            }
+        }
     }
 }
