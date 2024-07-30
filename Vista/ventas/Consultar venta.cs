@@ -82,6 +82,7 @@ namespace Vista
             }
             Texto_Html = Texto_Html.Replace("@filas", filas);
             Texto_Html = Texto_Html.Replace("@montototal", Total.Text);
+            Texto_Html = Texto_Html.Replace("@pagocon", "--");
 
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("{1}_numero_{0}.pdf", venta.id_venta.ToString(),txtestadovta.Text);

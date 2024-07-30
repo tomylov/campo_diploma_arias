@@ -41,6 +41,11 @@ namespace Vista
             InitializeComponent();
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();
             filtrar();
+            dataClientes.Columns[0].Visible = false;
+            dataClientes.Columns[4].Visible = false;
+            dataClientes.Columns[6].Visible = false;
+            dataClientes.Columns[7].Visible = false;
+            dataClientes.Columns[8].Visible = false;
             comboBoxfiltro.Items.Add("DNI");
             comboBoxfiltro.Items.Add("Nombre");
             comboBoxfiltro.SelectedIndex = 0;
@@ -69,6 +74,7 @@ namespace Vista
                 cliente.email = Convert.ToString(dataClientes.Rows[iRow].Cells[3].Value);
                 cliente.ra = Convert.ToString(dataClientes.Rows[iRow].Cells[4].Value);
                 cliente.telefono = Convert.ToString(dataClientes.Rows[iRow].Cells[5].Value);
+                cliente.estado = Convert.ToBoolean(dataClientes.Rows[iRow].Cells[6].Value);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -77,7 +83,7 @@ namespace Vista
 
         private void filtrar()
         {
-            clientesFiltrados = clientes;
+            clientesFiltrados = (List<Modelo.Clientes>)cCliente.getClientes();
             if (comboBoxfiltro.Text == "Nombre" && textBoxNombre.Text != "")
             {
                 clientesFiltrados = clientesFiltrados.Where(cliente => cliente.nombre.ToLower().Contains(textBoxNombre.Text.ToLower()) && cliente.estado == true).ToList();

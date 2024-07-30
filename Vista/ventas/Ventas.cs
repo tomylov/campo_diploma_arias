@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controladora;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -44,6 +45,7 @@ namespace Vista
         {
             dniPK.Enabled = false;
             btnVta.Visible = false;
+            btnLimpiar.Visible = false;
             textprod.Enabled = true;
             searchProd.Enabled = true;
             cancelBtn.Enabled = true;
@@ -221,8 +223,21 @@ namespace Vista
 
         private void btnVta_Click(object sender, EventArgs e)
         {
+
+            if (Cliente!= null && Cliente.estado == false)
+            {
+                MessageBox.Show("Cliente dado de baja", "Error cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Modelo.Cuentas_Corrientes cc = Controladora.Cuenta_Corriente_Cliente.Obtener_instancia().Getcc(Cliente.id_cliente).FirstOrDefault();
+            if (cc!=null && cc.plazo < DateTime.Now)
+            {
+                MessageBox.Show("Cliente con una venta vencida en cuenta corriente", "Error cc", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (name.Text != "")
             {
+                dniPK.Text = Cliente.dni.ToString();
                 ventas.id_cliente = Cliente.id_cliente;
                 ventas.id_estado = 1;
                 ventas.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
@@ -257,6 +272,24 @@ namespace Vista
             else
             {
                 Eliminar.Enabled = false;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Consultar_clientes form = Consultar_clientes.Obtener_instancia();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Cliente.id_cliente = form.cliente.id_cliente;
+                Cliente.dni = form.cliente.dni;
+                Cliente.nombre = form.cliente.nombre;
+                Cliente.telefono = form.cliente.telefono;
+                Cliente.email = form.cliente.email;
+                Cliente.ra = form.cliente.ra;
+                Cliente.estado = form.cliente.estado;
+                name.Text = Cliente.nombre;
+                mail.Text = Cliente.email;
+                dniPK.Text = Cliente.dni.ToString();
             }
         }
 
