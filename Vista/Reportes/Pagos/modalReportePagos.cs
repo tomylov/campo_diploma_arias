@@ -26,7 +26,7 @@ namespace Vista.Reportes
             instancia.BringToFront();
             return instancia;
         }
-        public modalReportePagos(DateTime dateIni, DateTime dateFin, decimal total)
+        private modalReportePagos(DateTime dateIni, DateTime dateFin, decimal total)
         {
             InitializeComponent();
             this.dateIni = dateIni;

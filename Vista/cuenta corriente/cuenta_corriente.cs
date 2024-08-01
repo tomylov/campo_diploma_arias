@@ -39,7 +39,7 @@ namespace Vista
                 instancia = new cuenta_corriente();
             return instancia;
         }
-        public cuenta_corriente()
+        private cuenta_corriente()
         {
             InitializeComponent();
             numberVta.Text = "";

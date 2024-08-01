@@ -42,7 +42,7 @@ namespace Vista.Pagos
             instancia.BringToFront();
             return instancia;
         }
-        public Crear_pago(Modelo.Ventas venta)
+        private Crear_pago(Modelo.Ventas venta)
         {
             InitializeComponent();
             if (venta == null)

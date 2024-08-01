@@ -36,10 +36,6 @@ namespace Vista
             instancia.BringToFront();
             return instancia;
         }
-        public Ventas()
-        {
-            InitializeComponent();
-        }
 
         public void habilitarVentas()
         {
@@ -52,7 +48,7 @@ namespace Vista
             btnFinish.Enabled = true;
         }
 
-        public Ventas(int id_venta, int dni)
+        private Ventas(int id_venta, int dni)
         {
             InitializeComponent();
             this.id_venta = id_venta;

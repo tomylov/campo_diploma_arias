@@ -18,6 +18,7 @@ namespace Controladora
             }
             return prod;
         }
+        private Producto() { }
 
         public Modelo.Productos getProductoId(int id)
         {

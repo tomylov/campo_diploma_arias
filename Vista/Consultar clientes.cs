@@ -36,7 +36,7 @@ namespace Vista
 
 
 
-        public Consultar_clientes()
+        private Consultar_clientes()
         {
             InitializeComponent();
             clientes = (List<Modelo.Clientes>)cCliente.getClientes();

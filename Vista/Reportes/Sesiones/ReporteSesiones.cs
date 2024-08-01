@@ -16,7 +16,7 @@ namespace Vista.Reportes
         DateTime fechaHasta;
         int id_grupo;
 
-        public static ReporteSesiones instancia;
+        private static ReporteSesiones instancia;
         public static ReporteSesiones Obtener_instancia()
         {
             if (instancia == null)
@@ -27,7 +27,7 @@ namespace Vista.Reportes
             instancia.BringToFront();
             return instancia;
         }
-        public ReporteSesiones()
+        private ReporteSesiones()
         {
             InitializeComponent();
             dataAuditoriaUsuario.DataSource = null;

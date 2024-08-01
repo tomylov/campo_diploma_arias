@@ -18,6 +18,7 @@ namespace Controladora
             }
             return movimiento;
         }
+        private Movimiento() { }
 
         public void agregarMovimiento(Modelo.Movimientos movimiento)
         {

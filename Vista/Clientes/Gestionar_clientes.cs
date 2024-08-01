@@ -38,7 +38,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public Gestionar_clientes()
+        private Gestionar_clientes()
         {
             InitializeComponent();
             ConfigurarPermisosBotones();

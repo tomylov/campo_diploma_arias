@@ -36,7 +36,7 @@ namespace Vista.Seguridad
             return instancia;
         }
 
-        public Gestionar_usuarios()
+        private Gestionar_usuarios()
         {
             InitializeComponent();
             ConfigurarPermisosBotones();

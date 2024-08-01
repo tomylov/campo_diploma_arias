@@ -21,6 +21,7 @@ namespace Controladora.Seguridad
             }
             return permiso;
         }
+        private Permiso() { }
 
         public List<Modelo.Permisos> getPermisos()
         {

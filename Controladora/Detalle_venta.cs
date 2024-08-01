@@ -15,6 +15,7 @@ namespace Controladora
             }
             return det;
         }
+        private Detalle_venta() { }
 
         public void updateStock(int? id_prod, int? cantidad)
         {

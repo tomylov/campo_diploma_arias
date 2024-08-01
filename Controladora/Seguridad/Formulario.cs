@@ -18,6 +18,7 @@ namespace Controladora.Seguridad
             }
             return formulario;
         }
+        private Formulario() { }
 
         public List<Modelo.Formularios> getFormularios()
         {

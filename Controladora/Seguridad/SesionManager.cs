@@ -19,6 +19,7 @@ namespace Controladora.Seguridad
             }
             return sesionManager;
         }
+        private SesionManager() { }
 
         public Modelo.Usuarios GetUsuario(string usuario)
         {

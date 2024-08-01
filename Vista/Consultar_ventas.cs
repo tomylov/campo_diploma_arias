@@ -34,9 +34,7 @@ namespace Vista
             return instancia;
         }
 
-
-
-        public Consultar_ventas()
+        private Consultar_ventas()
         {
             InitializeComponent();
             ventasFiltradas = cVenta.ListarVentasEstado(2);

@@ -27,7 +27,7 @@ namespace Vista
             instancia.BringToFront();
             return instancia;
         }
-        public primer_login(Modelo.Usuarios usuario)
+        private primer_login(Modelo.Usuarios usuario)
         {
             InitializeComponent();
             this.usuario = usuario;

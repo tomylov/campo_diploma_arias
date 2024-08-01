@@ -32,7 +32,7 @@ namespace Vista
             instancia.BringToFront();
             return instancia;
         }
-        public Consultar_venta(int id_vta, int dni)
+        private Consultar_venta(int id_vta, int dni)
         {
             InitializeComponent();
             cliente = Controladora.Cliente.Obtener_instancia().GetCliente(dni).FirstOrDefault();

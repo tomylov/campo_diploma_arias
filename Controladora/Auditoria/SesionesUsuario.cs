@@ -20,6 +20,7 @@ namespace Controladora.Auditoria
             }
             return sesionesUsuario;
         }
+        private SesionesUsuario() { }
 
         public List<Modelo.SesionUsuario> GetSesionesUsuario(string usuario,DateTime dateIni,DateTime dateFin)
         {

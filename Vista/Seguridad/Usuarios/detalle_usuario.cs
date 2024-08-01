@@ -42,7 +42,7 @@ namespace Vista.Seguridad
             instancia.BringToFront();
             return instancia;
         }
-        public detalle_usuario(int id_usuario)
+        private detalle_usuario(int id_usuario)
         {
             InitializeComponent();
             CargarPermisos();

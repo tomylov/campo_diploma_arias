@@ -19,6 +19,7 @@ namespace Controladora
             }
             return usuario;
         }
+        private Usuario() { }
 
         public List<Modelo.Usuarios> getUsuarios()
         {

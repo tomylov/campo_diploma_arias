@@ -18,6 +18,7 @@ namespace Controladora
             }
             return instancia;
         }
+        private Comprobante() { }
 
         public Modelo.Comprobantes GetComrobanteId(int id)
         {

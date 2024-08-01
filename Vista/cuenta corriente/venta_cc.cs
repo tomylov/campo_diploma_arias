@@ -34,7 +34,7 @@ namespace Vista
             instancia.BringToFront();
             return instancia;
         }
-        public venta_cc(Modelo.Ventas venta)
+        venta_cc(Modelo.Ventas venta)
         {
             InitializeComponent();
             this.id_cliente = (int)venta.id_cliente;

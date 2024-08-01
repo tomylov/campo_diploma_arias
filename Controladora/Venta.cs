@@ -22,6 +22,7 @@ namespace Controladora
             }
             return venta;
         }
+        private Venta() { }
 
         public void agregarVenta(Modelo.Ventas venta)
         {

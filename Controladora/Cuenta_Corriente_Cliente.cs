@@ -19,6 +19,8 @@ namespace Controladora
             }
             return cc;
         }
+        private Cuenta_Corriente_Cliente() { }
+
 
         public System.Collections.IList GetCuentaCorriente(int dni)
         {

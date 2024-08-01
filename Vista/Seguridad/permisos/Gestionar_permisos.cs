@@ -36,7 +36,7 @@ namespace Vista.Seguridad
             return instancia;
         }
 
-        public Gestionar_permisos()
+        private Gestionar_permisos()
         {
             InitializeComponent();
             Permisos = cPermisos.getPermisos();

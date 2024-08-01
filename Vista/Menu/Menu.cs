@@ -17,8 +17,6 @@ namespace Vista
 {
     public partial class Menu : Form
     {
-        private static Form formulario = null;
-        private static Form formularioActivo = null;
         private static Menu instancia;
         private Modelo.Usuarios usuario;
         private List<Modelo.Formularios> formularios = new List<Modelo.Formularios>();
@@ -35,7 +33,7 @@ namespace Vista
             instancia.BringToFront();
             return instancia;
         }
-        public Menu(Modelo.Usuarios usuario)
+        private Menu(Modelo.Usuarios usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
