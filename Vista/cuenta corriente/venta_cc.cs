@@ -56,6 +56,7 @@ namespace Vista
             movimiento.tipo = 1;
             cMovimiento.agregarMovimiento(movimiento);
 
+            cVenta.CambiarEstado(id_vta, "cuenta corriente");
             Modelo.Ventas venta = new Modelo.Ventas();
             venta = cVenta.getVentaId(id_vta);
             venta.id_estado = 3;

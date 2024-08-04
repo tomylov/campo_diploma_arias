@@ -1,5 +1,6 @@
 namespace Modelo
 {
+    using Modelo.Estado;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -28,6 +29,9 @@ namespace Modelo
         public decimal total { get; set; }
 
         public virtual Clientes Clientes { get; set; }
+        
+        [NotMapped]
+        public virtual Estado.Estado Estado { get; set; }
 
         public virtual Comprobantes Comprobantes { get; set; }
 
@@ -38,5 +42,19 @@ namespace Modelo
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pagos> Pagos { get; set; }
+
+        //state 
+        public void SiguienteEstado(string opcion = null)
+        {
+            Estado.siguienteEstado(this, opcion);
+        }
+        public void Anular()
+        {
+            Estado.anular(this);
+        }
+        public void EnviarEmailEstadoVenta()
+        {
+            Estado.EnviarEmailEstadoVenta(this);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using Modelo.Estado;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,12 +36,7 @@ namespace Controladora
             Modelo.Contexto.Obtener_instancia().Entry(venta).State = System.Data.Entity.EntityState.Modified;
             Modelo.Contexto.Obtener_instancia().SaveChanges();
 
-        //Estados 1= pendiente 2= aceptado 3=En cuenta corriente 4= Pagado 5= Pagado cuenta corriente
-        //Modelo.Ventas vta = Modelo.Contexto.Obtener_instancia().Ventas.Find(id_venta);
-        //vta.id_estado = estado;
-        //Modelo.Contexto.Obtener_instancia().Entry(vta).State = System.Data.Entity.EntityState.Modified;
-        //Modelo.Contexto.Obtener_instancia().SaveChanges();
-
+        //Estados 1= pendiente 2= aceptado 3=En cuenta corriente 4= Pagado 5= Pagado cuenta 
         }
 
         public System.Collections.IList ListarVentasCC(int estado)
@@ -182,8 +178,6 @@ namespace Controladora
             comprobante.numero = id_venta;
             Modelo.Contexto.Obtener_instancia().Comprobantes.Add(comprobante);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
-            //Cambio el estado de la venta a cuenta corriente
-            //cambiarEStado(id_venta, 2);
             //Creo el movimiento tipo 1: baja deuda tipo 2: sube deuda
             Modelo.Movimientos movimiento = new Modelo.Movimientos();
             movimiento.tipo = 1;
@@ -215,6 +209,39 @@ namespace Controladora
             var ventaAEliminar = Modelo.Contexto.Obtener_instancia().Ventas.FirstOrDefault(v => v.id_venta == idVta);
             Modelo.Contexto.Obtener_instancia().Ventas.Remove(ventaAEliminar);
             Modelo.Contexto.Obtener_instancia().SaveChanges();
+        }
+
+        public void CambiarEstado(int ventaId, string opcion = null)
+        {
+            var venta = Contexto.Obtener_instancia().Ventas.Find(ventaId);
+            if (venta == null)
+                throw new ArgumentException("Venta no encontrada");
+
+            venta.Estado = EstadoFactory.CrearEstado(venta.id_estado);
+            venta.SiguienteEstado(opcion);
+            Contexto.Obtener_instancia().SaveChanges();
+        }
+
+        public void AnularVenta(int ventaId)
+        {
+            var venta = Contexto.Obtener_instancia().Ventas.Find(ventaId);
+            if (venta == null)
+                throw new ArgumentException("Venta no encontrada");
+
+            venta.Anular();
+            Contexto.Obtener_instancia().SaveChanges();
+        }
+
+        public void EnviarEmailEstadoVenta(int ventaId)
+        {
+            var venta = Contexto.Obtener_instancia().Ventas.Find(ventaId);
+            if (venta == null)
+                throw new ArgumentException("Venta no encontrada");
+
+            venta.Estado = EstadoFactory.CrearEstado(venta.id_estado);
+            venta.EnviarEmailEstadoVenta();
+
+            // No es necesario guardar cambios aquí, ya que enviar un email no modifica el estado
         }
 
     }

@@ -126,11 +126,12 @@ namespace Vista
                 cComprobante.AgregarComprobante(comprobante);
 
                 ventas = cVenta.getVentaId(venta);
+                cVenta.CambiarEstado(venta);
                 ventas.id_comp = Modelo.Contexto.Obtener_instancia().Comprobantes.Max(c => c.id_comp);
                 ventas.id_cliente = Cliente.id_cliente;
                 ventas.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-                ventas.id_estado = 2;
                 ventas.total = Convert.ToDecimal(Total.Text);
+                ventas.id_estado = 2;
                 cVenta.modificarVenta(ventas);                
             }
             MessageBox.Show("Venta guardada con exito");

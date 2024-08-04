@@ -98,6 +98,7 @@ namespace Vista.Pagos
                 if (estado == 3)
                 {
                     mCuentaCorriente = cCuentaCorriente.Getcc(id_cliente).FirstOrDefault();
+                    cVenta.CambiarEstado(id_vta);
 
                     Modelo.Ventas venta= new Modelo.Ventas();
                     venta = cVenta.getVentaId(id_vta);
@@ -118,6 +119,7 @@ namespace Vista.Pagos
                 }
                 else
                 {
+                    cVenta.CambiarEstado(id_vta, "pagar");
                     Modelo.Ventas venta = new Modelo.Ventas();
                     venta = cVenta.getVentaId(id_vta);
                     venta.id_estado = 4;
