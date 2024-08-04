@@ -6,19 +6,28 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
 using System.IO;
+using dotenv.net;
 
 namespace Modelo.Utilidades
 {
     public class Correo
     {
-
-        private string _fromEmail = "hard-soft.tienda@hotmail.com";
-        private string _clave = "";
-        private string _smtpHost = "smtp.office365.com"; // Configura según tu servidor SMTP
-        private int _smtpPort = 587; // Puerto SMTP para TLS
+        private string _fromEmail;
+        private string _clave;
+        private string _smtpHost;
+        private int _smtpPort;
+        public void readCredentials()
+        {
+            var envVars = DotEnv.Read();
+            _fromEmail = envVars["EMAIL_FROM"];
+            _clave = envVars["EMAIL_PASSWORD"];
+            _smtpHost = envVars["SMTP_HOST"];
+            _smtpPort = int.Parse(envVars["SMTP_PORT"]);
+        }
 
         public void SendEmail(string subject, string body, string toEmail)
         {
+            readCredentials();
             try
             {
                 var message = new MailMessage

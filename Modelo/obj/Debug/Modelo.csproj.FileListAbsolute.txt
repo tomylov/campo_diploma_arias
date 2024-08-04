@@ -50,3 +50,4 @@ C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\System.Runtime.CompilerSe
 C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\System.Text.Encodings.Web.xml
 C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\System.ValueTuple.xml
+C:\facultad\CAMPO\campo_diploma_arias\Modelo\bin\Debug\dotenv.net.dll

@@ -45,3 +45,12 @@ C:\campo_diploma\campo_diploma_arias\Controladora\obj\Debug\Controladora.dll
 C:\campo_diploma\campo_diploma_arias\Controladora\obj\Debug\Controladora.pdb
 C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\COMUN.dll
 C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\COMUN.pdb
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\dotenv.net.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Buffers.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Memory.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Numerics.Vectors.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Buffers.xml
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Memory.xml
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Numerics.Vectors.xml
+C:\facultad\CAMPO\campo_diploma_arias\Controladora\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
