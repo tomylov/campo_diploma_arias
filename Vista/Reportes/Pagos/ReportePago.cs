@@ -16,7 +16,7 @@ namespace Vista.Reportes
         DateTime fechaHasta;
         decimal total;
 
-        public static ReportePago instancia;
+        private static ReportePago instancia;
         public static ReportePago Obtener_instancia()
         {
             if (instancia == null)
@@ -27,7 +27,7 @@ namespace Vista.Reportes
             instancia.BringToFront();
             return instancia;
         }
-        public ReportePago()
+        private ReportePago()
         {
             InitializeComponent();
             dataAuditoriaUsuario.DataSource = null;

@@ -20,7 +20,7 @@ namespace Vista
             instancia.BringToFront();
             return instancia;
         }
-        public Form1()
+        private Form1()
         {
             InitializeComponent();
         }

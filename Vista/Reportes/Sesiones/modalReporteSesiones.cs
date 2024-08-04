@@ -9,9 +9,9 @@ namespace Vista.Reportes
 {
     public partial class modalReporteSesiones : Form
     {
-        private static modalReporteSesiones instancia;
         DateTime dateIni;
         DateTime dateFin;
+        private static modalReporteSesiones instancia;
 
         public static modalReporteSesiones Obtener_instancia(int id_grupo, DateTime dateIni, DateTime dateFin)
         {
@@ -23,7 +23,7 @@ namespace Vista.Reportes
             instancia.BringToFront();
             return instancia;
         }
-        public modalReporteSesiones(int id_grupo, DateTime dateIni, DateTime dateFin)
+        private modalReporteSesiones(int id_grupo, DateTime dateIni, DateTime dateFin)
         {
             InitializeComponent();
             this.dateIni = dateIni;

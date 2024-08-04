@@ -19,6 +19,7 @@ namespace Controladora
             }
             return pago;
         }
+        private Pago() { }
 
         public List<Modelo.PagosDTO> ListarPagos()
         {

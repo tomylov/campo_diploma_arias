@@ -15,6 +15,7 @@ namespace Controladora
                 instancia = new Medio_Pagos();
             return instancia;
         }
+        private Medio_Pagos() { }
 
         public List<Modelo.Medio_Pagos> ListarMedioPagos()
         {

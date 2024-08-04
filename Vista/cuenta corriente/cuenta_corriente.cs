@@ -39,7 +39,7 @@ namespace Vista
                 instancia = new cuenta_corriente();
             return instancia;
         }
-        public cuenta_corriente()
+        private cuenta_corriente()
         {
             InitializeComponent();
             numberVta.Text = "";
@@ -58,7 +58,7 @@ namespace Vista
             VentaCC.Visible = cPermisoGrupo.valiPermiso("Agregar cc");
             btnPay.Visible = cPermisoGrupo.valiPermiso("Pagar");
             BtnPrint.Visible = cPermisoGrupo.valiPermiso("Imprimir venta");
-            BtnSendEmail.Visible = cPermisoGrupo.valiPermiso("Notificar venta");
+            BtnSendEmail.Visible = true;//cPermisoGrupo.valiPermiso("Notificar venta");
         }
 
         private void bunifuGroupBox2_Enter(object sender, EventArgs e)
@@ -140,6 +140,7 @@ namespace Vista
                     dataMove.Columns[0].Visible = false;
                     btnPay.Enabled = false;
                     VentaCC.Enabled = false;
+                    BtnSendEmail.Enabled = false;
                 }
                 if (comboSelect.SelectedIndex == 0)
                 {
@@ -155,6 +156,7 @@ namespace Vista
                     dataMove.Columns[10].Visible = false;
                     btnPay.Enabled = true;
                     VentaCC.Enabled = true;
+                    BtnSendEmail.Enabled = true;
                 }
                 if (comboSelect.SelectedIndex == 1)
                 {
@@ -170,13 +172,15 @@ namespace Vista
                     dataMove.Columns[8].Visible = false;
                     dataMove.Columns[9].Visible = false;
                     dataMove.Columns[10].Visible = false;
+                    BtnSendEmail.Enabled = true;
                 }
                 if (comboSelect.SelectedIndex == 3)
                 {
                     dataMove.DataSource = Controladora.Venta.Obtener_instancia().ListarPagos(cliente.id_cliente);
                     btnPay.Enabled = false;
                     VentaCC.Enabled = false;
-                }                
+                    BtnSendEmail.Enabled = true;
+                }
             }
 
         }
@@ -202,6 +206,15 @@ namespace Vista
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void BtnSendEmail_Click(object sender, EventArgs e)
+        {
+            if (numberVta.Text !="")
+            {
+                cVenta.EnviarEmailEstadoVenta(Convert.ToInt32(dataMove.Rows[index].Cells[0].Value));
+                MessageBox.Show("Usuario notificado con exito");
+            }
         }
     }
 }

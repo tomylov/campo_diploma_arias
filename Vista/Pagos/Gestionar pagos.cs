@@ -44,7 +44,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public Gestionar_pagos()
+        private Gestionar_pagos()
         {
             InitializeComponent();
             pagos = cPago.ListarPagos();

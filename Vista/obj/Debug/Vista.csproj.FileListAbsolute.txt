@@ -324,3 +324,4 @@ C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\System.Runtime.CompilerSer
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.venta_cc.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Reportes.modalReportePagos.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Reportes.ReportePago.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\dotenv.net.dll

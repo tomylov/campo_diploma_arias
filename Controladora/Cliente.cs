@@ -18,6 +18,9 @@ namespace Controladora
             }
             return cliente;
         }
+
+        private Cliente() { }
+
         public List<Modelo.Clientes> GetCliente(int dni)
         {
             var clientesConDni = from cliente in Modelo.Contexto.Obtener_instancia().Clientes

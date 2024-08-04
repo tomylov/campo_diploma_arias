@@ -9,7 +9,6 @@ namespace Vista.Seguridad
     public partial class detalle_grupo : Form
     {
         private int idGrupo;
-        private static detalle_grupo instancia;
         private List<Modelo.Permisos> permisosGrupo = new List<Modelo.Permisos>();
         //Grupo
         private Controladora.Seguridad.Grupo cGrupo = Controladora.Seguridad.Grupo.Obtener_instancia();
@@ -21,6 +20,7 @@ namespace Vista.Seguridad
         private Controladora.Seguridad.Modulo cModulo = Controladora.Seguridad.Modulo.Obtener_instancia();
         //Formulario
         private Controladora.Seguridad.Formulario cFormulario = Controladora.Seguridad.Formulario.Obtener_instancia();
+        private static detalle_grupo instancia;
 
         public static detalle_grupo Obtener_instancia(int id)
         {
@@ -35,7 +35,7 @@ namespace Vista.Seguridad
         }
 
 
-        public detalle_grupo(int id)
+        private detalle_grupo(int id)
         {
             InitializeComponent();
             CargarPermisos();

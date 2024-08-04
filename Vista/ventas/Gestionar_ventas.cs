@@ -7,13 +7,11 @@ namespace Vista
 {
     public partial class Gestionar_ventas : Form
     {        
-        private static Gestionar_ventas instancia;
         Controladora.Seguridad_composite.PermisoGrupo cPermisoGrupo = Controladora.Seguridad_composite.PermisoGrupo.Obtener_instancia();
         Controladora.Venta cVenta = Controladora.Venta.Obtener_instancia();
         int index;
         int indexCombo;
-        int id_vta;
-        int dni;
+        private static Gestionar_ventas instancia;
 
         public static Gestionar_ventas Obtener_instancia()
         {
@@ -29,7 +27,7 @@ namespace Vista
             return instancia;
         }
 
-        public Gestionar_ventas()
+        private Gestionar_ventas()
         {
             InitializeComponent();
             ConfigurarPermisosBotones();

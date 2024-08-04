@@ -19,6 +19,8 @@ namespace Controladora.Auditoria
             return pagos;
         }
 
+        private Pagos() { }
+
         public List<Modelo.ReportePagoDTO> GetPagos(DateTime fechaDesde, DateTime fechaHasta)
         {
             var contexto = Modelo.Contexto.Obtener_instancia();

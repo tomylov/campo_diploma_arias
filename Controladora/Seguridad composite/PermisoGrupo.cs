@@ -19,6 +19,7 @@ namespace Controladora.Seguridad_composite
             }
             return instancia;
         }
+        private PermisoGrupo() { }
 
         private readonly List<PermisoComponent> _components = new List<PermisoComponent>();
         private List<Permisos> todosLosPermisos;

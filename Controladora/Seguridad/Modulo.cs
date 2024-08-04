@@ -18,6 +18,7 @@ namespace Controladora.Seguridad
             }
             return modulo;
         }
+        private Modulo() { }
 
         public List<Modelo.Modulos> getModulos()
         {

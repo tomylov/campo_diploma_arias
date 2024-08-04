@@ -29,7 +29,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public modal_clientes(int id)
+        private modal_clientes(int id)
         {
             InitializeComponent();
             this.id = id;

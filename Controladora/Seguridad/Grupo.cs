@@ -18,6 +18,7 @@ namespace Controladora.Seguridad
             }
             return grupo;
         }
+        private Grupo() { }
 
         public List<Modelo.Grupos> getGrupos()
         {

@@ -32,7 +32,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public Gestionar_grupos()
+        private Gestionar_grupos()
         {
             InitializeComponent();
             grupos = cGrupo.getGrupos();

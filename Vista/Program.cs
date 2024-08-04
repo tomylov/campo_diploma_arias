@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dotenv.net;
 
 namespace Vista
 {
@@ -16,6 +17,7 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            DotEnv.Load(options: new DotEnvOptions(ignoreExceptions: false));
             Application.Run(Form1.Obtener_instancia());
         }
     }

@@ -29,7 +29,7 @@ namespace Vista
             return instancia;
         }
 
-        public Consultar_productos()
+        private Consultar_productos()
         {
             InitializeComponent();
             comboBusqueda.Items.Add("id_producto");

@@ -903,6 +903,7 @@ namespace Vista
             this.BtnSendEmail.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.BtnSendEmail.DisabledFillColor = System.Drawing.Color.Empty;
             this.BtnSendEmail.DisabledForecolor = System.Drawing.Color.Empty;
+            this.BtnSendEmail.Enabled = false;
             this.BtnSendEmail.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.BtnSendEmail.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BtnSendEmail.ForeColor = System.Drawing.Color.White;
@@ -965,6 +966,7 @@ namespace Vista
             this.BtnSendEmail.TextMarginLeft = 0;
             this.BtnSendEmail.TextPadding = new System.Windows.Forms.Padding(0);
             this.BtnSendEmail.UseDefaultRadiusAndThickness = true;
+            this.BtnSendEmail.Click += new System.EventHandler(this.BtnSendEmail_Click);
             // 
             // BtnPrint
             // 

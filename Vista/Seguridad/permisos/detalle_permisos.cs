@@ -27,7 +27,7 @@ namespace Vista.Clientes
             return instancia;
         }
 
-        public detalle_permisos(int id_permiso)
+        private detalle_permisos(int id_permiso)
         {
             InitializeComponent();
             drpFormulario.DataSource = cFormulario.getFormularios();
