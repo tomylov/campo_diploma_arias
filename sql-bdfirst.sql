@@ -167,6 +167,19 @@ CREATE TABLE SesionesUsuario (
     Duracion VARCHAR(30) --Duración en formato "hh:mm:ss"
 ); 
 
+CREATE TABLE VentasAuditoria (
+    id_auditoria INT PRIMARY KEY IDENTITY,
+    id_venta int primary key identity, 
+	fecha datetime,
+	total decimal(15,2),
+	id_estado int,
+	id_cliente int,
+    operacion VARCHAR(10), -- 'INSERT', 'UPDATE', 'DELETE'
+    fecha_auditoria DATETIME,
+    Usuario VARCHAR(50)
+);
+
+
 --INSERT CLIENTES
 insert into Clientes values(1,'Tomas','tomas.arias2001@gmail.com','RA','3413598175')
 insert into Clientes values(2,'Juan','tomas.arias2001@gmail.com','RA','3413598175')	

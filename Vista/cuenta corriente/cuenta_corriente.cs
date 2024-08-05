@@ -181,6 +181,13 @@ namespace Vista
                     VentaCC.Enabled = false;
                     BtnSendEmail.Enabled = true;
                 }
+                if (cuentaCorriente.saldo != null && cuentaCorriente.saldo != 0.00m)
+                {
+                    btnPayCC.Enabled = true;
+                }else
+                {
+                    btnPayCC.Enabled = false;
+                }
             }
 
         }
@@ -215,6 +222,12 @@ namespace Vista
                 cVenta.EnviarEmailEstadoVenta(Convert.ToInt32(dataMove.Rows[index].Cells[0].Value));
                 MessageBox.Show("Usuario notificado con exito");
             }
+        }
+
+        private void btnPayCC_Click(object sender, EventArgs e)
+        {
+            pagar_cc form = pagar_cc.Obtener_instancia(cuentaCorriente);
+            form.Show();
         }
     }
 }
