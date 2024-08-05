@@ -52,6 +52,7 @@ namespace Vista
             moduloVentas.Visible = modulos.Any(m => m.nombre == "Ventas");
             moduloCC.Visible = modulos.Any(m => m.nombre == "Cuenta corriente");
             moduloReportes.Visible = modulos.Any(m => m.nombre == "Reportes");
+            moduloAuditorias.Visible = modulos.Any(m => m.nombre == "Auditorias");
         }
 
         private void ConfigurarFormularios()
@@ -70,7 +71,9 @@ namespace Vista
             //Reportes
             formularioSesiones.Visible = formularios.Any(f => f.nombre == "Reporte sesiones");
             formularioReportePagos.Visible = formularios.Any(f => f.nombre == "Reporte pagos");
-            //
+            //Auditorias
+            FormularioAuditoriaSesiones.Visible = formularios.Any(f => f.nombre == "Auditoria sesiones");
+
 
         }
 
@@ -149,6 +152,12 @@ namespace Vista
         {
             Form form = Vista.Reportes.ReportePago.Obtener_instancia();
             form.Show();
+        }
+
+        private void auditoriaSesiones_Click(object sender, EventArgs e)
+        {
+            Form auditoria = AuditoriaSesiones.Obtener_instancia();
+            auditoria.Show();
         }
     }
 }

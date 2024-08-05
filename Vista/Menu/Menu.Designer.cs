@@ -46,6 +46,8 @@ namespace Vista
             this.formularioReportePagos = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.moduloAuditorias = new System.Windows.Forms.ToolStripMenuItem();
+            this.FormularioAuditoriaSesiones = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,8 @@ namespace Vista
             this.moduloSeguridad,
             this.moduloVentas,
             this.moduloCC,
-            this.moduloReportes});
+            this.moduloReportes,
+            this.moduloAuditorias});
             this.menuStrip2.Location = new System.Drawing.Point(0, 45);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(1159, 24);
@@ -161,14 +164,14 @@ namespace Vista
             // formularioSesiones
             // 
             this.formularioSesiones.Name = "formularioSesiones";
-            this.formularioSesiones.Size = new System.Drawing.Size(119, 22);
+            this.formularioSesiones.Size = new System.Drawing.Size(180, 22);
             this.formularioSesiones.Text = "Sesiones";
             this.formularioSesiones.Click += new System.EventHandler(this.sesionesToolStripMenuItem_Click);
             // 
             // formularioReportePagos
             // 
             this.formularioReportePagos.Name = "formularioReportePagos";
-            this.formularioReportePagos.Size = new System.Drawing.Size(119, 22);
+            this.formularioReportePagos.Size = new System.Drawing.Size(180, 22);
             this.formularioReportePagos.Text = "Pagos";
             this.formularioReportePagos.Click += new System.EventHandler(this.formularioReportePagos_Click);
             // 
@@ -192,6 +195,21 @@ namespace Vista
             this.menuStrip1.Size = new System.Drawing.Size(1159, 45);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // moduloAuditorias
+            // 
+            this.moduloAuditorias.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FormularioAuditoriaSesiones});
+            this.moduloAuditorias.Name = "moduloAuditorias";
+            this.moduloAuditorias.Size = new System.Drawing.Size(85, 20);
+            this.moduloAuditorias.Text = "🔍Auditorias";
+            // 
+            // FormularioAuditoriaSesiones
+            // 
+            this.FormularioAuditoriaSesiones.Name = "FormularioAuditoriaSesiones";
+            this.FormularioAuditoriaSesiones.Size = new System.Drawing.Size(180, 22);
+            this.FormularioAuditoriaSesiones.Text = "Sesiones";
+            this.FormularioAuditoriaSesiones.Click += new System.EventHandler(this.auditoriaSesiones_Click);
             // 
             // Menu
             // 
@@ -233,5 +251,7 @@ namespace Vista
         private System.Windows.Forms.ToolStripMenuItem formularioReportePagos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem moduloAuditorias;
+        private System.Windows.Forms.ToolStripMenuItem FormularioAuditoriaSesiones;
     }
 }

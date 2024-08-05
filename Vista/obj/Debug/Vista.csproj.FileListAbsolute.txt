@@ -326,3 +326,4 @@ C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Reportes.modalReport
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Reportes.ReportePago.resources
 C:\facultad\CAMPO\campo_diploma_arias\Vista\bin\Debug\dotenv.net.dll
 C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.Pagos.pagar_cc.resources
+C:\facultad\CAMPO\campo_diploma_arias\Vista\obj\Debug\Vista.AuditoriaSesiones.resources

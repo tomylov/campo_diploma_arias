@@ -246,6 +246,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auditoria\AuditoriaSesiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auditoria\AuditoriaSesiones.Designer.cs">
+      <DependentUpon>AuditoriaSesiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Gestionar_clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     <Compile Include="ventas\Ventas.Designer.cs">
       <DependentUpon>Ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Auditoria\AuditoriaSesiones.resx">
+      <DependentUpon>AuditoriaSesiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clientes\Gestionar_clientes.resx">
       <DependentUpon>Gestionar_clientes.cs</DependentUpon>
     </EmbeddedResource>
