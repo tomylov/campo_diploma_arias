@@ -90,28 +90,6 @@ namespace Vista.Clientes
                 Modelo.Ventas venta = new Modelo.Ventas();
                 venta = cVenta.getVentaId(nroVenta);
                 Modelo.Cuentas_Corrientes mCuentaCorriente = cCuentaCorriente.Getcc((int)venta.id_cliente).FirstOrDefault();
-                if (venta.id_estado == 5)
-                {
-                    venta.id_estado = 3;
-                    cVenta.modificarVenta(venta);
-
-                    Modelo.Movimientos movimiento = new Modelo.Movimientos();
-                    movimiento.tipo = 1;
-                    movimiento.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
-                    movimiento.id_cc = mCuentaCorriente.id_cc;
-                    movimiento.monto = venta.total;
-                    Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
-
-
-                    mCuentaCorriente.saldo += venta.total;
-                    mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer((int)venta.id_cliente, 3);
-                    cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
-                }
-                if (venta.id_estado == 4)
-                {
-                     venta.id_estado = 2;
-                    cVenta.modificarVenta(venta);                    
-                }
                 if (venta.id_estado == 3)
                 {
                     Modelo.Movimientos movimiento = new Modelo.Movimientos();
@@ -122,9 +100,31 @@ namespace Vista.Clientes
                     Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
 
 
-                    mCuentaCorriente.saldo += totaPago;
+                    mCuentaCorriente.saldo = mCuentaCorriente.saldo + totaPago;
                     mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer((int)venta.id_cliente, 3);
                     cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
+                }
+
+                if (venta.id_estado == 5)
+                {
+                    venta.id_estado = 3;
+                    cVenta.modificarVenta(venta);
+
+                    Modelo.Movimientos movimiento = new Modelo.Movimientos();
+                    movimiento.tipo = 1;
+                    movimiento.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                    movimiento.id_cc = mCuentaCorriente.id_cc;
+                    movimiento.monto = totaPago;
+                    Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
+
+                    mCuentaCorriente.saldo = mCuentaCorriente.saldo + totaPago;
+                    mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer((int)venta.id_cliente, 3);
+                    cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
+                }
+                if (venta.id_estado == 4)
+                {
+                     venta.id_estado = 2;
+                    cVenta.modificarVenta(venta);                    
                 }
 
             }

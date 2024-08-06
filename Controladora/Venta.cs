@@ -145,6 +145,7 @@ namespace Controladora
                        select new
                        {
                            numero_venta = v.id_venta,
+                           p.numero,
                            p.fecha,
                            esv.descripcion,
                            monto = p.monto

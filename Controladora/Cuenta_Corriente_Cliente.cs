@@ -62,7 +62,7 @@ namespace Controladora
                                 tipo=tm.descripcion
                             };
 
-            return query.OrderByDescending(m => m.fecha).ToList();            
+            return query.OrderByDescending(m => m.id_mov).ToList();            
         }
 
         public void agregarCC(Modelo.Cuentas_Corrientes cc)

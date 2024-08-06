@@ -183,7 +183,7 @@ namespace Vista
                     btnPay.Enabled = false;
                     VentaCC.Enabled = false;
                     BtnSendEmail.Enabled = true;
-                    dataMove.Columns[0].Visible = false;
+                    dataMove.Columns[1].Visible = false;
                 }
                 if (cuentaCorriente.saldo != null && cuentaCorriente.saldo != 0.00m)
                 {
@@ -247,6 +247,12 @@ namespace Vista
                 int idVta = Convert.ToInt32(numberVta.Text);
                 int dni = Convert.ToInt32(inputDNI.Text);
                 Form vt = Consultar_venta.Obtener_instancia(idVta, dni);
+                vt.Show();
+            }
+            if (comboSelect.SelectedIndex == 3)
+            {
+                int idPago = Convert.ToInt32(dataMove.Rows[index].Cells[1].Value);
+                Form vt = consultar_pagos.Obtener_instancia(idPago);
                 vt.Show();
             }
         }

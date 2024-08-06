@@ -288,6 +288,12 @@
     <Compile Include="cuenta corriente\venta_cc.Designer.cs">
       <DependentUpon>venta_cc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pagos\consultar_pagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pagos\consultar_pagos.Designer.cs">
+      <DependentUpon>consultar_pagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="primer_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     <EmbeddedResource Include="cuenta corriente\venta_cc.resx">
       <DependentUpon>venta_cc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\consultar_pagos.resx">
+      <DependentUpon>consultar_pagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="primer_login.resx">
       <DependentUpon>primer_login.cs</DependentUpon>
     </EmbeddedResource>
@@ -544,6 +553,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hard-soft.jpeg" />
+    <None Include="Resources\PlantillaRecibo.html" />
     <Content Include="Resources\PlantillaVenta.html" />
   </ItemGroup>
   <ItemGroup />

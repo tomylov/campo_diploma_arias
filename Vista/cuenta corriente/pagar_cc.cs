@@ -67,11 +67,12 @@ namespace Vista.Pagos
 
             if (pago >= saldo)
             {
-                pagar(saldo);
                 Modelo.Ventas venta= new Modelo.Ventas();
+                cVenta.CambiarEstado(id_vta);
                 venta = cVenta.getVentaId(id_vta);
                 venta.id_estado = 5;
                 cVenta.modificarVenta(venta);
+                pagar(saldo);
             }
             else
             {
@@ -100,6 +101,7 @@ namespace Vista.Pagos
             Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
 
             mCuentaCorriente.saldo -= total;
+            mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer(id_cliente, 3);
             cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
             MessageBox.Show("Pago efectuado con exito");
         }
