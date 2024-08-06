@@ -74,10 +74,12 @@ namespace Vista.Clientes
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que desea eliminar el pago?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {            
+            {
+                decimal totaPago = 0;
                 pagosFiltrados = pagos;
                 pago = new Modelo.Pagos();
                 pago = cPago.getPagoId(nroPago);
+                totaPago = (decimal)pago.monto;
                 int id_comprobante = pago.id_comp.Value;
                 cPago.eliminarPago(pago);
 
@@ -87,10 +89,9 @@ namespace Vista.Clientes
 
                 Modelo.Ventas venta = new Modelo.Ventas();
                 venta = cVenta.getVentaId(nroVenta);
+                Modelo.Cuentas_Corrientes mCuentaCorriente = cCuentaCorriente.Getcc((int)venta.id_cliente).FirstOrDefault();
                 if (venta.id_estado == 5)
                 {
-                    Modelo.Cuentas_Corrientes mCuentaCorriente = cCuentaCorriente.Getcc((int)venta.id_cliente).FirstOrDefault();
-
                     venta.id_estado = 3;
                     cVenta.modificarVenta(venta);
 
@@ -106,12 +107,26 @@ namespace Vista.Clientes
                     mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer((int)venta.id_cliente, 3);
                     cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
                 }
-                else
+                if (venta.id_estado == 4)
                 {
-
-                    venta.id_estado = 2;
-                    cVenta.modificarVenta(venta);
+                     venta.id_estado = 2;
+                    cVenta.modificarVenta(venta);                    
                 }
+                if (venta.id_estado == 3)
+                {
+                    Modelo.Movimientos movimiento = new Modelo.Movimientos();
+                    movimiento.tipo = 1;
+                    movimiento.fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"));
+                    movimiento.id_cc = mCuentaCorriente.id_cc;
+                    movimiento.monto = totaPago;
+                    Controladora.Movimiento.Obtener_instancia().agregarMovimiento(movimiento);
+
+
+                    mCuentaCorriente.saldo += totaPago;
+                    mCuentaCorriente.plazo = cVenta.ProximaVentaAVencer((int)venta.id_cliente, 3);
+                    cCuentaCorriente.modificarCuentaCorriente(mCuentaCorriente);
+                }
+
             }
             filtrar();
             buttonEliminar.Enabled = false;

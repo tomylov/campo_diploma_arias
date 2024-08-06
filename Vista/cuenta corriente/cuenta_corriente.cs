@@ -57,8 +57,9 @@ namespace Vista
         {
             VentaCC.Visible = cPermisoGrupo.valiPermiso("Agregar cc");
             btnPay.Visible = cPermisoGrupo.valiPermiso("Pagar");
+            btnPayCC.Visible = cPermisoGrupo.valiPermiso("Pagar cc");
             BtnPrint.Visible = cPermisoGrupo.valiPermiso("Imprimir venta");
-            BtnSendEmail.Visible = true;//cPermisoGrupo.valiPermiso("Notificar venta");
+            BtnSendEmail.Visible = cPermisoGrupo.valiPermiso("Notificar venta");
         }
 
         private void bunifuGroupBox2_Enter(object sender, EventArgs e)
@@ -154,6 +155,7 @@ namespace Vista
                     dataMove.Columns[8].Visible = false;
                     dataMove.Columns[9].Visible = false;
                     dataMove.Columns[10].Visible = false;
+                    dataMove.Columns[11].Visible = false;
                     btnPay.Enabled = true;
                     VentaCC.Enabled = true;
                     BtnSendEmail.Enabled = true;
@@ -172,6 +174,7 @@ namespace Vista
                     dataMove.Columns[8].Visible = false;
                     dataMove.Columns[9].Visible = false;
                     dataMove.Columns[10].Visible = false;
+                    dataMove.Columns[11].Visible = false;
                     BtnSendEmail.Enabled = true;
                 }
                 if (comboSelect.SelectedIndex == 3)
@@ -180,11 +183,13 @@ namespace Vista
                     btnPay.Enabled = false;
                     VentaCC.Enabled = false;
                     BtnSendEmail.Enabled = true;
+                    dataMove.Columns[0].Visible = false;
                 }
                 if (cuentaCorriente.saldo != null && cuentaCorriente.saldo != 0.00m)
                 {
                     btnPayCC.Enabled = true;
-                }else
+                }
+                else
                 {
                     btnPayCC.Enabled = false;
                 }
