@@ -234,5 +234,21 @@ namespace Vista
             pagar_cc form = pagar_cc.Obtener_instancia(cuentaCorriente);
             form.Show();
         }
+
+        private void dataMove_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (numberVta.Text == "" || inputDNI.Text == "")
+            {
+                return;                
+            }
+
+            if (comboSelect.SelectedIndex == 0 || comboSelect.SelectedIndex == 1)
+            {
+                int idVta = Convert.ToInt32(numberVta.Text);
+                int dni = Convert.ToInt32(inputDNI.Text);
+                Form vt = Consultar_venta.Obtener_instancia(idVta, dni);
+                vt.Show();
+            }
+        }
     }
 }
